@@ -18,8 +18,8 @@ def calculate_case1_standalone(
     - Eq 5-6: Total Delay.
     - Eq 11-12: Total Energy.
     """
-    # Eq 3: Transmission delay
-    t_trans = task_size_rho / w_v2r if w_v2r > 0 else float('inf')
+    # Eq 3: Transmission delay (Convert Bytes to bits)
+    t_trans = (task_size_rho * 8) / w_v2r if w_v2r > 0 else float('inf')
     
     # Eq 4: Computation delay
     t_comp = task_cpu_phi / rsu_cpu_f if rsu_cpu_f > 0 else float('inf')
@@ -54,8 +54,8 @@ def calculate_case2_collaboration(
     References:
     - Eq 7-10: Total Delay and components for collaboration.
     """
-    # V2R Transmission Delay
-    t_v2r = task_size_rho / w_v2r if w_v2r > 0 else float('inf')
+    # V2R Transmission Delay (Convert Bytes to bits)
+    t_v2r = (task_size_rho * 8) / w_v2r if w_v2r > 0 else float('inf')
     
     # RSU 1 computes part of the task during dwell time (t1)
     # The amount of CPU cycles RSU 1 can process during t1:
@@ -72,8 +72,8 @@ def calculate_case2_collaboration(
     proportion_remaining = remaining_cpu_phi / task_cpu_phi
     remaining_size_rho = task_size_rho * proportion_remaining
     
-    # t2: inter-RSU transfer delay
-    t2_inter_rsu = remaining_size_rho / w_r2r if w_r2r > 0 else float('inf')
+    # t2: inter-RSU transfer delay (Convert Bytes to bits)
+    t2_inter_rsu = (remaining_size_rho * 8) / w_r2r if w_r2r > 0 else float('inf')
     
     # t3: remaining computation delay at RSU 2
     t3_comp2 = remaining_cpu_phi / rsu2_cpu_f if rsu2_cpu_f > 0 else float('inf')
