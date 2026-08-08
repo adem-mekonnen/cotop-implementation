@@ -1,0 +1,9 @@
+torch
+torch-geometric
+gymnasium
+numpy
+pandas
+pyyaml
+matplotlib
+traci
+sumolib

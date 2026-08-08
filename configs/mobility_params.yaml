@@ -1,0 +1,7 @@
+# Mobility GAT-GRU Model Hyperparameters
+input_dim: 2             # Dimension of input features (x, y coordinates)
+hidden_dim: 32           # Dimension of hidden layers
+gat_heads: 4             # Number of attention heads in the GAT layer
+learning_rate: 0.0002    # Learning rate (set for stability per Fig. 4)
+epochs: 500              # Total number of training epochs (Table II)
+batch_size: 64           # Batch size for training

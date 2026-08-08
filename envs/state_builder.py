@@ -6,11 +6,6 @@ def build_state(vehicle: Vehicle, tasks: List[Task], rsus: List[RSU]) -> np.ndar
     """
     Implements Eq 24: Constructs the state vector s(t).
     
-    The state contains:
-    - Vehicle positions and mobility features
-    - Task details (size, CPU requirement, max delay, priority)
-    - RSU queue status and capacities
-    
     Args:
         vehicle: The vehicle requesting offloading.
         tasks: The parallel tasks generated for the vehicle.
@@ -19,14 +14,14 @@ def build_state(vehicle: Vehicle, tasks: List[Task], rsus: List[RSU]) -> np.ndar
     Returns:
         A flattened numpy array representing the state s(t).
     """
+    # Safety Check: Return zero-vector if no vehicle exists (prevents NoneType crash)
     if vehicle is None:
-        # Return a zero-vector if no vehicle exists
         obs_dim = 4 + (len(tasks) * 4) + (len(rsus) * 5)
         return np.zeros(obs_dim, dtype=np.float32)
 
     state_elements = []
     
-    # 1. Vehicle State (Eq 24 parts)
+    # 1. Vehicle State
     state_elements.extend([vehicle.pos[0], vehicle.pos[1], vehicle.speed, vehicle.dwell_time_T_stay])
     
     # 2. Task Details
