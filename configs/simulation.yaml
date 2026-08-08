@@ -1,11 +1,13 @@
-# Simulation Constants (Table III, Page 11)
+# Simulation Constants (Verified from Table III, Journal Page 5550)
 num_rsus: 6
 rsu_comm_range: 400.0          # RSU coverage range
 rsu_cpu_capacity: 1.0e9        # 1 GHz RSU CPU capacity
 tx_power_vehicle: 0.01         # Converted from 10 dBm (P_V)
 tx_power_rsu: 100.0            # Converted from 50 dBm (P_R)
-noise_power: 1.0e-6            # Converted from 0.001 dBm (sigma^2)
-fixed_loss_k: 1000.0           # Converted from 30 dB (channel loss)
+noise_power: 0.001             # Converted from 0.001 dBm (omega)
+fixed_loss_k: 1000.0           # Converted from 30 dB (K)
+bandwidth_v2r: 60.0e6          # Average of 20-100 Mbps range
+bandwidth_r2r: 50.0e6          # From 50 MHz in Table III
 path_loss_factor: 2.0          # Path loss exponent (sigma)
 
 # Task Prioritization Weights (Eq. 23)

@@ -47,9 +47,11 @@ class VECEnv(gym.Env):
         w_v2r = compute_v2r_rate(
             pos_v=self.current_vehicle.pos,
             pos_r=chosen_rsu.location,
-            bandwidth_B=10e6,
-            power_P_V=0.01, # From Table III config
-            noise_power_sigma2=1.0e-6
+            bandwidth_B=60.0e6,
+            power_P_V=0.01, 
+            noise_power=0.001,
+            fixed_loss_k=1000.0,
+            path_loss_factor=2.0
         )
         
         delay, energy = calculate_case1_standalone(
