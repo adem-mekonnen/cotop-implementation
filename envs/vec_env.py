@@ -93,15 +93,46 @@ class VECEnv(gym.Env):
         
         return next_state, float(reward), done, info
 
-    def reset(self) -> np.ndarray:
+    def reset(self, seed=None, options=None) -> np.ndarray:
         """
         Resets the environment.
         In a full implementation, this triggers a step in SUMO and generates new tasks.
         """
-        self.current_task_idx = 0
+        # Compatibility with new gym APIs (like gymnasium) if super().reset is needed
+        try:
+            super().reset(seed=seed)
+        except TypeError:
+            pass # fallback for older gym versions
+            
+        if self.sumo_manager is None:
+            from envs.sumo_manager import SumoManager
+            self.sumo_manager = SumoManager("placeholder.sumocfg", use_gui=False)
+            self.sumo_manager.start_simulation()
+            
+        # NEW: Advance simulation until at least one vehicle spawns
+        vehicles = []
+        while not vehicles:
+            self.sumo_manager.step()
+            vehicles = self.sumo_manager.get_vehicle_data()
+            
+        # Pick the first available vehicle
+        self.current_vehicle = vehicles[0]
         
-        # Return a zeroed state for now to satisfy the gym interface
-        return np.zeros(self.observation_space.shape, dtype=np.float32)
+        # Generate tasks for this vehicle
+        from envs.task_generator import TaskGenerator
+        if not hasattr(self, 'task_generator'):
+            self.task_generator = TaskGenerator(self.max_tasks)
+        self.current_tasks = self.task_generator.generate_tasks_for_vehicle(self.current_vehicle.v_id)
+        
+        # Generate dummy RSUs if they don't exist yet
+        if not self.rsus:
+            self.rsus = [RSU(i, (0, 0), 10.0, 0, 1.0) for i in range(self.num_rsus)]
+            
+        self.current_task_idx = 0
+        state = build_state(self.current_vehicle, self.current_tasks, self.rsus)
+        
+        # We return just the state here to maintain compatibility with our existing train/evaluate scripts
+        return state
 
     def render(self, mode='human'):
         pass
