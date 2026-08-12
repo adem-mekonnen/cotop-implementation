@@ -1,74 +1,89 @@
 import pandas as pd
 import numpy as np
 import torch
+import os
 from torch.utils.data import Dataset
 
 class ApolloScapeTrajectoryDataset(Dataset):
     """
-    Parser for the ApolloScape trajectory dataset.
-    Extracts (x, y) coordinate sequences for vehicles.
+    Parser for the ApolloScape trajectory dataset (or SUMO-generated trajectories).
+    Reads all .txt files in a directory and extracts (x, y) rolling windows.
     """
-    def __init__(self, csv_file: str, seq_len: int = 5, pred_len: int = 5):
+    def __init__(self, data_dir: str, seq_len: int = 5, pred_len: int = 5):
         """
         Args:
-            csv_file (str): Path to the ApolloScape trajectory data file.
-            seq_len (int): Number of historical time steps.
-            pred_len (int): Number of future time steps to predict.
+            data_dir (str): Directory containing the trajectory .txt files.
+            seq_len (int): History window (input).
+            pred_len (int): Prediction window (ground truth).
         """
         self.seq_len = seq_len
         self.pred_len = pred_len
         self.total_len = seq_len + pred_len
+        self.trajectories = []
+
+        if not os.path.exists(data_dir):
+            raise FileNotFoundError(f"Directory not found: {data_dir}")
+
+        # 1. Iterate through all .txt files in the folder
+        files = [os.path.join(data_dir, f) for f in os.listdir(data_dir) if f.endswith('.txt')]
         
-        # Load and parse the dataset upon initialization
-        self.trajectories = self._parse_dataset(csv_file)
-        
-    def _parse_dataset(self, csv_file: str):
-        """
-        Reads ApolloScape data and groups (x, y) coordinates by vehicle/object ID.
-        Assumes standard format roughly matching:
-        [frame_id, object_id, object_type, position_x, position_y, ...]
-        """
-        try:
-            # Read CSV assuming space or comma separated; using simple read_csv here
-            df = pd.read_csv(csv_file, header=None)
+        if len(files) == 0:
+            print(f"Warning: No .txt files found in {data_dir}")
+
+        for file_path in files:
+            self._parse_file(file_path)
             
-            # Assigning typical column names for ApolloScape
+        # Convert list of windows to a single numpy array
+        self.trajectories = np.array(self.trajectories)
+        print(f"Loaded {len(self.trajectories)} sequences from {len(files)} files.")
+
+    def _parse_file(self, file_path: str):
+        try:
+            # 2. Use sep='\s+' because ApolloScape is space-separated
+            df = pd.read_csv(file_path, sep='\s+', header=None)
+            
+            # Map columns per ApolloScape format
             cols = ['frame_id', 'object_id', 'object_type', 'pos_x', 'pos_y', 'pos_z', 
                     'length', 'width', 'height', 'heading']
             df.columns = cols[:len(df.columns)]
             
-            # Sort by object_id and frame_id to ensure sequential chronological order
+            # 3. Filter for vehicles only (Type 1: small vehicles, Type 2: large vehicles)
+            # This ensures we don't train on pedestrians or cyclists
+            df = df[df['object_type'].isin([1, 2])]
+            
+            # Sort to ensure chronological order for rolling windows
             df = df.sort_values(by=['object_id', 'frame_id'])
             
-            trajectories = []
             grouped = df.groupby('object_id')
-            
-            for object_id, group in grouped:
-                # Extract just the (x, y) coordinates sequence for this object
+            for _, group in grouped:
                 coords = group[['pos_x', 'pos_y']].values
                 
-                # Split into fixed-length rolling windows (historical + future)
+                # 4. Check if sequence is long enough
+                if len(coords) < self.total_len:
+                    continue
+                
+                # Rolling window windowing
                 for i in range(len(coords) - self.total_len + 1):
-                    sequence = coords[i:i+self.total_len]
-                    trajectories.append(sequence)
+                    window = coords[i : i + self.total_len]
+                    self.trajectories.append(window)
                     
-            return np.array(trajectories)
-            
         except Exception as e:
-            print(f"Error parsing ApolloScape dataset from {csv_file}: {e}")
-            return np.array([])
+            print(f"Error parsing file {file_path}: {e}")
 
     def __len__(self):
         return len(self.trajectories)
 
     def __getitem__(self, idx):
         """
-        Returns a tuple of (historical_sequence, future_sequence)
-        Shape: (seq_len, 2), (pred_len, 2)
+        Returns: (history_tensor, future_tensor)
+        Shapes: (seq_len, 2), (pred_len, 2)
         """
+        # (total_len, 2)
         seq = self.trajectories[idx]
         
+        # Split into input and target
         hist_seq = seq[:self.seq_len]
         future_seq = seq[self.seq_len:]
         
-        return torch.tensor(hist_seq, dtype=torch.float32), torch.tensor(future_seq, dtype=torch.float32)
+        return (torch.tensor(hist_seq, dtype=torch.float32), 
+                torch.tensor(future_seq, dtype=torch.float32))
