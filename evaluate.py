@@ -1,4 +1,5 @@
 import argparse
+import yaml
 import torch
 import numpy as np
 import torch.nn.functional as F
@@ -6,113 +7,105 @@ import torch.nn.functional as F
 from envs.vec_env import VECEnv
 from envs.entities import SimulationConfig
 from models.a3c_agent import ActorCritic
-from models.mobility_gat import MobilityGAT_GRU
+from models.baselines.heuristic import local_only_policy, greedy_queue_policy
+
+
+def load_config(path="configs/simulation.yaml") -> SimulationConfig:
+    with open(path, "r") as f:
+        config_data = yaml.safe_load(f)
+    return SimulationConfig(**config_data)
+
+
+def run_episodes(env, policy_fn, episodes: int):
+    total_delay, total_energy = 0.0, 0.0
+    completed_tasks, total_tasks = 0, 0
+
+    for _ in range(episodes):
+        state, _ = env.reset()
+        done = False
+        while not done:
+            action = policy_fn(state, env)
+            next_state, reward, terminated, truncated, info = env.step(action)
+            done = terminated or truncated
+
+            if info:
+                total_delay += info.get("delay", 0.0)
+                total_energy += info.get("energy", 0.0)
+                if not info.get("missed_deadline", True):
+                    completed_tasks += 1
+                total_tasks += 1
+
+            state = next_state
+
+    if total_tasks == 0:
+        return 0.0, 0.0, 0.0
+    return (total_delay / total_tasks, total_energy / total_tasks, completed_tasks / total_tasks)
+
+
+def make_agent_policy(agent_model):
+    def policy(state, env):
+        with torch.no_grad():
+            state_tensor = torch.FloatTensor(state).unsqueeze(0)
+            policy_logits, _ = agent_model(state_tensor)
+            probs = F.softmax(policy_logits, dim=-1)
+            return torch.argmax(probs, dim=-1).item()
+    return policy
+
+
+def greedy_policy(state, env):
+    return greedy_queue_policy(state, env.rsus)
+
+
+def local_policy(state, env):
+    return local_only_policy(state)
+
 
 def evaluate(args):
-    print(f"Starting Evaluation for {args.episodes} episodes...")
-    
-    # 1. Initialize Environment
-    config = SimulationConfig(bandwidth_B=10e6, noise_power_sigma2=1e-9)
-    env = VECEnv(config=config, num_rsus=5, max_tasks=3)
-    
-    input_dim = env.observation_space.shape[0]
-    num_actions = env.action_space.n
-    
-    # 2. Load Models
+    config = load_config()
+    print(f"Starting Evaluation for {args.episodes} episodes per method...")
+    print(f"Ablations -> no_mobility={args.no_mobility}, no_priority={args.no_priority}\n")
+
+    cotop_env = VECEnv(config=config, port=1,
+                        use_mobility_model=not args.no_mobility,
+                        use_priority=not args.no_priority)
+    input_dim = cotop_env.observation_space.shape[0]
+    num_actions = cotop_env.action_space.n
+
     agent_model = ActorCritic(input_dim, num_actions)
     if args.a3c_model:
         try:
-            agent_model.load_state_dict(torch.load(args.a3c_model))
+            agent_model.load_state_dict(torch.load(args.a3c_model, map_location="cpu"))
             print(f"Loaded A3C model from {args.a3c_model}")
         except FileNotFoundError:
-            print("A3C model not found. Using untrained weights.")
+            print(f"A3C model not found at {args.a3c_model}. Using untrained weights.")
     agent_model.eval()
-            
-    # Load Mobility Model if not disabled via ablation flag
-    if not args.no_mobility:
-        gat_model = MobilityGAT_GRU(input_dim=2, embed_dim=64, num_heads=4, gru_hidden=64, output_dim=2)
-        if args.gat_model:
-            try:
-                gat_model.load_state_dict(torch.load(args.gat_model))
-                print(f"Loaded Mobility GAT model from {args.gat_model}")
-            except FileNotFoundError:
-                print("Mobility GAT model not found. Using untrained weights.")
-        gat_model.eval()
-    else:
-        print("Ablation Enabled: Mobility Prediction Disabled (--no_mobility)")
-        
-    if args.no_priority:
-        print("Ablation Enabled: Task Priority Sorting Disabled (--no_priority)")
-        
-    # 3. Metrics Tracking
-    total_delay = 0.0
-    total_energy = 0.0
-    completed_tasks = 0
-    total_tasks = 0
-    
-    # 4. Evaluation Loop
-    with torch.no_grad():
-        for ep in range(args.episodes):
-            state = env.reset()
-            done = False
-            
-            ep_delay = 0.0
-            ep_energy = 0.0
-            ep_completed = 0
-            ep_tasks = 0
-            
-            while not done:
-                state_tensor = torch.FloatTensor(state).unsqueeze(0)
-                
-                # In evaluation, we take the greedy action (highest probability)
-                policy_logits, _ = agent_model(state_tensor)
-                probs = F.softmax(policy_logits, dim=-1)
-                action = torch.argmax(probs, dim=-1).item()
-                
-                next_state, reward, done, info = env.step(action)
-                
-                if info:
-                    ep_delay += info.get("delay", 0)
-                    ep_energy += info.get("energy", 0)
-                    # Task is completed if it didn't miss the deadline
-                    if not info.get("missed_deadline", True):
-                        ep_completed += 1
-                    ep_tasks += 1
-                    
-                state = next_state
-                
-            total_delay += ep_delay
-            total_energy += ep_energy
-            completed_tasks += ep_completed
-            total_tasks += ep_tasks
-            
-    # 5. Calculate Final Metrics
-    if total_tasks > 0:
-        avg_delay = total_delay / total_tasks
-        avg_energy = total_energy / total_tasks
-        completion_ratio = completed_tasks / total_tasks
-    else:
-        avg_delay, avg_energy, completion_ratio = 0, 0, 0
-        
-    # Print formatted tables matching the paper's representation
-    print("\n" + "="*45)
-    print(" EVALUATION RESULTS ")
-    print("="*45)
-    print(f"Total Test Episodes : {args.episodes}")
-    print(f"Average Task Delay  : {avg_delay:.4f} s (Table IV)")
-    print(f"Completion Ratio    : {completion_ratio*100:.2f}% (Table V)")
-    print(f"Average Energy      : {avg_energy:.4f} J")
-    print("="*45)
+
+    results = {}
+    results["CoTOP"] = run_episodes(cotop_env, make_agent_policy(agent_model), args.episodes)
+    cotop_env.close()
+
+    greedy_env = VECEnv(config=config, port=2, use_mobility_model=False, use_priority=False)
+    results["Greedy"] = run_episodes(greedy_env, greedy_policy, args.episodes)
+    greedy_env.close()
+
+    local_env = VECEnv(config=config, port=3, use_mobility_model=False, use_priority=False)
+    results["Local"] = run_episodes(local_env, local_policy, args.episodes)
+    local_env.close()
+
+    print("\n" + "=" * 65)
+    print(f"{'Method':<10}{'Avg Delay (s)':>18}{'Completion Ratio':>20}{'Avg Energy (J)':>17}")
+    print("=" * 65)
+    for name, (delay, energy, ratio) in results.items():
+        print(f"{name:<10}{delay:>18.4f}{ratio * 100:>19.2f}%{energy:>17.4f}")
+    print("=" * 65)
+    print("Note: DDQN / QRMP-DQN baselines are empty stubs in models/baselines/ and are not included above.")
+
 
 if __name__ == "__main__":
     parser = argparse.ArgumentParser(description="Evaluate CoTOP DRL Agent")
-    parser.add_argument("--a3c_model", type=str, default="", help="Path to trained A3C model (e.g., checkpoints/cotop_model_ep_500.pth)")
-    parser.add_argument("--gat_model", type=str, default="", help="Path to trained Mobility GAT model")
-    parser.add_argument("--episodes", type=int, default=50, help="Number of test episodes")
-    
-    # Ablation Study Flags (Table VI)
-    parser.add_argument("--no_mobility", action="store_true", help="Disable the Mobility Prediction GAT-GRU model")
-    parser.add_argument("--no_priority", action="store_true", help="Disable Equation 23 Task Priority queue")
-    
+    parser.add_argument("--a3c_model", type=str, default="results/checkpoints/a3c_agent.pth")
+    parser.add_argument("--episodes", type=int, default=50)
+    parser.add_argument("--no_mobility", action="store_true")
+    parser.add_argument("--no_priority", action="store_true")
     args = parser.parse_args()
     evaluate(args)
