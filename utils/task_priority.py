@@ -1,44 +1,40 @@
+task_priority_code = '''
+import math
 from typing import List
 from envs.entities import Task
 
-def calculate_priority_and_sort(
-    tasks: List[Task], 
-    vehicle_dwell_time: float, 
-    alpha: float = 0.3, 
-    beta: float = 0.7
-) -> List[Task]:
+
+def compute_task_priority(task: Task, dwell_time: float, alpha: float = 0.3, beta: float = 0.7) -> float:
     """
-    Implements Equation 23 to calculate task priority P_i and sort the tasks.
-    
-    Args:
-        tasks: List of parallel tasks to sort.
-        vehicle_dwell_time: The dwell time T_stay of the vehicle at the current RSU.
-        alpha: Weight parameter, default 0.3.
-        beta: Weight parameter, default 0.7.
-        
-    Returns:
-        List of tasks sorted by priority (highest priority first).
+    Eq. 23: P_i = alpha * e^(-1/T_stay) + beta * (rho_n,i / d_n,i)
     """
-    
+    if dwell_time <= 0:
+        dwell_term = 0.0
+    else:
+        dwell_term = math.exp(-1.0 / dwell_time)
+
+    if task.max_delay_d <= 0:
+        size_delay_term = 0.0
+    else:
+        size_delay_term = task.size_rho / task.max_delay_d
+
+    return alpha * dwell_term + beta * size_delay_term
+
+
+def prioritize_tasks(tasks: List[Task], dwell_time: float, alpha: float = 0.3, beta: float = 0.7) -> List[Task]:
+    """
+    Sorts tasks by priority (Eq. 23), highest priority first.
+    Function name matches what vec_env.py imports.
+    """
     for task in tasks:
-        # ---------------------------------------------------------------------
-        # Eq 23 Formulation
-        # Note: This is a generalized approximation of Eq 23 using alpha and beta.
-        # P_i = alpha * (Delay Factor) + beta * (Size/Computation Factor)
-        # Adjust the exact variables here based on the precise text of Equation 23.
-        # ---------------------------------------------------------------------
-        
-        # Example component 1: How tight is the deadline relative to dwell time?
-        delay_factor = vehicle_dwell_time / task.max_delay_d if task.max_delay_d > 0 else 0
-        
-        # Example component 2: The size of the task
-        size_factor = task.size_rho 
-        
-        # Calculate P_i
-        task.priority = (alpha * delay_factor) + (beta * size_factor)
-        
-    # Sort the tasks based on the calculated priority P_i in descending order
-    # (Assuming higher P_i means higher priority for scheduling/offloading)
-    sorted_tasks = sorted(tasks, key=lambda t: t.priority, reverse=True)
-    
-    return sorted_tasks
+        task.priority = compute_task_priority(task, dwell_time, alpha, beta)
+
+    return sorted(tasks, key=lambda t: t.priority, reverse=True)
+
+
+# Backward-compatible alias, in case any other file still calls the old name
+calculate_priority_and_sort = prioritize_tasks
+'''
+with open('utils/task_priority.py', 'w') as f:
+    f.write(task_priority_code.strip())
+print("task_priority.py corrected: function renamed to prioritize_tasks, formula now matches Eq. 23 exactly, backward-compat alias kept.")

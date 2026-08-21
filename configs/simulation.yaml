@@ -18,7 +18,12 @@ tx_power_rsu: 100.0                            # Watts (From 50 dBm)
 noise_power: 0.001                             # Watts (From 0.001 dBm)
 fixed_loss_k: 1000.0                           # Ratio (From 30 dB)
 path_loss_factor: 2.0                          # sigma
+max_task_cpu: 10.0                             # Mcycles, Section III-F cap
 
 # Optimization Weights
-alpha: 0.3
-beta: 0.7
+alpha: 0.3                                     # Eq. 23 priority weight
+beta: 0.7                                      # Eq. 23 priority weight
+epsilon: 0.5                                   # Eq. 25 reward trade-off (separate from alpha/beta)
+
+# Penalty
+penalty_z: 100.0                               # Eq. 25 failure penalty
