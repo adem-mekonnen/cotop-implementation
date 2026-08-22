@@ -1,4 +1,3 @@
-task_gen_code = '''
 import random
 from typing import List
 from envs.entities import Task, SimulationConfig
@@ -41,7 +40,3 @@ class TaskGenerator:
             tasks.append(task)
 
         return tasks
-'''
-with open('envs/task_generator.py', 'w') as f:
-    f.write(task_gen_code.strip())
-print("task_generator.py corrected: reads Table III ranges from config, fixed units (bytes not MB), safe task_id generation.")

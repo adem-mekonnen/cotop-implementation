@@ -1,4 +1,3 @@
-task_priority_code = '''
 import math
 from typing import List
 from envs.entities import Task
@@ -34,7 +33,3 @@ def prioritize_tasks(tasks: List[Task], dwell_time: float, alpha: float = 0.3, b
 
 # Backward-compatible alias, in case any other file still calls the old name
 calculate_priority_and_sort = prioritize_tasks
-'''
-with open('utils/task_priority.py', 'w') as f:
-    f.write(task_priority_code.strip())
-print("task_priority.py corrected: function renamed to prioritize_tasks, formula now matches Eq. 23 exactly, backward-compat alias kept.")

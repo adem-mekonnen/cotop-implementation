@@ -6,7 +6,8 @@ def calculate_case1_standalone(
     w_v2r: float, 
     rsu_cpu_f: float, 
     power_v: float, 
-    power_rsu: float
+    power_rsu: float,
+    t_wait: float = 0.0
 ) -> tuple[float, float]:
     """
     Case 1: Standalone RSU execution.
@@ -24,8 +25,8 @@ def calculate_case1_standalone(
     # Eq 4: Computation delay
     t_comp = task_cpu_phi / rsu_cpu_f if rsu_cpu_f > 0 else float('inf')
     
-    # Eq 5-6: Total Delay (simplified queueing for now)
-    total_delay = t_trans + t_comp
+    # Eq 5-6: Total Delay with sequential delay logic
+    total_delay = t_trans + t_comp + t_wait
     
     # Eq 11-12: Total Energy (Transmission Energy + Computation Energy)
     energy_trans = power_v * t_trans
@@ -45,7 +46,8 @@ def calculate_case2_collaboration(
     t1_dwell_time: float,
     power_v: float, 
     power_rsu1: float,
-    power_rsu2: float
+    power_rsu2: float,
+    t_wait: float = 0.0
 ) -> tuple[float, float]:
     """
     Case 2: RSU Collaboration execution.
@@ -63,7 +65,7 @@ def calculate_case2_collaboration(
     
     if cpu_processed_rsu1 >= task_cpu_phi:
         # Task finishes within dwell time at RSU 1, falls back to Case 1 effectively
-        return calculate_case1_standalone(task_size_rho, task_cpu_phi, w_v2r, rsu1_cpu_f, power_v, power_rsu1)
+        return calculate_case1_standalone(task_size_rho, task_cpu_phi, w_v2r, rsu1_cpu_f, power_v, power_rsu1, t_wait)
     
     # Remaining CPU cycles to be processed at RSU 2
     remaining_cpu_phi = task_cpu_phi - cpu_processed_rsu1
@@ -82,8 +84,8 @@ def calculate_case2_collaboration(
     # Processing Delay = max(t1, t2 + t3)
     processing_delay = max(t1_dwell_time, t2_inter_rsu + t3_comp2)
     
-    # Total Delay = V2R Transmission + Processing Delay
-    total_delay = t_v2r + processing_delay
+    # Total Delay = V2R Transmission + Processing Delay + Wait Time
+    total_delay = t_v2r + processing_delay + t_wait
     
     # Energy components
     energy_trans_v2r = power_v * t_v2r

@@ -10,6 +10,24 @@ from models.a3c_agent import ActorCritic
 from envs.vec_env import VECEnv
 from envs.entities import SimulationConfig
 
+class SharedAdam(optim.Adam):
+    """
+    Implements a SharedAdam optimizer for A3C parallel training.
+    """
+    def __init__(self, params, lr=1e-3, betas=(0.9, 0.999), eps=1e-8, weight_decay=0):
+        super(SharedAdam, self).__init__(params, lr=lr, betas=betas, eps=eps, weight_decay=weight_decay)
+        for group in self.param_groups:
+            for p in group['params']:
+                state = self.state[p]
+                state['step'] = torch.zeros(1) # PyTorch 2.x singleton tensor compatibility
+                state['exp_avg'] = torch.zeros_like(p.data)
+                state['exp_avg_sq'] = torch.zeros_like(p.data)
+                
+                # share in memory
+                state['step'].share_memory_()
+                state['exp_avg'].share_memory_()
+                state['exp_avg_sq'].share_memory_()
+
 class A3CWorker(threading.Thread):
     def __init__(self, worker_id, global_model, optimizer, config, save_dir, mobility_model_path):
         super(A3CWorker, self).__init__()
@@ -18,8 +36,11 @@ class A3CWorker(threading.Thread):
         self.optimizer = optimizer
         self.save_dir = save_dir
         
+        # Worker Safety: Assign each one a unique port (8813 + worker_id)
+        port = 8813 + self.worker_id
+        
         # Initialize local environment with full config
-        self.env = VECEnv(config=config)
+        self.env = VECEnv(config=config, port=port)
         
         # Dynamic Dims: Get exactly what the environment provides
         input_dim = self.env.observation_space.shape[0]
@@ -105,7 +126,7 @@ def train():
 
     global_model = ActorCritic(input_dim, num_actions)
     global_model.share_memory()
-    optimizer = optim.Adam(global_model.parameters(), lr=0.0002)
+    optimizer = SharedAdam(global_model.parameters(), lr=0.0002)
     
     num_workers = 4 
     workers = []

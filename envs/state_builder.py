@@ -13,7 +13,7 @@ def build_state(vehicle: Vehicle, tasks: List[Task], rsus: List[RSU], config=Non
     """
     # 1. Determine Dimensions from Config (Critical for preventing size mismatch)
     # We use these to pad the arrays so the length is ALWAYS the same.
-    max_tasks = config.num_tasks_per_vehicle if config else len(tasks)
+    max_tasks = config.num_tasks_per_vehicle_range[0] if config else len(tasks)
     num_rsus = config.num_rsus if config else len(rsus)
     
     expected_dim = 4 + (max_tasks * 4) + (num_rsus * 5)

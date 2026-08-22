@@ -1,4 +1,4 @@
-from dataclasses import dataclass
+from dataclasses import dataclass, field
 from typing import Tuple, List, Optional
 
 @dataclass
@@ -24,11 +24,7 @@ class Vehicle:
     pos: Tuple[float, float]
     speed: float
     dwell_time_T_stay: float
-    trajectory_history: Optional[list] = None  # needed for mobility model inference
-
-    def __post_init__(self):
-        if self.trajectory_history is None:
-            self.trajectory_history = []
+    trajectory_history: list = field(default_factory=list)  # needed for mobility model inference
 
 @dataclass
 class SimulationConfig:

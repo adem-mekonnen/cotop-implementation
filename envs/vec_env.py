@@ -1,22 +1,24 @@
-vec_env_code = '''
 import gymnasium as gym
 from gymnasium import spaces
 import numpy as np
 import torch
 import os
+import math
 from typing import Tuple
 
 from envs.entities import Vehicle, Task, RSU, SimulationConfig
 from envs.state_builder import build_state
-from envs.comm_model import compute_v2r_rate, compute_r2r_rate, get_euclidean_distance
+from envs.comm_model import compute_v2r_rate, compute_r2r_rate
 from envs.comp_model import calculate_case1_standalone, calculate_case2_collaboration
 from envs.task_generator import TaskGenerator
 from utils.task_priority import prioritize_tasks
 from envs.sumo_manager import SumoManager
 
+def get_euclidean_distance(pos_a: Tuple[float, float], pos_b: Tuple[float, float]) -> float:
+    return math.sqrt((pos_a[0] - pos_b[0])**2 + (pos_a[1] - pos_b[1])**2)
+
 MOBILITY_CHECKPOINT = "results/checkpoints/mobility_model.pth"
 TRAJ_HISTORY_LEN = 5
-
 
 class VECEnv(gym.Env):
     def __init__(self, config: SimulationConfig, port: int = None, use_mobility_model: bool = True, use_priority: bool = True):
@@ -85,9 +87,9 @@ class VECEnv(gym.Env):
         task = self.current_tasks[self.current_task_idx]
         target_rsu = self.rsus[action]
 
+        v2r_distance = get_euclidean_distance(self.current_vehicle.pos, target_rsu.location)
         w_v2r = compute_v2r_rate(
-            pos_v=self.current_vehicle.pos,
-            pos_r=target_rsu.location,
+            distance=v2r_distance,
             bandwidth_B=self.config.bandwidth_v2r_range[0],
             power_P_V=self.config.tx_power_vehicle,
             noise_power=self.config.noise_power,
@@ -105,19 +107,17 @@ class VECEnv(gym.Env):
             rsu_cpu_f=target_rsu.cpu_capacity_f,
             power_v=self.config.tx_power_vehicle,
             power_rsu=target_rsu.transmission_power_P_R,
+            t_wait=target_rsu.queue_length / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0
         )
-
-        if target_rsu.cpu_capacity_f > 0:
-            standalone_delay += target_rsu.queue_length / target_rsu.cpu_capacity_f
 
         case_used = 1
         if dwell_time < standalone_delay:
             other_rsus = [r for r in self.rsus if r.rsu_id != target_rsu.rsu_id]
             next_rsu = min(other_rsus, key=lambda r: get_euclidean_distance(target_rsu.location, r.location))
-
+            
+            r2r_distance = get_euclidean_distance(target_rsu.location, next_rsu.location)
             w_r2r = compute_r2r_rate(
-                pos_r1=target_rsu.location,
-                pos_r2=next_rsu.location,
+                distance=r2r_distance,
                 bandwidth_B=self.config.bandwidth_r2r,
                 power_P_R=self.config.tx_power_rsu,
                 noise_power=self.config.noise_power,
@@ -136,6 +136,7 @@ class VECEnv(gym.Env):
                 power_v=self.config.tx_power_vehicle,
                 power_rsu1=target_rsu.transmission_power_P_R,
                 power_rsu2=next_rsu.transmission_power_P_R,
+                t_wait=target_rsu.queue_length / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0
             )
             case_used = 2
 
@@ -149,9 +150,6 @@ class VECEnv(gym.Env):
 
         self.current_task_idx += 1
         terminated = (self.current_task_idx >= len(self.current_tasks))
-
-        if target_rsu.queue_length > 0:
-            target_rsu.queue_length -= 1
 
         info = {"delay": standalone_delay, "energy": energy, "case": case_used}
         return self._get_obs(), float(reward), terminated, False, info
@@ -192,6 +190,9 @@ class VECEnv(gym.Env):
                 RSU(i, positions[i], self.config.rsu_cpu_capacity_range[0], 0, self.config.tx_power_rsu)
                 for i in range(self.config.num_rsus)
             ]
+        else:
+            for rsu in self.rsus:
+                rsu.queue_length = max(0, rsu.queue_length - 1)
 
         nearest_rsu = min(self.rsus, key=lambda r: get_euclidean_distance(self.current_vehicle.pos, r.location))
         dwell_estimate = self._estimate_dwell_time(self.current_vehicle, nearest_rsu)
@@ -208,7 +209,3 @@ class VECEnv(gym.Env):
     def close(self):
         if self.sumo_manager:
             self.sumo_manager.close()
-'''
-with open('envs/vec_env.py', 'w') as f:
-    f.write(vec_env_code.strip())
-print("Final vec_env.py: comm_model and comp_model calls corrected to match actual function signatures.")
