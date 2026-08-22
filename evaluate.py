@@ -43,7 +43,7 @@ def evaluate():
     if args.mode == 'cotop':
         model = ActorCritic(env.obs_dim, env.action_space.n)
         try:
-            model.load_state_dict(torch.load('results/checkpoints/a3c_model.pth', map_location='cpu'))
+            model.load_state_dict(torch.load('results/checkpoints/a3c_agent.pth', map_location='cpu'))
             print("Loaded trained CoTOP model.")
         except Exception as e:
             print(f"Could not load CoTOP model ({e}). Evaluating with untrained weights.")

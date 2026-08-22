@@ -59,8 +59,11 @@ class VECEnv(gym.Env):
         if self.mobility_model is not None and len(vehicle.trajectory_history) >= TRAJ_HISTORY_LEN:
             try:
                 traj = np.array(vehicle.trajectory_history[-TRAJ_HISTORY_LEN:], dtype=np.float32)
+                # Shape: (1, seq_len, 2) — single vehicle as a graph of 1 node
                 x_seq = torch.FloatTensor(traj).unsqueeze(0)
-                edge_index = torch.empty((2, 0), dtype=torch.long)
+                # Self-loop edge so GATConv is not silenced (Fix 2: was empty, killing spatial interaction)
+                # When multi-vehicle data is available, build a proper proximity graph here.
+                edge_index = torch.tensor([[0], [0]], dtype=torch.long)
                 with torch.no_grad():
                     predictions = self.mobility_model(x_seq, edge_index)
                 future_pos = predictions[0, -1].numpy()

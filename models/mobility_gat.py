@@ -14,12 +14,19 @@ class MobilityGAT_GRU(nn.Module):
             nn.Linear(embed_dim, embed_dim)
         )
         
-        # Eq. 16-18: Spatial GAT
-        # We ensure out_channels * heads = embed_dim
-        self.gat_layer = GATConv(
-            in_channels=embed_dim, 
-            out_channels=embed_dim // num_heads, 
-            heads=num_heads, 
+        # Eq. 16-18: Spatial GAT — 2 stacked layers (Fig. 3)
+        # Layer 1: embed_dim → embed_dim (concat, heads=4)
+        self.gat_layer1 = GATConv(
+            in_channels=embed_dim,
+            out_channels=embed_dim // num_heads,
+            heads=num_heads,
+            concat=True
+        )
+        # Layer 2: embed_dim → embed_dim (concat, heads=4)
+        self.gat_layer2 = GATConv(
+            in_channels=embed_dim,
+            out_channels=embed_dim // num_heads,
+            heads=num_heads,
             concat=True
         )
         
@@ -40,9 +47,10 @@ class MobilityGAT_GRU(nn.Module):
         # --- SPATIAL FEATURE EXTRACTION ---
         spatial_features = []
         for t in range(seq_len):
-            h_t = self.coordinate_expansion_mlp(x_seq[:, t, :]) # Eq 15
-            z_t = self.gat_layer(h_t, edge_index)              # Eq 16-18
-            spatial_features.append(F.relu(z_t))
+            h_t  = self.coordinate_expansion_mlp(x_seq[:, t, :])  # Eq 15
+            z_t1 = F.relu(self.gat_layer1(h_t,  edge_index))       # GAT layer 1 (Fig. 3)
+            z_t2 = F.relu(self.gat_layer2(z_t1, edge_index))       # GAT layer 2 (Fig. 3)
+            spatial_features.append(z_t2)
             
         spatial_features = torch.stack(spatial_features, dim=1) # (N, T, embed)
         

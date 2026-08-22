@@ -28,9 +28,13 @@ def calculate_case1_standalone(
     # Eq 5-6: Total Delay with sequential delay logic
     total_delay = t_trans + t_comp + t_wait
     
-    # Eq 11-12: Total Energy (Transmission Energy + Computation Energy)
+    # Eq 11-12: Total Energy
+    # Eq 11: Transmission energy  E_trans = P_V * t_trans
     energy_trans = power_v * t_trans
-    energy_comp = power_rsu * t_comp
+    # Eq 12: Computation energy   E_comp = kappa * phi * f^2
+    # kappa (effective switched capacitance) encoded in power_rsu as kappa * f^2
+    # so E_comp = power_rsu * phi  (power_rsu = kappa * f^2 from config)
+    energy_comp = power_rsu * task_cpu_phi
     total_energy = energy_trans + energy_comp
     
     return total_delay, total_energy
@@ -87,11 +91,11 @@ def calculate_case2_collaboration(
     # Total Delay = V2R Transmission + Processing Delay + Wait Time
     total_delay = t_v2r + processing_delay + t_wait
     
-    # Energy components
-    energy_trans_v2r = power_v * t_v2r
-    energy_comp1 = power_rsu1 * t1_dwell_time
-    energy_trans_r2r = power_rsu1 * t2_inter_rsu
-    energy_comp2 = power_rsu2 * t3_comp2
+    # Energy components (Eq. 11-12)
+    energy_trans_v2r = power_v * t_v2r                       # Eq 11: V2R transmission
+    energy_comp1     = power_rsu1 * cpu_processed_rsu1        # Eq 12: RSU1 computation (kappa*f^2 * phi)
+    energy_trans_r2r = power_rsu1 * t2_inter_rsu             # RSU1→RSU2 relay energy
+    energy_comp2     = power_rsu2 * remaining_cpu_phi         # Eq 12: RSU2 computation
     
     total_energy = energy_trans_v2r + energy_comp1 + energy_trans_r2r + energy_comp2
     

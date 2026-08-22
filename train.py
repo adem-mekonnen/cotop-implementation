@@ -94,7 +94,10 @@ class A3CWorker(threading.Thread):
                 advantages = returns - values.detach()
                 actor_loss = -(log_probs * advantages).mean()
                 critic_loss = F.mse_loss(values, returns)
-                total_loss = actor_loss + 0.5 * critic_loss
+                # Entropy regularisation (Sec IV-E) — encourages exploration
+                probs_all = F.softmax(self.local_model(state)[0].detach(), dim=-1)
+                entropy = -(probs_all * probs_all.log()).sum(dim=-1).mean()
+                total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
                 
                 self.optimizer.zero_grad()
                 total_loss.backward()
