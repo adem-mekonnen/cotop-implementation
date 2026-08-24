@@ -1,1 +1,20 @@
-*.pdf
+# Byte-compiled / optimized / DLL files
+__pycache__/
+*.py[cod]
+*$py.class
+
+# Checkpoints and Trained Models
+results/checkpoints/*.pth
+checkpoints/
+
+# Jupyter Notebook checkpoints
+.ipynb_checkpoints/
+
+# OS generated files
+.DS_Store
+Thumbs.db
+
+# Temporary logs and dumps
+*.log
+dump.txt
+*.tmp
