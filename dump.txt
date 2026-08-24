@@ -1,0 +1,97 @@
+CELL 10 SOURCE:
+# ============================================================
+# CELL 5: TRAIN GAT-GRU MOBILITY MODEL
+# ============================================================
+import os
+os.makedirs('/content/cotop-implementation/results/checkpoints', exist_ok=True)
+
+print('=' * 60)
+print('Task A: Training GAT-GRU Mobility Predictor')
+print('Paper: Sec IV-B, Equations 15-22')
+print('=' * 60)
+
+!cd /content/cotop-implementation && python train_mobility.py \
+    --data_path data/raw/train \
+    --epochs 100 \
+    --batch_size 64 \
+    --lr 0.0002 \
+    --save_dir results/checkpoints
+
+MOBILITY_CKPT = '/content/cotop-implementation/results/checkpoints/mobility_model.pth'
+if os.path.exists(MOBILITY_CKPT):
+    size_kb = os.path.getsize(MOBILITY_CKPT) / 1024
+    print(f'\n✅ Mobility model saved: {MOBILITY_CKPT} ({size_kb:.1f} KB)')
+else:
+    raise RuntimeError('❌ Mobility model checkpoint not found. Check train_mobility.py output above.')
+
+CELL 14 SOURCE:
+# ============================================================
+# CELL 7: EVALUATION — CoTOP vs BASELINES + ABLATION
+# ============================================================
+import os, json, re
+
+print('=' * 60)
+print('Task C: Evaluating CoTOP vs. Baselines')
+print('Paper: Table V (comparison) + Table VI (ablation)')
+print('=' * 60)
+
+# Kill any lingering SUMO
+!pkill -9 sumo 2>/dev/null; sleep 1
+
+RESULTS_LOG = '/content/cotop-implementation/results/evaluation_summary.txt'
+os.makedirs('/content/cotop-implementation/results', exist_ok=True)
+
+EVAL_CMD = 'cd /content/cotop-implementation && python evaluate.py'
+
+modes = [
+    ('cotop',   '', 'CoTOP (Full, with Mobility)'),
+    ('local',   '', 'LOCAL Baseline (Nearest RSU, Case 1 only)'),
+    ('greedy',  '', 'GREEDY Baseline (Min Queue RSU)'),
+    ('cotop',   '--no_mobility', 'CoTOP Ablation — No Mobility (Table VI)'),
+]
+
+all_results = []
+
+for mode, extra_flag, label in modes:
+    print()
+    print(f'--- Running: {label} ---')
+    !pkill -9 sumo 2>/dev/null; sleep 0.5
+
+    output = !cd /content/cotop-implementation && \
+              python evaluate.py --mode {mode} {extra_flag} --episodes 5 2>&1
+
+    for line in output:
+        print(' ', line)
+
+    # Parse summary from stdout
+    result_entry = {'label': label, 'mode': mode, 'ablation': bool(extra_flag)}
+    for line in output:
+        m = re.search(r'Average Reward:\s*([\-\d\.]+)', line)
+        if m: result_entry['avg_reward'] = float(m.group(1))
+        m = re.search(r'Average Delay:\s*([\-\d\.]+)', line)
+        if m: result_entry['avg_delay'] = float(m.group(1))
+        m = re.search(r'Average Energy:\s*([\-\d\.]+)', line)
+        if m: result_entry['avg_energy'] = float(m.group(1))
+
+    all_results.append(result_entry)
+    !pkill -9 sumo 2>/dev/null
+
+# ── Pretty-print comparison table ────────────────────────────
+print()
+print('=' * 70)
+print('EVALUATION RESULTS SUMMARY')
+print('=' * 70)
+print(f'{"Method":<45} {"Avg Delay":>12} {"Avg Energy":>12} {"Avg Reward":>12}')
+print('-' * 70)
+for r in all_results:
+    d = r.get('avg_delay', float('nan'))
+    e = r.get('avg_energy', float('nan'))
+    rew = r.get('avg_reward', float('nan'))
+    print(f"{r['label']:<45} {d:>12.4f} {e:>12.4f} {rew:>12.4f}")
+print('=' * 70)
+
+# Save results
+with open(RESULTS_LOG, 'w') as f:
+    json.dump(all_results, f, indent=2)
+
+print(f'\n✅ Results saved to: {RESULTS_LOG}')
