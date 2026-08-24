@@ -1,4 +1,5 @@
 import os
+import time
 import threading
 import torch
 import torch.optim as optim
@@ -51,6 +52,8 @@ class A3CWorker(threading.Thread):
         self.max_episodes = 1000 # Paper usually trains for ~1000 eps
 
     def run(self):
+        # Stagger worker startup by 1.5s per worker to prevent simultaneous SUMO port contention
+        time.sleep(self.worker_id * 1.5)
         for episode in range(self.max_episodes):
             # Sync with global model
             self.local_model.load_state_dict(self.global_model.state_dict())
@@ -88,8 +91,8 @@ class A3CWorker(threading.Thread):
                 
             returns = torch.FloatTensor(returns)
             if len(values) > 0:
-                values = torch.cat(values).squeeze()
-                log_probs = torch.cat(log_probs)
+                values = torch.stack(values).view(-1)
+                log_probs = torch.stack(log_probs).view(-1)
                 
                 advantages = returns - values.detach()
                 actor_loss = -(log_probs * advantages).mean()
@@ -140,6 +143,15 @@ def train():
         
     for worker in workers:
         worker.join()
+        try:
+            worker.env.close()
+        except Exception:
+            pass
+
+    # Ensure model weights are saved at the end of training
+    ckpt_path = "results/checkpoints/a3c_agent.pth"
+    torch.save(global_model.state_dict(), ckpt_path)
+    print(f"Final A3C model saved to {ckpt_path}")
 
 if __name__ == "__main__":
     train()

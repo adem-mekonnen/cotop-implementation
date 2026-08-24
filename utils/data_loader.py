@@ -39,8 +39,8 @@ class ApolloScapeTrajectoryDataset(Dataset):
 
     def _parse_file(self, file_path: str):
         try:
-            # 2. Use sep='\s+' because ApolloScape is space-separated
-            df = pd.read_csv(file_path, sep='\s+', header=None)
+            # 2. Use sep=r'\s+' because ApolloScape is space-separated
+            df = pd.read_csv(file_path, sep=r'\s+', header=None)
             
             # Map columns per ApolloScape format
             cols = ['frame_id', 'object_id', 'object_type', 'pos_x', 'pos_y', 'pos_z', 
