@@ -38,10 +38,10 @@ def evaluate():
     config = SimulationConfig(**yaml_config)
     
     use_mobility = not args.no_mobility
-    env = VECEnv(config=config, port=9999, use_mobility_model=use_mobility)
+    env = VECEnv(config=config, port=9999)
     
     if args.mode == 'cotop':
-        model = ActorCritic(env.obs_dim, env.action_space.n)
+        model = ActorCritic(env.observation_space.shape[0], env.action_space.n)
         try:
             model.load_state_dict(torch.load('results/checkpoints/a3c_agent.pth', map_location='cpu'))
             print("Loaded trained CoTOP model.")
