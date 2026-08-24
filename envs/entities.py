@@ -51,3 +51,34 @@ class SimulationConfig:
     penalty_z: float
     max_task_cpu: float          # was missing — YAML has it, dataclass didn't
     epsilon: float = 0.5          # Eq. 25 reward trade-off, separate from alpha/beta
+
+    def __post_init__(self):
+        """Coerce all fields to correct numeric types.
+
+        PyYAML's safe_load can parse scientific-notation values (e.g. 2.0e6)
+        as strings in some environments (Python 3.13 on Linux). This guard
+        ensures random.uniform() and arithmetic always receive proper floats/ints.
+        """
+        # Float range lists
+        self.vehicle_speed_range      = [float(v) for v in self.vehicle_speed_range]
+        self.rsu_cpu_capacity_range   = [float(v) for v in self.rsu_cpu_capacity_range]
+        self.task_size_range          = [float(v) for v in self.task_size_range]
+        self.task_deadline_range      = [float(v) for v in self.task_deadline_range]
+        self.bandwidth_v2r_range      = [float(v) for v in self.bandwidth_v2r_range]
+        # Int range lists
+        self.num_vehicles_range            = [int(v) for v in self.num_vehicles_range]
+        self.num_tasks_per_vehicle_range   = [int(v) for v in self.num_tasks_per_vehicle_range]
+        # Scalar floats
+        self.num_rsus           = int(self.num_rsus)
+        self.rsu_comm_range     = float(self.rsu_comm_range)
+        self.bandwidth_r2r      = float(self.bandwidth_r2r)
+        self.tx_power_vehicle   = float(self.tx_power_vehicle)
+        self.tx_power_rsu       = float(self.tx_power_rsu)
+        self.noise_power        = float(self.noise_power)
+        self.fixed_loss_k       = float(self.fixed_loss_k)
+        self.path_loss_factor   = float(self.path_loss_factor)
+        self.alpha              = float(self.alpha)
+        self.beta               = float(self.beta)
+        self.penalty_z          = float(self.penalty_z)
+        self.max_task_cpu       = float(self.max_task_cpu)
+        self.epsilon            = float(self.epsilon)

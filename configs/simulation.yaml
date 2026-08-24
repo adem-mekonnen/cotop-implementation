@@ -2,17 +2,17 @@
 
 # Ranges (Sample these per vehicle/task/RSU in the environment)
 num_vehicles_range: [10, 30]
-vehicle_speed_range: [30, 40]                  # m/s
-rsu_cpu_capacity_range: [1.0e9, 4.0e9]         # Cycles/s
+vehicle_speed_range: [30.0, 40.0]              # m/s
+rsu_cpu_capacity_range: [1000000000.0, 4000000000.0]  # Cycles/s (1e9 to 4e9)
 num_tasks_per_vehicle_range: [20, 40]
-task_size_range: [2.0e6, 5.0e6]                # Bytes (Converted from MB)
-task_deadline_range: [20, 30]                  # Seconds
-bandwidth_v2r_range: [20.0e6, 100.0e6]         # Hz (From Mbps range)
+task_size_range: [2000000.0, 5000000.0]        # Bytes (2e6 to 5e6)
+task_deadline_range: [20.0, 30.0]              # Seconds
+bandwidth_v2r_range: [20000000.0, 100000000.0] # Hz (20e6 to 100e6)
 
 # Constants
 num_rsus: 6
 rsu_comm_range: 400.0                          # m
-bandwidth_r2r: 50.0e6                          # Hz (From 50 MHz)
+bandwidth_r2r: 50000000.0                      # Hz (50e6)
 tx_power_vehicle: 0.01                         # Watts (From 10 dBm)
 tx_power_rsu: 100.0                            # Watts (From 50 dBm)
 noise_power: 0.001                             # Watts (From 0.001 dBm)
