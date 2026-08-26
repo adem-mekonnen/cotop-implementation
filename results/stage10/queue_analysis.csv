@@ -1,0 +1,4 @@
+Policy,Observed Delay (s),Paper Delay (s),Delay Gap (s),Required Queue Delay (s),Required Queued Cycles (Gcycles),Equivalent 10M Tasks in Queue
+CoTOP (Proposed),4.418,13.9,9.482,9.482,18.964,1896.0
+Local Baseline,4.418,18.7,14.282,14.282,28.564,2856.0
+Greedy Baseline,4.534,16.4,11.866,11.866,23.732,2373.0

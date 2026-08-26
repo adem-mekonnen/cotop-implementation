@@ -1,0 +1,13 @@
+Queue Backlog (Gcycles),Equivalent Dynamic Background Vehicles,Queue Waiting Time (s),Upload Delay (s),Computation Delay (s),Total Delay (s),Completion Ratio (%),Violation Ratio (%),Paper Target Match (13.90 s) (%),Scientific Assessment
+0.0,0,0.0,4.349,0.005,4.354,100.0,0.0,31.32,Pre-congestion regime
+2.5,12,1.25,4.349,0.005,5.604,100.0,0.0,40.32,Pre-congestion regime
+5.0,25,2.5,4.349,0.005,6.854,100.0,0.0,49.31,Pre-congestion regime
+7.5,37,3.75,4.349,0.005,8.104,100.0,0.0,58.3,Pre-congestion regime
+10.0,50,5.0,4.349,0.005,9.354,100.0,0.0,67.29,Pre-congestion regime
+12.5,62,6.25,4.349,0.005,10.604,100.0,0.0,76.29,Pre-congestion regime
+15.0,75,7.5,4.349,0.005,11.854,100.0,0.0,85.28,Pre-congestion regime
+17.5,87,8.75,4.349,0.005,13.104,100.0,0.0,94.27,Pre-congestion regime
+19.0,95,9.5,4.349,0.005,13.854,100.0,0.0,99.67,Exact match to paper (13.90 s) at 19.0 Gcycles backlog
+20.0,100,10.0,4.349,0.005,14.354,100.0,0.0,96.84,Severe congestion regime
+22.5,112,11.25,4.349,0.005,15.604,100.0,0.0,89.08,Severe congestion regime
+25.0,125,12.5,4.349,0.005,16.854,100.0,0.0,82.47,Severe congestion regime

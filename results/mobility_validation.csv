@@ -1,0 +1,2 @@
+Architecture,Seq Len (Frames),Pred Len (Frames),Normalized MSE,Normalized MAE,Avg Position Error (m),Max Position Error (m)
+GAT-GRU,5,5,0.002421,0.027078,122.34,726.65

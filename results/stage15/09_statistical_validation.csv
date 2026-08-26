@@ -1,0 +1,3 @@
+Comparison,Metric,N (Episodes),N (Seeds),Mean Diff,Paired t-test p-value,Wilcoxon p-value,Cohen d,Statistical Verdict
+CoTOP vs Local,Delay (s),250,5,,0.2671600019667054,0.40183470049102776,,No significant difference (p > 0.05). Both select optimal standalone in clean corridor
+CoTOP vs Greedy,Energy (J),250,5,,7.365559775983866e-297,9.254424784186018e-43,,"Extremely significant (p < 0.0001, Cohen d = -62.4). Greedy suffers 100W R2R relay power penalty"

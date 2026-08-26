@@ -1,0 +1,13 @@
+Stress Scenario,Policy,Average Delay (s),Average Energy (J),Completion Ratio,Total Evaluated Tasks
+Stress A: High Traffic (30 Vehicles),CoTOP,5.1907,0.2686,1.0,20
+Stress A: High Traffic (30 Vehicles),Local,4.4712,0.3193,1.0,20
+Stress A: High Traffic (30 Vehicles),Greedy,4.4895,4.6063,1.0,20
+Stress B: Heavy Tasks (40 Tasks),CoTOP,4.1618,0.3083,1.0,40
+Stress B: Heavy Tasks (40 Tasks),Local,4.3724,0.3281,1.0,40
+Stress B: Heavy Tasks (40 Tasks),Greedy,4.4961,4.7939,1.0,40
+Stress C: Low RSU CPU (1.0 GHz),CoTOP,4.6135,0.3046,1.0,20
+Stress C: Low RSU CPU (1.0 GHz),Local,4.4213,0.327,1.0,20
+Stress C: Low RSU CPU (1.0 GHz),Greedy,4.639,4.6956,1.0,20
+"Stress E: Combined Heavy Load (30 Veh, 40 Tasks, 1.0 GHz)",CoTOP,4.4868,0.3249,1.0,40
+"Stress E: Combined Heavy Load (30 Veh, 40 Tasks, 1.0 GHz)",Local,4.3028,0.3199,1.0,40
+"Stress E: Combined Heavy Load (30 Veh, 40 Tasks, 1.0 GHz)",Greedy,4.2405,4.4981,1.0,40

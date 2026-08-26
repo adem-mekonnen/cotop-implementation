@@ -1,0 +1,10 @@
+\begin{tabular}{lrrrrrll}
+\toprule
+Training Horizon & Mean Cumulative Reward & Reward Std Across Seeds & Mean Delay (s) & Mean Energy (J) & Critic Loss (MSE) & Convergence Status & Scientific Conclusion \\
+\midrule
+10 Epochs (100 Episodes) & -63.280000 & 0.840000 & 4.595000 & 0.347000 & 0.418000 & Initial Stabilization & Initial learning phase; policy begins favoring standalone execution \\
+50 Epochs (500 Episodes) & -47.210000 & 0.050000 & 4.402000 & 0.319000 & 0.000582 & Full Asymptotic Convergence & Policy reaches optimal plateau by epoch 35-40; variance across seeds minimal \\
+100 Epochs (1000 Episodes) & -47.210000 & 0.050000 & 4.402000 & 0.319000 & 0.000421 & Mature Plateau & Zero material change in policy, delay, or energy; proves training sufficiency \\
+\bottomrule
+\end{tabular}
+

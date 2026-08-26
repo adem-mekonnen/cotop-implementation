@@ -1,0 +1,10 @@
+Workload Dimension,Paper Specification,Stage 13 Implementation,Equivalence Status,Notes
+Number of Highway Vehicles,10 to 30,10 to 30,FULL,Identical active vehicle range
+Concurrent Vehicle Traffic,Multi-vehicle traffic in SUMO,Multi-vehicle traffic in SUMO,FULL,SUMO 1.25.0 simulation
+Subtasks per Vehicle,20 to 40,20 (nominal),HIGH,Within specified Table III range
+Task Arrival Dynamics,Burst ready / DAG,Burst ready / DAG,FULL,Parallel DAG subtasks
+Task Size Distribution,"[2.0, 5.0] MB","[2.0, 5.0] MB",FULL,Uniform random in range
+Task CPU Demand Distribution,10 Mcycles nominal,10.0 Mcycles nominal,FULL,Section III-F & V-A
+Task Latency Deadline,"[20.0, 30.0] s","[20.0, 30.0] s",FULL,Table III
+RSU Background Queue Preload,Unstated / Implied Congested,0.0 cycles (Idle),LOW (DIVERGENT),Primary operational divergence
+Mobility Trajectory Data,ApolloScape Dataset,Synthetic Kinematic Trajectories,MEDIUM,Kinematic highway approximation

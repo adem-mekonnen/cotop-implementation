@@ -1,0 +1,15 @@
+================================================================
+COTOP REPRODUCIBILITY HEADER
+================================================================
+Git Commit:   68b4fd1
+Python:       3.11.9
+PyTorch:      2.12.1+cpu
+CUDA:         False
+GPU:          CPU (No CUDA)
+GPU Memory:   N/A (CPU)
+SUMO:         Eclipse SUMO sumo 1.27.1
+OS:           Windows 10 (AMD64)
+Config:       configs/paper_parameters.yaml
+Seed:         42
+Timestamp:    2026-08-26 06:51:41 UTC
+================================================================

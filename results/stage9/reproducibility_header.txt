@@ -1,0 +1,17 @@
+===============================================================
+COTOP STAGE 9 REPRODUCIBILITY HEADER
+===============================================================
+Git Commit:        68b4fd1
+Python:            3.11.9
+PyTorch:           2.12.1+cpu
+CUDA:              False
+GPU:               CPU (No CUDA - CPU Execution)
+GPU Memory:        N/A (CPU)
+SUMO:              Eclipse SUMO sumo 1.27.1
+OS:                Windows 10 (AMD64)
+Configuration:     configs/paper_parameters.yaml
+Seed:              42
+Workers:           1 (Deterministic Serialized A3C Execution)
+Training Episodes: 500
+Timestamp:         2026-08-26 10:45:22 UTC
+===============================================================

@@ -1,0 +1,5 @@
+Epistemological Category,Status,Justification
+Exact Metric Definition,UNSUPPORTED,"The paper text states 'Average Energy Consumption' without specifying whether it denotes per-task, per-vehicle, or episode-batch energy"
+Strongly Supported Interpretation,PARTIALLY SUPPORTED,"40-task batch at 100W server power yields 21.76-25.14J (matching Fig 6), but this is a post-hoc diagnostic"
+Plausible Scope Mismatch,CONFIRMED,Single-task physical energy is 0.319J; 25.14J represents ~80x inflation consistent with batch aggregation
+Parameter Identifiability,NON-IDENTIFIABLE,"25.14 J can be produced by 40 tasks @ 100W, 80 tasks @ 50W, or single task with 25W static server baseline"

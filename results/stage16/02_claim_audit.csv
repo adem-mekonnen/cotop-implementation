@@ -1,0 +1,25 @@
+Claim ID,Claim Text,Verdict,Evidence
+1,Equations match the paper,SUPPORTED,"0.00% analytical error on closed-form sanity check across Eq 1-12, 13, 23, 25"
+2,Communication model matches,SUPPORTED,Shannon V2R and R2R capacity formulas match Section III-B line-by-line
+3,Computation model matches,SUPPORTED,Case 1 standalone and Case 2 parallel collaborative offloading match Eq 3-10
+4,Energy model matches,SUPPORTED,"Transmission and computation dissipation models match Eq 11, 12"
+5,Queue model matches,SUPPORTED,"FIFO single-server queue delay t_wait = N_queue / F_m matches Eq 5, 10"
+6,Task prioritization matches Eq. 23,SUPPORTED,"Eq 23 priority calculation verified with alpha=0.3, beta=0.7 sorting"
+7,Reward matches Eq. 25,SUPPORTED,Regularized delay/energy cost with penalty Z for deadline violation matches Eq 25
+8,Mobility model matches,PARTIALLY SUPPORTED,GAT-GRU architecture matches Table II; trained on synthetic kinematic traces
+9,GAT-GRU architecture matches,SUPPORTED,4-head GAT + GRU + Linear position decoder matches Table II exactly
+10,A3C architecture matches,SUPPORTED,Actor-Critic 3-layer FC networks with SharedAdam optimizer match Section IV-D
+11,Training protocol matches,PARTIALLY SUPPORTED,500 episodes with lr=0.0002 matches; worker concurrency adapted to 2 on Colab
+12,Baselines are correctly implemented,SUPPORTED,Local (standalone) and Greedy (min-queue) follow exact paper definitions
+13,Ablations are correctly implemented,SUPPORTED,"wo_md, wo_tp, and wo_co ablations isolate corresponding components"
+14,CoTOP converges,SUPPORTED,5 independent seeds show monotonic critic loss reduction (<0.0008) and reward plateau (-47.21)
+15,CoTOP improves delay,CONDITIONALLY SUPPORTED,Equal to Local in clean corridor (4.40s); reduces delay by 2.2-2.6s in congested regimes
+16,CoTOP improves energy,SUPPORTED,"Avoids 100W R2R power penalty of Greedy, saving 93% energy (0.319 J vs 4.525 J)"
+17,CoTOP outperforms Local,CONDITIONALLY SUPPORTED,Matches Local in idle channel (both standalone); outperforms Local by 2.6s in congested regimes
+18,CoTOP outperforms Greedy,SUPPORTED,"Statistically significant 93% energy reduction over Greedy (p < 0.0001, Cohen d = -62.4)"
+19,Paper delay is numerically reproduced,UNSUPPORTED (FALSE),Measured delay is 4.402s vs reported 13.90s
+20,Paper energy is numerically reproduced,UNSUPPORTED (FALSE),Measured energy is 0.319J vs reported 25.14J
+21,Queue congestion explains delay discrepancy,CONDITIONALLY SUPPORTED (PLAUSIBLE),"19 Gcycles backlog yields 13.854s, but queue preload is unstated in paper Table III"
+22,Batch energy explains energy discrepancy,CONDITIONALLY SUPPORTED (PLAUSIBLE),"40-task batch at 100W server yields 21.76-25.14J, but paper aggregation scope is unstated"
+23,ApolloScape reproduction was achieved,UNSUPPORTED (SYNTHETIC SUBSTITUTE),Synthetic kinematic dataset used; ApolloScape raw data not bundled
+24,The entire paper protocol was reproduced,PARTIALLY SUPPORTED,Method-level reproduction achieved; protocol gaps exist in queue preload and dataset

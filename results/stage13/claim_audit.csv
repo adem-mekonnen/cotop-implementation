@@ -1,0 +1,12 @@
+Claim ID,Claim Description,Classification,Supporting Evidence
+1,Mathematical implementation matches paper equations,VERIFIED,0.00% analytical deviation on closed-form sanity check (Eq 1-12 & 23)
+2,Mobility model is implemented and functional,VERIFIED,"4-head GAT-GRU achieves MSE=0.0024, MAE=0.0271 and feeds dwell time t1 to priority and state"
+3,Task prioritization algorithm is implemented,VERIFIED,"Eq 23 priority calculation verified with exact alpha=0.3, beta=0.7 sorting"
+4,Collaboration mechanism is implemented,VERIFIED,Case 2 R2R transfer (Eq 7-10) fully implemented and unit tested
+5,A3C architecture is implemented,VERIFIED,ActorCritic with SharedAdam optimizer and multiprocessing workers fully operational
+6,A3C training converges,VERIFIED,500 episodes show monotonic critic loss decrease (<0.001) and reward plateau at -44.82
+7,CoTOP outperforms Local in idle corridor,NOT VERIFIED (Equal Performance),"In idle corridor, Standalone (Action 0) is optimal; CoTOP converges to Local with 0.0% divergence"
+8,CoTOP outperforms Greedy,VERIFIED,"Greedy incurs 4.534J energy due to 100W R2R power, whereas CoTOP achieves 0.316J (+93% energy savings)"
+9,Numerical paper results are reproduced,NOT NUMERICALLY REPRODUCED,Delay is 4.418s vs 13.90s; Energy is 0.316J vs 25.14J due to unstated queue preload and batch metric scope
+10,Numerical discrepancy is explained by physical evidence,VERIFIED,Queue test confirms 13.9s requires 18.96 Gcycles preload; Energy test confirms 40-task batch equals 21.76-25.14J
+11,Collaboration is beneficial under paper parameters,CONDITIONALLY VERIFIED,Collaboration is penalized in idle corridor due to 100W P_R; beneficial only when primary queue > 9.5s

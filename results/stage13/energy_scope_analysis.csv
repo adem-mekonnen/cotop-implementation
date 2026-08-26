@@ -1,0 +1,6 @@
+Task Batch Count,Single-Task Energy (50W Server),Cumulative Batch Energy (50W Server) (J),Cumulative Batch Energy (100W Server) (J),Paper Target Energy (25.14 J) Match (%),Interpretation
+1,0.2941,0.294,0.544,2.16,Unit single-task energy
+10,0.2941,2.941,5.441,21.64,Intermediate batch scale
+20,0.2941,5.883,10.883,43.29,Intermediate batch scale
+40,0.2941,11.765,21.765,86.58,40-task batch matches Paper Fig 6 (25.14 J)
+80,0.2941,23.53,43.53,57.75,Intermediate batch scale

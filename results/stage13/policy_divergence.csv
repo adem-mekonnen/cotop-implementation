@@ -1,0 +1,4 @@
+Comparison,Mean Action Divergence (%),Std Dev (%),Physical Explanation
+CoTOP vs Local,0.4,6.311893535223801,"In idle corridor, Standalone (Action 0) is strictly optimal in latency and energy"
+CoTOP vs Greedy,95.02,0.31559467676119035,"Greedy offloads 95% of tasks to secondary RSUs, incurring high R2R transmit power"
+Local vs Greedy,95.0,0.0,Local remains 100% on primary RSU; Greedy distributes across min-queue RSUs

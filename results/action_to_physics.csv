@@ -1,0 +1,8 @@
+Action,Target RSU,Execution Mode,Total Delay (s),Total Energy (J),Step Reward,Deadline Status
+0,Primary RSU 0,Case 1: Standalone,1.1986,0.5118,-0.8552,MET
+1,Primary RSU 0,Case 1: Standalone (Fallback),1.1986,0.5118,-0.8552,MET
+2,Secondary RSU 1 (Dist=400m),Case 2: Collaborative,1.2357,5.7231,-3.4794,MET
+3,Secondary RSU 2 (Dist=800m),Case 2: Collaborative,1.2554,6.1923,-3.7239,MET
+4,Secondary RSU 3 (Dist=1200m),Case 2: Collaborative,1.261,8.0814,-4.6712,MET
+5,Secondary RSU 4 (Dist=1600m),Case 2: Collaborative,1.2547,7.6242,-4.4394,MET
+6,Secondary RSU 5 (Dist=2000m),Case 2: Collaborative,1.2847,10.023,-5.6539,MET

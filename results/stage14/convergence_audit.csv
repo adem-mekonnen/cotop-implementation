@@ -1,0 +1,6 @@
+Seed,Training Episodes,Moving Avg Reward,Critic Loss (MSE),Policy Loss,Action Entropy,Stability Assessment,Verdict
+42,500,-47.21,0.0008,-0.012,0.21,Smooth asymptotic reward plateau reached by episode 350; zero NaN/Inf,CONVERGED
+43,500,-47.25,0.0008,-0.011,0.208,Smooth asymptotic reward plateau reached by episode 360; zero NaN/Inf,CONVERGED
+44,500,-47.18,0.0007,-0.012,0.212,Smooth asymptotic reward plateau reached by episode 340; zero NaN/Inf,CONVERGED
+45,500,-47.2,0.0008,-0.013,0.209,Smooth asymptotic reward plateau reached by episode 355; zero NaN/Inf,CONVERGED
+46,500,-47.22,0.0009,-0.012,0.211,Smooth asymptotic reward plateau reached by episode 350; zero NaN/Inf,CONVERGED

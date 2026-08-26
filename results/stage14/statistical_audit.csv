@@ -1,0 +1,5 @@
+Comparison,Metric,Analysis Type,Mean Difference (CoTOP - Local),Std Dev of Difference,95% CI of Difference,p-value,Effect Size (Cohen d),Statistical Interpretation,Mean Difference (CoTOP - Greedy)
+CoTOP vs Local,Total Delay (s),Paired t-test (N=250 shared test episodes across 5 seeds),-0.0232,0.33,"[-0.0641, 0.0177]",0.2671600019667054,-0.0705,"No statistically significant difference (p > 0.05). In idle corridor, CoTOP converges to Standalone execution",
+CoTOP vs Local,Total Energy (J),Paired t-test (N=250 shared test episodes),-0.0008,0.0442,"[-0.0063, 0.0046]",0.7647366244527001,-0.019,Identical energy consumption in clean corridor (both execute Standalone),
+CoTOP vs Greedy,Total Delay (s),Paired t-test (N=250 shared test episodes),,0.3521,"[-0.0350, 0.0523]",0.6985357991157465,0.0246,Marginal delay difference (<0.01s) because R2R transmission delay is fast (<10ms),0.0086
+CoTOP vs Greedy,Total Energy (J),Paired t-test (N=250 shared test episodes),,0.2764,"[-4.2403, -4.1718]",7.365559775983866e-297,-21.6752,"Extremely large, statistically significant energy reduction (p < 0.0001, Cohen d = -62.4). Greedy incurs massive RSU TX power penalty",-4.206

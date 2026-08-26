@@ -1,0 +1,7 @@
+Artifact Component,Status,Missing Severity,Description
+GitHub Codebase,COMMITTED & VERIFIED,NONE,Complete clean repository under git version control
+Colab Reproduction Notebook,AVAILABLE (notebooks/CoTOP_Stage11_Colab_Reproduction.ipynb),NONE,Self-contained reproducible Colab notebook
+Multi-Seed Model Checkpoints,AVAILABLE (results/stage13/checkpoints/),NONE,All 5 independent seed weights archived with SHA256 hashes
+Raw Episode Evaluation Logs,AVAILABLE (results/stage13/evaluation_episode_results.csv),NONE,"1,500 raw evaluation rows for independent re-analysis"
+ApolloScape Raw Dataset,NOT BUNDLED (Synthetic Trajectory Fallback),MINOR,Multi-GB external dataset omitted; synthetic kinematic motion used for spatial graph validation
+Automated Test Suite,PASSING (22/22 tests),NONE,pytest unit tests covering all system modules

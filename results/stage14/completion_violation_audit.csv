@@ -1,0 +1,4 @@
+Factor,Implementation Status,Paper Status,Impact on Completion,Scientific Finding
+Task Latency vs Deadline Distribution,"Delay (~4.40s) << Deadline [20, 30]s","Delay (~13.90s) approaches Deadline [20, 30]s","In implementation, 100% of tasks finish < 5s; in paper, long queue delays cause ~1.5% violations",Direct consequence of the delay discrepancy; zero violations in clean corridor
+Queue Dropping / Timeout Semantics,Infinite FIFO (No packet drop),Single-server queue without explicit drop policy,"Tasks only fail if Total Delay > Deadline (Constraint C2, Eq 14b)",Exact mathematical equivalence in violation definition
+Mobility Disruption & Boundary Handover,Handover to secondary RSU (Case 2),Collaborative offloading prevents task abortion,High completion ratio (>98%) in both implementations,Methodological consistency in mobility mitigation

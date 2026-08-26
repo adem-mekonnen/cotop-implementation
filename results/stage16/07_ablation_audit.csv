@@ -1,0 +1,7 @@
+Ablation Component,Test Regime,Measured Effect,Regime Appropriateness,Review Assessment
+Mobility Detection (MD / GAT-GRU),Idle Corridor (0 Gcycles),Delay: 4.402s -> 4.412s (+0.010s),INACTIVE,"In idle straight corridor, dwell time exceeds task execution; mobility prediction is physically unneeded"
+Mobility Detection (MD / GAT-GRU),Congested Corridor (19 Gcycles),"Delay: 11.240s -> 12.890s (+1.650s), Comp: 98.8% -> 93.4%",ACTIVE & APPROPRIATE,"Crucial: predicts RSU boundary exit, preventing task handover failures under long queue delays"
+Task Prioritization (TP / Eq 23),Idle Corridor (0 Gcycles),Energy: 0.319J -> 5.579J (+17.5x),ACTIVE & APPROPRIATE,"Crucial: without priority ordering, unsorted task bursts trigger chaotic R2R relays, inflating energy"
+Task Prioritization (TP / Eq 23),Congested Corridor (19 Gcycles),"Delay: 11.240s -> 13.450s (+2.210s), Comp: 98.8% -> 91.2%",ACTIVE & APPROPRIATE,Crucial: prevents head-of-line blocking for deadline-critical subtasks
+Collaborative Offloading (CO / Case 2),Idle Corridor (0 Gcycles),Matches Local (4.402s vs 4.415s),INACTIVE,Collaboration is physically disadvantageous in idle corridor due to 100W R2R power
+Collaborative Offloading (CO / Case 2),Congested Corridor (19 Gcycles),Delay: 11.240s vs 13.854s (-2.614s latency reduction),ACTIVE & APPROPRIATE,"Crucial: offloads excess workload to neighboring RSUs, shedding 2.6s of queue waiting time"

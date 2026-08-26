@@ -43,6 +43,10 @@ dump.txt
 .idea/
 .vscode/
 
+# Copyrighted PDFs and raw text dumps
+*.pdf
+extracted_paper_text.txt
+
 *.pyc
 *.pyo
 *.pyd

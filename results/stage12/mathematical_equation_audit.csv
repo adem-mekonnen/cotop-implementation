@@ -1,0 +1,17 @@
+Equation Index,Mathematical Definition in Paper,Repository Implementation Location,Closed-Form Numerical Test,Analytical Deviation,Equation Audit Status
+Eq. (1),V2R Shannon Transmission Rate w_V2R = B_V2R * log2(1 + (P_V * K)/(omega * D^2)),envs/comm_model.py:calculate_v2r_rate(),20.000000 Mbps == 20.000000 Mbps,0.00e+00 %,EXACT MATCH
+Eq. (2),R2R Shannon Transmission Rate w_R2R = B_R2R * log2(1 + (P_R * K)/(omega * D^2)),envs/comm_model.py:calculate_r2r_rate(),464.500942 Mbps == 464.500942 Mbps,0.00e+00 %,EXACT MATCH
+Eq. (3),V2R Upload Delay t_up = rho / w_V2R,envs/comp_model.py:calculate_case1_standalone(),0.800000 s == 0.800000 s,0.00e+00 %,EXACT MATCH
+Eq. (4),Standalone Computation Delay t_pro = phi / F_m,envs/comp_model.py:calculate_case1_standalone(),0.010000 s == 0.010000 s,0.00e+00 %,EXACT MATCH
+Eq. (5),Queue Waiting Delay t_wait = N_queue / F_m,envs/comp_model.py:calculate_case1_standalone(),0.000000 s == 0.000000 s (at N=0),0.00e+00 %,EXACT MATCH
+Eq. (6),Case 1 Total Delay T_total = t_up + t_pro + t_wait,envs/comp_model.py:calculate_case1_standalone(),0.810000 s == 0.810000 s,0.00e+00 %,EXACT MATCH
+Eq. (7),Remaining Workload Partition phi_rest = phi - t1 * F_m,envs/comp_model.py:calculate_case2_collaboration(),5.000000 Mcycles == 5.000000 Mcycles,0.00e+00 %,EXACT MATCH
+Eq. (8),Inter-RSU Transmission Delay t2 = (rho * (phi_rest/phi)) / w_R2R,envs/comp_model.py:calculate_case2_collaboration(),0.008611 s == 0.008611 s,0.00e+00 %,EXACT MATCH
+Eq. (9),Secondary Computation Delay t3 = phi_rest / F_m',envs/comp_model.py:calculate_case2_collaboration(),0.005000 s == 0.005000 s,0.00e+00 %,EXACT MATCH
+Eq. (10),Case 2 Collaborative Delay T_total = t_up + max(t1, t2 + t3) + t_wait',envs/comp_model.py:calculate_case2_collaboration(),0.819723 s == 0.819723 s,0.00e+00 %,EXACT MATCH
+Eq. (11),Transmission Energy E_ts = P_V * t_up (+ P_R * t2 if Case 2),envs/comp_model.py:calculate_case1_standalone() & calculate_case2_collaboration(),0.008000 J (Case 1) / 0.869112 J (Case 2),0.00e+00 %,EXACT MATCH
+Eq. (12),Computation Energy E_pro = t_pro * E_RSU (+ t3 * E_RSU2 if Case 2),envs/comp_model.py:calculate_case1_standalone() & calculate_case2_collaboration(),0.500000 J (Case 1) / 1.250000 J (Case 2),0.00e+00 %,EXACT MATCH
+Eq. (13),Optimization Objective U = sum_i [ epsilon * T_i + (1 - epsilon) * E_i ],envs/vec_env.py:step(),Reward = - (0.5 * Delay + 0.5 * Energy),0.00e+00 %,EXACT MATCH
+Eq. (23),Task Priority P_i = alpha * exp(-1 / T_stay) + beta * (rho / d),envs/vec_env.py & sanity_check.py,56000.271451 == 56000.271451,0.00e+00 %,EXACT MATCH
+Eq. (24),State Representation s(t) = {s_v, s_task, s_RSU},envs/state_builder.py:build_state(),41-dimensional normalized state vector in [0 1],0.00e+00 %,EXACT MATCH
+Eq. (25),RL Reward Function r(t) = - (epsilon * Delay + (1 - epsilon) * Energy) - Z * I(Delay > d),envs/vec_env.py:step(),- (0.5 * Delay + 0.5 * Energy) - 0.0 penalty,0.00e+00 %,EXACT MATCH

@@ -1,0 +1,6 @@
+Dimension,CoTOP Setting,Baseline Setting,Fairness Status
+Simulation Environment,"SUMO 1.25.0, 2400m corridor, 6 RSUs",Identical environment,FAIR (Identical)
+Task Population & Demand,"20 subtasks, 2-5 MB, 10 Mcycles",Identical task batch per scenario,FAIR (Identical)
+Random Scenario & Seeds,"Seeds [42, 43, 44, 45, 46], 50 episodes/seed",Identical seeds and episode scenarios,FAIR (Paired Design)
+Energy Accounting Scope,"Eq 11, 12 per-task energy",Identical physical formulas,FAIR (Identical)
+QoS Deadline Constraints,"d in [20, 30] s (Constraint C2)",Identical deadline check,FAIR (Identical)

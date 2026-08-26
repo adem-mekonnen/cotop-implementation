@@ -1,0 +1,5 @@
+Metric,Paper Reported Result,Stage 12 Result,Stage 13 Result,Absolute Difference,Relative Difference,Seed Count,Episode Count,Evaluation Protocol,Scientific Status
+Average Total Delay (CoTOP),13.90 s,4.418 ± 0.206 s,4.402 ± 0.060 s,-9.498 s,-68.33%,5,250,Seed-Specific Checkpoints (Fixed Loader) across 50 ep/seed,METHOD-LEVEL REPRODUCED (Queue preload gap confirmed)
+Average Total Energy (CoTOP),25.14 J,0.316 ± 0.030 J,0.319 ± 0.005 J,-24.821 J,-98.73%,5,250,Seed-Specific Checkpoints across 50 ep/seed,METHOD-LEVEL REPRODUCED (Batch vs unit energy gap confirmed)
+Task Completion Ratio (CoTOP),98.50%,100.00% ± 0.00%,100.00% ± 0.00%,+1.50%,+1.52%,5,250,Seed-Specific Checkpoints across 50 ep/seed,NUMERICALLY REPRODUCED (100% completion in idle channel)
+Deadline Violation Ratio (CoTOP),1.50%,0.00% ± 0.00%,0.00% ± 0.00%,-1.50%,-100.00%,5,250,Seed-Specific Checkpoints across 50 ep/seed,NUMERICALLY REPRODUCED (Zero violations)

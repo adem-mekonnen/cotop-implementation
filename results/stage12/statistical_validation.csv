@@ -1,0 +1,16 @@
+Method,Metric,Sample Count (N),Mean,Std Dev,Std Error (SE),95% Confidence Interval (t-dist df=4),Statistical Methodology,Notes / Limitation
+CoTOP,Average Total Delay (s),5,4.418,0.206,0.0921,"[4.162, 4.674]",Student t-distribution (t=2.776 for 95% CI df=4),Evaluated over 5 seeds in clean scenario
+CoTOP,Average Energy (J),5,0.316,0.030,0.0134,"[0.279, 0.353]",Student t-distribution (t=2.776 for 95% CI df=4),Evaluated over 5 seeds in clean scenario
+CoTOP,Task Completion Ratio (%),5,100.00,0.00,0.0000,"[100.00, 100.00]",Student t-distribution (t=2.776 for 95% CI df=4),All tasks completed well within 20s deadline
+CoTOP,Deadline Violation Ratio (%),5,0.00,0.00,0.0000,"[0.00, 0.00]",Student t-distribution (t=2.776 for 95% CI df=4),Zero violations observed
+CoTOP,Average Reward,5,-44.82,1.25,0.5590,"[-46.37, -43.27]",Student t-distribution (t=2.776 for 95% CI df=4),Reward = - (0.5*Delay + 0.5*Energy)
+Local,Average Total Delay (s),5,4.418,0.206,0.0921,"[4.162, 4.674]",Student t-distribution (t=2.776 for 95% CI df=4),Matches CoTOP exactly in idle corridor
+Local,Average Energy (J),5,0.316,0.030,0.0134,"[0.279, 0.353]",Student t-distribution (t=2.776 for 95% CI df=4),Matches CoTOP exactly in idle corridor
+Local,Task Completion Ratio (%),5,100.00,0.00,0.0000,"[100.00, 100.00]",Student t-distribution (t=2.776 for 95% CI df=4),100% completion in idle corridor
+Local,Deadline Violation Ratio (%),5,0.00,0.00,0.0000,"[0.00, 0.00]",Student t-distribution (t=2.776 for 95% CI df=4),Zero violations observed
+Local,Average Reward,5,-44.82,1.25,0.5590,"[-46.37, -43.27]",Student t-distribution (t=2.776 for 95% CI df=4),Matches CoTOP exactly in idle corridor
+Greedy,Average Total Delay (s),5,4.534,0.243,0.1087,"[4.232, 4.836]",Student t-distribution (t=2.776 for 95% CI df=4),Slightly higher delay due to R2R relay overhead
+Greedy,Average Energy (J),5,4.534,0.243,0.1087,"[4.232, 4.836]",Student t-distribution (t=2.776 for 95% CI df=4),Higher energy due to 100W RSU transmission power
+Greedy,Task Completion Ratio (%),5,100.00,0.00,0.0000,"[100.00, 100.00]",Student t-distribution (t=2.776 for 95% CI df=4),100% completion
+Greedy,Deadline Violation Ratio (%),5,0.00,0.00,0.0000,"[0.00, 0.00]",Student t-distribution (t=2.776 for 95% CI df=4),Zero violations observed
+Greedy,Average Reward,5,-90.68,4.86,2.1735,"[-96.71, -84.65]",Student t-distribution (t=2.776 for 95% CI df=4),Lower reward due to high R2R relay energy penalty

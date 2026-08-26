@@ -1,0 +1,10 @@
+Primary Queue Wait t_wait1 (s),Standalone Delay (s),Standalone Energy (J),Standalone Reward,Collab Delay (s),Collab Energy (J),Collab Reward,Reward Advantage (Collab - Standalone),Optimal Policy Action
+0.0,4.421,0.294,-2.358,4.449,3.308,-3.879,-1.521,Case 1 (Standalone)
+1.0,5.421,0.294,-2.858,4.449,3.308,-3.879,-1.021,Case 1 (Standalone)
+3.0,7.421,0.294,-3.858,4.449,3.308,-3.879,-0.021,Case 1 (Standalone)
+5.0,9.421,0.294,-4.858,4.449,3.308,-3.879,0.979,Case 2 (Collaborative)
+8.0,12.421,0.294,-6.358,4.449,3.308,-3.879,2.479,Case 2 (Collaborative)
+10.0,14.421,0.294,-7.358,4.449,3.308,-3.879,3.479,Case 2 (Collaborative)
+12.0,16.421,0.294,-8.358,4.449,3.308,-3.879,4.479,Case 2 (Collaborative)
+15.0,19.421,0.294,-9.858,4.449,3.308,-3.879,5.979,Case 2 (Collaborative)
+20.0,24.421,0.294,-12.358,4.449,3.308,-3.879,8.479,Case 2 (Collaborative)

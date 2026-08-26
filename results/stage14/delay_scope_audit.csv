@@ -1,0 +1,4 @@
+Condition,Queue Preload (Gcycles),Upload Delay (s),Compute Delay (s),Queue Delay (s),Total Delay (s),Paper 13.90s Match (%),Scientific Evidence Status,Paper Specification Level
+A. Idle Corridor (Implementation Baseline),0.0,4.349,0.005,0.0,4.354,31.32,EXPLICIT PHYSICAL REALITY: Closed-form delay in idle corridor is bounded to 4.354s,Table III does not specify background queue load
+B. Paper-Specified Condition (Unstated Initial Queue),Unstated in Paper,4.35 to 4.41,0.0025 to 0.010,Unstated in Paper,13.9,100.0,UNSPECIFIED IN PAPER: Paper reports 13.90s but does not document background traffic or queue preload,Omitted from Section V-A and Table III
+C. Inferred Queue Required to Match 13.90s,18.96,4.349,0.005,9.482,13.854,99.67,"PLAUSIBLE BUT UNCONFIRMED: Sufficient physical condition capable of producing 13.90s, but not proven to be the paper's experimental protocol",Inferred from M/M/1 queuing model in Section IV-F

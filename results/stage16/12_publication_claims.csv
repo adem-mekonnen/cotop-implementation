@@ -1,0 +1,13 @@
+Category,Claim Statement,Evidence
+A. CLAIMS WE CAN SAFELY MAKE,"1. Mathematical implementation of CoTOP system models (Eq 1-13, 23, 25) is 100% faithful with 0.00% analytical deviation.","sanity_check.py, 22 unit tests passing"
+A. CLAIMS WE CAN SAFELY MAKE,"2. CoTOP achieves a statistically significant 93% energy reduction over Greedy offloading (p < 0.0001, Cohen d = -62.4).","250 paired test episodes, massive R2R relay power avoidance"
+A. CLAIMS WE CAN SAFELY MAKE,3. The A3C reinforcement learning architecture achieves asymptotic convergence across 5 independent seeds.,Monotonic critic loss decay (<0.0008) and reward plateau (-47.21)
+A. CLAIMS WE CAN SAFELY MAKE,"4. Under congested edge server regimes, collaborative offloading reduces task latency by 2.2-2.6s compared to standalone execution.",Ablation sweep across 3 congestion regimes
+B. CLAIMS WE CAN MAKE ONLY WITH QUALIFICATION,"1. CoTOP matches Local performance in an idle corridor (no statistically significant difference, p = 0.124).",Both rationally converge to standalone offloading in clean channel
+B. CLAIMS WE CAN MAKE ONLY WITH QUALIFICATION,2. Queue backlog (~19 Gcycles) is a plausible sufficient physical condition capable of generating 13.90s delay.,"Produces 13.854s (99.67% match), but unconfirmed from paper protocol"
+B. CLAIMS WE CAN MAKE ONLY WITH QUALIFICATION,3. Batch aggregation (40 tasks) at active server power is a plausible explanation for 25.14J energy.,"Produces 21.76-25.14J, but paper metric scope is unstated"
+B. CLAIMS WE CAN MAKE ONLY WITH QUALIFICATION,4. Method-level reproduction of CoTOP is achieved.,Algorithms and physics verified; numerical replication constrained by unstated protocol parameters
+C. CLAIMS WE SHOULD NOT MAKE,1. 'CoTOP outperforms Local in all scenarios' (False: equal in idle corridor).,Empirical paired p = 0.124
+C. CLAIMS WE SHOULD NOT MAKE,2. 'Paper numerical results are reproduced' (False: 4.40s vs 13.90s delay).,Empirical measurement in clean channel
+C. CLAIMS WE SHOULD NOT MAKE,3. 'Queue hypothesis is confirmed as the paper's original configuration' (False: unstated in paper).,Paper Table III omits initial queue backlog
+C. CLAIMS WE SHOULD NOT MAKE,4. 'ApolloScape dataset-level reproduction was achieved' (False: synthetic data used).,Repository uses synthetic kinematic generator

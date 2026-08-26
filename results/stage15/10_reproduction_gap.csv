@@ -1,0 +1,4 @@
+Metric,Paper Reported Value,Implementation Baseline Value,Observed Gap,Plausible Sufficient Physical Explanation,Protocol Disclosed Status,Scientific Reproduction Classification
+Average Total Delay,13.90 s,4.402 ± 0.060 s,-9.498 s (-68.33%),Edge servers experience ~19 Gcycles (~9.5 s) of multi-tenant queue backlog,UNSPECIFIED IN PAPER (Table III does not state queue state),PLAUSIBLE SUFFICIENT CONDITION — UNCONFIRMED AS PAPER PROTOCOL
+Average Total Energy,25.14 J,0.319 ± 0.005 J,-24.821 J (-98.73%),Aggregation scope: single task is 0.319 J; 40-task batch at active server power is 21.76-25.14 J,AMBIGUOUS IN PAPER (Paper does not state per-task vs batch aggregation),PLAUSIBLE METRIC SCOPE MISMATCH — UNCONFIRMED AS PAPER PROTOCOL
+Task Completion Ratio,98.50%,100.00% ± 0.00%,+1.50% (+1.52%),"Low latency in clean corridor (~4.40 s) finishes well within [20, 30] s deadline",EXACTLY MATCHED MATHEMATICAL DEFINITION,NUMERICALLY CONSISTENT WITH CLEAN CHANNEL DYNAMICS

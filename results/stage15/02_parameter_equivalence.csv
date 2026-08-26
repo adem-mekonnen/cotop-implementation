@@ -1,0 +1,8 @@
+Category,Paper Specification,Implementation Status,Equivalence Level,Peer Review Risk
+Channel & Radio Physics,"Shannon V2R (10 dBm, 20-100MHz) & R2R (50 dBm, 50MHz)","Exact closed-form Shannon capacity (Eq 1, 2)",EXACT (0.00% Error),Zero
+Computation & Server Frequency,"1.0-4.0 GHz RSU CPU, 10 Mcycles/task",Exact computation delay t_pro = phi/F_m (Eq 4),EXACT (0.00% Error),Zero
+Task Prioritization Model,"Eq 23 with alpha=0.3, beta=0.7",Exact formula with GAT-predicted dwell time t1,EXACT (0.00% Error),Zero
+Reinforcement Learning Architecture,"A3C Actor-Critic, 3 FC layers, SharedAdam lr=0.0002",Exact neural architecture & multiprocessing SharedAdam,EXACT,Zero
+Mobility Trajectory Data,ApolloScape Dataset,Kinematic synthetic trajectory approximation,SYNTHETIC SUBSTITUTE,Medium (Dataset vs Method reproduction)
+Edge Server Queue Preload,Unspecified in Table III,0.0 cycles (Clean idle corridor),OPERATIONAL DIVERGENCE,High (Root cause of 4.40s vs 13.90s delay)
+Energy Metric Scope,Ambiguous 'Average Energy' in text,Per-task physical energy logging (0.319 J),METRIC SCOPE MISMATCH,High (Root cause of 0.32J vs 25.14J energy)

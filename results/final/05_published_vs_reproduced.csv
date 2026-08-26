@@ -1,0 +1,4 @@
+Metric,Published Target Value,Clean-Channel Reproduced Value,Difference,Physical Origin,Status
+Average Total Delay,13.90 s,4.402 ± 0.060 s,-9.498 s (-68.33%),Clean corridor starts with 0 queue backlog; physical delay is bounded to ~4.40s,NOT NUMERICALLY REPRODUCED
+Average Total Energy,25.14 J,0.319 ± 0.005 J,-24.821 J (-98.73%),Implementation logs single-task energy (0.319J); 25.14J matches 40-task batch aggregation,NOT NUMERICALLY REPRODUCED
+Task Completion Ratio,98.50%,100.00% ± 0.00%,+1.50% (+1.52%),"Low latency (~4.40s) is far below deadline [20, 30]s, avoiding deadline breaches",NUMERICALLY CONSISTENT

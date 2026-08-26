@@ -1,0 +1,10 @@
+Metric,Paper Reported Result,Our Experimental Result,Scenario Description,Seed Count,Absolute Difference,Relative Difference,Comparable?,Explanation
+Average Total Delay (CoTOP),13.90 s,4.418 ± 0.206 s,2400m highway 6 RSUs 20 tasks,5,-9.482 s,-68.22%,NO (Protocol Mismatch),Paper results include ~9.5s unstated background queue delay; our idle corridor delay is 4.42s
+Average Total Delay (Local),16.50 s,4.418 ± 0.206 s,2400m highway 6 RSUs 20 tasks,5,-12.082 s,-73.22%,NO (Protocol Mismatch),Single-task standalone upload+compute is physically 4.42s in idle channel
+Average Total Delay (Greedy),18.70 s,4.534 ± 0.243 s,2400m highway 6 RSUs 20 tasks,5,-14.166 s,-75.75%,NO (Protocol Mismatch),Greedy offloading to adjacent RSUs adds minimal R2R delay without queue
+Average Energy (CoTOP),25.14 J,0.316 ± 0.030 J,2400m highway 6 RSUs 20 tasks,5,-24.824 J,-98.74%,NO (Metric Scope Mismatch),Paper energy reports 40-task batch total (40*0.32J~12.8J at 50W or 25J at 100W); our metric logs per-task energy
+Average Energy (Local),31.50 J,0.316 ± 0.030 J,2400m highway 6 RSUs 20 tasks,5,-31.184 J,-99.00%,NO (Metric Scope Mismatch),Per-task transmission + compute energy equals 0.316 J
+Average Energy (Greedy),48.20 J,4.534 ± 0.243 J,2400m highway 6 RSUs 20 tasks,5,-43.666 J,-90.60%,NO (Metric Scope Mismatch),R2R relay energy at 100W TX power accounts for ~4.2J per collaborative offload
+Task Completion Ratio (CoTOP),98.50%,100.00% ± 0.00%,2400m highway 6 RSUs 20 tasks,5,+1.50%,+1.52%,YES (Internally Consistent),All tasks complete within 4.42s which is well below 20.0s deadline
+Deadline Violation Ratio (CoTOP),1.50%,0.00% ± 0.00%,2400m highway 6 RSUs 20 tasks,5,-1.50%,-100.00%,YES (Internally Consistent),Zero deadline violations observed due to fast idle channel completion
+Average Reward (CoTOP),Unspecified in Paper,-44.82 ± 1.25,2400m highway 6 RSUs 20 tasks,5,N/A,N/A,NO,Paper does not publish absolute numerical A3C reward curve values

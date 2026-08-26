@@ -1,0 +1,10 @@
+\begin{tabular}{llrrrrrrrrllrlll}
+\toprule
+Comparison & Metric & N (Paired Units) & N (Independent Seeds) & Mean Difference & Std of Difference & Standard Error (SEM) & Degrees of Freedom & Paired t-statistic & Raw p-value & Holm-Bonferroni Adjusted p-value & Benjamini-Hochberg FDR p-value & Paired Cohen d\_z & Common Language Effect Size (CLES) & 95\% CI of Difference & Statistical Conclusion \\
+\midrule
+CoTOP vs Local (Episode-level) & Total Delay (s) & 250 & 5 & -0.023200 & 0.330000 & 0.020900 & 249 & -1.112100 & 0.267200 & 0.534400 & 0.356200 & -0.070300 & 53.20\% & [-0.0643, +0.0179] & No statistically significant difference detected (p = 0.2672 > 0.05). Both execute optimal Standalone offloading in clean channel. \\
+CoTOP vs Local (Seed-level hierarchical) & Total Delay (s) & 5 & 5 & -0.023200 & 0.064700 & 0.028900 & 4 & -0.801800 & 0.467600 & 0.467600 & 0.467600 & -0.358600 & 80.00\% & [-0.1036, +0.0572] & No statistically significant difference detected at seed level (p = 0.4676 > 0.05). \\
+CoTOP vs Greedy (Episode-level) & Total Energy (J) & 250 & 5 & -4.206000 & 0.276400 & 0.017500 & 249 & -240.576000 & 0.000000 & < 1e-4 & < 1e-4 & -15.215400 & 100.00\% & [-4.2405, -4.1716] & Massive, statistically significant 92.95\% energy reduction (p < 1e-4). Avoids 100W R2R relay power. \\
+\bottomrule
+\end{tabular}
+

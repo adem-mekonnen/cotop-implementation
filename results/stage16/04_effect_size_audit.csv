@@ -1,0 +1,5 @@
+Comparison,Metric,Mean Difference,Std Dev of Difference,Paired Cohen d_z,Pooled Cohen d_s,Percentage Difference (%),Scientific Interpretation
+CoTOP vs Local,Total Delay (s),-0.0232,0.33,-0.0703,-0.1009,-0.52%,Negligible effect (|d| < 0.1). No statistically significant difference detected (p = 0.124). Both execute Standalone in idle corridor.
+CoTOP vs Local,Total Energy (J),-0.0008,0.0442,-0.0189,-0.0285,-0.26%,Zero practical difference (|d| < 0.1). Identical single-task energy (0.319 J vs 0.320 J).
+CoTOP vs Greedy,Total Delay (s),0.0086,0.3521,0.0245,0.0362,0.20%,Negligible delay difference (<0.01s). R2R transmission time is under 10ms.
+CoTOP vs Greedy,Total Energy (J),-4.206,0.2764,-15.2154,-21.6318,-92.95%,"Massive effect (Cohen d_z = -15.2, d_s = -21.6, CLES = 100%). Value is technically large because paired variance is low (s_D = 0.067J) while Greedy consumes 14.2x more energy (4.525 J vs 0.319 J, -92.95%)."

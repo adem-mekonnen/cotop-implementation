@@ -1,0 +1,27 @@
+Parameter,Paper Value,Paper Section,Classification,Implementation Value,Status,Notes
+Corridor Geometry (Length),2400 m,"Section III-A, Table III",EXACTLY DISCLOSED,2400.0 m,IMPLEMENTED,Straight multi-lane highway segment
+RSU Count & Locations,"6 RSUs, uniform 400m spacing",Table III,EXACTLY DISCLOSED,"6 RSUs at [0, 400, 800, 1200, 1600, 2000] m",IMPLEMENTED,Equidistant roadside deployment
+RSU Coverage Radius,400 m,Table III,EXACTLY DISCLOSED,400.0 m,IMPLEMENTED,Communication radius per RSU
+Vehicle Count Range,10 to 30,Table III,EXACTLY DISCLOSED,10 to 30,IMPLEMENTED,Active vehicle count
+Vehicle Speed Range,30.0 to 40.0 m/s,Table III,EXACTLY DISCLOSED,30.0 to 40.0 m/s,IMPLEMENTED,108 to 144 km/h
+Task Data Size Range,2.0 to 5.0 MB,Table III,EXACTLY DISCLOSED,2.0 to 5.0 MB,IMPLEMENTED,Subtask data volume
+Subtasks per Vehicle,20 to 40,Table III,EXACTLY DISCLOSED,20 (nominal),IMPLEMENTED,Parallel DAG subtasks
+Mean Task CPU Cycles,10 Mcycles nominal,"Section III-F, V-A",EXACTLY DISCLOSED,10.0 Mcycles,IMPLEMENTED,Nominal computational workload
+RSU CPU Clock Frequency,1.0 to 4.0 GHz,Table III,EXACTLY DISCLOSED,1.0 to 4.0 GHz,IMPLEMENTED,Server processing frequency
+Vehicle Transmit Power (P_V),10 dBm (0.01 W),Table III,EXACTLY DISCLOSED,0.01 W,IMPLEMENTED,Uplink transmission power
+RSU Transmit Power (P_R),50 dBm (100.0 W),Table III,EXACTLY DISCLOSED,100.0 W,IMPLEMENTED,Inter-RSU R2R backhaul power
+V2R Wireless Bandwidth,20.0 to 100.0 MHz,Table III,EXACTLY DISCLOSED,20.0 to 100.0 MHz,IMPLEMENTED,Uplink channel bandwidth
+R2R Backhaul Bandwidth,50.0 MHz,Table III,EXACTLY DISCLOSED,50.0 MHz,IMPLEMENTED,Fiber/wired inter-RSU bandwidth
+Thermal Noise Power,0.001 dBm (0.001 W),Table III,EXACTLY DISCLOSED,0.001 W,IMPLEMENTED,Background noise power
+Path Loss Parameters,"K = 30 dB (1000.0), gamma = 2.0",Table III,EXACTLY DISCLOSED,"K = 1000.0, gamma = 2.0",IMPLEMENTED,Free-space log-distance path loss
+Task Latency Deadline,20.0 to 30.0 s,Table III,EXACTLY DISCLOSED,20.0 to 30.0 s,IMPLEMENTED,QoS latency constraint threshold
+Task Priority Weights,"alpha = 0.3, beta = 0.7",Section V-C,EXACTLY DISCLOSED,"alpha = 0.3, beta = 0.7",IMPLEMENTED,Eq 23 priority weighting
+A3C Learning Rate,0.0002,Section V-C,EXACTLY DISCLOSED,0.0002,IMPLEMENTED,SharedAdam learning rate
+A3C Training Episodes,500 episodes,"Section V-B, Fig 4",EXACTLY DISCLOSED,500 episodes,IMPLEMENTED,Convergence horizon
+Mobility Training Epochs,25 epochs,Table II,EXACTLY DISCLOSED,25 epochs,IMPLEMENTED,GAT-GRU training epochs
+Reward Tradeoff Epsilon,Unspecified in Table III,"Eq 13, Eq 25",PARTIALLY DISCLOSED,0.5,ASSUMED,Equal delay/energy balance
+RL Discount Factor Gamma,Unspecified in Table III,Eq 27,PARTIALLY DISCLOSED,0.99,ASSUMED,Standard discount factor
+RSU Active Compute Power,Unspecified in Table III,Eq 11,NOT DISCLOSED,50.0 W,ASSUMED,Active server compute power
+A3C Parallel Worker Count,Unspecified in Paper,Section IV-D,NOT DISCLOSED,2 to 4 workers,ASSUMED,Hardware-dependent concurrency
+Initial Edge Queue Backlog,Unspecified in Paper,Section III-C,NOT DISCLOSED,0.0 cycles (Idle),ASSUMED,Unstated initial queue state
+Mobility Dataset Source,ApolloScape Dataset,Section V-A,EXACTLY DISCLOSED,Synthetic Kinematic Trajectories,SYNTHETIC SUBSTITUTE,ApolloScape raw data not bundled in repo

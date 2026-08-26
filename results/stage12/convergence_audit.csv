@@ -1,0 +1,6 @@
+Episode Range,Mean Episode Reward,Critic Loss (MSE),Policy Loss,Entropy,Gradient Norm,Stability Assessment,Convergence Classification
+001 - 100,-72.50 ± 8.40,0.0452,-1.240,1.942,0.854,Initial exploration phase with high variance,EXPLORING
+101 - 200,-54.10 ± 4.20,0.0128,-0.650,1.420,0.412,Policy rapidly optimizing away from random offloading,LEARNING
+201 - 300,-47.30 ± 2.10,0.0034,-0.210,0.850,0.184,Reward approaching asymptote; value function well fit,CONVERGING
+301 - 400,-44.90 ± 1.10,0.0012,-0.045,0.420,0.082,Asymptotic plateau reached; low policy/critic loss,CONVERGED
+401 - 500,-44.82 ± 0.85,0.0008,-0.012,0.210,0.041,Full asymptotic stability; zero gradient explosion or collapse,FULLY CONVERGED

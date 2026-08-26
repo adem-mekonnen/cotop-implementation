@@ -1,0 +1,5 @@
+| Method | Total Delay Mean (s) | Delay 95% CI (s) | Total Energy Mean (J) | Energy 95% CI (J) | Completion Ratio (%) | Collaboration Rate (%) | Operational Summary |
+| --- | --- | --- | --- | --- | --- | --- | --- |
+| Local | 4.425 ± 0.023 | [4.397, 4.453] | 0.320 ± 0.005 | [0.314, 0.326] | 100.00% | 0.00% | Static standalone execution on primary RSU |
+| CoTOP | 4.402 ± 0.060 | [4.327, 4.477] | 0.319 ± 0.005 | [0.313, 0.325] | 100.00% | 0.40% | Learns optimal standalone execution in clean channel |
+| Greedy | 4.393 ± 0.050 | [4.331, 4.455] | 4.525 ± 0.068 | [4.441, 4.609] | 100.00% | 95.00% | Relays 95% of tasks across min-queue RSUs at 100W power |

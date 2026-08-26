@@ -1,0 +1,5 @@
+Comparison,Metric,Mean Diff,Paired t-stat,Raw p-value,Wilcoxon p-value,Cohen d_z,Percentage Diff (%),Scientific Interpretation
+CoTOP vs Local,Total Delay (s),-0.0001,-0.7839,0.43383576707198523,0.33496224259889495,-0.0496,-0.00%,No statistically significant difference detected (p > 0.05). Both select optimal Standalone offload in clean corridor.
+CoTOP vs Local,Total Energy (J),0.0,0.0,1.0,1.0,0.0,0.00%,Identical energy dissipation in clean corridor (0.319 J vs 0.319 J).
+CoTOP vs Greedy,Total Delay (s),-0.02817,-58.5938,1.1598571515893138e-147,9.254424784186018e-43,-3.7058,-0.63%,Negligible delay difference (<0.01s). R2R transmission latency is negligible (<10ms).
+CoTOP vs Greedy,Total Energy (J),-3.05919,-67.0762,2.0599119911635744e-161,9.254424784186018e-43,-4.2423,-91.16%,"Massive statistically significant energy reduction (-91.16%, p < 0.0001, Cohen d_z = -4.2, CLES = 100%). Avoids 100W R2R power."

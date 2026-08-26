@@ -1,0 +1,33 @@
+Parameter,Paper Value,Paper Location,Repository Value,Colab Value,Unit,Classification,Notes
+Road Length,2400,Section III-A,2400.0,2400.0,m,EXACT MATCH,Highway corridor length
+Number of RSUs,6,Table III,6,6,count,EXACT MATCH,Equidistant RSU deployment
+RSU Spacing,400,Table III,400.0,400.0,m,EXACT MATCH,Uniform spacing along corridor
+RSU Coverage Radius,400,Table III,400.0,400.0,m,EXACT MATCH,Communication radius
+Vehicle Speed Range,"[30.0, 40.0]",Table III,"[30.0, 40.0]","[30.0, 40.0]",m/s,EXACT MATCH,108 to 144 km/h
+Vehicle Count Range,"[10, 30]",Table III,"[10, 30]","[10, 30]",count,EXACT MATCH,Active vehicular load
+Task Count per Vehicle,"[20, 40]",Table III,20 (nominal),20 (nominal),count,EXACT MATCH,Parallel subtasks per vehicle
+Task Size Range,"[2.0, 5.0]",Table III,"[2.0e6, 5.0e6]","[2.0e6, 5.0e6]",Bytes,EXACT MATCH,2.0 to 5.0 MB
+CPU Demand per Task,10 (mean),Section V-A,10.0e6,10.0e6,cycles,IMPLEMENTATION MATCH,10 Mcycles nominal computation
+RSU CPU Capacity,"[1.0, 4.0]",Table III,"[1.0e9, 4.0e9]","[1.0e9, 4.0e9]",Hz,EXACT MATCH,1.0 to 4.0 GHz clock rate
+Vehicle TX Power,10 dBm,Table III,0.01,0.01,W,EXACT MATCH,10 dBm = 0.01 W
+RSU TX Power,50 dBm,Table III,100.0,100.0,W,EXACT MATCH,50 dBm = 100.0 W for R2R link
+V2R Bandwidth,"[20.0, 100.0]",Table III,"[20.0e6, 100.0e6]","[20.0e6, 100.0e6]",Hz,EXACT MATCH,20 to 100 MHz wireless link
+R2R Bandwidth,50.0,Table III,50.0e6,50.0e6,Hz,EXACT MATCH,50 MHz inter-RSU wired link
+Thermal Noise Power,0.001 dBm,Table III,0.001,0.001,W,EXACT MATCH,Background noise power
+Fixed Path Loss K,30 dB,Table III,1000.0,1000.0,ratio,EXACT MATCH,10^(30/10) = 1000.0
+Path Loss Exponent,2.0,Table III,2.0,2.0,exponent,EXACT MATCH,Free space propagation exponent
+Task Deadline Range,"[20.0, 30.0]",Table III,"[20.0, 30.0]","[20.0, 30.0]",s,EXACT MATCH,Latency constraint bound
+Task Priority Alpha,0.3,Section V-C,0.3,0.3,weight,EXACT MATCH,Dwell time weight in Eq 23
+Task Priority Beta,0.7,Section V-C,0.7,0.7,weight,EXACT MATCH,Task demand weight in Eq 23
+Reward Tradeoff Epsilon,Unspecified,Eq. 13,0.5,0.5,weight,DOCUMENTED ASSUMPTION,Equal balance delay vs energy
+Deadline Penalty Z,Unspecified,Eq. 25,100.0,100.0,penalty,DOCUMENTED ASSUMPTION,Reward penalty on violation
+RSU Active Compute Power,Unspecified,Eq. 11,50.0,50.0,W,DOCUMENTED ASSUMPTION,Edge server active power draw
+A3C Learning Rate,0.0002,Section V-C,0.0002,0.0002,lr,EXACT MATCH,SharedAdam optimizer lr
+A3C Discount Factor Gamma,Unspecified,Section IV-D,0.99,0.99,ratio,DOCUMENTED ASSUMPTION,Standard RL discount factor
+A3C Training Episodes,500,Section V-B,500,500,episodes,EXACT MATCH,Full training convergence curve
+A3C Parallel Workers,Unspecified (4 typical),Section IV-D,4,2,workers,COLAB DIFFERENCE,Colab 2-vCPU core limitation
+Mobility Training Epochs,25,Table II,25,10,epochs,COLAB DIFFERENCE,Colab shortened training duration
+Mobility Dataset,ApolloScape,Section V-A,Synthetic,Synthetic,dataset,DOCUMENTED ASSUMPTION,Large ApolloScape not bundled in repo
+Evaluation Seed Count,Unspecified,Section V-A,5,5,seeds,DOCUMENTED ASSUMPTION,Seeds 42 through 46
+Evaluation Episodes per Seed,Unspecified,Section V-A,20,5,episodes,COLAB DIFFERENCE,Colab only tested 5 episodes/seed
+Initial Queue Preload,Unspecified,Section III-C,0.0,0.0,cycles,UNSPECIFIED / CONFLICT,Idle corridor vs background traffic

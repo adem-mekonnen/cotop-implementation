@@ -1,0 +1,14 @@
+\begin{tabular}{llll}
+\toprule
+Claim ID & Claim Statement & Classification & Evidence \\
+\midrule
+Claim A & Mathematical formulations specified in Eqs. 1-13, 23, and 25 were faithfully implemented with 0.00\% analytical deviation. & VERIFIED & sanity\_check.py passes 100\% with 0.00e+00 floating-point error; 22 unit tests passing. \\
+Claim B & A3C training reaches asymptotic stability by epoch 35-40 across five independent seeds, and extending training to 50 or 100 epochs produces no material change. & VERIFIED & 01\_training\_convergence.csv shows Critic MSE loss < 0.0006 and reward plateau at -47.21. \\
+Claim C & Under clean-channel conditions, no statistically significant latency difference was detected between CoTOP and Local. & VERIFIED & Paired t-test t(249) = -1.542, p = 0.1244 across N=250 shared test episodes. \\
+Claim D & CoTOP demonstrates an approximately 92.95\% reduction in energy relative to Greedy under the controlled evaluation protocol, with statistically significant results after multiple-testing correction. & VERIFIED & p < 1e-4 after Holm and FDR adjustments; paired Cohen d\_z = -62.40; CLES = 100.0\%. \\
+Claim E & The published 13.90 s latency and 25.14 J energy values were not independently reproduced under the implemented clean-channel/single-scope protocol. & VERIFIED & Measured 4.402s delay and 0.319J energy under disclosed Table III parameters without queue preload. \\
+Claim F & Queue backlog (\textasciitilde 18.96 Gcycles) and task aggregation (40 tasks) provide plausible post-hoc diagnostic explanations for published values, but original configurations cannot be established from disclosed information. & VERIFIED & Diagnostic sweeps yield 13.854s (99.67\% match) and 21.76-25.14J (matching Fig 6), but are unstated in paper Table III. \\
+Claim G & The overall reproduction level is Class B — Method-Level Reproduction. & VERIFIED & Algorithms and physics verified; numerical replication constrained by missing protocol elements. \\
+\bottomrule
+\end{tabular}
+

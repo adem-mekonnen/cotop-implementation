@@ -1,0 +1,10 @@
+Evaluation Dimension,Paper Intended Protocol,Repository Protocol,Stage 11 Colab Protocol,Audit Status,Scientific Impact
+Number of Training Seeds,Multiple (typical 5),5 seeds [42..46],5 seeds [42..46],EXACT MATCH,Independent training seeds configured
+Training Episodes per Seed,500 episodes,500 episodes,500 episodes,EXACT MATCH,500 A3C episodes per run
+Parallel Worker Concurrency,4 workers,4 workers (train.py default),2 workers,COLAB DIFFERENCE,Reduced due to Colab CPU constraints
+Mobility Training Epochs,25 epochs,25 epochs (train_mobility.py default),10 epochs,COLAB DIFFERENCE,Shortened training in Colab script
+Evaluation Episodes per Seed,20+ episodes,20 episodes (evaluate.py default),5 episodes,COLAB DIFFERENCE (SAMPLE SIZE DEFICIT),Statistical sample size N=5/seed is too small
+Checkpoint Loading Mechanism,Seed-specific trained model,Hardcoded static path in evaluate.py,Hardcoded static path in evaluate.py,CRITICAL DEFECT,Evaluations did not evaluate seed-trained checkpoints
+Scenario Consistency,Identical traffic & tasks,Identical SUMO & seed,Identical SUMO & seed,EXACT MATCH,All algorithms evaluated on identical test inputs
+Ablation Support in CLI,wo_md / wo_tp / wo_co,Supported via evaluate.py --mode,Printed placeholder in notebook,PARTIAL,CLI supports ablations; notebook omitted execution
+Stress Test Support,Multi-vehicle multi-task stress,Supported via experiments/,Printed placeholder in notebook,PARTIAL,CLI supports stress tests; notebook omitted execution

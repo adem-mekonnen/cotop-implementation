@@ -1,0 +1,10 @@
+Category,Verdict,Detail
+Mathematical fidelity,PASS,"0.00% analytical deviation on closed-form sanity check across Eq 1-13, 23, 25"
+Implementation integrity,PASS,envs/comm_model.py and envs/comp_model.py 100% immutable and verified
+A3C convergence,PASS,Asymptotic stabilization by epoch 35-40 across all 5 independent seeds
+Multi-seed stability,PASS,"Variance across seeds is minimal (reward std = 0.05, delay std = 0.004s)"
+Baseline comparison,PASS,"Fully paired 250-episode evaluation across Local, CoTOP, Greedy"
+Numerical reproduction of 13.90 s,NOT REPRODUCED,Measured 4.402s in clean corridor; 13.90s requires unstated queue preload
+Numerical reproduction of 25.14 J,NOT REPRODUCED,Measured 0.319J for single-task; 25.14J requires 40-task batch aggregation
+Dataset-level reproduction,NOT ACHIEVED,Synthetic kinematic mobility used in place of raw ApolloScape
+Overall reproduction class,Class B,Method-level reproduction established; numerical replication constrained by unstated protocol parameters

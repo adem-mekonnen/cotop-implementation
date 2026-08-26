@@ -1,0 +1,5 @@
+Comparison,Total Decisions,Divergence Rate (%)
+CoTOP vs Local Baseline,500,0.0
+CoTOP vs Greedy Baseline,500,95.0
+Local vs Greedy Baseline,500,95.0
+CoTOP Collaborative Action Rate,500,0.0

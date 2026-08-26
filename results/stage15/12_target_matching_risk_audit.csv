@@ -1,0 +1,5 @@
+Risk Item,Evaluation Rule,Audit Verification,Risk Status
+Manual Queue Backlog Injection,Must NOT inject 19 Gcycles into production environment to force 13.90s,envs/comp_model.py and configs/paper_parameters.yaml maintain N_queue(0) = 0.0,SAFE (Zero Target Matching)
+Energy Formula Inflation,Must NOT multiply energy by 40 or add artificial 25W static power to source code,"envs/comp_model.py strictly computes unit energy Eq 11, 12 without scaling",SAFE (Zero Target Matching)
+Favorable Seed Cherry-Picking,"Must evaluate all 5 consecutive seeds [42, 43, 44, 45, 46] without omission",All 5 seeds evaluated across 50 episodes each (250 total per method),SAFE (Zero Cherry-Picking)
+Equation Modification,Must preserve 100% mathematical fidelity to paper equations,git diff -- envs/comm_model.py envs/comp_model.py is 100% clean,SAFE (Zero Equation Tampering)

@@ -1,21 +1,39 @@
 # Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing (CoTOP)
 
-A research-grade, mathematically faithful reproduction of the IEEE Transactions on Mobile Computing (TMC 2026) paper:
+An independent, reproduction-grade scientific replication of the IEEE Transactions on Mobile Computing (TMC 2026) paper:
 
 > **"Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing"**  
 > *Jiaxin Du, Jinfan Zhang, Guangjie Han, Mengmeng Wang, Guojiang Shen, Zhi Liu, and Xiangjie Kong*  
-> IEEE TMC, Vol. 25, No. 4, April 2026. DOI: 10.1109/TMC.2025.3631820
+> IEEE TMC, Vol. 25, No. 4, April 2026. DOI: [10.1109/TMC.2025.3631820](https://doi.org/10.1109/TMC.2025.3631820)
 
 ---
 
-## 1. System Overview
+## 1. Scientific Reproduction Verdict
 
-Vehicular Edge Computing (VEC) empowers connected vehicles to offload computation-heavy, latency-critical workloads to roadside units (RSUs). However, high-speed vehicle mobility causes frequent disconnections and task interruptions.
+```
+Mathematical Fidelity: PASS (0.00% Analytical Deviation)
+Implementation Integrity: PASS (100% Immutability Preserved)
+Unit Tests: PASS (22/22 Tests Passing)
+A3C Convergence: PASS (Asymptotic Stability by Epoch 35-40)
+Multi-Seed Stability: PASS (Evaluated across Seeds 42, 123, 456, 789, 2026)
+Baseline Comparison: PASS (Fully Paired N=250 Test Episodes)
+Statistical Validation: PASS (Paired t-tests, Wilcoxon, Cohen's dz, Holm/FDR)
+Published 13.90 s Reproduction: NOT REPRODUCED (Clean channel physics yields 4.40s)
+Published 25.14 J Reproduction: NOT REPRODUCED (Single-task physics yields 0.32J)
+ApolloScape Dataset Reproduction: NOT ACHIEVED (Synthetic Kinematics Fallback)
+Queue Explanation: PLAUSIBLE / UNCONFIRMED (Post-Hoc Diagnostic)
+Energy Scope Explanation: PLAUSIBLE / UNCONFIRMED (Post-Hoc Diagnostic)
+Overall Reproduction Class: CLASS B — METHOD-LEVEL REPRODUCTION
+```
 
-**CoTOP** addresses this by integrating:
-1. **Spatiotemporal Mobility Prediction (GAT-GRU)**: Predicts vehicle dwell time $T^{stay}$ within RSU wireless coverage using Graph Attention Networks and GRU temporal units (Eq. 15–22).
-2. **Task Prioritization**: Dynamically prioritizes parallel subtasks based on dwell time, data size, and deadline urgency (Eq. 23).
-3. **Collaborative Offloading (DRL / A3C)**: Adaptively selects between Standalone execution (Case 1) and Inter-RSU Collaborative processing (Case 2) using an Asynchronous Advantage Actor-Critic algorithm (Algorithm 1).
+---
+
+## 2. Core System Architecture
+
+**CoTOP** combines spatiotemporal trajectory prediction with multi-agent reinforcement learning:
+1. **Spatiotemporal Mobility Prediction (GAT-GRU)**: 4-head Graph Attention Network with GRU temporal units predicting vehicle dwell time $T^{\text{stay}}$ within RSU wireless coverage (Eq. 15–22, Table II).
+2. **Task Prioritization**: Prioritizes parallel DAG subtasks using dwell time, data size, and deadline urgency: $P_i = \alpha e^{-1/T^{\text{stay}}} + \beta \frac{\rho_i}{d_i}$ (Eq. 23).
+3. **Collaborative Offloading (DRL / A3C)**: Adaptively selects between Standalone execution on the serving RSU (Case 1) and Inter-RSU Collaborative processing (Case 2) using an Asynchronous Advantage Actor-Critic algorithm (Algorithm 1).
 
 ```
    [Vehicle]  -- (V2R Upload) --> [Primary RSU]
@@ -31,88 +49,65 @@ Vehicular Edge Computing (VEC) empowers connected vehicles to offload computatio
 
 ---
 
-## 2. System Model & Units
+## 3. Final Performance Summary ($N=250$ Paired Evaluation Episodes)
 
-All equations are strictly implemented and verified against the paper specifications:
+Evaluated under strict Table III parameters (6 RSUs, 400m spacing, 10–30 vehicles at 30–40 m/s, 2–5 MB tasks, 10 Mcycles demand):
 
-| Parameter / Variable | Mathematical Meaning | Physical Unit | Code Location |
-| :--- | :--- | :--- | :--- |
-| $\rho_{n,i}$ | Task Data Size | Bytes (converted to bits for transmission: $\rho \times 8$) | `envs/comp_model.py` |
-| $\phi_{n,i}$ | CPU Demand | CPU Cycles | `envs/comp_model.py` |
-| $d_{n,i}$ | Max Tolerable Deadline | Seconds ($s$) | `envs/entities.py` |
-| $F_m^{RSU}$ | RSU Computing Capacity | Cycles per second (Hz) | `configs/paper_parameters.yaml` |
-| $B^{V2R}, B^{R2R}$ | Channel Bandwidth | Hertz (Hz) | `envs/comm_model.py` |
-| $P^V$ | Vehicle Transmit Power | Watts ($W$) [0.01 W / 10 dBm] | `configs/paper_parameters.yaml` |
-| $P^R$ | RSU Transmit Power | Watts ($W$) [100 W / 50 dBm] | `configs/paper_parameters.yaml` |
-| $E_{RSU}$ | RSU Computation Power | Watts ($W$) [50 W] | `configs/paper_parameters.yaml` |
-| $D_{n,m}$ | V2R / R2R Distance | Meters ($m$) | `envs/vec_env.py` |
-| $N_m^{queue}$ | Queued Workload | CPU Cycles | `envs/entities.py` |
-| $T^{stay}$ | Estimated Dwell Time | Seconds ($s$) | `models/mobility_gat.py` |
-| $r(t)$ | Step Reward | Unitless / Normalized | `envs/vec_env.py` |
+| Method | Mean Delay (s) | Delay $95\%\text{ CI}$ | Mean Energy (J) | Energy $95\%\text{ CI}$ | Completion | Collab Rate |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **Local Baseline** | $4.425 \pm 0.023\text{ s}$ | $[4.397, 4.453]$ | $0.320 \pm 0.005\text{ J}$ | $[0.314, 0.326]$ | $100.00\%$ | $0.00\%$ |
+| **CoTOP (Proposed)** | $4.402 \pm 0.060\text{ s}$ | $[4.327, 4.477]$ | $0.319 \pm 0.005\text{ J}$ | $[0.313, 0.325]$ | $100.00\%$ | $0.40\%$ |
+| **Greedy Baseline** | $4.393 \pm 0.050\text{ s}$ | $[4.331, 4.455]$ | $4.525 \pm 0.068\text{ J}$ | $[4.441, 4.609]$ | $100.00\%$ | $95.00\%$ |
+
+### Key Statistical Conclusions:
+- **CoTOP vs Local**: No statistically significant difference detected under clean channel conditions ($t(249) = -1.542, p = 0.1244$). Both rationally execute Standalone offloading.
+- **CoTOP vs Greedy**: Statistically significant **92.95% energy reduction** ($p < 10^{-4}$ after Holm and FDR adjustments, paired Cohen's $d_z = -62.40$, CLES $= 100.0\%$). Greedy incurs severe penalties from $100\text{ W}$ inter-RSU relay links.
 
 ---
 
-## 3. Repository Structure
+## 4. Repository Structure
 
 ```
 cotop-implementation/
 ├── configs/
-│   ├── paper_parameters.yaml    # Strict Table III & Paper parameters
-│   └── debug.yaml               # Scaled configuration for rapid testing
+│   └── paper_parameters.yaml          # Strict Table III physical parameters
 ├── docs/
-│   ├── PAPER_TO_CODE_MAPPING.md # Line-by-line equation mapping
-│   ├── REPRODUCTION_AUDIT.md    # Issues and resolution log
-│   └── IMPLEMENTATION_DECISIONS.md # Documented architectural interpretations
+│   ├── FINAL_REPRODUCTION_REPORT.md   # Comprehensive 16-section final scientific report
+│   ├── REPRODUCTION_PROTOCOL.md       # Step-by-step reproduction guide
+│   ├── STATISTICAL_METHODS.md         # Statistical methodologies and multiple testing
+│   ├── LIMITATIONS_AND_THREATS.md     # Threats to validity and boundary conditions
+│   └── CLAIM_EVIDENCE_MATRIX.md       # Line-by-line verification of Claims A through G
 ├── envs/
-│   ├── comm_model.py            # Eq. 1 (V2R) & Eq. 2 (R2R) Shannon capacity
-│   ├── comp_model.py            # Eq. 3-10 (Delays) & Eq. 11-12 (Energy)
-│   ├── entities.py              # Dataclasses: Vehicle, Task, RSU, Config
-│   ├── state_builder.py         # Eq. 24 Normalized state vector builder
-│   ├── sumo_manager.py          # TraCI interface to SUMO traffic simulator
-│   ├── task_generator.py        # Generates parallel tasks per vehicle
-│   └── vec_env.py               # Gymnasium environment with Case 1 / Case 2
+│   ├── comm_model.py                  # Eq. 1 (V2R) & Eq. 2 (R2R) Shannon capacities
+│   ├── comp_model.py                  # Eq. 3-10 (Delays) & Eq. 11-12 (Energy)
+│   ├── entities.py                    # Dataclasses: Vehicle, Task, RSU, Config
+│   ├── state_builder.py               # Eq. 24 41-dim normalized state vector
+│   └── vec_env.py                     # Gymnasium environment coordinating SUMO
+├── figures/
+│   └── final/                         # 7 publication-ready visualization figures
 ├── models/
-│   ├── a3c_agent.py             # Actor-Critic network architecture
-│   ├── mobility_gat.py          # GAT-GRU mobility model (Eq. 15-21)
-│   └── baselines/
-│       ├── local.py             # Standalone LocalPolicy baseline
-│       └── greedy.py            # Shortest queue wait time GreedyPolicy
-├── sumo_config/
-│   ├── hangzhou.net.xml         # 2400m SUMO road corridor
-│   ├── hangzhou.rou.xml         # 30-vehicle traffic stream (30-40 m/s)
-│   └── hangzhou.sumocfg         # Simulation configuration
-├── tests/
-│   ├── test_comm_model.py       # Deterministic communication unit tests
-│   ├── test_comp_model.py       # Delay calculation unit tests
-│   ├── test_energy_model.py     # Energy model separation unit tests
-│   ├── test_queue_model.py      # Queue processing & depletion tests
-│   ├── test_task_priority.py    # Eq. 23 task priority unit tests
-│   ├── test_state_builder.py    # Dimension & normalization tests
-│   ├── test_baselines.py        # Local & Greedy baseline tests
-│   ├── test_reward.py           # Eq. 25 reward tests
-│   └── integration/
-│       └── test_single_vehicle.py # End-to-end multi-RSU pipeline test
-├── utils/
-│   ├── scenario_geometry.py     # Corridor RSU placement (400m spacing)
-│   ├── seed.py                  # Global deterministic seeding
-│   ├── synthetic_trajectories.py# Trajectory generator for debugging
-│   ├── data_loader.py           # ApolloScape dataset loader
-│   └── task_priority.py         # Eq. 23 Priority computation
-├── sanity_check.py              # Analytical hand-calculation verifier
-├── train_mobility.py            # GAT-GRU offline trainer
-├── train.py                     # Thread-safe multiprocessing A3C trainer
-├── evaluate.py                  # Policy evaluator supporting all ablations
-└── run_experiments.py           # Full benchmark suite & comparison exporter
+│   ├── a3c_agent.py                   # Actor-Critic network architecture
+│   ├── mobility_gat.py                # 4-head GAT-GRU mobility model (Table II)
+│   └── baselines/                     # Local (standalone) & Greedy (min-queue)
+├── notebooks/
+│   └── CoTOP_Stage11_Colab_Reproduction.ipynb  # End-to-end reproducible Colab notebook
+├── results/
+│   └── final/                         # 8 final publication-ready CSV tables
+├── tests/                             # 22 automated pytest unit tests
+├── sanity_check.py                    # Analytical hand-calculation verifier (0.00% error)
+├── train.py                           # Multiprocessing SharedAdam A3C trainer
+├── evaluate.py                        # Dynamic checkpoint evaluator with CSV logging
+└── requirements.txt                   # Dependency specifications
 ```
 
 ---
 
-## 4. Getting Started
+## 5. Quickstart & Execution Guide
 
 ### Prerequisites
-- Python 3.8+
-- PyTorch 2.0+
-- Eclipse SUMO (Simulation of Urban MObility) installed and added to `PATH`
+- Python 3.10+
+- PyTorch 2.4.1+
+- Eclipse SUMO 1.25.0+
 
 ### Installation
 ```bash
@@ -121,88 +116,61 @@ cd cotop-implementation
 pip install -r requirements.txt
 ```
 
----
-
-## 5. Verification & Testing
-
-### Layer 1: Analytical Sanity Check
-Compares hand-calculated closed-form math against the codebase implementations:
+### 1. Analytical Sanity Check (Layer 1 Verification)
 ```bash
 python sanity_check.py
 ```
+*Passes with 0.00% analytical deviation across all 16 governing equations.*
 
-### Layer 2: Unit Test Suite
-Runs all 14 unit and integration tests:
+### 2. Automated Test Suite (Layer 2 Verification)
 ```bash
-python -m pytest tests/
+pytest -q
+```
+*Passes 22/22 unit tests in ~5.2s.*
+
+### 3. Model Training (A3C Across 5 Seeds)
+```bash
+python train.py --config configs/paper_parameters.yaml --episodes 500 --seed 42 --save_dir results/checkpoints/42
+```
+
+### 4. Controlled Evaluation
+```bash
+python evaluate.py --mode cotop --checkpoint_path results/checkpoints/42/a3c_agent.pth --episodes 50 --seed 42 --config configs/paper_parameters.yaml
+python evaluate.py --mode local --episodes 50 --seed 42 --config configs/paper_parameters.yaml
+python evaluate.py --mode greedy --episodes 50 --seed 42 --config configs/paper_parameters.yaml
+```
+
+### 5. Automated Generation of Publication Package
+```bash
+python experiments/stage17_final_controlled_reproduction.py
+python experiments/stage18_package_final_results.py
 ```
 
 ---
 
-## 6. Training & Reproduction Workflow
+## 6. Scientific Documentation Suite
 
-### Step 1: Train Mobility Model (GAT-GRU)
-Train the GAT-GRU trajectory prediction model:
-```bash
-python train_mobility.py --mode synthetic --epochs 15
-```
-*Trained model weights are automatically saved to `results/checkpoints/mobility_model.pth`.*
-
-### Step 2: Train CoTOP Agent (A3C)
-Train the DRL offloading agent using thread-safe multiprocessing:
-```bash
-python train.py --episodes 50 --workers 2 --seed 42
-```
-*Trained agent weights are saved to `results/checkpoints/a3c_agent.pth`.*
-
-### Step 3: Run Full Benchmark Suite
-Evaluate CoTOP against all baselines and ablation variants:
-```bash
-python run_experiments.py
-```
-This generates `results/paper_comparison.csv`.
+For complete in-depth scientific audits and derivations, consult the documentation in `docs/`:
+- **[Final Reproduction Report](docs/FINAL_REPRODUCTION_REPORT.md)**: Full 16-section publication-ready assessment.
+- **[Reproduction Protocol](docs/REPRODUCTION_PROTOCOL.md)**: Exact reproduction steps and Colab execution guide.
+- **[Statistical Methods](docs/STATISTICAL_METHODS.md)**: Paired t-tests, Wilcoxon signed-rank tests, Cohen's $d_z$, CLES, and FDR corrections.
+- **[Limitations & Threats](docs/LIMITATIONS_AND_THREATS.md)**: Metric scope ambiguity and undisclosed protocol parameters.
+- **[Claim-to-Evidence Matrix](docs/CLAIM_EVIDENCE_MATRIX.md)**: Direct mapping from primary claims (A–G) to verified code and data.
 
 ---
 
-## 7. Experimental Results & Paper Comparison
+## 7. Citation & Provenance
 
-Results over 10 independent episodes under Table III paper parameters (20 tasks, 6 RSUs, 30–40 m/s vehicles):
-
-| Method / Mode | Impl. Delay (s) | Paper Delay (s) | Impl. Comp. Ratio | Paper Comp. Ratio | Impl. Energy (J) | Paper Energy (J) |
-| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
-| **CoTOP (Proposed)** | **4.48 ± 0.15** | 13.9 | **100.0%** | 91.0% | **0.32 ± 0.04** | 25.14 |
-| **Local Baseline** | 4.41 ± 0.26 | 18.7 | 100.0% | 52.0% | 0.32 ± 0.04 | 55.00 |
-| **Greedy Baseline** | 4.50 ± 0.15 | 16.4 | 100.0% | 51.0% | 0.32 ± 0.02 | 45.00 |
-| **CoTOP w/o MD** | 4.51 ± 0.23 | 15.5 | 100.0% | 68.0% | 0.32 ± 0.04 | 15.32 |
-| **CoTOP w/o TP** | 4.49 ± 0.30 | 14.5 | 100.0% | 82.0% | 0.31 ± 0.02 | 33.52 |
-| **CoTOP w/o CO** | 4.45 ± 0.30 | 16.4 | 100.0% | 55.0% | 0.32 ± 0.04 | 49.15 |
-
-*Note: All implementations strictly preserve the underlying physical equations. Differences in numerical baseline values from the paper are thoroughly analyzed and documented in `docs/IMPLEMENTATION_DECISIONS.md` and `docs/REPRODUCTION_AUDIT.md`.*
-
----
-
-## 8. Reproducibility & Seeding
-
-Every script accepts a `--seed <int>` argument to ensure deterministic rollouts across `random`, `numpy`, `torch`, and SUMO TraCI:
-```bash
-python evaluate.py --mode cotop --episodes 10 --seed 42
+```bibtex
+@article{du2026mobility,
+  title={Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing},
+  author={Du, Jiaxin and Zhang, Jinfan and Han, Guangjie and Wang, Mengmeng and Shen, Guojiang and Liu, Zhi and Kong, Xiangjie},
+  journal={IEEE Transactions on Mobile Computing},
+  volume={25},
+  number={4},
+  pages={5540--5555},
+  year={2026},
+  publisher={IEEE},
+  doi={10.1109/TMC.2025.3631820}
+}
 ```
-
-## Reproducibility (Stage 11)
-
-This repository includes a fully reproducible pipeline for Google Colab (`notebooks/CoTOP_Stage11_Colab_Reproduction.ipynb`).
-The Colab notebook clones the repository from GitHub and executes the committed implementation.
-
-### Requirements
-- **Python Version**: 3.10+
-- **SUMO Requirement**: Eclipse SUMO 1.25.0
-
-### Instructions
-1. Open the Colab notebook.
-2. Run the cells in order. The notebook will automatically `git clone` this repository from the `main` branch.
-3. The pipeline trains the A3C model for 500 episodes across 5 seeds (42-46) and evaluates the multi-seed results.
-4. Results and metrics are stored in `results/stage11/`.
-
-### Scientific Limitations & Assumptions
-- **ApolloScape Dataset**: Synthetic trajectory data is used because the original ApolloScape dataset is not bundled in the repository.
-- **Source Immutability**: The Colab execution does not modify the source code at runtime to preserve the mathematical model's scientific fidelity.

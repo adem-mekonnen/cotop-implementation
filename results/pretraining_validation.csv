@@ -1,0 +1,4 @@
+Scenario,Vehicle Position,Vehicle Speed (m/s),Nearest RSU,Distance (m),V2R Rate (Mbps),Task Size (MB),CPU Demand (Mcycles),Upload Delay (s),Computation Delay (s),Queue Delay (s),Total Delay (s),Total Energy (J),Deadline (s),Reward,Selected Action,Selected RSU
+"Scenario A: 1 Vehicle, 1 Task, 1 RSU","(100.0, 0.0)",30.0,RSU 0,100.0,20.0,2.0,10.0,0.8,0.005,0.0,0.805,0.258,25.0,-0.5315,0,0
+"Scenario B: 1 Vehicle, 1 Task, 6 RSUs","(350.0, 0.0)",35.0,RSU 1,50.0,46.44,3.0,8.0,0.5168,0.004,0.0,0.5208,0.2052,20.0,-0.363,0,1
+"Scenario C: 1 Vehicle, 20 Tasks, 6 RSUs","(620.0, 0.0)",32.0,RSU 2,180.0,7.76,2.5,9.0,2.5769,0.0045,0.0,2.5814,0.2508,22.0,-1.4161,0,2

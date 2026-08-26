@@ -1,0 +1,6 @@
+Epistemological Category,Status,Justification
+Necessary Condition,REJECTED,"19 Gcycles backlog is NOT mathematically necessary; other factors (e.g. slower CPU, lower bandwidth, multi-hop) could generate 13.90s"
+Sufficient Condition,CONFIRMED IN REPOSITORY PHYSICS,"At 2.0 GHz clock rate, 18.96 Gcycles backlog mathematically produces exactly 9.482s wait + 4.354s delay = 13.854s (99.67% match)"
+Plausible Hypothesis,CONFIRMED,Multi-tenant queuing is a physically realistic operating condition in vehicular edge networks
+Proven Original Paper Protocol,UNSUPPORTED (NOT PROVEN),Paper Table III and Section V-A omit initial queue state N_queue(0) and background traffic flow
+Parameter Identifiability,NON-IDENTIFIABLE,"Delay 13.90s can be produced by infinitely many combinations of queue length, vehicle count, and RSU clock speeds"

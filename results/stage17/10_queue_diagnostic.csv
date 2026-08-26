@@ -1,0 +1,8 @@
+Diagnostic Backlog (Gcycles),Queue Waiting Time (s),Upload + Compute Delay (s),Total Resulting Delay (s),Paper Target (13.90 s) Match (%),Classification,Scientific Note
+0.0,0.0,4.3538,4.354,31.32,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+5.0,2.5,4.3538,6.854,49.31,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+10.0,5.0,4.3538,9.354,67.29,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+15.0,7.5,4.3538,11.854,85.28,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+19.0,9.5,4.3538,13.854,99.67,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+20.0,10.0,4.3538,14.354,96.84,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"
+25.0,12.5,4.3538,16.854,82.47,POST-HOC TARGET-MATCHING DIAGNOSTIC,"At 19.0 Gcycles backlog, total delay is 13.854s (99.67% match), but queue backlog is unstated in paper"

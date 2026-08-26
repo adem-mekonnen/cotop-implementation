@@ -1,0 +1,3 @@
+Diagnostic Case,Original Discovery Context,Classification,Paper Status,Allowable Publication Claim
+19.0 Gcycles Queue Preload,Discovered in Stage 13 sensitivity sweep to explain 13.90s delay,POST-HOC TARGET-MATCHING DIAGNOSTIC,Table III does not disclose initial queue backlog,Plausible sufficient condition capable of generating 13.90s; NOT proven original paper protocol
+40-Task Batch Energy Aggregation,Discovered in Stage 13 scaling test to explain 25.14J energy,POST-HOC TARGET-MATCHING DIAGNOSTIC,Paper text does not explicitly define aggregation scope,Plausible metric scope explanation; NOT proven original paper definition

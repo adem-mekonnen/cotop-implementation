@@ -1,0 +1,6 @@
+Validity Category,Threat Description,Mitigation & Audit Status
+Internal Validity,Evaluation checkpoint loader defect in Stage 12,RESOLVED: Stage 13 corrected evaluate.py to load dynamic seed checkpoints
+Construct Validity,Discrepancy between single-task and batch energy definitions,DOCUMENTED: Explicitly distinguished unit physical energy (0.319J) from batch energy (25.14J)
+External Validity,Synthetic mobility trajectories vs real ApolloScape data,DISCLOSED: Explicitly classified as method validation with synthetic mobility
+Statistical Conclusion Validity,Pseudoreplication if treating correlated episodes as independent seeds,RESOLVED: Separate reporting of episode-level (N=250) and seed-level (N=5) statistics with Student's t CIs
+Reproducibility Threats,Hardware dependency of A3C multiprocessing workers,DOCUMENTED: Colab free tier 2-worker adaptation explicitly recorded

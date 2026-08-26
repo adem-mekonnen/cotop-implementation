@@ -1,0 +1,5 @@
+Rank,Hypothesis Comparison,Raw p-value,Holm-Bonferroni Adjusted p-value,Benjamini-Hochberg FDR p-value,Significant at alpha=0.05
+1,CoTOP vs Greedy (Energy),2.0599e-161,8.2396e-161,8.2396e-161,YES
+2,CoTOP vs Greedy (Delay),1.1599e-147,3.4796e-147,2.3197e-147,YES
+3,CoTOP vs Local (Delay),0.4338,0.8677,0.5784,NO
+4,CoTOP vs Local (Energy),1.0000,1.0000,1.0000,NO

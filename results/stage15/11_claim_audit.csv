@@ -1,0 +1,13 @@
+Claim ID,Claim Text,Scientific Classification,Evidence Summary,Claim Description
+1,Mathematical implementation matches paper equations,VERIFIED,"0.00% analytical deviation across Eq 1-12, 13, 23, 25; 22/22 unit tests pass",
+2,,VERIFIED,"Vectorized environment, GAT-GRU mobility predictor, task priority sorting, and A3C agent fully operational",CoTOP is correctly implemented
+3,,VERIFIED,5 independent seeds converge smoothly to asymptotic reward plateau (-47.21) with critic loss < 0.0008,A3C training converges
+4,,CONDITIONALLY VERIFIED,Matches Local in clean corridor (both standalone); outperforms Local by 2.6s in congested regimes (>10 Gcycles),CoTOP outperforms Local
+5,,VERIFIED,"CoTOP saves 93% energy compared to Greedy (0.319 J vs 4.525 J, p < 0.0001, Cohen d = -62.4)",CoTOP outperforms Greedy
+6,,VERIFIED,Avoids spurious 100W R2R relays while executing task handovers only when dwell time dictates,CoTOP improves energy efficiency
+7,,CONDITIONALLY VERIFIED,"In clean corridor, latency is equal (4.40s); in congested corridor, reduces delay from 13.85s to 11.24s",CoTOP improves latency
+8,,NOT VERIFIED (FALSE),"Observed physical delay (4.402s) and energy (0.319J) differ from paper reported values (13.90s, 25.14J)",Paper numerical results are reproduced
+9,,PLAUSIBLE BUT UNCONFIRMED,"19.0 Gcycles backlog yields 13.854s (99.67% match), but paper does not disclose initial queue backlog",Queue congestion explains paper delay
+10,,PLAUSIBLE BUT UNCONFIRMED,"40-task batch yields 21.76-25.14J, but paper text does not explicitly define aggregation scope",Batch aggregation explains paper energy
+11,,NOT VERIFIED (SYNTHETIC SUBSTITUTE),Method validation performed with synthetic kinematic trajectories; ApolloScape raw data not bundled,ApolloScape reproduction was achieved
+12,,VERIFIED (METHOD-LEVEL),Completely reproducible pipeline committed to GitHub with fixed seed evaluation and 0.00% analytical deviation,The implementation is scientifically reproducible

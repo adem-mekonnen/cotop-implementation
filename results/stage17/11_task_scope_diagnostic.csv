@@ -1,0 +1,7 @@
+Diagnostic Task Count,Scope Description,Total Energy (50W Server) (J),Total Energy (100W Server) (J),Total Energy with Static Server Power (J),Paper Target (25.14 J) Match (%),Classification,Scientific Note
+1,1-Task Subtask Batch,0.293,0.543,3.918,15.59,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"
+10,10-Task Subtask Batch,2.935,5.435,8.81,35.04,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"
+20,20-Task Subtask Batch,5.87,10.87,14.245,56.66,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"
+30,30-Task Subtask Batch,8.805,16.305,19.68,78.28,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"
+40,40-Task Subtask Batch,11.74,21.74,25.115,99.9,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"
+50,50-Task Subtask Batch,14.674,27.174,30.549,82.29,METRIC-SCOPE SENSITIVITY / POST-HOC DIAGNOSTIC,"40-task batch at 100W server power matches 25.14J, but paper text is ambiguous on aggregation scope"

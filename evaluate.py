@@ -19,6 +19,8 @@ def evaluate():
     parser.add_argument('--episodes', type=int, default=20)
     parser.add_argument('--seed', type=int, default=42)
     parser.add_argument('--config', type=str, default='configs/paper_parameters.yaml')
+    parser.add_argument('--checkpoint_path', type=str, default='results/checkpoints/a3c_agent.pth')
+    parser.add_argument('--output_csv', type=str, default=None)
     args = parser.parse_args()
 
     set_seed(args.seed)
@@ -42,7 +44,7 @@ def evaluate():
     # Initialize Policies
     if args.mode in ['cotop', 'wo_md', 'wo_tp']:
         model = ActorCritic(env.observation_space.shape[0], env.action_space.n)
-        ckpt_path = 'results/checkpoints/a3c_agent.pth'
+        ckpt_path = args.checkpoint_path
         if os.path.exists(ckpt_path):
             try:
                 model.load_state_dict(torch.load(ckpt_path, map_location='cpu'))
@@ -50,7 +52,7 @@ def evaluate():
             except Exception as e:
                 print(f"[WARN] Error loading checkpoint ({e}). Using initialized weights.")
         else:
-            print("[WARN] No checkpoint found. Evaluating with untrained agent.")
+            print(f"[WARN] Checkpoint not found at {ckpt_path}. Evaluating with untrained agent.")
         model.eval()
         policy = None
     elif args.mode in ['local', 'wo_co']:
@@ -118,6 +120,20 @@ def evaluate():
     print(f"Task Completion Ratio:    {overall_completion_ratio * 100:.2f}%")
     print("=" * 50)
     
+    if args.output_csv:
+        import pandas as pd
+        os.makedirs(os.path.dirname(os.path.abspath(args.output_csv)), exist_ok=True)
+        df = pd.DataFrame({
+            'episode': list(range(1, args.episodes + 1)),
+            'mode': [args.mode] * args.episodes,
+            'seed': [args.seed] * args.episodes,
+            'reward': total_rewards,
+            'delay': total_delays,
+            'energy': total_energies
+        })
+        df.to_csv(args.output_csv, index=False)
+        print(f"[INFO] Saved evaluation results to {args.output_csv}")
+
     env.close()
 
 if __name__ == '__main__':

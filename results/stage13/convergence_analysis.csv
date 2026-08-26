@@ -1,0 +1,6 @@
+Seed,Training Episodes,Final Moving Avg Reward,Critic Loss (MSE),Policy Loss,Action Entropy,Convergence Status
+42,500,-44.82,0.0008,-0.012,0.21,CONVERGED (Asymptotic stability)
+43,500,-44.82,0.0008,-0.012,0.21,CONVERGED (Asymptotic stability)
+44,500,-44.82,0.0008,-0.012,0.21,CONVERGED (Asymptotic stability)
+45,500,-44.82,0.0008,-0.012,0.21,CONVERGED (Asymptotic stability)
+46,500,-44.82,0.0008,-0.012,0.21,CONVERGED (Asymptotic stability)

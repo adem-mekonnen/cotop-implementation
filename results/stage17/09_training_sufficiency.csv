@@ -1,0 +1,4 @@
+Training Horizon,Mean Reward,Reward Std Across Seeds,Mean Delay (s),Mean Energy (J),Critic Loss (MSE),Convergence Assessment,Impact on Conclusions
+10 Epochs (100 Episodes),-63.3044,0.3521,4.6094,0.3478,4.114918,Initial Stabilization,No material change in conclusions: policy stabilizes by epoch 35-40 and converges to optimal Standalone in idle channel
+50 Epochs (500 Episodes),-48.9597,0.0871,4.4244,0.3223,0.048396,Full Asymptotic Convergence (Policy Settled),No material change in conclusions: policy stabilizes by epoch 35-40 and converges to optimal Standalone in idle channel
+100 Epochs (1000 Episodes),-47.2819,0.0721,4.4058,0.319,0.0004,Mature Plateau (Zero Material Change),No material change in conclusions: policy stabilizes by epoch 35-40 and converges to optimal Standalone in idle channel

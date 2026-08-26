@@ -1,0 +1,4 @@
+Phase,Mean Reward,Mean Delay (s),Mean Energy (J),Mean Critic Loss,Status
+Initial (Ep 1-50),-50.33,4.476,0.558,29115.84,Exploration
+Mid-Training (Ep 226-275),-46.85,4.363,0.322,21614.99,Stabilizing
+Final Converged (Ep 451-500),-46.91,4.372,0.318,7412.06,CONVERGED

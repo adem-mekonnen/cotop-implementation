@@ -1,0 +1,4 @@
+Method,Total Delay (s),Total Energy (J),Task Completion Ratio (%),Mean Cumulative Reward,Collaboration Action Rate (%),Physical Behavior Summary
+COTOP,4.402 ± 0.060,0.319 ± 0.005,100.00%,-47.21,0.40%,Rationally selects Standalone in idle channel
+LOCAL,4.425 ± 0.023,0.320 ± 0.005,100.00%,-47.45,0.00%,Always Standalone on primary RSU
+GREEDY,4.393 ± 0.050,4.525 ± 0.068,100.00%,-89.18,95.00%,Distributes across min-queue RSUs with 100W relay power

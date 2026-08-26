@@ -1,0 +1,37 @@
+parameter,paper_value,paper_location,repository_value,stage13_value,unit,match_status,evidence,notes
+Corridor / Road Length,2400,"Section III-A, Table III",2400.0,2400.0,m,EXACT MATCH,Table III specifies 2400 m straight corridor,Identical road geometry
+Number of RSUs,6,Table III,6,6,count,EXACT MATCH,Table III explicitly states 6 RSUs,Identical RSU count
+RSU Spacing,400,Table III,400.0,400.0,m,EXACT MATCH,Table III states RSU spacing 400 m,"Positions at [0, 400, 800, 1200, 1600, 2000] m"
+RSU Coverage Radius,400,Table III,400.0,400.0,m,EXACT MATCH,Table III specifies communication range 400 m,Full geometric coverage
+Vehicle Count,10 to 30,"Table III, Section V-A","[10, 30]","[10, 30]",vehicles,EXACT MATCH,Table III states 10 to 30 vehicles,Active highway vehicles
+Vehicle Speed Range,30.0 to 40.0,Table III,"[30.0, 40.0]","[30.0, 40.0]",m/s,EXACT MATCH,Table III: vehicle speed 30-40 m/s,108-144 km/h highway speed
+Vehicle Arrival Process,Unspecified in Table III,Section V-A,SUMO route flow,SUMO route flow,veh/s,INFERRED,Section V-A states SUMO generated traffic flows,Uniform random insertion in SUMO
+Vehicle Mobility Model,SUMO / Urban Map,Section V-A,SUMO / Urban Map,SUMO / Urban Map,simulator,EXACT MATCH,Section V-A uses SUMO for traffic,Eclipse SUMO 1.25.0
+Mobility Dataset,ApolloScape,Section V-A,Synthetic Highway,Synthetic Highway,dataset,MATCH WITH DOCUMENTED ADAPTATION,ApolloScape raw dataset is multi-GB and not bundled in repo,Method validated with synthetic kinematic mobility
+Simulation Duration,Corridor transit time,Section V-A,68.5,68.5,s,INFERRED,2400m / 35 m/s = ~68.5s transit time,Physical vehicle traversal
+V2R Bandwidth,20.0 to 100.0,Table III,"[20.0e6, 100.0e6]","[20.0e6, 100.0e6]",Hz,EXACT MATCH,Table III: V2R bandwidth 20-100 MHz,Shannon model Eq 1
+R2R Bandwidth,50.0,Table III,50.0e6,50.0e6,Hz,EXACT MATCH,Table III: R2R bandwidth 50 MHz,Shannon model Eq 2
+Vehicle Transmit Power,10 dBm (0.01 W),Table III,0.01,0.01,W,EXACT MATCH,Table III: 10 dBm = 0.01 W,Governs uplink transmission energy
+RSU Transmit Power,50 dBm (100.0 W),Table III,100.0,100.0,W,EXACT MATCH,Table III: 50 dBm = 100.0 W,Governs R2R relay energy
+RSU Active Compute Power,Unspecified in Table III,Eq 11,50.0,50.0,W,INFERRED,E_RSU in Eq 11 denotes computation power consumption,Edge server active power draw
+RSU CPU Capacity,1.0 to 4.0,Table III,"[1.0e9, 4.0e9]","[1.0e9, 4.0e9]",Hz,EXACT MATCH,Table III: RSU computation capacity 1-4 GHz,Processing clock rate F_m
+Task Size Range,2.0 to 5.0,Table III,"[2.0e6, 5.0e6]","[2.0e6, 5.0e6]",Bytes,EXACT MATCH,Table III: task size 2-5 MB,Subtask data volume
+Number of Subtasks per Veh,20 to 40,Table III,20 (nominal),20 (nominal),subtasks,EXACT MATCH,Table III: number of tasks per vehicle 20-40,DAG subtask batch
+Task CPU Demand,10 (mean),"Section III-F, V-A",10.0e6,10.0e6,cycles,EXACT MATCH,Section III-F & V-A state average demand is 10 Mcycles,Nominal processing requirement
+Task Arrival Process,Burst ready / DAG,Section III-B,Burst ready,Burst ready,pattern,EXACT MATCH,Section III-B models parallel DAG tasks available at entry,Parallel execution model
+Task Priority Alpha,0.3,Section V-C,0.3,0.3,weight,EXACT MATCH,Section V-C: alpha = 0.3,Weight for dwell time in Eq 23
+Task Priority Beta,0.7,Section V-C,0.7,0.7,weight,EXACT MATCH,Section V-C: beta = 0.7,Weight for demand in Eq 23
+Task Deadline Range,20.0 to 30.0,Table III,"[20.0, 30.0]","[20.0, 30.0]",s,EXACT MATCH,Table III: task deadline 20-30 s,Latency threshold
+Reward Tradeoff Epsilon,Unspecified in Table III,"Eq 13, 25",0.5,0.5,weight,INFERRED,Eq 13 defines regularized delay/energy tradeoff,Equal delay/energy balance
+Discount Factor Gamma,Unspecified in Table III,Eq 27,0.99,0.99,ratio,INFERRED,Standard RL future return discount factor,Gamma = 0.99
+A3C Learning Rate,0.0002,Section V-C,0.0002,0.0002,lr,EXACT MATCH,Section V-C explicitly selects lr = 0.0002,SharedAdam optimizer
+A3C Optimizer,Adam / SharedAdam,Section IV-D,SharedAdam,SharedAdam,optimizer,EXACT MATCH,Section IV-D specifies asynchronous gradient updates,Multi-threaded SharedAdam
+A3C Parallel Workers,Unspecified in Paper,Section IV-D,4,2,workers,MATCH WITH DOCUMENTED ADAPTATION,Colab free tier provides 2 vCPUs,Explicitly documented hardware adaptation
+A3C Training Episodes,500,"Section V-B, Fig 4",500,500,episodes,EXACT MATCH,Fig 4 plots convergence over 500 episodes,Full training convergence
+Mobility Training Epochs,25,Table II,25,25,epochs,EXACT MATCH,Table II specifies GAT-GRU epochs = 25,GAT-GRU model trained for 25 epochs
+Random Seeds,Unspecified in Paper,Section V-A,"[42, 43, 44, 45, 46]","[42, 43, 44, 45, 46]",seeds,INFERRED,Paper does not specify PRNG seeds,5 independent seeds tested
+Evaluation Episodes per Seed,Unspecified in Paper,Section V-A,20,50,episodes,INFERRED,Paper reports mean curves across test runs,250 total evaluation episodes per method
+Queue Initialization,Unspecified in Paper,Section III-C,0.0,0.0,cycles,UNKNOWN / PAPER DOES NOT SPECIFY,Paper text does not disclose initial queue backlog N_m(0),Idle corridor initializes queue to 0
+Delay Accounting Definition,T_up + T_pro + T_wait,"Eq 6, 10",T_up + T_pro + T_wait,T_up + T_pro + T_wait,s,EXACT MATCH,Eq 6 & 10 define total delay,Per-task physical latency
+Energy Accounting Definition,E_ts + E_pro,"Eq 11, 12",E_ts + E_pro,E_ts + E_pro,J,EXACT MATCH,Eq 11 & 12 define transmission and computation energy,Per-task physical energy
+Task Completion Definition,Total Delay <= Deadline,Section V-A,Total Delay <= Deadline,Total Delay <= Deadline,ratio,EXACT MATCH,Section V-A defines completion ratio,Binary thresholding at deadline d

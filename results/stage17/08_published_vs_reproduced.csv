@@ -1,0 +1,4 @@
+Metric,Published Value,Reproduced Value,Absolute Difference (s),Relative Difference (%),Physical Status in Clean Corridor,Scientific Note,Absolute Difference (J),Absolute Difference (%)
+Average Total Delay (s),13.9,4.4438,-9.4562,-68.03%,NOT NUMERICALLY REPRODUCED,Physical single-task delay without queue backlog is bounded to ~4.40s. 13.90s requires multi-tenant queue backlog.,,
+Average Total Energy (J),25.14,0.2965,,-98.82%,NOT NUMERICALLY REPRODUCED,Single-task physical energy is 0.319 J. 25.14 J is consistent with 40-task batch aggregation at active server power.,-24.8435,
+Task Completion Ratio (%),98.5,100.0,,+1.52%,NUMERICALLY CONSISTENT,"In clean corridor, latency (~4.40s) is far below deadline [20, 30]s, ensuring 100% completion.",,1.5

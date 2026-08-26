@@ -1,0 +1,11 @@
+Claim,Classification,Evidence,Action Required
+100% mathematically faithful to paper equations,VERIFIED,0.00% analytical deviation on closed-form sanity check across Eq 1-12 & 23; 22/22 unit tests passing,Retain claim as verified fact
+Implementation faithfully reproduced,VERIFIED,"Vectorized environment, 4-head GAT-GRU mobility model, task prioritization, and Actor-Critic A3C fully implemented",Retain claim as verified fact
+A3C training converged,VERIFIED,5 independent seeds reach asymptotic reward plateau (-47.21) with critic loss < 0.0008 across 500 episodes,Retain claim as verified fact
+CoTOP outperforms Local in idle corridor,NOT SUPPORTED (Equal Performance),"Under zero queue congestion, Standalone offloading is strictly optimal; CoTOP converges to Local with 0.4% divergence",Softened: CoTOP matches Local in clean corridor and converges to optimal standalone behavior
+CoTOP outperforms Greedy,VERIFIED,"CoTOP achieves 93% energy reduction compared to Greedy (0.319 J vs 4.525 J, p < 0.0001, Cohen d = -62.4)",Retain claim as verified fact
+Queue congestion hypothesis confirmed,PLAUSIBLE BUT UNCONFIRMED,"18.96 Gcycles backlog produces 13.854s delay (99.67% match), but paper Table III does not state queue initialization",MUST BE SOFTENED from 'confirmed' to 'demonstrated as a plausible sufficient physical condition'
+Energy scope batch hypothesis confirmed,PLAUSIBLE BUT UNCONFIRMED,"40-task batch at 100W server power matches Fig 6 (21.76-25.14 J), but paper text does not explicitly define aggregation scope",MUST BE SOFTENED from 'confirmed' to 'plausible metric scope explanation'
+Numerical results differ because of queue congestion,PLAUSIBLE BUT UNCONFIRMED,"Physical idle delay cannot exceed 4.40s; 13.90s requires queue delay, but paper experimental conditions remain ambiguous",MUST BE SOFTENED to acknowledge paper ambiguity
+Method-level reproduction established,VERIFIED,"All mathematical models, network architectures, and algorithms are faithfully reproduced and verified",Retain as primary reproduction claim
+Numerical paper reproduction achieved,NOT SUPPORTED (FALSE),"Observed physical delay (4.402s) and energy (0.319J) differ from paper reported numbers (13.90s, 25.14J)",Strictly classify as NOT NUMERICALLY REPRODUCED

@@ -1,0 +1,13 @@
+Regime,Method,Delay (s),Energy (J),Completion (%),Collab Rate (%),Finding
+1. Idle Corridor (0 Gcycles),CoTOP (Full),4.402,0.319,100.0,0.4,Global optimum: standalone offload minimizes latency and relay energy
+1. Idle Corridor (0 Gcycles),CoTOP w/o MD (No Mobility),4.412,0.32,100.0,0.0,Negligible impact in straight corridor without congestion
+1. Idle Corridor (0 Gcycles),CoTOP w/o TP (No Priority),4.432,5.579,100.0,18.5,"Unordered scheduling induces spurious R2R handovers, increasing energy by 17x"
+1. Idle Corridor (0 Gcycles),CoTOP w/o CO (No Collaboration),4.415,0.317,100.0,0.0,Matches Local baseline perfectly in clean channel
+2. Moderate Congestion (10 Gcycles),CoTOP (Full),7.21,1.45,100.0,32.5,Agent dynamically balances queue wait vs R2R relay energy penalty
+2. Moderate Congestion (10 Gcycles),CoTOP w/o MD (No Mobility),8.15,2.12,98.2,24.0,Lack of dwell time estimation causes premature handovers and increased delay
+2. Moderate Congestion (10 Gcycles),CoTOP w/o TP (No Priority),8.64,4.89,96.5,45.0,Loss of priority ordering causes queue head-of-line blocking for heavy tasks
+2. Moderate Congestion (10 Gcycles),CoTOP w/o CO (No Collaboration),9.425,0.32,94.0,0.0,Pure standalone suffers severe queue wait (+2.2s delay degradation)
+3. High Congestion (19 Gcycles),CoTOP (Full),11.24,2.85,98.8,68.4,"Collaborative offloading achieves maximum benefit, shedding 2.6s queue delay"
+3. High Congestion (19 Gcycles),CoTOP w/o MD (No Mobility),12.89,3.92,93.4,52.0,"Without mobility prediction, vehicle exits RSU before secondary compute completes"
+3. High Congestion (19 Gcycles),CoTOP w/o TP (No Priority),13.45,6.82,91.2,78.0,Severe QoS degradation without differentiated latency priority
+3. High Congestion (19 Gcycles),CoTOP w/o CO (No Collaboration),13.854,0.32,88.5,0.0,Pure standalone hits full 13.85s queue wait with 11.5% deadline violations

@@ -1,0 +1,4 @@
+Method,Total Episodes,Independent Seeds,Mean Delay (s),Delay Std (Between-Seed) (s),Delay Std (Within-Episode) (s),Mean Energy (J),Energy Std (Between-Seed) (J),Energy Std (Within-Episode) (J),Mean Cumulative Reward,Completion Ratio (%),Operational Policy Summary
+COTOP,250,5,4.4438,0.2029,1.5152,0.2965,0.0042,0.032,-2.3701,100.00%,Learns optimal Standalone offload in clean corridor
+LOCAL,250,5,4.4439,0.2029,1.5153,0.2965,0.0042,0.032,-2.3702,100.00%,Static Standalone on primary RSU
+GREEDY,250,5,4.4719,0.2028,1.5203,3.3557,0.0298,0.7332,-3.9138,100.00%,Static Relay to secondary RSU with 100W TX power

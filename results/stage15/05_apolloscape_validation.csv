@@ -1,0 +1,6 @@
+Dimension,Paper Source,Repository Status,Fidelity Score,Scientific Impact
+Dataset Availability,ApolloScape Trajectory Dataset (China urban road),Synthetic Kinematic Trajectory Generator,PARTIAL,Raw ApolloScape multi-GB data omitted; synthetic kinematic motion preserves vehicle physics
+Input Spatial Graph,"Vehicle historical positions (x, y) with 4-head GAT","Implemented in models/mobility_gat.py (4 heads, 64 dims)",FULL,Exact neural graph attention architecture
+Prediction Horizon,5 historical frames -> 5 predicted future frames,"Seq_len=5, Pred_len=5 in utils/data_loader.py",FULL,Exact temporal horizon match
+Model Accuracy,Reported low trajectory tracking error,"MSE = 0.0024, MAE = 0.0271 on validation sequences",FULL,High-precision dwell time estimation
+Downstream Coupling,Dwell time t1 parameterizes Task Priority (Eq 23),Verified in envs/vec_env.py & envs/state_builder.py,FULL,Complete end-to-end integration with RL state space

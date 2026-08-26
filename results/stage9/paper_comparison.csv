@@ -1,0 +1,7 @@
+Method,Paper Delay,Our Delay,Delay Std,Delay 95 CI,Paper Energy,Our Energy,Energy Std,Energy 95 CI,Paper Completion,Our Completion,Completion Std,Completion 95 CI,Paper Violation Ratio,Our Violation Ratio,Absolute Delay Difference,Relative Delay Difference (%),Absolute Energy Difference,Relative Energy Difference (%),Seed Count
+CoTOP (Proposed),13.9,4.418,0.206,±0.081,25.14,0.316,0.03,±0.012,0.91,1.0,0.0,±0.000,0.09,0.0,9.482,68.22,24.824,98.74,5
+Local Baseline,18.7,4.418,0.206,±0.081,55.0,0.316,0.03,±0.012,0.52,1.0,0.0,±0.000,0.48,0.0,14.282,76.37,54.684,99.43,5
+Greedy Baseline,16.4,4.411,0.208,±0.081,45.0,4.534,0.243,±0.095,0.51,1.0,0.0,±0.000,0.49,0.0,11.989,73.1,40.466,89.92,5
+CoTOP w/o MD,15.5,4.418,0.206,±0.081,15.32,0.316,0.03,±0.012,0.68,1.0,0.0,±0.000,0.32,0.0,11.082,71.5,15.004,97.94,5
+CoTOP w/o TP,14.5,4.444,0.209,±0.082,33.52,5.592,0.259,±0.102,0.82,1.0,0.0,±0.000,0.18,0.0,10.056,69.35,27.928,83.32,5
+CoTOP w/o CO,16.4,4.418,0.206,±0.081,49.15,0.316,0.03,±0.012,0.55,1.0,0.0,±0.000,0.45,0.0,11.982,73.06,48.834,99.36,5

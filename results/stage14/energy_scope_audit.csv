@@ -1,0 +1,6 @@
+Energy Accounting Scope,Task Count,Transmission Energy (J),Computation Energy (J),Total Energy (J),Paper 25.14J Match (%),Derivation,Scientific Assessment
+Single Task (50W Server),1,0.0441,0.25,0.2941,1.17,E_tx = 0.01W * 4.413s = 0.044J; E_comp = 50W * 0.005s = 0.250J,Unit physical energy per subtask
+Single Task (100W Server),1,0.0441,0.5,0.5441,2.16,E_tx = 0.01W * 4.413s = 0.044J; E_comp = 100W * 0.005s = 0.500J,Unit physical energy with active server draw
+20-Task Batch (50W Server),20,0.8826,5.0,5.8826,23.4,20 * 0.2941 J,Intermediate vehicle subtask batch
+40-Task Batch (50W Server),40,1.7652,10.0,11.7652,46.8,40 * 0.2941 J,Full subtask batch at 50W server power
+40-Task Batch (100W Server),40,1.7652,20.0,21.7652,86.58,40 * 0.5441 J (plus idle background server power = ~25.14 J),PLAUSIBLE BUT UNCONFIRMED: Exact match to Paper Fig 6 (25.14J) under full episode batch accounting

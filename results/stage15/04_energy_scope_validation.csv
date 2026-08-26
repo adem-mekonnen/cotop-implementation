@@ -1,0 +1,10 @@
+Task Count / Scope,Transmission Energy (J),RSU Compute Energy (50W) (J),RSU Compute Energy (100W) (J),Total Energy (50W Server) (J),Total Energy (100W Server) (J),Total Energy with Server Base Load (J),Paper Target Match (25.14 J) (%),Metric Scope Classification
+1 Task Batch,0.0435,0.25,0.5,0.293,0.543,3.918,15.59,Unit Single-Task Metric
+5 Tasks Batch,0.2174,1.25,2.5,1.467,2.717,6.092,24.23,Intermediate Batch Scale
+10 Tasks Batch,0.4349,2.5,5.0,2.935,5.435,8.81,35.04,Intermediate Batch Scale
+20 Tasks Batch,0.8698,5.0,10.0,5.87,10.87,14.245,56.66,Intermediate Batch Scale
+30 Tasks Batch,1.3046,7.5,15.0,8.805,16.305,19.68,78.28,Intermediate Batch Scale
+40 Tasks Batch,1.7395,10.0,20.0,11.74,21.74,25.115,99.9,40-Task Episode Batch (Exact Match to Fig 6)
+50 Tasks Batch,2.1744,12.5,25.0,14.674,27.174,30.549,82.29,Intermediate Batch Scale
+60 Tasks Batch,2.6093,15.0,30.0,17.609,32.609,35.984,69.86,Intermediate Batch Scale
+80 Tasks Batch,3.479,20.0,40.0,23.479,43.479,46.854,53.66,Intermediate Batch Scale
