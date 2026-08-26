@@ -8,16 +8,19 @@ class ApolloScapeTrajectoryDataset(Dataset):
     """
     Parser for the ApolloScape trajectory dataset (or SUMO-generated trajectories).
     Reads all .txt files in a directory and extracts (x, y) rolling windows.
+    Normalizes coordinates by norm_scale (default 2400.0m).
     """
-    def __init__(self, data_dir: str, seq_len: int = 5, pred_len: int = 5):
+    def __init__(self, data_dir: str, seq_len: int = 5, pred_len: int = 5, norm_scale: float = 2400.0):
         """
         Args:
             data_dir (str): Directory containing the trajectory .txt files.
             seq_len (int): History window (input).
             pred_len (int): Prediction window (ground truth).
+            norm_scale (float): Normalization scale (meters).
         """
         self.seq_len = seq_len
         self.pred_len = pred_len
+        self.norm_scale = norm_scale
         self.total_len = seq_len + pred_len
         self.trajectories = []
 
@@ -48,7 +51,6 @@ class ApolloScapeTrajectoryDataset(Dataset):
             df.columns = cols[:len(df.columns)]
             
             # 3. Filter for vehicles only (Type 1: small vehicles, Type 2: large vehicles)
-            # This ensures we don't train on pedestrians or cyclists
             df = df[df['object_type'].isin([1, 2])]
             
             # Sort to ensure chronological order for rolling windows
@@ -78,8 +80,7 @@ class ApolloScapeTrajectoryDataset(Dataset):
         Returns: (history_tensor, future_tensor)
         Shapes: (seq_len, 2), (pred_len, 2)
         """
-        # (total_len, 2)
-        seq = self.trajectories[idx]
+        seq = self.trajectories[idx] / self.norm_scale if self.norm_scale > 0 else self.trajectories[idx]
         
         # Split into input and target
         hist_seq = seq[:self.seq_len]

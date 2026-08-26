@@ -2,19 +2,47 @@
 __pycache__/
 *.py[cod]
 *$py.class
+*.so
 
-# Checkpoints and Trained Models
+# Cpython cache
+.pytest_cache/
+.coverage
+htmlcov/
+
+# Virtual Environments
+.venv/
+venv/
+env/
+ENV/
+
+# Checkpoints and Trained Model Binaries
 results/checkpoints/*.pth
-checkpoints/
+results/**/*.pth
+checkpoints/*.pth
+*.pth
 
-# Jupyter Notebook checkpoints
+# Jupyter Notebook checkpoints & scratch
 .ipynb_checkpoints/
+*/.ipynb_checkpoints/*
+
+# Local Large Datasets
+data/raw/apolloscape/
+data/processed/*.h5
+data/processed/*.npy
 
 # OS generated files
 .DS_Store
 Thumbs.db
 
-# Temporary logs and dumps
+# Temporary logs, dumps, and IDE configs
 *.log
 dump.txt
 *.tmp
+*.temp
+.env
+.idea/
+.vscode/
+
+*.pyc
+*.pyo
+*.pyd

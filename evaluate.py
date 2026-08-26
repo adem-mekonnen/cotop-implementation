@@ -1,112 +1,122 @@
 import argparse
+import os
 import torch
 import numpy as np
 import yaml
 
-from envs.vec_env import VECEnv, get_euclidean_distance
+from envs.vec_env import VECEnv
 from envs.entities import SimulationConfig
 from models.a3c_agent import ActorCritic
-
-def get_nearest_rsu(vehicle, rsus):
-    nearest_idx = 0
-    min_dist = float('inf')
-    for i, rsu in enumerate(rsus):
-        dist = get_euclidean_distance(vehicle.pos, rsu.location)
-        if dist < min_dist:
-            min_dist = dist
-            nearest_idx = i
-    return nearest_idx
-
-def get_greedy_rsu(rsus):
-    greedy_idx = 0
-    min_queue = float('inf')
-    for i, rsu in enumerate(rsus):
-        if rsu.queue_length < min_queue:
-            min_queue = rsu.queue_length
-            greedy_idx = i
-    return greedy_idx
+from models.baselines.local import LocalPolicy
+from models.baselines.greedy import GreedyPolicy
+from utils.seed import set_seed
 
 def evaluate():
     parser = argparse.ArgumentParser()
-    parser.add_argument('--mode', type=str, choices=['cotop', 'local', 'greedy'], default='cotop')
-    parser.add_argument('--no_mobility', action='store_true', help='Ablation: Force low dwell time')
-    parser.add_argument('--episodes', type=int, default=10)
+    parser.add_argument('--mode', type=str, 
+                        choices=['cotop', 'local', 'greedy', 'wo_md', 'wo_tp', 'wo_co'], 
+                        default='cotop')
+    parser.add_argument('--episodes', type=int, default=20)
+    parser.add_argument('--seed', type=int, default=42)
+    parser.add_argument('--config', type=str, default='configs/paper_parameters.yaml')
     args = parser.parse_args()
 
-    with open('configs/simulation.yaml', 'r') as f:
+    set_seed(args.seed)
+
+    with open(args.config, 'r') as f:
         yaml_config = yaml.safe_load(f)
     config = SimulationConfig(**yaml_config)
     
-    use_mobility = not args.no_mobility
-    env = VECEnv(config=config, port=9999)
+    # Configure ablation flags cleanly
+    use_mobility = (args.mode != 'wo_md')
+    use_priority = (args.mode != 'wo_tp')
     
-    if args.mode == 'cotop':
+    env = VECEnv(
+        config=config, 
+        port=9999, 
+        use_mobility_model=use_mobility, 
+        use_priority=use_priority,
+        seed=args.seed
+    )
+    
+    # Initialize Policies
+    if args.mode in ['cotop', 'wo_md', 'wo_tp']:
         model = ActorCritic(env.observation_space.shape[0], env.action_space.n)
-        try:
-            model.load_state_dict(torch.load('results/checkpoints/a3c_agent.pth', map_location='cpu'))
-            print("Loaded trained CoTOP model.")
-        except Exception as e:
-            print(f"Could not load CoTOP model ({e}). Evaluating with untrained weights.")
+        ckpt_path = 'results/checkpoints/a3c_agent.pth'
+        if os.path.exists(ckpt_path):
+            try:
+                model.load_state_dict(torch.load(ckpt_path, map_location='cpu'))
+                print(f"[INFO] Loaded trained CoTOP model from {ckpt_path}.")
+            except Exception as e:
+                print(f"[WARN] Error loading checkpoint ({e}). Using initialized weights.")
+        else:
+            print("[WARN] No checkpoint found. Evaluating with untrained agent.")
         model.eval()
+        policy = None
+    elif args.mode in ['local', 'wo_co']:
+        policy = LocalPolicy(config=config)
+    elif args.mode == 'greedy':
+        policy = GreedyPolicy(config=config)
 
     total_rewards = []
     total_delays = []
     total_energies = []
+    total_completed_tasks = 0
+    total_evaluated_tasks = 0
 
-    print(f"Starting Evaluation - Mode: {args.mode}, Mobility: {use_mobility}")
+    print(f"=== Starting Evaluation ===")
+    print(f"Mode: {args.mode} | Mobility Aware: {use_mobility} | Priority Aware: {use_priority} | Episodes: {args.episodes}")
 
     for episode in range(args.episodes):
-        obs, _ = env.reset()
+        obs, _ = env.reset(seed=args.seed + episode)
         done = False
         
         ep_reward = 0
         ep_delay = 0
         ep_energy = 0
+        ep_completed = 0
+        ep_tasks = 0
         
         while not done:
-            # Ablation Logic: Override dwell time prediction
-            if args.no_mobility:
-                env.current_vehicle.dwell_time_T_stay = 2.0
-                
-            if args.mode == 'cotop':
+            if policy is not None:
+                action = policy.select_action(obs)
+            else:
                 obs_tensor = torch.FloatTensor(obs).unsqueeze(0)
                 with torch.no_grad():
                     logits, _ = model(obs_tensor)
-                # Greedy selection during evaluation instead of sampling
                 action = torch.argmax(logits, dim=-1).item()
-                obs, reward, terminated, truncated, info = env.step(action)
                 
-            elif args.mode == 'local':
-                action = get_nearest_rsu(env.current_vehicle, env.rsus)
-                
-                # Local baseline enforces Standalone Case 1 only.
-                # Setting dwell time to infinity ensures Case 2 (collaboration) is never triggered
-                # inside the env's step logic for this mode.
-                env.current_vehicle.dwell_time_T_stay = float('inf') 
-                obs, reward, terminated, truncated, info = env.step(action)
-                
-            elif args.mode == 'greedy':
-                action = get_greedy_rsu(env.rsus)
-                obs, reward, terminated, truncated, info = env.step(action)
-                
+            obs, reward, terminated, truncated, info = env.step(action)
             done = terminated or truncated
+            
             ep_reward += reward
+            ep_tasks += 1
             if 'delay' in info:
                 ep_delay += info['delay']
                 ep_energy += info['energy']
+                # Check if task completed within deadline (Section V-A Completion Ratio)
+                curr_task = env.current_tasks[env.current_task_idx - 1] if env.current_task_idx > 0 else None
+                if curr_task and info['delay'] <= curr_task.max_delay_d:
+                    ep_completed += 1
                 
         total_rewards.append(ep_reward)
-        total_delays.append(ep_delay)
-        total_energies.append(ep_energy)
+        total_delays.append(ep_delay / max(ep_tasks, 1))
+        total_energies.append(ep_energy / max(ep_tasks, 1))
+        total_completed_tasks += ep_completed
+        total_evaluated_tasks += ep_tasks
         
-        print(f"Episode {episode+1} | Reward: {ep_reward:.2f} | Delay: {ep_delay:.2f} | Energy: {ep_energy:.2f}")
+        comp_ratio_ep = (ep_completed / ep_tasks) if ep_tasks > 0 else 0.0
+        print(f"Episode {episode+1:02d} | Reward: {ep_reward:6.2f} | Avg Delay: {total_delays[-1]:5.2f}s | Avg Energy: {total_energies[-1]:5.2f}J | Comp Ratio: {comp_ratio_ep * 100:.1f}%")
 
-    print("-" * 40)
-    print(f"EVALUATION RESULTS ({args.mode.upper()})")
-    print(f"Average Reward: {np.mean(total_rewards):.2f}")
-    print(f"Average Delay:  {np.mean(total_delays):.2f}")
-    print(f"Average Energy: {np.mean(total_energies):.2f}")
-    print("-" * 40)
+    overall_completion_ratio = (total_completed_tasks / total_evaluated_tasks) if total_evaluated_tasks > 0 else 0.0
+    print("=" * 50)
+    print(f"       FINAL EVALUATION REPORT ({args.mode.upper()})")
+    print("=" * 50)
+    print(f"Average Reward:           {np.mean(total_rewards):.2f} ± {np.std(total_rewards):.2f}")
+    print(f"Average Delay (s):        {np.mean(total_delays):.2f} ± {np.std(total_delays):.2f}")
+    print(f"Average Energy (J):       {np.mean(total_energies):.2f} ± {np.std(total_energies):.2f}")
+    print(f"Task Completion Ratio:    {overall_completion_ratio * 100:.2f}%")
+    print("=" * 50)
     
     env.close()
 

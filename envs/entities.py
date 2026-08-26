@@ -15,7 +15,7 @@ class RSU:
     rsu_id: int
     location: Tuple[float, float]
     cpu_capacity_f: float
-    queue_length: int
+    queued_cpu_cycles: float
     transmission_power_P_R: float
 
 @dataclass
@@ -28,29 +28,30 @@ class Vehicle:
 
 @dataclass
 class SimulationConfig:
-    """Matches every key in configs/simulation.yaml exactly."""
-    num_vehicles_range: List[int]
-    num_rsus: int
-    vehicle_speed_range: List[float]
-    rsu_cpu_capacity_range: List[float]
-    num_tasks_per_vehicle_range: List[int]
-    task_size_range: List[float]
-    task_deadline_range: List[float]
-    bandwidth_v2r_range: List[float]
+    """Matches every key in configs/paper_parameters.yaml exactly with Table III defaults."""
+    num_vehicles_range: List[int] = field(default_factory=lambda: [10, 30])
+    num_rsus: int = 6
+    vehicle_speed_range: List[float] = field(default_factory=lambda: [30.0, 40.0])
+    rsu_cpu_capacity_range: List[float] = field(default_factory=lambda: [1.0e9, 4.0e9])
+    num_tasks_per_vehicle_range: List[int] = field(default_factory=lambda: [20, 40])
+    task_size_range: List[float] = field(default_factory=lambda: [2.0e6, 5.0e6])
+    task_deadline_range: List[float] = field(default_factory=lambda: [20.0, 30.0])
+    bandwidth_v2r_range: List[float] = field(default_factory=lambda: [20.0e6, 100.0e6])
 
-    rsu_comm_range: float
-    bandwidth_r2r: float
-    tx_power_vehicle: float
-    tx_power_rsu: float
-    noise_power: float
-    fixed_loss_k: float
-    path_loss_factor: float
+    rsu_comm_range: float = 400.0
+    bandwidth_r2r: float = 50.0e6
+    tx_power_vehicle: float = 0.01
+    tx_power_rsu: float = 100.0
+    compute_power_rsu: float = 50.0
+    noise_power: float = 0.001
+    fixed_loss_k: float = 1000.0
+    path_loss_factor: float = 2.0
 
-    alpha: float
-    beta: float
-    penalty_z: float
-    max_task_cpu: float          # was missing — YAML has it, dataclass didn't
-    epsilon: float = 0.5          # Eq. 25 reward trade-off, separate from alpha/beta
+    alpha: float = 0.3
+    beta: float = 0.7
+    penalty_z: float = 100.0
+    max_task_cpu: float = 10.0
+    epsilon: float = 0.5
 
     def __post_init__(self):
         """Coerce all fields to correct numeric types.
@@ -74,6 +75,7 @@ class SimulationConfig:
         self.bandwidth_r2r      = float(self.bandwidth_r2r)
         self.tx_power_vehicle   = float(self.tx_power_vehicle)
         self.tx_power_rsu       = float(self.tx_power_rsu)
+        self.compute_power_rsu  = float(self.compute_power_rsu)
         self.noise_power        = float(self.noise_power)
         self.fixed_loss_k       = float(self.fixed_loss_k)
         self.path_loss_factor   = float(self.path_loss_factor)

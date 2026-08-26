@@ -11,7 +11,7 @@ class SumoManager:
     A3C worker thread) can each own an independent TraCI connection instead
     of colliding on the single global 'default' connection.
     """
-    def __init__(self, sumocfg_path: str, port: int = None, use_gui: bool = False):
+    def __init__(self, sumocfg_path: str, port: int = None, use_gui: bool = False, seed: int = None):
         self.sumocfg_path = sumocfg_path
         self.use_gui = use_gui
         self.sumo_binary = "sumo-gui" if self.use_gui else "sumo"
@@ -19,11 +19,14 @@ class SumoManager:
         # Unique label per instance so traci calls don't hit the shared
         # 'default' connection when multiple SumoManagers run concurrently.
         self.label = f"sim_{port}" if port is not None else "default"
+        self.seed = seed
         self.conn = None
 
     def start_simulation(self):
         """Starts the SUMO simulation via TraCI on this instance's own labeled connection."""
         sumo_cmd = [self.sumo_binary, "-c", self.sumocfg_path]
+        if self.seed is not None:
+            sumo_cmd.extend(["--seed", str(self.seed)])
         try:
             traci.start(sumo_cmd, label=self.label)
             self.conn = traci.getConnection(self.label)

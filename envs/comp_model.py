@@ -6,7 +6,7 @@ def calculate_case1_standalone(
     w_v2r: float, 
     rsu_cpu_f: float, 
     power_v: float, 
-    power_rsu: float,
+    compute_power_rsu: float,
     t_wait: float = 0.0
 ) -> tuple[float, float]:
     """
@@ -19,8 +19,11 @@ def calculate_case1_standalone(
     - Eq 5-6: Total Delay.
     - Eq 11-12: Total Energy.
     """
-    # Eq 3: Transmission delay (Convert Bytes to bits)
-    t_trans = (task_size_rho * 8) / w_v2r if w_v2r > 0 else float('inf')
+    # Unit Strictness: Convert task_size_rho to bits only once (1 Byte = 8 bits)
+    task_size_bits = task_size_rho * 8
+    
+    # Eq 3: Transmission delay
+    t_trans = task_size_bits / w_v2r if w_v2r > 0 else float('inf')
     
     # Eq 4: Computation delay
     t_comp = task_cpu_phi / rsu_cpu_f if rsu_cpu_f > 0 else float('inf')
@@ -31,10 +34,8 @@ def calculate_case1_standalone(
     # Eq 11-12: Total Energy
     # Eq 11: Transmission energy  E_trans = P_V * t_trans
     energy_trans = power_v * t_trans
-    # Eq 12: Computation energy   E_comp = kappa * phi * f^2
-    # kappa (effective switched capacitance) encoded in power_rsu as kappa * f^2
-    # so E_comp = power_rsu * phi  (power_rsu = kappa * f^2 from config)
-    energy_comp = power_rsu * task_cpu_phi
+    # Eq 12: Computation energy   E_comp = time * compute_power_watts
+    energy_comp = t_comp * compute_power_rsu
     total_energy = energy_trans + energy_comp
     
     return total_delay, total_energy
@@ -49,53 +50,74 @@ def calculate_case2_collaboration(
     rsu2_cpu_f: float,
     t1_dwell_time: float,
     power_v: float, 
-    power_rsu1: float,
-    power_rsu2: float,
+    tx_power_rsu1: float,
+    compute_power_rsu1: float,
+    compute_power_rsu2: float,
     t_wait: float = 0.0
 ) -> tuple[float, float]:
     """
-    Case 2: RSU Collaboration execution.
+    Case 2: RSU Collaboration execution (Section III-C2, Eq. 7-10).
     Calculates Total Delay and Energy using parallel execution logic.
     
     References:
-    - Eq 7-10: Total Delay and components for collaboration.
+    - Eq 7: phi_{n,m,i}^{rest} = phi_{n,i} - t1 * F_m^{RSU}
+    - Eq 8: T_{m,m',i}^{ts} = rho_{n,m,i}^{rest} / w_{m,m'}^{R2R}
+    - Eq 9: T_{n,m',i}^{pro_rest} = phi_{n,m,i}^{rest} / F_{m'}^{RSU}
+    - Eq 10: T_{total} = T^{up} + max(t1, t2 + t3) + T_{m'}^{wait}
+    - Eq 11-12: Energy consumption for parallel computation and R2R transmission.
     """
-    # V2R Transmission Delay (Convert Bytes to bits)
-    t_v2r = (task_size_rho * 8) / w_v2r if w_v2r > 0 else float('inf')
+    # Unit Strictness: Convert task_size_rho to bits only once (1 Byte = 8 bits)
+    task_size_bits = task_size_rho * 8
     
-    # RSU 1 computes part of the task during dwell time (t1)
-    # The amount of CPU cycles RSU 1 can process during t1:
-    cpu_processed_rsu1 = rsu1_cpu_f * t1_dwell_time
+    # V2R Transmission Delay (Eq. 3)
+    t_v2r = task_size_bits / w_v2r if w_v2r > 0 else float('inf')
     
-    if cpu_processed_rsu1 >= task_cpu_phi:
-        # Task finishes within dwell time at RSU 1, falls back to Case 1 effectively
-        return calculate_case1_standalone(task_size_rho, task_cpu_phi, w_v2r, rsu1_cpu_f, power_v, power_rsu1, t_wait)
+    # Standalone execution time required on RSU 1 alone
+    t_comp1_full = task_cpu_phi / rsu1_cpu_f if rsu1_cpu_f > 0 else float('inf')
     
-    # Remaining CPU cycles to be processed at RSU 2
-    remaining_cpu_phi = task_cpu_phi - cpu_processed_rsu1
+    # Determine t1: Duration that RSU 1 computes before/during parallel handover
+    # If dwell time is less than standalone compute time, RSU 1 computes until vehicle leaves
+    # If dwell time is ample and collaboration is chosen, partition optimally for parallel speedup
+    if t1_dwell_time < t_comp1_full:
+        t1 = max(t1_dwell_time, 0.0)
+    else:
+        # Parallel load partitioning ratio: proportional to computing capacity
+        part_ratio = rsu1_cpu_f / (rsu1_cpu_f + rsu2_cpu_f) if (rsu1_cpu_f + rsu2_cpu_f) > 0 else 0.5
+        t1 = min(t1_dwell_time, part_ratio * t_comp1_full)
+        
+    cpu_processed_rsu1 = min(rsu1_cpu_f * t1, task_cpu_phi)
     
-    # Assuming remaining data size is proportional to remaining CPU cycles
+    # Eq 7: Remaining CPU cycles to be processed at RSU 2
+    remaining_cpu_phi = max(task_cpu_phi - cpu_processed_rsu1, 0.0)
+    
+    if remaining_cpu_phi <= 0:
+        # All processed locally
+        return calculate_case1_standalone(
+            task_size_rho, task_cpu_phi, w_v2r, rsu1_cpu_f,
+            power_v, compute_power_rsu1, t_wait
+        )
+    
+    # Proportion of remaining data to transmit via R2R
     proportion_remaining = remaining_cpu_phi / task_cpu_phi
-    remaining_size_rho = task_size_rho * proportion_remaining
+    remaining_size_bits = task_size_bits * proportion_remaining
     
-    # t2: inter-RSU transfer delay (Convert Bytes to bits)
-    t2_inter_rsu = (remaining_size_rho * 8) / w_r2r if w_r2r > 0 else float('inf')
+    # Eq 8: t2 - inter-RSU transfer delay
+    t2_inter_rsu = remaining_size_bits / w_r2r if w_r2r > 0 else float('inf')
     
-    # t3: remaining computation delay at RSU 2
+    # Eq 9: t3 - remaining computation delay at RSU 2
     t3_comp2 = remaining_cpu_phi / rsu2_cpu_f if rsu2_cpu_f > 0 else float('inf')
     
-    # Crucial Logic (Fig 2 and Sec III-C-2): Parallel execution processing delay
-    # Processing Delay = max(t1, t2 + t3)
-    processing_delay = max(t1_dwell_time, t2_inter_rsu + t3_comp2)
+    # Section III-C2 & Fig 2: Parallel execution processing delay = max(t1, t2 + t3)
+    processing_delay = max(t1, t2_inter_rsu + t3_comp2)
     
-    # Total Delay = V2R Transmission + Processing Delay + Wait Time
+    # Eq 10: Total Delay = V2R Upload + Processing Delay + Secondary RSU Wait Time
     total_delay = t_v2r + processing_delay + t_wait
     
-    # Energy components (Eq. 11-12)
-    energy_trans_v2r = power_v * t_v2r                       # Eq 11: V2R transmission
-    energy_comp1     = power_rsu1 * cpu_processed_rsu1        # Eq 12: RSU1 computation (kappa*f^2 * phi)
-    energy_trans_r2r = power_rsu1 * t2_inter_rsu             # RSU1→RSU2 relay energy
-    energy_comp2     = power_rsu2 * remaining_cpu_phi         # Eq 12: RSU2 computation
+    # Eq 11-12: Energy components
+    energy_trans_v2r = power_v * t_v2r                       # Eq 12: V2R transmission
+    energy_comp1     = t1 * compute_power_rsu1               # Eq 11: RSU1 computation
+    energy_trans_r2r = tx_power_rsu1 * t2_inter_rsu          # Eq 12: RSU1->RSU2 relay
+    energy_comp2     = t3_comp2 * compute_power_rsu2         # Eq 11: RSU2 computation
     
     total_energy = energy_trans_v2r + energy_comp1 + energy_trans_r2r + energy_comp2
     

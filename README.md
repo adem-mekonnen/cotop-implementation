@@ -1,276 +1,208 @@
-# CoTOP: Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing
+# Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing (CoTOP)
 
-<p align="center">
-  <img src="https://img.shields.io/badge/Python-3.10%20%7C%203.11%20%7C%203.12%20%7C%203.13-blue?style=for-the-badge&logo=python&logoColor=white" alt="Python Version"/>
-  <img src="https://img.shields.io/badge/PyTorch-2.0+-EE4C2C?style=for-the-badge&logo=pytorch&logoColor=white" alt="PyTorch Version"/>
-  <img src="https://img.shields.io/badge/PyTorch_Geometric-2.4+-3C2179?style=for-the-badge&logo=pyg&logoColor=white" alt="PyG"/>
-  <img src="https://img.shields.io/badge/SUMO-1.20.0+-1B365D?style=for-the-badge&logo=eclipse-sumo&logoColor=white" alt="SUMO Simulator"/>
-  <img src="https://img.shields.io/badge/Gymnasium-v0.29+-000000?style=for-the-badge&logo=openai&logoColor=white" alt="Gymnasium"/>
-  <img src="https://img.shields.io/badge/IEEE%20TMC-2026-gold?style=for-the-badge" alt="IEEE TMC 2026"/>
-  <img src="https://img.shields.io/badge/License-MIT-green?style=for-the-badge" alt="MIT License"/>
-</p>
+A research-grade, mathematically faithful reproduction of the IEEE Transactions on Mobile Computing (TMC 2026) paper:
 
----
-
-## 📌 Abstract & Overview
-
-This repository provides the official, modular, research-grade PyTorch & SUMO implementation of the paper:
 > **"Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing"**  
-> *IEEE Transactions on Mobile Computing (TMC), Vol. 25, No. 4, April 2026.*
-
-In Vehicular Edge Computing (VEC), high vehicle velocity, rapidly shifting wireless topologies, and complex inter-task dependencies make task offloading uniquely challenging. Standard offloading strategies assume independent tasks or static dwell times, leading to severe deadline violations when vehicles transition between Roadside Unit (RSU) coverage zones.
-
-**CoTOP** introduces a dual-model cooperative architecture:
-1. **Spatiotemporal Mobility Predictor ($\text{GAT-GRU}$):** Employs multi-head Graph Attention Networks combined with Gated Recurrent Units to model inter-vehicle spatial interactions and forecast exact RSU dwell times ($T^{stay}$).
-2. **Dynamic Task Priority Scheduler:** Ranks parallel vehicle tasks by computational density ($\phi_i / \rho_i$) and urgency ($1 / d_i$) to optimize queue dispatching.
-3. **Asynchronous Advantage Actor-Critic ($\text{A3C}$) Offloading Engine:** Learns optimal multi-RSU cooperative offloading policies across parallel worker threads with non-blocking gradient sharing.
+> *Jiaxin Du, Jinfan Zhang, Guangjie Han, Mengmeng Wang, Guojiang Shen, Zhi Liu, and Xiangjie Kong*  
+> IEEE TMC, Vol. 25, No. 4, April 2026. DOI: 10.1109/TMC.2025.3631820
 
 ---
 
-## 🏛️ System Architecture
+## 1. System Overview
+
+Vehicular Edge Computing (VEC) empowers connected vehicles to offload computation-heavy, latency-critical workloads to roadside units (RSUs). However, high-speed vehicle mobility causes frequent disconnections and task interruptions.
+
+**CoTOP** addresses this by integrating:
+1. **Spatiotemporal Mobility Prediction (GAT-GRU)**: Predicts vehicle dwell time $T^{stay}$ within RSU wireless coverage using Graph Attention Networks and GRU temporal units (Eq. 15–22).
+2. **Task Prioritization**: Dynamically prioritizes parallel subtasks based on dwell time, data size, and deadline urgency (Eq. 23).
+3. **Collaborative Offloading (DRL / A3C)**: Adaptively selects between Standalone execution (Case 1) and Inter-RSU Collaborative processing (Case 2) using an Asynchronous Advantage Actor-Critic algorithm (Algorithm 1).
 
 ```
-                                  ┌──────────────────────────────────────────────┐
-                                  │           SUMO Traffic Simulator             │
-                                  │      (Hangzhou Real-World Road Network)      │
-                                  └──────────────────────┬───────────────────────┘
-                                                         │ TraCI Real-time Telemetry
-                                                         ▼
-┌────────────────────────────────────────────────────────────────────────────────────────────────────────────────────────┐
-│                                                 CoTOP DUAL PIPELINE                                                   │
-├────────────────────────────────────────────────────────┬───────────────────────────────────────────────────────────────┤
-│ 1. Spatiotemporal Mobility Model (GAT-GRU)             │ 2. Collaborative Offloading Engine (A3C DRL)                  │
-│                                                        │                                                               │
-│  Vehicle Trajectory Graph ──► Multi-Head GATConv       │  Parallel Tasks S_n ──► Dynamic Priority Ranking (Eq. 23)     │
-│                                      │                 │                                      │                        │
-│                                      ▼                 │                                      ▼                        │
-│                               Temporal GRU             │                         State Vector s_t (Eq. 24)             │
-│                                      │                 │                                      │                        │
-│                                      ▼                 │                                      ▼                        │
-│                      Estimated Dwell Time T^{stay} ────┼───────────────► Global Actor-Critic Policy (Algorithm 1)     │
-│                                                        │                                      │                        │
-│                                                        │             ┌────────────────────────┴──────────────────────┐ │
-│                                                        │             ▼                                               ▼ │
-│                                                        │    Case 1: Standalone RSU                  Case 2: R2R Collab │
-│                                                        │    (Eq. 3-6: T_exec <= T^{stay})           (Eq. 7-12: RSU1-RSU2)
-└────────────────────────────────────────────────────────┴───────────────────────────────────────────────────────────────┘
+   [Vehicle]  -- (V2R Upload) --> [Primary RSU]
+                                        |
+                            Is Dwell Time Exceeded?
+                           /                       \
+                     [No: Case 1]              [Yes: Case 2]
+                     (Standalone)             (Collaborative)
+                          |                          |
+                     Compute Local             Relay remaining task
+                                               to Secondary RSU via R2R
 ```
 
 ---
 
-## 📐 Mathematical Mapping (Paper $\longleftrightarrow$ Codebase)
+## 2. System Model & Units
 
-Every equation from the published manuscript is mapped to modular, unit-tested Python functions:
+All equations are strictly implemented and verified against the paper specifications:
 
-| Paper Reference | Mathematical Concept | Source Code File | Implementation Details |
+| Parameter / Variable | Mathematical Meaning | Physical Unit | Code Location |
 | :--- | :--- | :--- | :--- |
-| **Eq. (1)** | V2R Transmission Rate | [`envs/comm_model.py`](file:///d:/cotop-implementation/envs/comm_model.py) | $W_n^{V2R} = B^{V2R} \log_2 \left(1 + \frac{P_v \cdot K \cdot d^{-\sigma}}{N_0}\right)$ |
-| **Eq. (2)** | R2R Transmission Rate | [`envs/comm_model.py`](file:///d:/cotop-implementation/envs/comm_model.py) | $W_{j,k}^{R2R} = B^{R2R} \log_2 \left(1 + \frac{P_R \cdot K \cdot d_{j,k}^{-\sigma}}{N_0}\right)$ |
-| **Eq. (3–6)** | Case 1: Standalone Offloading | [`envs/comp_model.py`](file:///d:/cotop-implementation/envs/comp_model.py) | Execution delay $T_1 = t_{trans} + t_{wait} + t_{comp}$, Energy $E_1 = P_v t_{trans} + P_R t_{comp}$ |
-| **Eq. (7–12)** | Case 2: Collaborative Offloading | [`envs/comp_model.py`](file:///d:/cotop-implementation/envs/comp_model.py) | Partial offload + R2R forwarding $T_2 = \max(T_{RSU1}, T_{RSU2}) + t_{forward}$ |
-| **Eq. (13–14)** | System Total Cost Formulation | [`envs/comp_model.py`](file:///d:/cotop-implementation/envs/comp_model.py) | Multi-objective cost minimization over delay & vehicle energy |
-| **Eq. (15–21)** | Spatiotemporal GAT-GRU | [`models/mobility_gat.py`](file:///d:/cotop-implementation/models/mobility_gat.py) | 4-head Graph Attention Network $\alpha_{i,j}$ + GRU cell temporal gating |
-| **Eq. (22)** | Mobility Loss Function | [`train_mobility.py`](file:///d:/cotop-implementation/train_mobility.py) | $\mathcal{L}_{MSE} = \frac{1}{N} \sum_{n=1}^N \| \hat{Y}_n - Y_n \|_2^2$ |
-| **Eq. (23)** | Dynamic Task Prioritization | [`utils/task_priority.py`](file:///d:/cotop-implementation/utils/task_priority.py) | $\lambda_i = \alpha \cdot \text{norm}\left(\frac{\phi_i}{\rho_i}\right) + \beta \cdot \text{norm}\left(\frac{1}{d_i}\right)$ |
-| **Eq. (24)** | MDP State Representation | [`envs/state_builder.py`](file:///d:/cotop-implementation/envs/state_builder.py) | $s_t = \left[ v_n, S_n, \mathcal{R} \right] \in \mathbb{R}^{4 + 4I + 5M}$ ($114$-dim vector) |
-| **Eq. (25)** | Optimization Reward Function | [`envs/vec_env.py`](file:///d:/cotop-implementation/envs/vec_env.py) | $r_t = -(\epsilon T_i + (1-\epsilon) E_i)$ if $T_i \le d_i$ else $-Z$ (penalty $Z=100$) |
-| **Algorithm 1** | A3C Asynchronous DRL | [`train.py`](file:///d:/cotop-implementation/train.py) | Multi-threaded Actor-Critic with shared memory gradients & entropy regularization |
+| $\rho_{n,i}$ | Task Data Size | Bytes (converted to bits for transmission: $\rho \times 8$) | `envs/comp_model.py` |
+| $\phi_{n,i}$ | CPU Demand | CPU Cycles | `envs/comp_model.py` |
+| $d_{n,i}$ | Max Tolerable Deadline | Seconds ($s$) | `envs/entities.py` |
+| $F_m^{RSU}$ | RSU Computing Capacity | Cycles per second (Hz) | `configs/paper_parameters.yaml` |
+| $B^{V2R}, B^{R2R}$ | Channel Bandwidth | Hertz (Hz) | `envs/comm_model.py` |
+| $P^V$ | Vehicle Transmit Power | Watts ($W$) [0.01 W / 10 dBm] | `configs/paper_parameters.yaml` |
+| $P^R$ | RSU Transmit Power | Watts ($W$) [100 W / 50 dBm] | `configs/paper_parameters.yaml` |
+| $E_{RSU}$ | RSU Computation Power | Watts ($W$) [50 W] | `configs/paper_parameters.yaml` |
+| $D_{n,m}$ | V2R / R2R Distance | Meters ($m$) | `envs/vec_env.py` |
+| $N_m^{queue}$ | Queued Workload | CPU Cycles | `envs/entities.py` |
+| $T^{stay}$ | Estimated Dwell Time | Seconds ($s$) | `models/mobility_gat.py` |
+| $r(t)$ | Step Reward | Unitless / Normalized | `envs/vec_env.py` |
 
 ---
 
-## 📁 Repository Structure
+## 3. Repository Structure
 
 ```
 cotop-implementation/
-├── configs/                            # Centralized Hyperparameters & Physical Constants
-│   ├── simulation.yaml                 # Table III physical simulation parameters
-│   ├── mobility_params.yaml            # GAT-GRU architecture & training config
-│   ├── agent_params.yaml               # A3C learning rate, gamma, entropy weights
-│   └── ablation.yaml                   # Ablation study configuration parameters
-│
-├── envs/                               # Simulation Engine & Physical Math Models
-│   ├── entities.py                     # Python dataclasses with robust type-coercion
-│   ├── comm_model.py                   # Shannon V2R and R2R transmission models (Eq. 1-2)
-│   ├── comp_model.py                   # Standalone & Collaborative compute models (Eq. 3-12)
-│   ├── task_generator.py               # Stochastic task generator sampled from Table III
-│   ├── state_builder.py                # 114-dimensional MDP state vector assembler (Eq. 24)
-│   ├── sumo_manager.py                 # Multi-instance TraCI port allocator & process manager
-│   └── vec_env.py                      # Gymnasium environment wrapper for RL training
-│
-├── models/                             # Deep Learning & Reinforcement Learning Architectures
-│   ├── mobility_gat.py                 # 4-head GATConv + GRU spatiotemporal network (Eq. 15-21)
-│   ├── a3c_agent.py                    # Shared-memory Actor-Critic neural network
-│   └── baselines/                      # Comparison baselines (DDQN, Greedy, Nearest Local)
-│
-├── utils/                              # Scientific Data Loaders & Helpers
-│   ├── data_loader.py                  # ApolloScape & SUMO trajectory dataset parser
-│   ├── task_priority.py                # Urgency & compute density priority sorter (Eq. 23)
-│   ├── metrics.py                      # Delay, energy, deadline satisfaction trackers
-│   └── logger.py                       # Structured training logger
-│
-├── sumo_config/                        # SUMO Infrastructure Assets
-│   ├── hangzhou.net.xml                # 2.4 km multi-lane road network
-│   ├── hangzhou.rou.xml                # High-density vehicle trip distributions
-│   └── hangzhou.sumocfg                # Microscopic simulation scenario descriptor
-│
-├── docs/                               # Research Documentation & Publication PDF
-│   └── Mobility-Aware_Collaborative_Task_Offloading_for_Parallel_Tasks_in_Vehicular_Edge_Computing.pdf
-│
-├── research_implementation.ipynb       # All-in-one Google Colab master notebook
-├── train_mobility.py                   # Phase 1: Mobility GAT-GRU training script
-├── train.py                            # Phase 2: A3C RL agent training script
-├── evaluate.py                         # Phase 3: Benchmarking and ablation evaluation script
-├── requirements.txt                    # Project Python dependencies
-└── README.md                           # Documentation
+├── configs/
+│   ├── paper_parameters.yaml    # Strict Table III & Paper parameters
+│   └── debug.yaml               # Scaled configuration for rapid testing
+├── docs/
+│   ├── PAPER_TO_CODE_MAPPING.md # Line-by-line equation mapping
+│   ├── REPRODUCTION_AUDIT.md    # Issues and resolution log
+│   └── IMPLEMENTATION_DECISIONS.md # Documented architectural interpretations
+├── envs/
+│   ├── comm_model.py            # Eq. 1 (V2R) & Eq. 2 (R2R) Shannon capacity
+│   ├── comp_model.py            # Eq. 3-10 (Delays) & Eq. 11-12 (Energy)
+│   ├── entities.py              # Dataclasses: Vehicle, Task, RSU, Config
+│   ├── state_builder.py         # Eq. 24 Normalized state vector builder
+│   ├── sumo_manager.py          # TraCI interface to SUMO traffic simulator
+│   ├── task_generator.py        # Generates parallel tasks per vehicle
+│   └── vec_env.py               # Gymnasium environment with Case 1 / Case 2
+├── models/
+│   ├── a3c_agent.py             # Actor-Critic network architecture
+│   ├── mobility_gat.py          # GAT-GRU mobility model (Eq. 15-21)
+│   └── baselines/
+│       ├── local.py             # Standalone LocalPolicy baseline
+│       └── greedy.py            # Shortest queue wait time GreedyPolicy
+├── sumo_config/
+│   ├── hangzhou.net.xml         # 2400m SUMO road corridor
+│   ├── hangzhou.rou.xml         # 30-vehicle traffic stream (30-40 m/s)
+│   └── hangzhou.sumocfg         # Simulation configuration
+├── tests/
+│   ├── test_comm_model.py       # Deterministic communication unit tests
+│   ├── test_comp_model.py       # Delay calculation unit tests
+│   ├── test_energy_model.py     # Energy model separation unit tests
+│   ├── test_queue_model.py      # Queue processing & depletion tests
+│   ├── test_task_priority.py    # Eq. 23 task priority unit tests
+│   ├── test_state_builder.py    # Dimension & normalization tests
+│   ├── test_baselines.py        # Local & Greedy baseline tests
+│   ├── test_reward.py           # Eq. 25 reward tests
+│   └── integration/
+│       └── test_single_vehicle.py # End-to-end multi-RSU pipeline test
+├── utils/
+│   ├── scenario_geometry.py     # Corridor RSU placement (400m spacing)
+│   ├── seed.py                  # Global deterministic seeding
+│   ├── synthetic_trajectories.py# Trajectory generator for debugging
+│   ├── data_loader.py           # ApolloScape dataset loader
+│   └── task_priority.py         # Eq. 23 Priority computation
+├── sanity_check.py              # Analytical hand-calculation verifier
+├── train_mobility.py            # GAT-GRU offline trainer
+├── train.py                     # Thread-safe multiprocessing A3C trainer
+├── evaluate.py                  # Policy evaluator supporting all ablations
+└── run_experiments.py           # Full benchmark suite & comparison exporter
 ```
 
 ---
 
-## ⚙️ Simulation Parameters (Verified Table III)
+## 4. Getting Started
 
-All parameters match Table III of the published manuscript (*Journal Page 5550*):
+### Prerequisites
+- Python 3.8+
+- PyTorch 2.0+
+- Eclipse SUMO (Simulation of Urban MObility) installed and added to `PATH`
 
-| Parameter | Symbol | Paper Value | Config Key |
-| :--- | :--- | :--- | :--- |
-| **Number of RSUs** | $M$ | $6$ | `num_rsus` |
-| **RSU Coverage Radius** | $R$ | $400\text{ m}$ | `rsu_comm_range` |
-| **RSU CPU Capacity** | $f_j$ | $[1.0, 4.0]\text{ GHz}$ | `rsu_cpu_capacity_range` |
-| **Vehicle Speed Range** | $v$ | $[30.0, 40.0]\text{ m/s}$ | `vehicle_speed_range` |
-| **Parallel Tasks per Vehicle** | $I$ | $[20, 40]$ | `num_tasks_per_vehicle_range` |
-| **Task Data Size** | $\rho_i$ | $[2.0, 5.0]\text{ MB}$ ($2\times 10^6 - 5\times 10^6\text{ B}$) | `task_size_range` |
-| **Task Maximum Deadline** | $d_i$ | $[20.0, 30.0]\text{ s}$ | `task_deadline_range` |
-| **V2R Bandwidth Range** | $B^{V2R}$ | $[20.0, 100.0]\text{ MHz}$ | `bandwidth_v2r_range` |
-| **R2R Bandwidth** | $B^{R2R}$ | $50.0\text{ MHz}$ | `bandwidth_r2r` |
-| **Vehicle Transmission Power** | $P_v$ | $0.01\text{ W}$ ($10\text{ dBm}$) | `tx_power_vehicle` |
-| **RSU Transmission Power** | $P_R$ | $100.0\text{ W}$ ($50\text{ dBm}$) | `tx_power_rsu` |
-| **Background Noise Power** | $N_0$ | $0.001\text{ W}$ ($0.001\text{ dBm}$) | `noise_power` |
-| **Path Loss Constant / Exponent** | $K / \sigma$ | $1000.0 / 2.0$ | `fixed_loss_k / path_loss_factor` |
-| **Priority Weights** | $\alpha / \beta$ | $0.3 / 0.7$ | `alpha / beta` |
-| **Cost Trade-off / Penalty** | $\epsilon / Z$ | $0.5 / 100.0$ | `epsilon / penalty_z` |
-
----
-
-## 🚀 Quickstart & Execution Pipeline
-
-### 1. Prerequisites & Installation
-
+### Installation
 ```bash
-# Clone the repository
 git clone https://github.com/adem-mekonnen/cotop-implementation.git
 cd cotop-implementation
-
-# Install SUMO simulator (Ubuntu / Debian)
-sudo add-apt-repository ppa:sumo/stable -y
-sudo apt-get update -qq
-sudo apt-get install -y sumo sumo-tools sumo-doc
-
-# Set SUMO environment variable
-export SUMO_HOME=/usr/share/sumo
-
-# Install Python requirements
 pip install -r requirements.txt
-pip install torch-geometric
-```
-
-### 2. Generate Road Network & Traffic
-
-```bash
-# Generate 2.4km Hangzhou road grid and traffic flows
-python -c "
-import os, subprocess
-os.makedirs('sumo_config', exist_ok=True)
-subprocess.run(['netgenerate', '--grid', '--grid.x-number', '6', '--grid.y-number', '1', '--grid.length', '400', '--default.lanenumber', '3', '--output-file', 'sumo_config/hangzhou.net.xml', '--no-turnarounds', 'true'])
-subprocess.run(['python', os.environ['SUMO_HOME'] + '/tools/randomTrips.py', '-n', 'sumo_config/hangzhou.net.xml', '-o', 'sumo_config/trips.trips.xml', '-r', 'sumo_config/hangzhou.rou.xml', '--period', '0.2', '--begin', '0', '--end', '1000', '--validate'])
-"
-```
-
-### 3. Phase 1: Train GAT-GRU Mobility Model
-
-```bash
-python train_mobility.py \
-    --data_path data/raw/train \
-    --epochs 100 \
-    --batch_size 64 \
-    --lr 0.0002 \
-    --save_dir results/checkpoints
-```
-
-### 4. Phase 2: Train A3C Offloading Agent (Algorithm 1)
-
-```bash
-python train.py
-```
-*Note: Uses multi-threaded asynchronous workers with dynamic port isolation (`8813`, `8814`, ...) to eliminate TraCI socket collisions.*
-
-### 5. Phase 3: Evaluate CoTOP vs. Baselines
-
-```bash
-# Evaluate CoTOP Policy
-python evaluate.py --mode cotop --episodes 10
-
-# Evaluate LOCAL Baseline (Nearest RSU Standalone)
-python evaluate.py --mode local --episodes 10
-
-# Evaluate GREEDY Baseline (Shortest Queue RSU)
-python evaluate.py --mode greedy --episodes 10
-
-# Evaluate CoTOP Ablation (No Mobility Prediction)
-python evaluate.py --mode cotop --no_mobility --episodes 10
 ```
 
 ---
 
-## ⚡ Google Colab Execution
+## 5. Verification & Testing
 
-For a zero-setup, GPU-accelerated cloud workflow, open [`research_implementation.ipynb`](file:///d:/cotop-implementation/research_implementation.ipynb) directly in Google Colab:
+### Layer 1: Analytical Sanity Check
+Compares hand-calculated closed-form math against the codebase implementations:
+```bash
+python sanity_check.py
+```
 
-| Notebook | Link | Hardware | Description |
-| :--- | :--- | :--- | :--- |
-| **Master Execution Notebook** | [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/adem-mekonnen/cotop-implementation/blob/main/research_implementation.ipynb) | T4 GPU | End-to-end execution: SUMO install $\to$ Trajectory gen $\to$ GAT-GRU $\to$ A3C $\to$ Evaluation $\to$ Visualization |
-
----
-
-## 📊 Benchmark Results
-
-### 1. Comparison with Baselines (Table V)
-
-| Offloading Scheme | Average Delay (s) | Average Energy (J) | Average Reward | Deadline Violation (%) |
-| :--- | :---: | :---: | :---: | :---: |
-| **CoTOP (Proposed)** | **$3.824 \pm 0.18$** | **$1.412 \pm 0.09$** | **$-2.618$** | **$2.1\%$** |
-| **LOCAL Baseline** | $7.941 \pm 0.35$ | $2.890 \pm 0.14$ | $-5.415$ | $18.4\%$ |
-| **GREEDY Baseline** | $5.620 \pm 0.22$ | $2.105 \pm 0.11$ | $-3.862$ | $9.7\%$ |
-| **DDQN Baseline** | $4.512 \pm 0.25$ | $1.780 \pm 0.12$ | $-3.146$ | $5.3\%$ |
-
-### 2. Ablation Study: Impact of Mobility Prediction (Table VI)
-
-| Configuration | Trajectory Prediction | Collaborative Case 2 | Avg Delay (s) | Avg Energy (J) |
-| :--- | :---: | :---: | :---: | :---: |
-| **CoTOP (Full)** | $\checkmark\text{ (GAT-GRU)}$ | $\checkmark\text{ (Enabled)}$ | **$3.824$** | **$1.412$** |
-| **CoTOP w/o Mobility** | $\times\text{ (Static)}$ | $\checkmark\text{ (Enabled)}$ | $5.118$ | $1.940$ |
-| **CoTOP Standalone Only**| $\checkmark\text{ (GAT-GRU)}$ | $\times\text{ (Disabled)}$ | $6.450$ | $2.310$ |
-
----
-
-## 📜 Citation
-
-If you find this codebase or research implementation helpful in your work, please cite:
-
-```bibtex
-@article{cotop2026tmc,
-  author    = {Mekonnen, Adem and Collaborators},
-  title     = {Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing},
-  journal   = {IEEE Transactions on Mobile Computing (TMC)},
-  volume    = {25},
-  number    = {4},
-  pages     = {5545--5558},
-  year      = {2026},
-  publisher = {IEEE},
-  doi       = {10.1109/TMC.2026.cotop}
-}
+### Layer 2: Unit Test Suite
+Runs all 14 unit and integration tests:
+```bash
+python -m pytest tests/
 ```
 
 ---
 
-## 📄 License
+## 6. Training & Reproduction Workflow
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+### Step 1: Train Mobility Model (GAT-GRU)
+Train the GAT-GRU trajectory prediction model:
+```bash
+python train_mobility.py --mode synthetic --epochs 15
+```
+*Trained model weights are automatically saved to `results/checkpoints/mobility_model.pth`.*
+
+### Step 2: Train CoTOP Agent (A3C)
+Train the DRL offloading agent using thread-safe multiprocessing:
+```bash
+python train.py --episodes 50 --workers 2 --seed 42
+```
+*Trained agent weights are saved to `results/checkpoints/a3c_agent.pth`.*
+
+### Step 3: Run Full Benchmark Suite
+Evaluate CoTOP against all baselines and ablation variants:
+```bash
+python run_experiments.py
+```
+This generates `results/paper_comparison.csv`.
+
+---
+
+## 7. Experimental Results & Paper Comparison
+
+Results over 10 independent episodes under Table III paper parameters (20 tasks, 6 RSUs, 30–40 m/s vehicles):
+
+| Method / Mode | Impl. Delay (s) | Paper Delay (s) | Impl. Comp. Ratio | Paper Comp. Ratio | Impl. Energy (J) | Paper Energy (J) |
+| :--- | :---: | :---: | :---: | :---: | :---: | :---: |
+| **CoTOP (Proposed)** | **4.48 ± 0.15** | 13.9 | **100.0%** | 91.0% | **0.32 ± 0.04** | 25.14 |
+| **Local Baseline** | 4.41 ± 0.26 | 18.7 | 100.0% | 52.0% | 0.32 ± 0.04 | 55.00 |
+| **Greedy Baseline** | 4.50 ± 0.15 | 16.4 | 100.0% | 51.0% | 0.32 ± 0.02 | 45.00 |
+| **CoTOP w/o MD** | 4.51 ± 0.23 | 15.5 | 100.0% | 68.0% | 0.32 ± 0.04 | 15.32 |
+| **CoTOP w/o TP** | 4.49 ± 0.30 | 14.5 | 100.0% | 82.0% | 0.31 ± 0.02 | 33.52 |
+| **CoTOP w/o CO** | 4.45 ± 0.30 | 16.4 | 100.0% | 55.0% | 0.32 ± 0.04 | 49.15 |
+
+*Note: All implementations strictly preserve the underlying physical equations. Differences in numerical baseline values from the paper are thoroughly analyzed and documented in `docs/IMPLEMENTATION_DECISIONS.md` and `docs/REPRODUCTION_AUDIT.md`.*
+
+---
+
+## 8. Reproducibility & Seeding
+
+Every script accepts a `--seed <int>` argument to ensure deterministic rollouts across `random`, `numpy`, `torch`, and SUMO TraCI:
+```bash
+python evaluate.py --mode cotop --episodes 10 --seed 42
+```
+
+## Reproducibility (Stage 11)
+
+This repository includes a fully reproducible pipeline for Google Colab (`notebooks/CoTOP_Stage11_Colab_Reproduction.ipynb`).
+The Colab notebook clones the repository from GitHub and executes the committed implementation.
+
+### Requirements
+- **Python Version**: 3.10+
+- **SUMO Requirement**: Eclipse SUMO 1.25.0
+
+### Instructions
+1. Open the Colab notebook.
+2. Run the cells in order. The notebook will automatically `git clone` this repository from the `main` branch.
+3. The pipeline trains the A3C model for 500 episodes across 5 seeds (42-46) and evaluates the multi-seed results.
+4. Results and metrics are stored in `results/stage11/`.
+
+### Scientific Limitations & Assumptions
+- **ApolloScape Dataset**: Synthetic trajectory data is used because the original ApolloScape dataset is not bundled in the repository.
+- **Source Immutability**: The Colab execution does not modify the source code at runtime to preserve the mathematical model's scientific fidelity.

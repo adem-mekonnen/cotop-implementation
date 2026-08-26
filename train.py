@@ -1,15 +1,18 @@
 import os
 import time
-import threading
+import argparse
 import torch
 import torch.optim as optim
 import torch.nn.functional as F
+import torch.multiprocessing as mp
 from torch.distributions import Categorical
 import yaml
+import numpy as np
 
 from models.a3c_agent import ActorCritic
 from envs.vec_env import VECEnv
 from envs.entities import SimulationConfig
+from utils.seed import set_seed
 
 class SharedAdam(optim.Adam):
     """
@@ -20,138 +23,141 @@ class SharedAdam(optim.Adam):
         for group in self.param_groups:
             for p in group['params']:
                 state = self.state[p]
-                state['step'] = torch.zeros(1) # PyTorch 2.x singleton tensor compatibility
+                state['step'] = torch.zeros(1)
                 state['exp_avg'] = torch.zeros_like(p.data)
                 state['exp_avg_sq'] = torch.zeros_like(p.data)
                 
-                # share in memory
                 state['step'].share_memory_()
                 state['exp_avg'].share_memory_()
                 state['exp_avg_sq'].share_memory_()
 
-class A3CWorker(threading.Thread):
-    def __init__(self, worker_id, global_model, optimizer, config, save_dir, mobility_model_path):
-        super(A3CWorker, self).__init__()
-        self.worker_id = worker_id
-        self.global_model = global_model
-        self.optimizer = optimizer
-        self.save_dir = save_dir
-        
-        # Worker Safety: Assign each one a unique port (8813 + worker_id)
-        port = 8813 + self.worker_id
-        
-        # Initialize local environment with full config
-        self.env = VECEnv(config=config, port=port)
-        
-        # Dynamic Dims: Get exactly what the environment provides
-        input_dim = self.env.observation_space.shape[0]
-        num_actions = self.env.action_space.n
-        
-        self.local_model = ActorCritic(input_dim, num_actions)
-        self.gamma = 0.99
-        self.max_episodes = 1000 # Paper usually trains for ~1000 eps
 
-    def run(self):
-        # Stagger worker startup by 1.5s per worker to prevent simultaneous SUMO port contention
-        time.sleep(self.worker_id * 1.5)
-        for episode in range(self.max_episodes):
-            # Sync with global model
-            self.local_model.load_state_dict(self.global_model.state_dict())
+def worker_process(worker_id, global_model, optimizer, config, max_episodes, save_dir, mobility_model_path, seed_base):
+    worker_seed = seed_base + worker_id
+    set_seed(worker_seed)
+    
+    port = 8813 + worker_id
+    env = VECEnv(config=config, port=port, seed=worker_seed)
+    
+    input_dim = env.observation_space.shape[0]
+    num_actions = env.action_space.n
+    
+    local_model = ActorCritic(input_dim, num_actions)
+    gamma = 0.99
+
+    time.sleep(worker_id * 1.5)
+    for episode in range(max_episodes):
+        local_model.load_state_dict(global_model.state_dict())
+        
+        state, _ = env.reset(seed=worker_seed + episode)
+        state = torch.FloatTensor(state)
+        
+        values, log_probs, rewards = [], [], []
+        done = False
+        
+        while not done:
+            policy_logits, value = local_model(state)
+            probs = F.softmax(policy_logits, dim=-1)
             
-            # Gymnasium API: reset returns (state, info)
-            state, _ = self.env.reset()
-            state = torch.FloatTensor(state)
+            m = Categorical(probs)
+            action = m.sample()
             
-            values, log_probs, rewards = [], [], []
-            done = False
+            next_state, reward, terminated, truncated, info = env.step(action.item())
+            done = terminated or truncated
             
-            while not done:
-                policy_logits, value = self.local_model(state)
-                probs = F.softmax(policy_logits, dim=-1)
-                
-                m = Categorical(probs)
-                action = m.sample()
-                
-                # Gymnasium API: step returns (next_state, reward, terminated, truncated, info)
-                next_state, reward, terminated, truncated, info = self.env.step(action.item())
-                done = terminated or truncated
-                
-                values.append(value)
-                log_probs.append(m.log_prob(action))
-                rewards.append(reward)
-                
-                state = torch.FloatTensor(next_state)
+            values.append(value)
+            log_probs.append(m.log_prob(action))
+            rewards.append(reward)
             
-            # --- Returns and Loss Calculation (Algorithm 1, Lines 15-20) ---
-            R = 0
-            returns = []
-            for r in rewards[::-1]:
-                R = r + self.gamma * R
-                returns.insert(0, R)
-                
-            returns = torch.FloatTensor(returns)
-            if len(values) > 0:
-                values = torch.stack(values).view(-1)
-                log_probs = torch.stack(log_probs).view(-1)
-                
-                advantages = returns - values.detach()
-                actor_loss = -(log_probs * advantages).mean()
-                critic_loss = F.mse_loss(values, returns)
-                # Entropy regularisation (Sec IV-E) — encourages exploration
-                probs_all = F.softmax(self.local_model(state)[0].detach(), dim=-1)
-                entropy = -(probs_all * probs_all.log()).sum(dim=-1).mean()
-                total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
-                
-                self.optimizer.zero_grad()
-                total_loss.backward()
-                
-                # Manual Gradient Sharing for A3C
-                for global_param, local_param in zip(self.global_model.parameters(), self.local_model.parameters()):
+            state = torch.FloatTensor(next_state)
+        
+        R = 0
+        returns = []
+        for r in rewards[::-1]:
+            R = r + gamma * R
+            returns.insert(0, R)
+            
+        returns = torch.FloatTensor(returns)
+        if len(values) > 0:
+            values = torch.stack(values).view(-1)
+            log_probs = torch.stack(log_probs).view(-1)
+            
+            advantages = returns - values.detach()
+            actor_loss = -(log_probs * advantages).mean()
+            critic_loss = F.mse_loss(values, returns)
+            
+            probs_all = F.softmax(local_model(state)[0].detach(), dim=-1)
+            entropy = -(probs_all * (probs_all + 1e-8).log()).sum(dim=-1).mean()
+            total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
+            
+            optimizer.zero_grad()
+            total_loss.backward()
+            
+            for global_param, local_param in zip(global_model.parameters(), local_model.parameters()):
+                if local_param.grad is not None:
                     global_param._grad = local_param.grad
-                self.optimizer.step()
-            
-            if self.worker_id == 0 and (episode + 1) % 50 == 0:
-                print(f"Episode {episode+1} | Reward: {sum(rewards):.2f}")
-                torch.save(self.global_model.state_dict(), os.path.join(self.save_dir, "a3c_agent.pth"))
+            optimizer.step()
+        
+        if worker_id == 0 and (episode + 1) % 10 == 0:
+            print(f"[Worker 0] Episode {episode+1:03d}/{max_episodes} | Total Reward: {sum(rewards):6.2f}")
+            torch.save(global_model.state_dict(), os.path.join(save_dir, "a3c_agent.pth"))
 
-def train():
-    # 1. Load Simulation Config (Verified Table III)
-    with open("configs/simulation.yaml", 'r') as f:
+    try:
+        env.close()
+    except Exception:
+        pass
+
+
+def train(args):
+    set_seed(args.seed)
+    
+    with open(args.config, 'r') as f:
         config_data = yaml.safe_load(f)
     config = SimulationConfig(**config_data)
     
-    os.makedirs("results/checkpoints", exist_ok=True)
+    os.makedirs(args.save_dir, exist_ok=True)
     
-    # 2. Get Dynamic Dims from a dummy env to prevent "Size Mismatch"
-    temp_env = VECEnv(config=config)
+    temp_env = VECEnv(config=config, seed=args.seed)
     input_dim = temp_env.observation_space.shape[0]
     num_actions = temp_env.action_space.n
     temp_env.close()
     
-    print(f"Starting A3C with State Dim: {input_dim}, Action Dim: {num_actions}")
+    print(f"=== Starting A3C Training ===")
+    print(f"State Dim: {input_dim} | Action Dim: {num_actions} | Workers: {args.workers} | Max Episodes: {args.episodes}")
 
     global_model = ActorCritic(input_dim, num_actions)
     global_model.share_memory()
-    optimizer = SharedAdam(global_model.parameters(), lr=0.0002)
+    optimizer = SharedAdam(global_model.parameters(), lr=args.lr)
     
-    num_workers = 4 
-    workers = []
-    for i in range(num_workers):
-        worker = A3CWorker(i, global_model, optimizer, config, "results/checkpoints", "results/checkpoints/mobility_model.pth")
-        worker.start()
-        workers.append(worker)
+    processes = []
+    try:
+        mp.set_start_method('spawn', force=True)
+    except RuntimeError:
+        pass
         
-    for worker in workers:
-        worker.join()
-        try:
-            worker.env.close()
-        except Exception:
-            pass
+    for i in range(args.workers):
+        p = mp.Process(
+            target=worker_process, 
+            args=(i, global_model, optimizer, config, args.episodes, args.save_dir, "results/checkpoints/mobility_model.pth", args.seed)
+        )
+        p.start()
+        processes.append(p)
+        
+    for p in processes:
+        p.join()
 
-    # Ensure model weights are saved at the end of training
-    ckpt_path = "results/checkpoints/a3c_agent.pth"
+    ckpt_path = os.path.join(args.save_dir, "a3c_agent.pth")
     torch.save(global_model.state_dict(), ckpt_path)
-    print(f"Final A3C model saved to {ckpt_path}")
+    print(f"[SUCCESS] Final A3C model saved to {ckpt_path}")
 
 if __name__ == "__main__":
-    train()
+    parser = argparse.ArgumentParser()
+    parser.add_argument("--episodes", type=int, default=50)
+    parser.add_argument("--workers", type=int, default=2)
+    parser.add_argument("--lr", type=float, default=0.0002)
+    parser.add_argument("--seed", type=int, default=42)
+    parser.add_argument("--config", type=str, default="configs/paper_parameters.yaml")
+    parser.add_argument("--save_dir", type=str, default="results/checkpoints")
+    args = parser.parse_args()
+    
+    train(args)

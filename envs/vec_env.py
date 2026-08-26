@@ -21,19 +21,19 @@ MOBILITY_CHECKPOINT = "results/checkpoints/mobility_model.pth"
 TRAJ_HISTORY_LEN = 5
 
 class VECEnv(gym.Env):
-    def __init__(self, config: SimulationConfig, port: int = None, use_mobility_model: bool = True, use_priority: bool = True):
+    def __init__(self, config: SimulationConfig, port: int = None, use_mobility_model: bool = True, use_priority: bool = True, seed: int = None):
         super(VECEnv, self).__init__()
         self.config = config
         self.port = port
         self.use_mobility_model = use_mobility_model
         self.use_priority = use_priority
 
-        self.action_space = spaces.Discrete(self.config.num_rsus)
+        self.action_space = spaces.Discrete(self.config.num_rsus + 1)
         n_tasks = self.config.num_tasks_per_vehicle_range[0]
         self.obs_dim = 4 + (n_tasks * 4) + (self.config.num_rsus * 5)
         self.observation_space = spaces.Box(low=-np.inf, high=np.inf, shape=(self.obs_dim,), dtype=np.float32)
 
-        self.sumo_manager = SumoManager("sumo_config/hangzhou.sumocfg", port=self.port, use_gui=False)
+        self.sumo_manager = SumoManager("sumo_config/hangzhou.sumocfg", port=self.port, use_gui=False, seed=seed)
         self.sumo_started = False
         self.current_vehicle = None
         self.current_tasks = []
@@ -59,14 +59,14 @@ class VECEnv(gym.Env):
         if self.mobility_model is not None and len(vehicle.trajectory_history) >= TRAJ_HISTORY_LEN:
             try:
                 traj = np.array(vehicle.trajectory_history[-TRAJ_HISTORY_LEN:], dtype=np.float32)
-                # Shape: (1, seq_len, 2) — single vehicle as a graph of 1 node
-                x_seq = torch.FloatTensor(traj).unsqueeze(0)
-                # Self-loop edge so GATConv is not silenced (Fix 2: was empty, killing spatial interaction)
-                # When multi-vehicle data is available, build a proper proximity graph here.
+                # Normalize trajectory coordinates to [0, 1] for GAT-GRU model
+                traj_norm = traj / 2400.0
+                x_seq = torch.FloatTensor(traj_norm).unsqueeze(0)
                 edge_index = torch.tensor([[0], [0]], dtype=torch.long)
                 with torch.no_grad():
                     predictions = self.mobility_model(x_seq, edge_index)
-                future_pos = predictions[0, -1].numpy()
+                future_pos_norm = predictions[0, -1].numpy()
+                future_pos = future_pos_norm * 2400.0
                 dist_to_edge = self.config.rsu_comm_range - get_euclidean_distance(
                     (float(future_pos[0]), float(future_pos[1])), current_rsu.location
                 )
@@ -88,7 +88,8 @@ class VECEnv(gym.Env):
             return self._get_obs(), 0.0, True, False, {}
 
         task = self.current_tasks[self.current_task_idx]
-        target_rsu = self.rsus[action]
+        # Primary RSU is the nearest RSU
+        target_rsu = min(self.rsus, key=lambda r: get_euclidean_distance(self.current_vehicle.pos, r.location))
 
         v2r_distance = get_euclidean_distance(self.current_vehicle.pos, target_rsu.location)
         w_v2r = compute_v2r_rate(
@@ -103,47 +104,78 @@ class VECEnv(gym.Env):
         dwell_time = self._estimate_dwell_time(self.current_vehicle, target_rsu)
         self.current_vehicle.dwell_time_T_stay = dwell_time
 
-        standalone_delay, energy = calculate_case1_standalone(
-            task_size_rho=task.size_rho,
-            task_cpu_phi=task.cpu_phi,
-            w_v2r=w_v2r,
-            rsu_cpu_f=target_rsu.cpu_capacity_f,
-            power_v=self.config.tx_power_vehicle,
-            power_rsu=target_rsu.transmission_power_P_R,
-            t_wait=target_rsu.queue_length / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0
-        )
+        # Paper Eq 5: t_wait = N^{queue} / F^{RSU}
+        t_wait_target = target_rsu.queued_cpu_cycles / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0.0
 
-        case_used = 1
-        if dwell_time < standalone_delay:
-            other_rsus = [r for r in self.rsus if r.rsu_id != target_rsu.rsu_id]
-            next_rsu = min(other_rsus, key=lambda r: get_euclidean_distance(target_rsu.location, r.location))
-            
-            r2r_distance = get_euclidean_distance(target_rsu.location, next_rsu.location)
-            w_r2r = compute_r2r_rate(
-                distance=r2r_distance,
-                bandwidth_B=self.config.bandwidth_r2r,
-                power_P_R=self.config.tx_power_rsu,
-                noise_power=self.config.noise_power,
-                fixed_loss_k=self.config.fixed_loss_k,
-                path_loss_factor=self.config.path_loss_factor
-            )
-
-            standalone_delay, energy = calculate_case2_collaboration(
+        # Action Decision Logic
+        if action == 0:
+            # Force Case 1 (Standalone)
+            standalone_delay, energy = calculate_case1_standalone(
                 task_size_rho=task.size_rho,
                 task_cpu_phi=task.cpu_phi,
                 w_v2r=w_v2r,
-                w_r2r=w_r2r,
-                rsu1_cpu_f=target_rsu.cpu_capacity_f,
-                rsu2_cpu_f=next_rsu.cpu_capacity_f,
-                t1_dwell_time=dwell_time,
+                rsu_cpu_f=target_rsu.cpu_capacity_f,
                 power_v=self.config.tx_power_vehicle,
-                power_rsu1=target_rsu.transmission_power_P_R,
-                power_rsu2=next_rsu.transmission_power_P_R,
-                t_wait=target_rsu.queue_length / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0
+                compute_power_rsu=self.config.compute_power_rsu,
+                t_wait=t_wait_target
             )
-            case_used = 2
+            target_rsu.queued_cpu_cycles += task.cpu_phi
+            case_used = 1
+        else:
+            # action > 0 triggers Case 2 (Collaborative) with RSU action-1
+            secondary_rsu = self.rsus[action - 1]
+            if secondary_rsu.rsu_id == target_rsu.rsu_id:
+                # If agent selects primary RSU for collaboration, fall back to standalone
+                standalone_delay, energy = calculate_case1_standalone(
+                    task_size_rho=task.size_rho,
+                    task_cpu_phi=task.cpu_phi,
+                    w_v2r=w_v2r,
+                    rsu_cpu_f=target_rsu.cpu_capacity_f,
+                    power_v=self.config.tx_power_vehicle,
+                    compute_power_rsu=self.config.compute_power_rsu,
+                    t_wait=t_wait_target
+                )
+                target_rsu.queued_cpu_cycles += task.cpu_phi
+                case_used = 1
+            else:
+                r2r_distance = get_euclidean_distance(target_rsu.location, secondary_rsu.location)
+                w_r2r = compute_r2r_rate(
+                    distance=r2r_distance,
+                    bandwidth_B=self.config.bandwidth_r2r,
+                    power_P_R=self.config.tx_power_rsu,
+                    noise_power=self.config.noise_power,
+                    fixed_loss_k=self.config.fixed_loss_k,
+                    path_loss_factor=self.config.path_loss_factor
+                )
 
-        target_rsu.queue_length += 1
+                # Eq 10: Secondary RSU queue wait time
+                t_wait_secondary = secondary_rsu.queued_cpu_cycles / secondary_rsu.cpu_capacity_f if secondary_rsu.cpu_capacity_f > 0 else 0.0
+
+                standalone_delay, energy = calculate_case2_collaboration(
+                    task_size_rho=task.size_rho,
+                    task_cpu_phi=task.cpu_phi,
+                    w_v2r=w_v2r,
+                    w_r2r=w_r2r,
+                    rsu1_cpu_f=target_rsu.cpu_capacity_f,
+                    rsu2_cpu_f=secondary_rsu.cpu_capacity_f,
+                    t1_dwell_time=dwell_time,
+                    power_v=self.config.tx_power_vehicle,
+                    tx_power_rsu1=self.config.tx_power_rsu,
+                    compute_power_rsu1=self.config.compute_power_rsu,
+                    compute_power_rsu2=self.config.compute_power_rsu,
+                    t_wait=t_wait_secondary
+                )
+                
+                # Proportional queue allocation
+                t_comp1 = task.cpu_phi / target_rsu.cpu_capacity_f if target_rsu.cpu_capacity_f > 0 else 0.0
+                part_ratio = target_rsu.cpu_capacity_f / (target_rsu.cpu_capacity_f + secondary_rsu.cpu_capacity_f) if (target_rsu.cpu_capacity_f + secondary_rsu.cpu_capacity_f) > 0 else 0.5
+                t1 = min(dwell_time, part_ratio * t_comp1) if dwell_time >= t_comp1 else max(dwell_time, 0.0)
+                cpu1 = min(target_rsu.cpu_capacity_f * t1, task.cpu_phi)
+                cpu2 = max(task.cpu_phi - cpu1, 0.0)
+                
+                target_rsu.queued_cpu_cycles += cpu1
+                secondary_rsu.queued_cpu_cycles += cpu2
+                case_used = 2
 
         eps = getattr(self.config, 'epsilon', 0.5)
         if standalone_delay > task.max_delay_d:
@@ -188,14 +220,16 @@ class VECEnv(gym.Env):
         self.current_tasks = self.task_gen.generate_tasks_for_vehicle(v_id)
 
         if not self.rsus:
-            positions = [(0, 0), (100, 0), (200, 0), (0, 100), (100, 100), (200, 100)]
+            from utils.scenario_geometry import get_rsu_positions
+            positions = get_rsu_positions(self.config.num_rsus, getattr(self.sumo_manager, 'conn', None))
             self.rsus = [
-                RSU(i, positions[i], self.config.rsu_cpu_capacity_range[0], 0, self.config.tx_power_rsu)
+                RSU(i, positions[i], self.config.rsu_cpu_capacity_range[0], 0.0, self.config.tx_power_rsu)
                 for i in range(self.config.num_rsus)
             ]
         else:
             for rsu in self.rsus:
-                rsu.queue_length = max(0, rsu.queue_length - 1)
+                # Deduct 1 second of computation processing per simulation step
+                rsu.queued_cpu_cycles = max(0.0, rsu.queued_cpu_cycles - rsu.cpu_capacity_f * 1.0)
 
         nearest_rsu = min(self.rsus, key=lambda r: get_euclidean_distance(self.current_vehicle.pos, r.location))
         dwell_estimate = self._estimate_dwell_time(self.current_vehicle, nearest_rsu)

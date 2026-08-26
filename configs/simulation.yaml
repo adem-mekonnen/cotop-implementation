@@ -15,6 +15,7 @@ rsu_comm_range: 400.0                          # m
 bandwidth_r2r: 50000000.0                      # Hz (50e6)
 tx_power_vehicle: 0.01                         # Watts (From 10 dBm)
 tx_power_rsu: 100.0                            # Watts (From 50 dBm)
+compute_power_rsu: 50.0                        # Watts (RSU Computation power E_RSU)
 noise_power: 0.001                             # Watts (From 0.001 dBm)
 fixed_loss_k: 1000.0                           # Ratio (From 30 dB)
 path_loss_factor: 2.0                          # sigma

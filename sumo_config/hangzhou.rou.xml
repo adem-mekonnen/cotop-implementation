@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="40.0" speedDev="0.1"/>
+    
+    <route id="r_corridor_forward" edges="A0B0 B0A0"/>
+    <route id="r_corridor_reverse" edges="B0A0 A0B0"/>
+
+    <!-- 30 Vehicles with departures staggered across the simulation -->
+    <vehicle id="veh_0" type="car" route="r_corridor_forward" depart="0.0" departSpeed="35.0" departPos="0.0"/>
+    <vehicle id="veh_1" type="car" route="r_corridor_forward" depart="1.0" departSpeed="32.0" departPos="50.0"/>
+    <vehicle id="veh_2" type="car" route="r_corridor_forward" depart="2.0" departSpeed="38.0" departPos="100.0"/>
+    <vehicle id="veh_3" type="car" route="r_corridor_forward" depart="3.0" departSpeed="30.0" departPos="150.0"/>
+    <vehicle id="veh_4" type="car" route="r_corridor_forward" depart="4.0" departSpeed="36.0" departPos="200.0"/>
+    <vehicle id="veh_5" type="car" route="r_corridor_forward" depart="5.0" departSpeed="34.0" departPos="250.0"/>
+    <vehicle id="veh_6" type="car" route="r_corridor_forward" depart="6.0" departSpeed="37.0" departPos="300.0"/>
+    <vehicle id="veh_7" type="car" route="r_corridor_forward" depart="7.0" departSpeed="31.0" departPos="350.0"/>
+    <vehicle id="veh_8" type="car" route="r_corridor_forward" depart="8.0" departSpeed="39.0" departPos="400.0"/>
+    <vehicle id="veh_9" type="car" route="r_corridor_forward" depart="9.0" departSpeed="33.0" departPos="450.0"/>
+    <vehicle id="veh_10" type="car" route="r_corridor_reverse" depart="10.0" departSpeed="35.0" departPos="0.0"/>
+    <vehicle id="veh_11" type="car" route="r_corridor_reverse" depart="11.0" departSpeed="33.0" departPos="50.0"/>
+    <vehicle id="veh_12" type="car" route="r_corridor_reverse" depart="12.0" departSpeed="37.0" departPos="100.0"/>
+    <vehicle id="veh_13" type="car" route="r_corridor_reverse" depart="13.0" departSpeed="31.0" departPos="150.0"/>
+    <vehicle id="veh_14" type="car" route="r_corridor_reverse" depart="14.0" departSpeed="39.0" departPos="200.0"/>
+    <vehicle id="veh_15" type="car" route="r_corridor_reverse" depart="15.0" departSpeed="34.0" departPos="250.0"/>
+    <vehicle id="veh_16" type="car" route="r_corridor_reverse" depart="16.0" departSpeed="36.0" departPos="300.0"/>
+    <vehicle id="veh_17" type="car" route="r_corridor_reverse" depart="17.0" departSpeed="32.0" departPos="350.0"/>
+    <vehicle id="veh_18" type="car" route="r_corridor_reverse" depart="18.0" departSpeed="38.0" departPos="400.0"/>
+    <vehicle id="veh_19" type="car" route="r_corridor_reverse" depart="19.0" departSpeed="30.0" departPos="450.0"/>
+    <vehicle id="veh_20" type="car" route="r_corridor_forward" depart="20.0" departSpeed="35.0" departPos="100.0"/>
+    <vehicle id="veh_21" type="car" route="r_corridor_forward" depart="21.0" departSpeed="33.0" departPos="150.0"/>
+    <vehicle id="veh_22" type="car" route="r_corridor_forward" depart="22.0" departSpeed="36.0" departPos="200.0"/>
+    <vehicle id="veh_23" type="car" route="r_corridor_forward" depart="23.0" departSpeed="32.0" departPos="250.0"/>
+    <vehicle id="veh_24" type="car" route="r_corridor_forward" depart="24.0" departSpeed="38.0" departPos="300.0"/>
+    <vehicle id="veh_25" type="car" route="r_corridor_forward" depart="25.0" departSpeed="34.0" departPos="350.0"/>
+    <vehicle id="veh_26" type="car" route="r_corridor_forward" depart="26.0" departSpeed="37.0" departPos="400.0"/>
+    <vehicle id="veh_27" type="car" route="r_corridor_forward" depart="27.0" departSpeed="31.0" departPos="450.0"/>
+    <vehicle id="veh_28" type="car" route="r_corridor_forward" depart="28.0" departSpeed="39.0" departPos="500.0"/>
+    <vehicle id="veh_29" type="car" route="r_corridor_forward" depart="29.0" departSpeed="35.0" departPos="550.0"/>
+</routes>
