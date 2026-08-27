@@ -1,0 +1,59 @@
+{
+  "git_sha": "bd34c654e34702428967d1cccac49c57202d8784",
+  "scenario_geometry": "2400m corridor (hangzhou.net.xml: convBoundary='0.00,0.00,2400.00,0.00')",
+  "rsu_count": 6,
+  "rsu_positions": [
+    [
+      200.0,
+      0.0
+    ],
+    [
+      600.0,
+      0.0
+    ],
+    [
+      1000.0,
+      0.0
+    ],
+    [
+      1400.0,
+      0.0
+    ],
+    [
+      1800.0,
+      0.0
+    ],
+    [
+      2200.0,
+      0.0
+    ]
+  ],
+  "vehicle_count_range": [
+    10,
+    30
+  ],
+  "task_size_range_MB": [
+    2.0,
+    5.0
+  ],
+  "task_deadline_range_s": [
+    20.0,
+    30.0
+  ],
+  "baseline_gat_input_nodes": 1,
+  "baseline_gat_edge_tensor": "torch.tensor([[0], [0]])",
+  "baseline_gat_layer2_concat": true,
+  "baseline_gat_output_shape": [
+    1,
+    5,
+    2
+  ],
+  "baseline_eq23_sample_value": 98000.27145122542,
+  "baseline_eq23_alpha_term": 0.27145122541078787,
+  "baseline_eq23_beta_term": 98000.0,
+  "baseline_eq23_scale_imbalance_ratio": 361022.49990471156,
+  "baseline_delay_s": 1.9849,
+  "baseline_energy_J": 4.0686,
+  "baseline_pytest_passed": 22,
+  "baseline_sanity_checks_passed": 5
+}
