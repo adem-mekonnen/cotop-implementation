@@ -1,0 +1,8 @@
+target_metric,parameter_name,paper_documented_value,counterfactual_required_value,ratio_required_to_documented,scientific_plausibility,notes
+Total Delay = 13.90 s,Channel Bandwidth (B),20.0 MHz,2.80 MHz,0.14,Low (Deviates from 3GPP V2X standard 20 MHz),"To produce 13.90s purely via transmission, bandwidth must be reduced to 2.80 MHz."
+Total Delay = 13.90 s,Task Data Size (rho),3.5 MB (range 2-5 MB),24.50 MB,7.0,Low (5x higher than Table III maximum 5.0 MB),"To produce 13.90s under 20 MHz channel, task size must be 24.5 MB."
+Total Delay = 13.90 s,RSU CPU Frequency (F_m),2.0 GHz (range 1-4 GHz),0.00049 GHz (490 kHz),0.000245,"Impossible (Edge RSU processors operate at GHz, not kHz)","To produce 13.90s purely via computation, RSU CPU must operate at 490 kHz."
+Total Delay = 13.90 s,RSU Queue Backlog (Q_m),139.56 Mcycles (peak natural traffic),"23,830.0 Mcycles (23.83 Gcycles)",170.75,Requires massive external server load or 5000+ vehicles,"To generate 11.915s of queue delay at F_m=2 GHz, queue backlog must be 23.83 Gcycles."
+Total Energy = 25.14 J,Vehicle Transmission Power (P_v),0.10 W (20 dBm),12.92 W (41.1 dBm),129.2,Impossible (Violates FCC/ETSI V2X mobile device power limits),"Under Local policy (0.195J comm), P_v would need to be 12.92W to reach 25.14J."
+Total Energy = 25.14 J,RSU Relay Power (P_r2r),1.00 W (30 dBm),6.45 W (38.1 dBm),6.45,"Plausible for macro-BS, but 6.45x above stated Table III parameter","To produce 25.14J per task under CoTOP offloading, R2R relay power must be 6.45W."
+Total Energy = 25.14 J,Task Subtask Aggregation (K_sub),1 task per observation,6.18 subtasks aggregated,6.18,High (Standard DAG task group reporting convention),"If paper reported total energy for a 6-task parallel DAG, 6.18 * 4.07J = 25.14J exactly."

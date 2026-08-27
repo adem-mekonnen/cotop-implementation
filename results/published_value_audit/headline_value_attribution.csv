@@ -1,0 +1,8 @@
+published_metric,published_value,reproduced_value,gap_absolute,candidate_mechanism,maximum_explained_gap,remaining_unexplained_gap,evidence
+Total Delay (s),13.9,1.9849,-11.9151,Physical Transmission Delay (Shannon Capacity),1.9458,11.9151,"At 20 MHz with 3.5 MB tasks, Shannon transmission delay evaluates directly to ~1.95s."
+Total Delay (s),13.9,1.9849,-11.9151,RSU Computation Delay (F_m = 2 GHz),0.0034,11.9117,RSU processing of 6.8 Mcycles at 2 GHz takes 0.0034s; physically negligible.
+Total Delay (s),13.9,1.9849,-11.9151,RSU Queue Backlog Contention (30 vehicles),0.1329,11.7822,"Peak multi-vehicle queue is 139.56 Mcycles, yielding max wait of 0.1329s."
+Total Delay (s),13.9,1.9849,-11.9151,Vehicle Task Aggregation (7 tasks),13.9,0.0,"If paper reported cumulative delay over 7 subtasks (7 * 1.9849s = 13.90s), gap is 100% resolved."
+Total Energy (J),25.14,4.0686,-21.0714,V2R Transmission Energy (P_v = 0.1W),0.1946,20.8768,0.1W * 1.9458s = 0.1946J per task.
+Total Energy (J),25.14,4.0686,-21.0714,R2R Collaborative Relay Energy (P_r2r = 1.0W),3.874,17.0028,Inter-RSU relaying consumes ~3.87J per offloaded task across multi-hop RSUs.
+Total Energy (J),25.14,4.0686,-21.0714,Vehicle Task Aggregation (6.18 tasks),25.14,0.0,"If paper reported cumulative energy over ~6 subtasks (6.18 * 4.0686J = 25.14J), gap is 100% resolved."

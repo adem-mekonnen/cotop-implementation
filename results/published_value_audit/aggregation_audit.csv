@@ -1,0 +1,10 @@
+metric,aggregation_level,current_value,paper_value,ratio_paper_to_current,compatible,explanation
+total_delay_s,Per-task mean,1.9849,13.9,7.003,No,Direct task-level delay from Shannon channel (1.95s) + RSU queue (0.035s) + comp (0.003s). 7.0x smaller than paper.
+total_delay_s,Per-vehicle sequential sum (20 tasks),39.6977,13.9,0.35,No,"If tasks were executed in strict sequence per vehicle (39.70s), this exceeds 13.90s by 2.86x. Paper models parallel offloading."
+total_delay_s,Partial vehicle sum (7 tasks),13.9002,13.9,1.0,Hypothetical,Exactly matches 13.90s if paper aggregated over 7 concurrent subtasks per vehicle (13.90 / 1.9849 = 7.003 tasks).
+total_delay_s,Per-episode corridor transit horizon,68.57,13.9,0.203,No,Corridor transit at 35 m/s across 2400m takes 68.6s. 13.90s represents ~486m of travel (~1.2 RSU zones).
+total_delay_s,Per-episode cumulative sum (600 tasks),1190.93,13.9,0.01167,No,Episode-wide task sum is 1190.9s; far exceeds 13.90s.
+total_energy_J,Per-task mean,4.0686,25.14,6.179,No,Direct task-level energy from V2R transmission (0.195J) + R2R relay (3.85J) + comp (0.00J). 6.18x smaller than paper.
+total_energy_J,Per-vehicle sum (20 tasks),81.3728,25.14,0.309,No,20 tasks per vehicle under CoTOP consume 81.37J (3.24x higher than 25.14J).
+total_energy_J,Partial vehicle sum (6.18 tasks),25.1401,25.14,1.0,Hypothetical,Matches 25.14J if paper aggregated energy over ~6 offloaded subtasks per vehicle (25.14 / 4.0686 = 6.179 tasks).
+total_energy_J,Per-episode cumulative sum (600 tasks),2441.18,25.14,0.0103,No,Episode-wide energy sum is 2441.2J; far exceeds 25.14J.

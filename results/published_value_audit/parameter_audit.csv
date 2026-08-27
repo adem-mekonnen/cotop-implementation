@@ -1,0 +1,14 @@
+parameter,symbol,paper_value,implementation_value,difference,sensitivity,potential_effect
+Road corridor length,L,2400 m (Hangzhou arterial road),2400 m (Hangzhou arterial corridor),None,Low,Sets vehicle dwell time across corridor (60-80s)
+Number of RSUs,M,6 RSUs,6 RSUs,None,Medium,Determines RSU coverage boundaries and handover points
+RSU coverage radius,R_m,200 m,200 m,None,Medium,Sets channel path loss domain (0-200m)
+Channel Bandwidth,B,20 MHz,20 MHz (20e6 Hz),None,High,Direct linear factor in Shannon capacity (Eq. 4)
+Vehicle Transmission Power,P_v,0.1 W (20 dBm),0.1 W,None,High,Direct linear factor in V2R transmission energy (Eq. 6)
+RSU Transmission Power,P_r2r,1.0 W (30 dBm),1.0 W,None,High,Direct linear factor in R2R collaborative energy (Eq. 12)
+Noise Power Spectral Density,N_0,-174 dBm/Hz,-174 dBm/Hz (noise_power = 7.96e-14 W),None,Medium,Sets thermal noise floor in Shannon formula
+RSU CPU Frequency,F_m,"[1.0, 4.0] GHz","[1.0, 4.0] GHz (nominal 2.0 GHz)",None,High,Determines computation speed and queue drain rate
+Task Data Size,rho_i,"[2.0, 5.0] MB","[2.0, 5.0] MB (nominal 3.5 MB)",None,High,Linear determinant of transmission time and CPU cycles
+Task Max Tolerable Delay,d_i,"[20.0, 30.0] s","[20.0, 30.0] s (nominal 25.0 s)",None,Low,Constraint threshold; all tasks finish well within deadline
+Vehicle Velocity,v_v,"[30, 40] m/s (108-144 km/h)","[30, 40] m/s from SUMO TraCI",None,Medium,Determines RSU dwell time T_stay (10-13s per RSU)
+Number of Active Vehicles,N,30 vehicles (concurrent traffic),30 vehicles (concurrent SUMO simulation),None,High,Determines multi-vehicle RSU queue contention
+Number of Tasks per Vehicle,K,20 parallel tasks,20 parallel tasks (600 tasks total per episode),None,High,Total corridor workload
