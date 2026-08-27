@@ -96,9 +96,7 @@ def evaluate():
             if 'delay' in info:
                 ep_delay += info['delay']
                 ep_energy += info['energy']
-                # Check if task completed within deadline (Section V-A Completion Ratio)
-                curr_task = env.current_tasks[env.current_task_idx - 1] if env.current_task_idx > 0 else None
-                if curr_task and info['delay'] <= curr_task.max_delay_d:
+                if info.get('completed', False):
                     ep_completed += 1
                 
         total_rewards.append(ep_reward)

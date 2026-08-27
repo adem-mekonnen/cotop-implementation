@@ -1,0 +1,6 @@
+target_n_vehicles,active_vehicles_observed,total_tasks_generated,completed_tasks,completion_rate_pct,mean_rsu_queue_Mcycles,max_rsu_queue_Mcycles,mean_queue_wait_s,max_queue_wait_s,mean_total_delay_s,mean_total_energy_J
+2,2,40,40,100.0,9.39,121.54,0.0508,0.1134,3.6725,0.3142
+5,5,100,100,100.0,8.87,121.54,0.0478,0.1134,1.9261,0.2928
+10,10,200,200,100.0,9.53,139.56,0.0516,0.1329,2.0414,0.3
+20,20,400,400,100.0,11.25,139.56,0.0515,0.1329,1.9155,0.2952
+30,30,600,600,100.0,10.75,139.56,0.052,0.1329,1.9938,0.2944

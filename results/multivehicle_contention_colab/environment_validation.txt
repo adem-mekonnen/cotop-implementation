@@ -1,0 +1,26 @@
+=====================================================
+ENVIRONMENT VALIDATION & IMMUTABILITY AUDIT RECORD
+=====================================================
+Branch: reproduction/multivehicle-contention
+Commit: bd34c654e34702428967d1cccac49c57202d8784
+Platform: Windows-10-10.0.26200-SP0
+Python Version: 3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]
+Torch Version: 2.12.1+cpu
+NumPy Version: 1.26.4
+
+Mathematical Models:
+- envs/comm_model.py: ZERO MODIFICATIONS (Verified)
+- envs/comp_model.py: ZERO MODIFICATIONS (Verified)
+
+Multi-Vehicle Architecture:
+- Observation Space: 114 dimensions (Fully Compatible)
+- Action Space: Discrete(7) (Fully Compatible)
+- SUMO Time Advancement: True (Delta_t = 1.0 s per slot)
+- Shared RSU Queue Depletion: True (F_m * Delta_t service rate)
+- Priority Normalization: True (Eq. 23 dimensionless bounds [0, 1])
+
+Unit & Integration Tests:
+- Pytest Regression: 36/36 PASSED
+- System Sanity Checks: 5/5 PASSED
+- Contention Invariants: 10/10 PASSED
+=====================================================

@@ -151,18 +151,22 @@ def run_sanity_checks():
     all_passed &= check_close("Case 2 Total Energy (J)", calc_c2_energy, expected_c2_energy)
 
     # -------------------------------------------------------------------------
-    # 5. Task Priority (Eq. 23)
+    # 5. Task Priority (Eq. 23 with Normalized Terms)
     # -------------------------------------------------------------------------
     print("\n5. Testing Task Priority Formula (Eq. 23):")
     alpha = 0.3
     beta = 0.7
     t_stay = 10.0
+    rho_max = 5.0e6
+    d_min = 20.0
     task = Task(task_id=1, vehicle_id="v1", size_rho=2.0e6, cpu_phi=10.0e6, max_delay_d=25.0)
     # Hand calculation:
-    # P_i = alpha * exp(-1 / T_stay) + beta * (size_rho / max_delay_d)
-    # P_i = 0.3 * exp(-0.1) + 0.7 * (2.0e6 / 25.0) = 0.3 * 0.904837418 + 0.7 * 80000 = 0.271451225 + 56000.0 = 56000.2714512
-    expected_priority = alpha * math.exp(-1.0 / t_stay) + beta * (task.size_rho / task.max_delay_d)
-    calc_priority = compute_task_priority(task, dwell_time=t_stay, alpha=alpha, beta=beta)
+    # P_i = alpha * exp(-1 / T_stay) + beta * ((size_rho / rho_max) / (max_delay_d / d_min))
+    # dwell_term = exp(-0.1) = 0.904837418
+    # size_delay_term = (2.0e6 / 5.0e6) / (25.0 / 20.0) = 0.4 / 1.25 = 0.32
+    # P_i = 0.3 * 0.904837418 + 0.7 * 0.32 = 0.271451225 + 0.224 = 0.495451225
+    expected_priority = alpha * math.exp(-1.0 / t_stay) + beta * ((task.size_rho / rho_max) / (task.max_delay_d / d_min))
+    calc_priority = compute_task_priority(task, dwell_time=t_stay, alpha=alpha, beta=beta, rho_max=rho_max, d_min=d_min)
     all_passed &= check_close("Task Priority", calc_priority, expected_priority)
 
     print("\n==================================================")

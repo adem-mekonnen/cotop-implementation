@@ -1,0 +1,4 @@
+Commit: bd34c654e34702428967d1cccac49c57202d8784
+Branch: reproduction/multivehicle-contention
+Base Commit: bd34c65e8b5cb2249e0882be11883be7b93e8783
+Date: 2026-08-27 11:46:55
