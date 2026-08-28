@@ -1,0 +1,21 @@
+{
+  "evaluation_metrics": {
+    "mean_delay_s": 1.937079047066212,
+    "mean_energy_j": 0.4465343028416362,
+    "completion_ratio": 0.9666666666666667,
+    "completed_tasks": 580,
+    "failed_tasks": 20,
+    "pending_tasks": 0,
+    "total_generated_tasks": 600,
+    "max_latency_decomposition_residual_s": 8.881784197001252e-16
+  },
+  "training_metrics": {
+    "episodes": 500,
+    "final_reward": -2754.455493551222,
+    "mean_last_50_reward": -2753.613915851858,
+    "final_loss": 6.0347591664393745,
+    "total_training_steps": 299937,
+    "target_synchronizations": 2999,
+    "training_time_s": 831.1045973300934
+  }
+}
