@@ -1,0 +1,7620 @@
+{
+  "created_at": "2026-08-29T09:11:03Z",
+  "environment_configuration": {
+    "alpha": 0.3,
+    "beta": 0.7,
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff",
+    "env_fingerprint": "19d0891613aa0e30defbf73cca8ac339b9450db66e8394d670bed161a520cb4c",
+    "epsilon": 0.5,
+    "fixed_loss_k": 1000.0,
+    "noise_power": 0.001,
+    "path_loss_factor": 2.0,
+    "penalty_z": 100.0,
+    "tx_power_rsu": 100.0,
+    "tx_power_vehicle": 0.01
+  },
+  "eval_seed": 30000,
+  "geometry": "grid_200m",
+  "initial_conditions": {
+    "active_vehicle_ids": [
+      "v_0",
+      "v_1",
+      "v_2",
+      "v_3",
+      "v_4",
+      "v_5",
+      "v_6",
+      "v_7",
+      "v_8",
+      "v_9"
+    ],
+    "initial_rsu_backlog_cycles": {
+      "0": 0.0,
+      "1": 0.0,
+      "2": 0.0,
+      "3": 0.0,
+      "4": 0.0,
+      "5": 0.0
+    },
+    "num_vehicles": 10,
+    "start_sim_time": 0.0
+  },
+  "mobility_states": [
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 9.2542,
+        "1": 10.6386,
+        "2": 10.608,
+        "3": 7.6017,
+        "4": 8.1735,
+        "5": 8.1662
+      },
+      "spatial_proximity_neighbors": [
+        "v_1",
+        "v_2"
+      ],
+      "vehicle_id": "v_0"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 11.7066,
+        "1": 10.4877,
+        "2": 8.9933,
+        "3": 8.6621,
+        "4": 8.2891,
+        "5": 7.4341
+      },
+      "spatial_proximity_neighbors": [
+        "v_0",
+        "v_2",
+        "v_3"
+      ],
+      "vehicle_id": "v_1"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 7.8035,
+        "1": 8.3517,
+        "2": 8.2145,
+        "3": 8.9627,
+        "4": 10.2274,
+        "5": 9.7773
+      },
+      "spatial_proximity_neighbors": [
+        "v_0",
+        "v_1",
+        "v_3",
+        "v_4"
+      ],
+      "vehicle_id": "v_2"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 8.9985,
+        "1": 8.8697,
+        "2": 8.1503,
+        "3": 11.9838,
+        "4": 11.4676,
+        "5": 9.9393
+      },
+      "spatial_proximity_neighbors": [
+        "v_1",
+        "v_2",
+        "v_4",
+        "v_5"
+      ],
+      "vehicle_id": "v_3"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 11.4184,
+        "1": 10.0267,
+        "2": 8.566,
+        "3": 8.5729,
+        "4": 8.1537,
+        "5": 7.2678
+      },
+      "spatial_proximity_neighbors": [
+        "v_2",
+        "v_3",
+        "v_5",
+        "v_6"
+      ],
+      "vehicle_id": "v_4"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 8.2944,
+        "1": 9.3216,
+        "2": 9.0566,
+        "3": 6.495,
+        "4": 6.8893,
+        "5": 6.8135
+      },
+      "spatial_proximity_neighbors": [
+        "v_3",
+        "v_4",
+        "v_6",
+        "v_7"
+      ],
+      "vehicle_id": "v_5"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 8.7984,
+        "1": 9.6147,
+        "2": 9.1602,
+        "3": 8.408,
+        "4": 9.0188,
+        "5": 8.6969
+      },
+      "spatial_proximity_neighbors": [
+        "v_4",
+        "v_5",
+        "v_7",
+        "v_8"
+      ],
+      "vehicle_id": "v_6"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 11.2016,
+        "1": 10.8365,
+        "2": 9.5117,
+        "3": 8.1927,
+        "4": 8.0788,
+        "5": 7.4535
+      },
+      "spatial_proximity_neighbors": [
+        "v_5",
+        "v_6",
+        "v_8",
+        "v_9"
+      ],
+      "vehicle_id": "v_7"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 9.365,
+        "1": 8.1651,
+        "2": 6.9098,
+        "3": 7.1333,
+        "4": 6.6193,
+        "5": 5.7853
+      },
+      "spatial_proximity_neighbors": [
+        "v_6",
+        "v_7",
+        "v_9"
+      ],
+      "vehicle_id": "v_8"
+    },
+    {
+      "predicted_dwell_time_per_rsu": {
+        "0": 7.4421,
+        "1": 7.0456,
+        "2": 6.2562,
+        "3": 9.8351,
+        "4": 8.6002,
+        "5": 7.3349
+      },
+      "spatial_proximity_neighbors": [
+        "v_7",
+        "v_8"
+      ],
+      "vehicle_id": "v_9"
+    }
+  ],
+  "realization_hash": "46148cdd621e3648e3a6a785cc820a9b28fcaa477017e5adb878ef20b20fa801",
+  "realization_id": "realization_grid_200m_w40_seed0",
+  "rsu_configurations": [
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        50.0,
+        50.0
+      ],
+      "rsu_id": 0,
+      "transmission_power_P_R": 100.0
+    },
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        100.0,
+        50.0
+      ],
+      "rsu_id": 1,
+      "transmission_power_P_R": 100.0
+    },
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        150.0,
+        50.0
+      ],
+      "rsu_id": 2,
+      "transmission_power_P_R": 100.0
+    },
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        50.0,
+        150.0
+      ],
+      "rsu_id": 3,
+      "transmission_power_P_R": 100.0
+    },
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        100.0,
+        150.0
+      ],
+      "rsu_id": 4,
+      "transmission_power_P_R": 100.0
+    },
+    {
+      "bandwidth_r2r": 50000000.0,
+      "bandwidth_v2r": 50000000.0,
+      "comm_range": 400.0,
+      "cpu_capacity_f": 2000000000.0,
+      "initial_queued_cycles": 0.0,
+      "location": [
+        150.0,
+        150.0
+      ],
+      "rsu_id": 5,
+      "transmission_power_P_R": 100.0
+    }
+  ],
+  "seed": 0,
+  "tasks": [
+    {
+      "cpu_phi": 4461789.02,
+      "generation_timestamp": 0.0,
+      "max_delay_d": 25.9708,
+      "priority_weight": 0.278766,
+      "size_rho": 4832701.23,
+      "task_id": 0,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9125861.6,
+      "generation_timestamp": 2.0,
+      "max_delay_d": 24.0205,
+      "priority_weight": 0.361429,
+      "size_rho": 3871041.55,
+      "task_id": 1,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4456760.73,
+      "generation_timestamp": 4.0,
+      "max_delay_d": 20.2723,
+      "priority_weight": 0.613438,
+      "size_rho": 2082573.38,
+      "task_id": 2,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9521729.46,
+      "generation_timestamp": 6.0,
+      "max_delay_d": 23.1162,
+      "priority_weight": 0.335096,
+      "size_rho": 4590053.66,
+      "task_id": 3,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9230243.84,
+      "generation_timestamp": 8.0,
+      "max_delay_d": 22.5776,
+      "priority_weight": 0.135133,
+      "size_rho": 2705523.78,
+      "task_id": 4,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9457379.52,
+      "generation_timestamp": 10.0,
+      "max_delay_d": 25.3523,
+      "priority_weight": 0.319092,
+      "size_rho": 4048573.76,
+      "task_id": 5,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1399463.53,
+      "generation_timestamp": 12.0,
+      "max_delay_d": 24.6985,
+      "priority_weight": 0.476214,
+      "size_rho": 3774438.67,
+      "task_id": 6,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6187898.62,
+      "generation_timestamp": 14.0,
+      "max_delay_d": 27.9017,
+      "priority_weight": 0.536205,
+      "size_rho": 3843034.66,
+      "task_id": 7,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8729503.42,
+      "generation_timestamp": 16.0,
+      "max_delay_d": 23.5826,
+      "priority_weight": 0.359617,
+      "size_rho": 4517307.04,
+      "task_id": 8,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4349463.19,
+      "generation_timestamp": 18.0,
+      "max_delay_d": 22.9472,
+      "priority_weight": 0.36156,
+      "size_rho": 3294172.99,
+      "task_id": 9,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7059211.19,
+      "generation_timestamp": 0.8,
+      "max_delay_d": 26.1882,
+      "priority_weight": 0.545018,
+      "size_rho": 2556363.71,
+      "task_id": 10,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4040113.94,
+      "generation_timestamp": 2.8,
+      "max_delay_d": 21.1729,
+      "priority_weight": 0.273828,
+      "size_rho": 4992545.76,
+      "task_id": 11,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8473140.13,
+      "generation_timestamp": 4.8,
+      "max_delay_d": 22.6584,
+      "priority_weight": 0.374083,
+      "size_rho": 3360582.65,
+      "task_id": 12,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1438423.41,
+      "generation_timestamp": 6.8,
+      "max_delay_d": 27.8936,
+      "priority_weight": 0.416469,
+      "size_rho": 4217367.7,
+      "task_id": 13,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7083863.11,
+      "generation_timestamp": 8.8,
+      "max_delay_d": 20.9502,
+      "priority_weight": 0.534384,
+      "size_rho": 2881954.95,
+      "task_id": 14,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2448787.69,
+      "generation_timestamp": 10.8,
+      "max_delay_d": 25.1485,
+      "priority_weight": 0.128898,
+      "size_rho": 2487063.61,
+      "task_id": 15,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3127989.81,
+      "generation_timestamp": 12.8,
+      "max_delay_d": 28.3635,
+      "priority_weight": 0.403763,
+      "size_rho": 4384976.79,
+      "task_id": 16,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2397189.27,
+      "generation_timestamp": 14.8,
+      "max_delay_d": 29.9358,
+      "priority_weight": 0.440813,
+      "size_rho": 3388311.77,
+      "task_id": 17,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5850794.16,
+      "generation_timestamp": 16.8,
+      "max_delay_d": 28.1418,
+      "priority_weight": 0.976277,
+      "size_rho": 2497071.08,
+      "task_id": 18,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7388493.61,
+      "generation_timestamp": 18.8,
+      "max_delay_d": 20.4172,
+      "priority_weight": 0.104439,
+      "size_rho": 4012556.95,
+      "task_id": 19,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3789310.36,
+      "generation_timestamp": 1.6,
+      "max_delay_d": 27.0362,
+      "priority_weight": 0.167175,
+      "size_rho": 3082202.86,
+      "task_id": 20,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8205514.81,
+      "generation_timestamp": 3.6,
+      "max_delay_d": 23.737,
+      "priority_weight": 0.805567,
+      "size_rho": 2018388.14,
+      "task_id": 21,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9941309.43,
+      "generation_timestamp": 5.6,
+      "max_delay_d": 28.6584,
+      "priority_weight": 0.279721,
+      "size_rho": 4514310.15,
+      "task_id": 22,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6386812.37,
+      "generation_timestamp": 7.6,
+      "max_delay_d": 24.1883,
+      "priority_weight": 0.43827,
+      "size_rho": 3640703.08,
+      "task_id": 23,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4772630.09,
+      "generation_timestamp": 9.6,
+      "max_delay_d": 22.8793,
+      "priority_weight": 0.219767,
+      "size_rho": 2082419.82,
+      "task_id": 24,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2708750.05,
+      "generation_timestamp": 11.6,
+      "max_delay_d": 21.1953,
+      "priority_weight": 0.797315,
+      "size_rho": 2838763.63,
+      "task_id": 25,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4621175.59,
+      "generation_timestamp": 13.6,
+      "max_delay_d": 28.588,
+      "priority_weight": 0.284068,
+      "size_rho": 2687123.97,
+      "task_id": 26,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3539956.64,
+      "generation_timestamp": 15.6,
+      "max_delay_d": 27.351,
+      "priority_weight": 0.112811,
+      "size_rho": 4956497.85,
+      "task_id": 27,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7342683.81,
+      "generation_timestamp": 17.6,
+      "max_delay_d": 26.8136,
+      "priority_weight": 0.925849,
+      "size_rho": 3558919.85,
+      "task_id": 28,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4820490.84,
+      "generation_timestamp": 19.6,
+      "max_delay_d": 20.3294,
+      "priority_weight": 0.166608,
+      "size_rho": 4156066.61,
+      "task_id": 29,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9405877.35,
+      "generation_timestamp": 2.4,
+      "max_delay_d": 21.184,
+      "priority_weight": 0.177128,
+      "size_rho": 3695786.7,
+      "task_id": 30,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4598989.87,
+      "generation_timestamp": 4.4,
+      "max_delay_d": 23.1778,
+      "priority_weight": 0.737966,
+      "size_rho": 3353701.57,
+      "task_id": 31,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9906743.0,
+      "generation_timestamp": 6.4,
+      "max_delay_d": 23.0821,
+      "priority_weight": 0.423967,
+      "size_rho": 4173139.23,
+      "task_id": 32,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3108524.38,
+      "generation_timestamp": 8.4,
+      "max_delay_d": 24.6175,
+      "priority_weight": 0.430786,
+      "size_rho": 3026762.6,
+      "task_id": 33,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9041037.56,
+      "generation_timestamp": 10.4,
+      "max_delay_d": 28.6156,
+      "priority_weight": 0.662886,
+      "size_rho": 4829823.85,
+      "task_id": 34,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 8302633.11,
+      "generation_timestamp": 12.4,
+      "max_delay_d": 26.5961,
+      "priority_weight": 0.904165,
+      "size_rho": 4700422.38,
+      "task_id": 35,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2563726.24,
+      "generation_timestamp": 14.4,
+      "max_delay_d": 22.18,
+      "priority_weight": 0.74568,
+      "size_rho": 4188865.14,
+      "task_id": 36,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2210810.25,
+      "generation_timestamp": 16.4,
+      "max_delay_d": 27.7644,
+      "priority_weight": 0.297897,
+      "size_rho": 2122405.37,
+      "task_id": 37,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2421214.77,
+      "generation_timestamp": 18.4,
+      "max_delay_d": 20.2145,
+      "priority_weight": 0.971042,
+      "size_rho": 2574801.68,
+      "task_id": 38,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6179817.97,
+      "generation_timestamp": 20.4,
+      "max_delay_d": 26.4889,
+      "priority_weight": 0.532445,
+      "size_rho": 3309668.16,
+      "task_id": 39,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4521080.19,
+      "generation_timestamp": 3.2,
+      "max_delay_d": 26.688,
+      "priority_weight": 0.96738,
+      "size_rho": 2287249.26,
+      "task_id": 40,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8108874.52,
+      "generation_timestamp": 5.2,
+      "max_delay_d": 27.2745,
+      "priority_weight": 0.612144,
+      "size_rho": 2330103.02,
+      "task_id": 41,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9635631.67,
+      "generation_timestamp": 7.2,
+      "max_delay_d": 24.8996,
+      "priority_weight": 0.918774,
+      "size_rho": 2895498.88,
+      "task_id": 42,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3114321.09,
+      "generation_timestamp": 9.2,
+      "max_delay_d": 23.3721,
+      "priority_weight": 0.322974,
+      "size_rho": 4059935.67,
+      "task_id": 43,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5722651.05,
+      "generation_timestamp": 11.2,
+      "max_delay_d": 27.8347,
+      "priority_weight": 0.937531,
+      "size_rho": 4052031.25,
+      "task_id": 44,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7009908.66,
+      "generation_timestamp": 13.2,
+      "max_delay_d": 25.8283,
+      "priority_weight": 0.28698,
+      "size_rho": 3304798.2,
+      "task_id": 45,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6852256.43,
+      "generation_timestamp": 15.2,
+      "max_delay_d": 28.1383,
+      "priority_weight": 0.248162,
+      "size_rho": 3933538.64,
+      "task_id": 46,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3581808.34,
+      "generation_timestamp": 17.2,
+      "max_delay_d": 29.7756,
+      "priority_weight": 0.701884,
+      "size_rho": 4240786.4,
+      "task_id": 47,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5486574.07,
+      "generation_timestamp": 19.2,
+      "max_delay_d": 26.8734,
+      "priority_weight": 0.823951,
+      "size_rho": 3999057.45,
+      "task_id": 48,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7706683.33,
+      "generation_timestamp": 21.2,
+      "max_delay_d": 27.4916,
+      "priority_weight": 0.2793,
+      "size_rho": 4171870.44,
+      "task_id": 49,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9298851.65,
+      "generation_timestamp": 4.0,
+      "max_delay_d": 28.8761,
+      "priority_weight": 0.984454,
+      "size_rho": 3356639.51,
+      "task_id": 50,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2733951.68,
+      "generation_timestamp": 6.0,
+      "max_delay_d": 20.265,
+      "priority_weight": 0.920119,
+      "size_rho": 2451701.32,
+      "task_id": 51,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7443566.82,
+      "generation_timestamp": 8.0,
+      "max_delay_d": 23.4737,
+      "priority_weight": 0.917358,
+      "size_rho": 4071821.84,
+      "task_id": 52,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3133804.99,
+      "generation_timestamp": 10.0,
+      "max_delay_d": 25.0961,
+      "priority_weight": 0.274623,
+      "size_rho": 3618846.92,
+      "task_id": 53,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6500721.15,
+      "generation_timestamp": 12.0,
+      "max_delay_d": 23.3832,
+      "priority_weight": 0.910426,
+      "size_rho": 2583769.02,
+      "task_id": 54,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9611795.19,
+      "generation_timestamp": 14.0,
+      "max_delay_d": 26.807,
+      "priority_weight": 0.247035,
+      "size_rho": 4099317.4,
+      "task_id": 55,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3575936.43,
+      "generation_timestamp": 16.0,
+      "max_delay_d": 24.5164,
+      "priority_weight": 0.95066,
+      "size_rho": 2665555.84,
+      "task_id": 56,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2540721.71,
+      "generation_timestamp": 18.0,
+      "max_delay_d": 29.6557,
+      "priority_weight": 0.897455,
+      "size_rho": 4976196.16,
+      "task_id": 57,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6992956.36,
+      "generation_timestamp": 20.0,
+      "max_delay_d": 25.6287,
+      "priority_weight": 0.578886,
+      "size_rho": 4265074.6,
+      "task_id": 58,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 5055076.69,
+      "generation_timestamp": 22.0,
+      "max_delay_d": 20.994,
+      "priority_weight": 0.787768,
+      "size_rho": 2079913.59,
+      "task_id": 59,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3063448.27,
+      "generation_timestamp": 4.8,
+      "max_delay_d": 25.7058,
+      "priority_weight": 0.163354,
+      "size_rho": 2225237.34,
+      "task_id": 60,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7525004.52,
+      "generation_timestamp": 6.8,
+      "max_delay_d": 27.0901,
+      "priority_weight": 0.131282,
+      "size_rho": 3434060.52,
+      "task_id": 61,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4528853.55,
+      "generation_timestamp": 8.8,
+      "max_delay_d": 21.6588,
+      "priority_weight": 0.963695,
+      "size_rho": 4015071.85,
+      "task_id": 62,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7110418.38,
+      "generation_timestamp": 10.8,
+      "max_delay_d": 21.0178,
+      "priority_weight": 0.126362,
+      "size_rho": 2343949.21,
+      "task_id": 63,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9929770.49,
+      "generation_timestamp": 12.8,
+      "max_delay_d": 24.611,
+      "priority_weight": 0.92025,
+      "size_rho": 2567373.67,
+      "task_id": 64,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9239064.29,
+      "generation_timestamp": 14.8,
+      "max_delay_d": 21.317,
+      "priority_weight": 0.837651,
+      "size_rho": 4345610.6,
+      "task_id": 65,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5286080.78,
+      "generation_timestamp": 16.8,
+      "max_delay_d": 29.4371,
+      "priority_weight": 0.992822,
+      "size_rho": 4337636.07,
+      "task_id": 66,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7042067.87,
+      "generation_timestamp": 18.8,
+      "max_delay_d": 22.2845,
+      "priority_weight": 0.146889,
+      "size_rho": 3334544.18,
+      "task_id": 67,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3249080.57,
+      "generation_timestamp": 20.8,
+      "max_delay_d": 22.7549,
+      "priority_weight": 0.835619,
+      "size_rho": 3898785.32,
+      "task_id": 68,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7784836.47,
+      "generation_timestamp": 22.8,
+      "max_delay_d": 27.9265,
+      "priority_weight": 0.980949,
+      "size_rho": 2571438.39,
+      "task_id": 69,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5359314.2,
+      "generation_timestamp": 5.6,
+      "max_delay_d": 20.5197,
+      "priority_weight": 0.784655,
+      "size_rho": 2600566.94,
+      "task_id": 70,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 6706643.1,
+      "generation_timestamp": 7.6,
+      "max_delay_d": 26.5561,
+      "priority_weight": 0.681698,
+      "size_rho": 3078829.29,
+      "task_id": 71,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8542499.99,
+      "generation_timestamp": 9.6,
+      "max_delay_d": 25.4518,
+      "priority_weight": 0.896979,
+      "size_rho": 4421837.09,
+      "task_id": 72,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5489169.13,
+      "generation_timestamp": 11.6,
+      "max_delay_d": 22.6197,
+      "priority_weight": 0.297728,
+      "size_rho": 4729829.61,
+      "task_id": 73,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7717023.35,
+      "generation_timestamp": 13.6,
+      "max_delay_d": 25.0601,
+      "priority_weight": 0.670461,
+      "size_rho": 4720889.93,
+      "task_id": 74,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4960733.6,
+      "generation_timestamp": 15.6,
+      "max_delay_d": 29.4388,
+      "priority_weight": 0.491667,
+      "size_rho": 2634245.81,
+      "task_id": 75,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3694388.59,
+      "generation_timestamp": 17.6,
+      "max_delay_d": 24.9696,
+      "priority_weight": 0.465253,
+      "size_rho": 4410592.76,
+      "task_id": 76,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8899777.39,
+      "generation_timestamp": 19.6,
+      "max_delay_d": 22.2098,
+      "priority_weight": 0.533883,
+      "size_rho": 2401028.61,
+      "task_id": 77,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 1133203.83,
+      "generation_timestamp": 21.6,
+      "max_delay_d": 23.9943,
+      "priority_weight": 0.770605,
+      "size_rho": 2115620.01,
+      "task_id": 78,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8077109.18,
+      "generation_timestamp": 23.6,
+      "max_delay_d": 26.9522,
+      "priority_weight": 0.436189,
+      "size_rho": 2248272.33,
+      "task_id": 79,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8116995.84,
+      "generation_timestamp": 6.4,
+      "max_delay_d": 22.5545,
+      "priority_weight": 0.297489,
+      "size_rho": 4797739.58,
+      "task_id": 80,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5283352.92,
+      "generation_timestamp": 8.4,
+      "max_delay_d": 22.1265,
+      "priority_weight": 0.662845,
+      "size_rho": 3386722.76,
+      "task_id": 81,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2322402.19,
+      "generation_timestamp": 10.4,
+      "max_delay_d": 28.0283,
+      "priority_weight": 0.924528,
+      "size_rho": 4267956.96,
+      "task_id": 82,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 4179213.38,
+      "generation_timestamp": 12.4,
+      "max_delay_d": 22.9383,
+      "priority_weight": 0.447877,
+      "size_rho": 4780986.43,
+      "task_id": 83,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5255583.48,
+      "generation_timestamp": 14.4,
+      "max_delay_d": 27.4214,
+      "priority_weight": 0.846563,
+      "size_rho": 4704304.68,
+      "task_id": 84,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6148138.84,
+      "generation_timestamp": 16.4,
+      "max_delay_d": 26.9612,
+      "priority_weight": 0.314811,
+      "size_rho": 4107702.5,
+      "task_id": 85,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1782574.66,
+      "generation_timestamp": 18.4,
+      "max_delay_d": 23.4061,
+      "priority_weight": 0.755017,
+      "size_rho": 2715481.93,
+      "task_id": 86,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3272999.97,
+      "generation_timestamp": 20.4,
+      "max_delay_d": 20.2784,
+      "priority_weight": 0.28324,
+      "size_rho": 3134728.78,
+      "task_id": 87,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9766049.28,
+      "generation_timestamp": 22.4,
+      "max_delay_d": 29.5856,
+      "priority_weight": 0.68101,
+      "size_rho": 4844109.41,
+      "task_id": 88,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2849012.08,
+      "generation_timestamp": 24.4,
+      "max_delay_d": 28.2414,
+      "priority_weight": 0.866867,
+      "size_rho": 3648663.16,
+      "task_id": 89,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6731338.97,
+      "generation_timestamp": 7.2,
+      "max_delay_d": 23.2723,
+      "priority_weight": 0.669524,
+      "size_rho": 2333256.23,
+      "task_id": 90,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5823761.82,
+      "generation_timestamp": 9.2,
+      "max_delay_d": 24.3178,
+      "priority_weight": 0.710266,
+      "size_rho": 4387075.26,
+      "task_id": 91,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5148618.17,
+      "generation_timestamp": 11.2,
+      "max_delay_d": 22.2233,
+      "priority_weight": 0.2258,
+      "size_rho": 4907843.38,
+      "task_id": 92,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5804681.04,
+      "generation_timestamp": 13.2,
+      "max_delay_d": 25.4195,
+      "priority_weight": 0.976902,
+      "size_rho": 3864831.7,
+      "task_id": 93,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8161335.28,
+      "generation_timestamp": 15.2,
+      "max_delay_d": 26.0608,
+      "priority_weight": 0.763134,
+      "size_rho": 3052267.84,
+      "task_id": 94,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 5673685.47,
+      "generation_timestamp": 17.2,
+      "max_delay_d": 22.1684,
+      "priority_weight": 0.843384,
+      "size_rho": 4900979.21,
+      "task_id": 95,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6544259.97,
+      "generation_timestamp": 19.2,
+      "max_delay_d": 24.4955,
+      "priority_weight": 0.11923,
+      "size_rho": 3075500.25,
+      "task_id": 96,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5224064.0,
+      "generation_timestamp": 21.2,
+      "max_delay_d": 21.8532,
+      "priority_weight": 0.851192,
+      "size_rho": 4398166.2,
+      "task_id": 97,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3265078.45,
+      "generation_timestamp": 23.2,
+      "max_delay_d": 27.2186,
+      "priority_weight": 0.566221,
+      "size_rho": 3342015.62,
+      "task_id": 98,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1345734.02,
+      "generation_timestamp": 25.2,
+      "max_delay_d": 27.5566,
+      "priority_weight": 0.796798,
+      "size_rho": 3441867.47,
+      "task_id": 99,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3029318.88,
+      "generation_timestamp": 8.0,
+      "max_delay_d": 23.2546,
+      "priority_weight": 0.353376,
+      "size_rho": 3650200.89,
+      "task_id": 100,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5089601.49,
+      "generation_timestamp": 10.0,
+      "max_delay_d": 27.6237,
+      "priority_weight": 0.713738,
+      "size_rho": 2838127.42,
+      "task_id": 101,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7303345.59,
+      "generation_timestamp": 12.0,
+      "max_delay_d": 27.3919,
+      "priority_weight": 0.855605,
+      "size_rho": 3440454.94,
+      "task_id": 102,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2177265.52,
+      "generation_timestamp": 14.0,
+      "max_delay_d": 27.4101,
+      "priority_weight": 0.99312,
+      "size_rho": 2495626.4,
+      "task_id": 103,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5761949.31,
+      "generation_timestamp": 16.0,
+      "max_delay_d": 25.7057,
+      "priority_weight": 0.397142,
+      "size_rho": 4562308.61,
+      "task_id": 104,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1290811.58,
+      "generation_timestamp": 18.0,
+      "max_delay_d": 25.0692,
+      "priority_weight": 0.329218,
+      "size_rho": 2377686.59,
+      "task_id": 105,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8907427.65,
+      "generation_timestamp": 20.0,
+      "max_delay_d": 26.088,
+      "priority_weight": 0.416771,
+      "size_rho": 3430913.7,
+      "task_id": 106,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6093321.78,
+      "generation_timestamp": 22.0,
+      "max_delay_d": 22.1208,
+      "priority_weight": 0.157073,
+      "size_rho": 4728185.14,
+      "task_id": 107,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7623770.52,
+      "generation_timestamp": 24.0,
+      "max_delay_d": 20.0162,
+      "priority_weight": 0.199313,
+      "size_rho": 3301358.49,
+      "task_id": 108,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9794886.42,
+      "generation_timestamp": 26.0,
+      "max_delay_d": 24.2101,
+      "priority_weight": 0.273002,
+      "size_rho": 4443930.18,
+      "task_id": 109,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7252232.26,
+      "generation_timestamp": 8.8,
+      "max_delay_d": 23.6567,
+      "priority_weight": 0.738443,
+      "size_rho": 4533006.53,
+      "task_id": 110,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5128126.11,
+      "generation_timestamp": 10.8,
+      "max_delay_d": 25.4403,
+      "priority_weight": 0.603364,
+      "size_rho": 4754422.22,
+      "task_id": 111,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8273576.81,
+      "generation_timestamp": 12.8,
+      "max_delay_d": 26.9127,
+      "priority_weight": 0.97539,
+      "size_rho": 2773424.39,
+      "task_id": 112,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1229906.85,
+      "generation_timestamp": 14.8,
+      "max_delay_d": 22.5403,
+      "priority_weight": 0.154279,
+      "size_rho": 4060802.81,
+      "task_id": 113,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8904394.21,
+      "generation_timestamp": 16.8,
+      "max_delay_d": 24.2101,
+      "priority_weight": 0.158868,
+      "size_rho": 4216528.14,
+      "task_id": 114,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4372255.48,
+      "generation_timestamp": 18.8,
+      "max_delay_d": 21.9085,
+      "priority_weight": 0.91154,
+      "size_rho": 3391806.2,
+      "task_id": 115,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2343664.6,
+      "generation_timestamp": 20.8,
+      "max_delay_d": 27.2853,
+      "priority_weight": 0.442675,
+      "size_rho": 4961807.72,
+      "task_id": 116,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4359284.38,
+      "generation_timestamp": 22.8,
+      "max_delay_d": 20.5688,
+      "priority_weight": 0.395193,
+      "size_rho": 3487881.73,
+      "task_id": 117,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2459072.41,
+      "generation_timestamp": 24.8,
+      "max_delay_d": 25.8188,
+      "priority_weight": 0.379999,
+      "size_rho": 2046941.92,
+      "task_id": 118,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8350807.64,
+      "generation_timestamp": 26.8,
+      "max_delay_d": 24.5626,
+      "priority_weight": 0.937752,
+      "size_rho": 3622874.84,
+      "task_id": 119,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2341282.96,
+      "generation_timestamp": 9.6,
+      "max_delay_d": 23.8146,
+      "priority_weight": 0.687975,
+      "size_rho": 2618876.07,
+      "task_id": 120,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2035260.05,
+      "generation_timestamp": 11.6,
+      "max_delay_d": 20.8401,
+      "priority_weight": 0.137112,
+      "size_rho": 3899249.21,
+      "task_id": 121,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1702500.61,
+      "generation_timestamp": 13.6,
+      "max_delay_d": 21.2929,
+      "priority_weight": 0.894684,
+      "size_rho": 2167474.41,
+      "task_id": 122,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6770286.3,
+      "generation_timestamp": 15.6,
+      "max_delay_d": 23.5432,
+      "priority_weight": 0.202286,
+      "size_rho": 3263717.43,
+      "task_id": 123,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8279269.02,
+      "generation_timestamp": 17.6,
+      "max_delay_d": 20.004,
+      "priority_weight": 0.987138,
+      "size_rho": 4575666.78,
+      "task_id": 124,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1422750.64,
+      "generation_timestamp": 19.6,
+      "max_delay_d": 24.6143,
+      "priority_weight": 0.574617,
+      "size_rho": 4705074.2,
+      "task_id": 125,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2641875.27,
+      "generation_timestamp": 21.6,
+      "max_delay_d": 23.8743,
+      "priority_weight": 0.245716,
+      "size_rho": 4231482.77,
+      "task_id": 126,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6289610.05,
+      "generation_timestamp": 23.6,
+      "max_delay_d": 28.6957,
+      "priority_weight": 0.101948,
+      "size_rho": 2781413.87,
+      "task_id": 127,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3594538.88,
+      "generation_timestamp": 25.6,
+      "max_delay_d": 24.7787,
+      "priority_weight": 0.456128,
+      "size_rho": 3348996.63,
+      "task_id": 128,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9717827.02,
+      "generation_timestamp": 27.6,
+      "max_delay_d": 24.4479,
+      "priority_weight": 0.60309,
+      "size_rho": 3872893.07,
+      "task_id": 129,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7019865.79,
+      "generation_timestamp": 10.4,
+      "max_delay_d": 20.3882,
+      "priority_weight": 0.757038,
+      "size_rho": 4741286.62,
+      "task_id": 130,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3794212.88,
+      "generation_timestamp": 12.4,
+      "max_delay_d": 22.9112,
+      "priority_weight": 0.937106,
+      "size_rho": 3582651.11,
+      "task_id": 131,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9150051.02,
+      "generation_timestamp": 14.4,
+      "max_delay_d": 21.3319,
+      "priority_weight": 0.737606,
+      "size_rho": 2883682.46,
+      "task_id": 132,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5504908.19,
+      "generation_timestamp": 16.4,
+      "max_delay_d": 27.7384,
+      "priority_weight": 0.879001,
+      "size_rho": 2951657.0,
+      "task_id": 133,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 1492872.5,
+      "generation_timestamp": 18.4,
+      "max_delay_d": 21.8002,
+      "priority_weight": 0.957451,
+      "size_rho": 3843315.3,
+      "task_id": 134,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4249437.6,
+      "generation_timestamp": 20.4,
+      "max_delay_d": 25.4099,
+      "priority_weight": 0.487279,
+      "size_rho": 4117109.02,
+      "task_id": 135,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4387557.39,
+      "generation_timestamp": 22.4,
+      "max_delay_d": 21.817,
+      "priority_weight": 0.672453,
+      "size_rho": 4163146.6,
+      "task_id": 136,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2183448.46,
+      "generation_timestamp": 24.4,
+      "max_delay_d": 22.8557,
+      "priority_weight": 0.752907,
+      "size_rho": 2234060.36,
+      "task_id": 137,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9988734.79,
+      "generation_timestamp": 26.4,
+      "max_delay_d": 29.3737,
+      "priority_weight": 0.987735,
+      "size_rho": 3834315.47,
+      "task_id": 138,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3630999.03,
+      "generation_timestamp": 28.4,
+      "max_delay_d": 27.3689,
+      "priority_weight": 0.863475,
+      "size_rho": 3970472.13,
+      "task_id": 139,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2176305.31,
+      "generation_timestamp": 11.2,
+      "max_delay_d": 24.4325,
+      "priority_weight": 0.40601,
+      "size_rho": 4686578.72,
+      "task_id": 140,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3749200.29,
+      "generation_timestamp": 13.2,
+      "max_delay_d": 24.9491,
+      "priority_weight": 0.603513,
+      "size_rho": 4665443.96,
+      "task_id": 141,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1215074.85,
+      "generation_timestamp": 15.2,
+      "max_delay_d": 26.1364,
+      "priority_weight": 0.991377,
+      "size_rho": 4563930.63,
+      "task_id": 142,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9171734.83,
+      "generation_timestamp": 17.2,
+      "max_delay_d": 22.4885,
+      "priority_weight": 0.639225,
+      "size_rho": 4168261.56,
+      "task_id": 143,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 1299214.5,
+      "generation_timestamp": 19.2,
+      "max_delay_d": 20.3386,
+      "priority_weight": 0.805064,
+      "size_rho": 4644652.02,
+      "task_id": 144,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3700121.61,
+      "generation_timestamp": 21.2,
+      "max_delay_d": 26.9029,
+      "priority_weight": 0.332511,
+      "size_rho": 4438659.97,
+      "task_id": 145,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4974239.1,
+      "generation_timestamp": 23.2,
+      "max_delay_d": 26.6602,
+      "priority_weight": 0.150155,
+      "size_rho": 3066803.57,
+      "task_id": 146,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2783759.59,
+      "generation_timestamp": 25.2,
+      "max_delay_d": 21.0708,
+      "priority_weight": 0.28306,
+      "size_rho": 3546391.21,
+      "task_id": 147,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4638270.88,
+      "generation_timestamp": 27.2,
+      "max_delay_d": 20.3823,
+      "priority_weight": 0.767849,
+      "size_rho": 4535330.94,
+      "task_id": 148,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8231827.47,
+      "generation_timestamp": 29.2,
+      "max_delay_d": 21.3554,
+      "priority_weight": 0.986815,
+      "size_rho": 4491879.54,
+      "task_id": 149,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7084123.64,
+      "generation_timestamp": 12.0,
+      "max_delay_d": 28.0706,
+      "priority_weight": 0.607789,
+      "size_rho": 2549870.1,
+      "task_id": 150,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2555179.74,
+      "generation_timestamp": 14.0,
+      "max_delay_d": 20.7457,
+      "priority_weight": 0.19811,
+      "size_rho": 4298779.88,
+      "task_id": 151,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2377556.39,
+      "generation_timestamp": 16.0,
+      "max_delay_d": 26.3604,
+      "priority_weight": 0.116849,
+      "size_rho": 4160478.5,
+      "task_id": 152,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7377209.23,
+      "generation_timestamp": 18.0,
+      "max_delay_d": 21.3873,
+      "priority_weight": 0.46744,
+      "size_rho": 2748353.2,
+      "task_id": 153,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7139961.19,
+      "generation_timestamp": 20.0,
+      "max_delay_d": 20.2951,
+      "priority_weight": 0.230822,
+      "size_rho": 2217777.11,
+      "task_id": 154,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4782155.74,
+      "generation_timestamp": 22.0,
+      "max_delay_d": 26.2329,
+      "priority_weight": 0.11555,
+      "size_rho": 3168727.65,
+      "task_id": 155,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8474493.64,
+      "generation_timestamp": 24.0,
+      "max_delay_d": 27.469,
+      "priority_weight": 0.65941,
+      "size_rho": 4284688.4,
+      "task_id": 156,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3299400.05,
+      "generation_timestamp": 26.0,
+      "max_delay_d": 26.0629,
+      "priority_weight": 0.838909,
+      "size_rho": 2566274.52,
+      "task_id": 157,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5501462.19,
+      "generation_timestamp": 28.0,
+      "max_delay_d": 25.1222,
+      "priority_weight": 0.36378,
+      "size_rho": 3063434.13,
+      "task_id": 158,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9770595.25,
+      "generation_timestamp": 30.0,
+      "max_delay_d": 28.3009,
+      "priority_weight": 0.310338,
+      "size_rho": 2065445.34,
+      "task_id": 159,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6496246.63,
+      "generation_timestamp": 12.8,
+      "max_delay_d": 27.5621,
+      "priority_weight": 0.281521,
+      "size_rho": 2899148.27,
+      "task_id": 160,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2247555.66,
+      "generation_timestamp": 14.8,
+      "max_delay_d": 24.7516,
+      "priority_weight": 0.718037,
+      "size_rho": 4578897.41,
+      "task_id": 161,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5055947.51,
+      "generation_timestamp": 16.8,
+      "max_delay_d": 27.1,
+      "priority_weight": 0.411881,
+      "size_rho": 3893660.02,
+      "task_id": 162,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8047446.78,
+      "generation_timestamp": 18.8,
+      "max_delay_d": 24.1137,
+      "priority_weight": 0.742279,
+      "size_rho": 2661620.99,
+      "task_id": 163,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5332130.52,
+      "generation_timestamp": 20.8,
+      "max_delay_d": 26.778,
+      "priority_weight": 0.500908,
+      "size_rho": 3652016.89,
+      "task_id": 164,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7926905.75,
+      "generation_timestamp": 22.8,
+      "max_delay_d": 24.4681,
+      "priority_weight": 0.966545,
+      "size_rho": 2460929.77,
+      "task_id": 165,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4222774.61,
+      "generation_timestamp": 24.8,
+      "max_delay_d": 29.0236,
+      "priority_weight": 0.636109,
+      "size_rho": 2692470.33,
+      "task_id": 166,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8485431.31,
+      "generation_timestamp": 26.8,
+      "max_delay_d": 24.0865,
+      "priority_weight": 0.109767,
+      "size_rho": 3156938.84,
+      "task_id": 167,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8514000.71,
+      "generation_timestamp": 28.8,
+      "max_delay_d": 27.0535,
+      "priority_weight": 0.159916,
+      "size_rho": 3926979.78,
+      "task_id": 168,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2933275.74,
+      "generation_timestamp": 30.8,
+      "max_delay_d": 21.596,
+      "priority_weight": 0.162491,
+      "size_rho": 4203215.65,
+      "task_id": 169,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9229293.28,
+      "generation_timestamp": 13.6,
+      "max_delay_d": 28.8754,
+      "priority_weight": 0.488819,
+      "size_rho": 3298341.2,
+      "task_id": 170,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2098704.05,
+      "generation_timestamp": 15.6,
+      "max_delay_d": 23.0295,
+      "priority_weight": 0.549794,
+      "size_rho": 3913424.63,
+      "task_id": 171,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7336282.86,
+      "generation_timestamp": 17.6,
+      "max_delay_d": 25.8965,
+      "priority_weight": 0.359358,
+      "size_rho": 4103666.96,
+      "task_id": 172,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 4956003.29,
+      "generation_timestamp": 19.6,
+      "max_delay_d": 23.7707,
+      "priority_weight": 0.710843,
+      "size_rho": 3585692.36,
+      "task_id": 173,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7810259.53,
+      "generation_timestamp": 21.6,
+      "max_delay_d": 28.1257,
+      "priority_weight": 0.343015,
+      "size_rho": 2696287.06,
+      "task_id": 174,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9324469.33,
+      "generation_timestamp": 23.6,
+      "max_delay_d": 21.6607,
+      "priority_weight": 0.709806,
+      "size_rho": 3528460.12,
+      "task_id": 175,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3611644.41,
+      "generation_timestamp": 25.6,
+      "max_delay_d": 22.3441,
+      "priority_weight": 0.171837,
+      "size_rho": 3940435.95,
+      "task_id": 176,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5122635.55,
+      "generation_timestamp": 27.6,
+      "max_delay_d": 25.8729,
+      "priority_weight": 0.258357,
+      "size_rho": 4623278.1,
+      "task_id": 177,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5764258.3,
+      "generation_timestamp": 29.6,
+      "max_delay_d": 21.9985,
+      "priority_weight": 0.214552,
+      "size_rho": 3602575.22,
+      "task_id": 178,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2873056.66,
+      "generation_timestamp": 31.6,
+      "max_delay_d": 26.0465,
+      "priority_weight": 0.528769,
+      "size_rho": 3794832.56,
+      "task_id": 179,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9073994.95,
+      "generation_timestamp": 14.4,
+      "max_delay_d": 21.3572,
+      "priority_weight": 0.90491,
+      "size_rho": 4931159.05,
+      "task_id": 180,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8501178.86,
+      "generation_timestamp": 16.4,
+      "max_delay_d": 22.7124,
+      "priority_weight": 0.918152,
+      "size_rho": 2477050.21,
+      "task_id": 181,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3719394.69,
+      "generation_timestamp": 18.4,
+      "max_delay_d": 24.8937,
+      "priority_weight": 0.480861,
+      "size_rho": 4752027.66,
+      "task_id": 182,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3403006.34,
+      "generation_timestamp": 20.4,
+      "max_delay_d": 20.4177,
+      "priority_weight": 0.267857,
+      "size_rho": 4619914.19,
+      "task_id": 183,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6353621.39,
+      "generation_timestamp": 22.4,
+      "max_delay_d": 27.7718,
+      "priority_weight": 0.59773,
+      "size_rho": 2394681.15,
+      "task_id": 184,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4486881.55,
+      "generation_timestamp": 24.4,
+      "max_delay_d": 27.8038,
+      "priority_weight": 0.894184,
+      "size_rho": 3349782.75,
+      "task_id": 185,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9188021.23,
+      "generation_timestamp": 26.4,
+      "max_delay_d": 28.6269,
+      "priority_weight": 0.734265,
+      "size_rho": 4839228.77,
+      "task_id": 186,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2790751.69,
+      "generation_timestamp": 28.4,
+      "max_delay_d": 21.6188,
+      "priority_weight": 0.411322,
+      "size_rho": 2581460.58,
+      "task_id": 187,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3463541.22,
+      "generation_timestamp": 30.4,
+      "max_delay_d": 29.208,
+      "priority_weight": 0.134428,
+      "size_rho": 3936253.02,
+      "task_id": 188,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3631318.84,
+      "generation_timestamp": 32.4,
+      "max_delay_d": 27.7485,
+      "priority_weight": 0.792162,
+      "size_rho": 2184012.17,
+      "task_id": 189,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4426306.5,
+      "generation_timestamp": 15.2,
+      "max_delay_d": 21.5087,
+      "priority_weight": 0.55061,
+      "size_rho": 2738824.67,
+      "task_id": 190,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4150910.3,
+      "generation_timestamp": 17.2,
+      "max_delay_d": 28.6488,
+      "priority_weight": 0.777938,
+      "size_rho": 3121267.09,
+      "task_id": 191,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8655469.38,
+      "generation_timestamp": 19.2,
+      "max_delay_d": 21.6434,
+      "priority_weight": 0.969727,
+      "size_rho": 3301541.2,
+      "task_id": 192,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2112469.97,
+      "generation_timestamp": 21.2,
+      "max_delay_d": 25.1821,
+      "priority_weight": 0.296475,
+      "size_rho": 3832014.43,
+      "task_id": 193,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6592388.25,
+      "generation_timestamp": 23.2,
+      "max_delay_d": 29.0162,
+      "priority_weight": 0.131552,
+      "size_rho": 4854822.08,
+      "task_id": 194,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2473398.03,
+      "generation_timestamp": 25.2,
+      "max_delay_d": 28.5638,
+      "priority_weight": 0.114837,
+      "size_rho": 2566335.78,
+      "task_id": 195,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8392853.46,
+      "generation_timestamp": 27.2,
+      "max_delay_d": 21.519,
+      "priority_weight": 0.495673,
+      "size_rho": 2402383.08,
+      "task_id": 196,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5737805.78,
+      "generation_timestamp": 29.2,
+      "max_delay_d": 22.6271,
+      "priority_weight": 0.893067,
+      "size_rho": 4831414.06,
+      "task_id": 197,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 1100944.31,
+      "generation_timestamp": 31.2,
+      "max_delay_d": 24.112,
+      "priority_weight": 0.940174,
+      "size_rho": 3834034.01,
+      "task_id": 198,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3480667.02,
+      "generation_timestamp": 33.2,
+      "max_delay_d": 23.4331,
+      "priority_weight": 0.20678,
+      "size_rho": 4321800.98,
+      "task_id": 199,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3440775.4,
+      "generation_timestamp": 16.0,
+      "max_delay_d": 28.6258,
+      "priority_weight": 0.638052,
+      "size_rho": 4583954.47,
+      "task_id": 200,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7788458.4,
+      "generation_timestamp": 18.0,
+      "max_delay_d": 21.5391,
+      "priority_weight": 0.901685,
+      "size_rho": 3204416.33,
+      "task_id": 201,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3353747.88,
+      "generation_timestamp": 20.0,
+      "max_delay_d": 24.3333,
+      "priority_weight": 0.76709,
+      "size_rho": 2506334.16,
+      "task_id": 202,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5101217.94,
+      "generation_timestamp": 22.0,
+      "max_delay_d": 20.1926,
+      "priority_weight": 0.963284,
+      "size_rho": 2559503.28,
+      "task_id": 203,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9901700.86,
+      "generation_timestamp": 24.0,
+      "max_delay_d": 27.1974,
+      "priority_weight": 0.305795,
+      "size_rho": 4167238.82,
+      "task_id": 204,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2218417.19,
+      "generation_timestamp": 26.0,
+      "max_delay_d": 28.7226,
+      "priority_weight": 0.204247,
+      "size_rho": 3816110.42,
+      "task_id": 205,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4801017.78,
+      "generation_timestamp": 28.0,
+      "max_delay_d": 27.6836,
+      "priority_weight": 0.242715,
+      "size_rho": 2877904.98,
+      "task_id": 206,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7050364.69,
+      "generation_timestamp": 30.0,
+      "max_delay_d": 26.3919,
+      "priority_weight": 0.833827,
+      "size_rho": 4014042.83,
+      "task_id": 207,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3101819.82,
+      "generation_timestamp": 32.0,
+      "max_delay_d": 22.5266,
+      "priority_weight": 0.598777,
+      "size_rho": 4828223.12,
+      "task_id": 208,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 5639422.08,
+      "generation_timestamp": 34.0,
+      "max_delay_d": 27.8342,
+      "priority_weight": 0.937602,
+      "size_rho": 3776448.31,
+      "task_id": 209,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6923131.87,
+      "generation_timestamp": 16.8,
+      "max_delay_d": 24.7346,
+      "priority_weight": 0.499094,
+      "size_rho": 4541113.73,
+      "task_id": 210,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3366947.09,
+      "generation_timestamp": 18.8,
+      "max_delay_d": 23.8632,
+      "priority_weight": 0.610288,
+      "size_rho": 2387172.62,
+      "task_id": 211,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4242622.28,
+      "generation_timestamp": 20.8,
+      "max_delay_d": 20.1934,
+      "priority_weight": 0.744886,
+      "size_rho": 2232972.94,
+      "task_id": 212,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5316506.51,
+      "generation_timestamp": 22.8,
+      "max_delay_d": 22.6943,
+      "priority_weight": 0.111693,
+      "size_rho": 2398741.66,
+      "task_id": 213,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7302112.65,
+      "generation_timestamp": 24.8,
+      "max_delay_d": 22.1557,
+      "priority_weight": 0.20323,
+      "size_rho": 2279747.11,
+      "task_id": 214,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3474681.23,
+      "generation_timestamp": 26.8,
+      "max_delay_d": 21.7932,
+      "priority_weight": 0.204592,
+      "size_rho": 3602733.33,
+      "task_id": 215,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8418452.2,
+      "generation_timestamp": 28.8,
+      "max_delay_d": 29.3905,
+      "priority_weight": 0.75363,
+      "size_rho": 4280241.16,
+      "task_id": 216,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4073450.57,
+      "generation_timestamp": 30.8,
+      "max_delay_d": 24.9792,
+      "priority_weight": 0.187106,
+      "size_rho": 3750388.37,
+      "task_id": 217,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6169990.98,
+      "generation_timestamp": 32.8,
+      "max_delay_d": 21.9439,
+      "priority_weight": 0.461947,
+      "size_rho": 2370361.43,
+      "task_id": 218,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2755372.74,
+      "generation_timestamp": 34.8,
+      "max_delay_d": 20.7334,
+      "priority_weight": 0.868211,
+      "size_rho": 2234690.73,
+      "task_id": 219,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5069896.66,
+      "generation_timestamp": 17.6,
+      "max_delay_d": 24.1833,
+      "priority_weight": 0.868109,
+      "size_rho": 3395914.46,
+      "task_id": 220,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2302072.83,
+      "generation_timestamp": 19.6,
+      "max_delay_d": 23.801,
+      "priority_weight": 0.887134,
+      "size_rho": 2151147.09,
+      "task_id": 221,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8466243.88,
+      "generation_timestamp": 21.6,
+      "max_delay_d": 29.9449,
+      "priority_weight": 0.71914,
+      "size_rho": 3146965.81,
+      "task_id": 222,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8255595.36,
+      "generation_timestamp": 23.6,
+      "max_delay_d": 24.2164,
+      "priority_weight": 0.528382,
+      "size_rho": 2051643.26,
+      "task_id": 223,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6501652.42,
+      "generation_timestamp": 25.6,
+      "max_delay_d": 23.6713,
+      "priority_weight": 0.192758,
+      "size_rho": 3834556.25,
+      "task_id": 224,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6803173.82,
+      "generation_timestamp": 27.6,
+      "max_delay_d": 25.1997,
+      "priority_weight": 0.803384,
+      "size_rho": 2898488.44,
+      "task_id": 225,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6129990.66,
+      "generation_timestamp": 29.6,
+      "max_delay_d": 28.4564,
+      "priority_weight": 0.904633,
+      "size_rho": 2338003.58,
+      "task_id": 226,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9365488.05,
+      "generation_timestamp": 31.6,
+      "max_delay_d": 28.6435,
+      "priority_weight": 0.89021,
+      "size_rho": 4741102.14,
+      "task_id": 227,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8125277.88,
+      "generation_timestamp": 33.6,
+      "max_delay_d": 26.6719,
+      "priority_weight": 0.474897,
+      "size_rho": 2713992.39,
+      "task_id": 228,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7459450.32,
+      "generation_timestamp": 35.6,
+      "max_delay_d": 21.7362,
+      "priority_weight": 0.787172,
+      "size_rho": 4547325.27,
+      "task_id": 229,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9701278.07,
+      "generation_timestamp": 18.4,
+      "max_delay_d": 26.7019,
+      "priority_weight": 0.51022,
+      "size_rho": 2074422.15,
+      "task_id": 230,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9188937.87,
+      "generation_timestamp": 20.4,
+      "max_delay_d": 20.1144,
+      "priority_weight": 0.266475,
+      "size_rho": 2701051.55,
+      "task_id": 231,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9383308.51,
+      "generation_timestamp": 22.4,
+      "max_delay_d": 22.7827,
+      "priority_weight": 0.306803,
+      "size_rho": 3373549.3,
+      "task_id": 232,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5946917.17,
+      "generation_timestamp": 24.4,
+      "max_delay_d": 26.8716,
+      "priority_weight": 0.950552,
+      "size_rho": 4939844.07,
+      "task_id": 233,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6939502.85,
+      "generation_timestamp": 26.4,
+      "max_delay_d": 20.6181,
+      "priority_weight": 0.56226,
+      "size_rho": 2103403.88,
+      "task_id": 234,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2008100.41,
+      "generation_timestamp": 28.4,
+      "max_delay_d": 21.6458,
+      "priority_weight": 0.45474,
+      "size_rho": 3257836.58,
+      "task_id": 235,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 7646582.28,
+      "generation_timestamp": 30.4,
+      "max_delay_d": 21.8116,
+      "priority_weight": 0.13275,
+      "size_rho": 4927722.09,
+      "task_id": 236,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7173699.87,
+      "generation_timestamp": 32.4,
+      "max_delay_d": 28.5914,
+      "priority_weight": 0.304183,
+      "size_rho": 3652792.74,
+      "task_id": 237,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 1836938.26,
+      "generation_timestamp": 34.4,
+      "max_delay_d": 23.3296,
+      "priority_weight": 0.691282,
+      "size_rho": 2060760.76,
+      "task_id": 238,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9957704.24,
+      "generation_timestamp": 36.4,
+      "max_delay_d": 21.6069,
+      "priority_weight": 0.54302,
+      "size_rho": 4382759.9,
+      "task_id": 239,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2726110.43,
+      "generation_timestamp": 19.2,
+      "max_delay_d": 20.2016,
+      "priority_weight": 0.132227,
+      "size_rho": 3778862.06,
+      "task_id": 240,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1137675.73,
+      "generation_timestamp": 21.2,
+      "max_delay_d": 29.9367,
+      "priority_weight": 0.924012,
+      "size_rho": 4134130.18,
+      "task_id": 241,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4792108.48,
+      "generation_timestamp": 23.2,
+      "max_delay_d": 23.0184,
+      "priority_weight": 0.477263,
+      "size_rho": 4427015.98,
+      "task_id": 242,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9766820.18,
+      "generation_timestamp": 25.2,
+      "max_delay_d": 23.0483,
+      "priority_weight": 0.713035,
+      "size_rho": 3032930.82,
+      "task_id": 243,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 1192014.03,
+      "generation_timestamp": 27.2,
+      "max_delay_d": 23.7398,
+      "priority_weight": 0.681702,
+      "size_rho": 2046383.24,
+      "task_id": 244,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1085526.46,
+      "generation_timestamp": 29.2,
+      "max_delay_d": 26.9333,
+      "priority_weight": 0.851179,
+      "size_rho": 4108619.88,
+      "task_id": 245,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6577603.33,
+      "generation_timestamp": 31.2,
+      "max_delay_d": 26.5566,
+      "priority_weight": 0.482047,
+      "size_rho": 2569617.1,
+      "task_id": 246,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8453147.76,
+      "generation_timestamp": 33.2,
+      "max_delay_d": 28.1491,
+      "priority_weight": 0.767374,
+      "size_rho": 2910079.14,
+      "task_id": 247,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8981753.36,
+      "generation_timestamp": 35.2,
+      "max_delay_d": 28.1095,
+      "priority_weight": 0.471633,
+      "size_rho": 2889914.43,
+      "task_id": 248,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 5737831.68,
+      "generation_timestamp": 37.2,
+      "max_delay_d": 22.1041,
+      "priority_weight": 0.820674,
+      "size_rho": 2154135.12,
+      "task_id": 249,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8681237.07,
+      "generation_timestamp": 20.0,
+      "max_delay_d": 22.7282,
+      "priority_weight": 0.923943,
+      "size_rho": 3125769.39,
+      "task_id": 250,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5567411.7,
+      "generation_timestamp": 22.0,
+      "max_delay_d": 25.7918,
+      "priority_weight": 0.692508,
+      "size_rho": 2617273.51,
+      "task_id": 251,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2273536.08,
+      "generation_timestamp": 24.0,
+      "max_delay_d": 25.8913,
+      "priority_weight": 0.939519,
+      "size_rho": 2188539.65,
+      "task_id": 252,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6415348.32,
+      "generation_timestamp": 26.0,
+      "max_delay_d": 21.6644,
+      "priority_weight": 0.938704,
+      "size_rho": 3918768.73,
+      "task_id": 253,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3289048.9,
+      "generation_timestamp": 28.0,
+      "max_delay_d": 22.1988,
+      "priority_weight": 0.87236,
+      "size_rho": 3737320.63,
+      "task_id": 254,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2220209.5,
+      "generation_timestamp": 30.0,
+      "max_delay_d": 28.675,
+      "priority_weight": 0.173553,
+      "size_rho": 3837525.81,
+      "task_id": 255,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1800965.22,
+      "generation_timestamp": 32.0,
+      "max_delay_d": 25.4819,
+      "priority_weight": 0.795267,
+      "size_rho": 3761960.94,
+      "task_id": 256,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1881403.58,
+      "generation_timestamp": 34.0,
+      "max_delay_d": 20.4489,
+      "priority_weight": 0.942902,
+      "size_rho": 2927272.82,
+      "task_id": 257,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2166783.27,
+      "generation_timestamp": 36.0,
+      "max_delay_d": 22.3678,
+      "priority_weight": 0.522816,
+      "size_rho": 4193841.22,
+      "task_id": 258,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3493787.91,
+      "generation_timestamp": 38.0,
+      "max_delay_d": 24.1767,
+      "priority_weight": 0.195775,
+      "size_rho": 4472870.2,
+      "task_id": 259,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1907700.35,
+      "generation_timestamp": 20.8,
+      "max_delay_d": 22.0426,
+      "priority_weight": 0.429251,
+      "size_rho": 4864355.19,
+      "task_id": 260,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4261748.24,
+      "generation_timestamp": 22.8,
+      "max_delay_d": 29.4664,
+      "priority_weight": 0.154242,
+      "size_rho": 2297326.26,
+      "task_id": 261,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2810218.62,
+      "generation_timestamp": 24.8,
+      "max_delay_d": 25.8388,
+      "priority_weight": 0.522187,
+      "size_rho": 2372650.48,
+      "task_id": 262,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9144291.0,
+      "generation_timestamp": 26.8,
+      "max_delay_d": 21.9585,
+      "priority_weight": 0.128032,
+      "size_rho": 3269823.63,
+      "task_id": 263,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3129963.54,
+      "generation_timestamp": 28.8,
+      "max_delay_d": 29.0331,
+      "priority_weight": 0.387354,
+      "size_rho": 3809482.66,
+      "task_id": 264,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2278780.14,
+      "generation_timestamp": 30.8,
+      "max_delay_d": 29.0635,
+      "priority_weight": 0.717481,
+      "size_rho": 4314686.15,
+      "task_id": 265,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1129718.96,
+      "generation_timestamp": 32.8,
+      "max_delay_d": 28.1754,
+      "priority_weight": 0.145003,
+      "size_rho": 4470099.19,
+      "task_id": 266,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6710190.08,
+      "generation_timestamp": 34.8,
+      "max_delay_d": 27.4452,
+      "priority_weight": 0.841548,
+      "size_rho": 3106397.17,
+      "task_id": 267,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7282355.73,
+      "generation_timestamp": 36.8,
+      "max_delay_d": 24.2504,
+      "priority_weight": 0.55948,
+      "size_rho": 4172626.52,
+      "task_id": 268,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2657907.75,
+      "generation_timestamp": 38.8,
+      "max_delay_d": 28.7859,
+      "priority_weight": 0.591369,
+      "size_rho": 4262422.62,
+      "task_id": 269,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1752541.23,
+      "generation_timestamp": 21.6,
+      "max_delay_d": 22.976,
+      "priority_weight": 0.138905,
+      "size_rho": 4385805.65,
+      "task_id": 270,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5391559.51,
+      "generation_timestamp": 23.6,
+      "max_delay_d": 24.6925,
+      "priority_weight": 0.713348,
+      "size_rho": 3049924.11,
+      "task_id": 271,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2031066.45,
+      "generation_timestamp": 25.6,
+      "max_delay_d": 24.8131,
+      "priority_weight": 0.45915,
+      "size_rho": 2573726.86,
+      "task_id": 272,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5647075.52,
+      "generation_timestamp": 27.6,
+      "max_delay_d": 21.6961,
+      "priority_weight": 0.544445,
+      "size_rho": 3939509.75,
+      "task_id": 273,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6107406.18,
+      "generation_timestamp": 29.6,
+      "max_delay_d": 20.9267,
+      "priority_weight": 0.880466,
+      "size_rho": 2302242.42,
+      "task_id": 274,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4280279.8,
+      "generation_timestamp": 31.6,
+      "max_delay_d": 22.5148,
+      "priority_weight": 0.763686,
+      "size_rho": 3851508.74,
+      "task_id": 275,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1358069.58,
+      "generation_timestamp": 33.6,
+      "max_delay_d": 28.6516,
+      "priority_weight": 0.158063,
+      "size_rho": 3586321.59,
+      "task_id": 276,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4159003.29,
+      "generation_timestamp": 35.6,
+      "max_delay_d": 20.1624,
+      "priority_weight": 0.862054,
+      "size_rho": 3234519.73,
+      "task_id": 277,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5091056.56,
+      "generation_timestamp": 37.6,
+      "max_delay_d": 25.405,
+      "priority_weight": 0.280722,
+      "size_rho": 4784547.44,
+      "task_id": 278,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6631320.89,
+      "generation_timestamp": 39.6,
+      "max_delay_d": 25.4446,
+      "priority_weight": 0.607711,
+      "size_rho": 2148819.74,
+      "task_id": 279,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6177830.68,
+      "generation_timestamp": 22.4,
+      "max_delay_d": 22.8518,
+      "priority_weight": 0.821905,
+      "size_rho": 4730635.95,
+      "task_id": 280,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3393937.34,
+      "generation_timestamp": 24.4,
+      "max_delay_d": 25.3617,
+      "priority_weight": 0.258909,
+      "size_rho": 3703903.93,
+      "task_id": 281,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5171630.15,
+      "generation_timestamp": 26.4,
+      "max_delay_d": 22.3011,
+      "priority_weight": 0.677104,
+      "size_rho": 4561683.43,
+      "task_id": 282,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6301351.54,
+      "generation_timestamp": 28.4,
+      "max_delay_d": 27.5228,
+      "priority_weight": 0.335131,
+      "size_rho": 2240485.8,
+      "task_id": 283,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4477229.67,
+      "generation_timestamp": 30.4,
+      "max_delay_d": 23.9147,
+      "priority_weight": 0.788474,
+      "size_rho": 4663545.35,
+      "task_id": 284,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9211988.02,
+      "generation_timestamp": 32.4,
+      "max_delay_d": 27.433,
+      "priority_weight": 0.976372,
+      "size_rho": 2063611.59,
+      "task_id": 285,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3888312.46,
+      "generation_timestamp": 34.4,
+      "max_delay_d": 23.7669,
+      "priority_weight": 0.940736,
+      "size_rho": 4655967.72,
+      "task_id": 286,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1538646.72,
+      "generation_timestamp": 36.4,
+      "max_delay_d": 21.7693,
+      "priority_weight": 0.970682,
+      "size_rho": 2033853.19,
+      "task_id": 287,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8363699.02,
+      "generation_timestamp": 38.4,
+      "max_delay_d": 23.8573,
+      "priority_weight": 0.321095,
+      "size_rho": 2417722.97,
+      "task_id": 288,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9926335.13,
+      "generation_timestamp": 40.4,
+      "max_delay_d": 21.9213,
+      "priority_weight": 0.159039,
+      "size_rho": 2835336.69,
+      "task_id": 289,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8292917.66,
+      "generation_timestamp": 23.2,
+      "max_delay_d": 21.0162,
+      "priority_weight": 0.933371,
+      "size_rho": 2990590.44,
+      "task_id": 290,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4373217.31,
+      "generation_timestamp": 25.2,
+      "max_delay_d": 24.7496,
+      "priority_weight": 0.622892,
+      "size_rho": 4617173.79,
+      "task_id": 291,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9898324.77,
+      "generation_timestamp": 27.2,
+      "max_delay_d": 20.009,
+      "priority_weight": 0.262395,
+      "size_rho": 4696811.54,
+      "task_id": 292,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5159516.77,
+      "generation_timestamp": 29.2,
+      "max_delay_d": 29.244,
+      "priority_weight": 0.933771,
+      "size_rho": 4366905.61,
+      "task_id": 293,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4323448.57,
+      "generation_timestamp": 31.2,
+      "max_delay_d": 24.0885,
+      "priority_weight": 0.809485,
+      "size_rho": 2277749.94,
+      "task_id": 294,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2475931.41,
+      "generation_timestamp": 33.2,
+      "max_delay_d": 27.7086,
+      "priority_weight": 0.869938,
+      "size_rho": 3750710.35,
+      "task_id": 295,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6868368.49,
+      "generation_timestamp": 35.2,
+      "max_delay_d": 24.8064,
+      "priority_weight": 0.634265,
+      "size_rho": 3266636.85,
+      "task_id": 296,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4598546.48,
+      "generation_timestamp": 37.2,
+      "max_delay_d": 22.8763,
+      "priority_weight": 0.621884,
+      "size_rho": 2998938.32,
+      "task_id": 297,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6473268.83,
+      "generation_timestamp": 39.2,
+      "max_delay_d": 25.1289,
+      "priority_weight": 0.126313,
+      "size_rho": 4005093.94,
+      "task_id": 298,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9827103.47,
+      "generation_timestamp": 41.2,
+      "max_delay_d": 21.5617,
+      "priority_weight": 0.964521,
+      "size_rho": 4023410.52,
+      "task_id": 299,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4000867.63,
+      "generation_timestamp": 24.0,
+      "max_delay_d": 29.6339,
+      "priority_weight": 0.230501,
+      "size_rho": 4978988.3,
+      "task_id": 300,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7925011.71,
+      "generation_timestamp": 26.0,
+      "max_delay_d": 28.2698,
+      "priority_weight": 0.664858,
+      "size_rho": 4562180.16,
+      "task_id": 301,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7036425.92,
+      "generation_timestamp": 28.0,
+      "max_delay_d": 23.2092,
+      "priority_weight": 0.894856,
+      "size_rho": 2345725.8,
+      "task_id": 302,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 4598486.65,
+      "generation_timestamp": 30.0,
+      "max_delay_d": 21.524,
+      "priority_weight": 0.833842,
+      "size_rho": 2246677.75,
+      "task_id": 303,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8238402.79,
+      "generation_timestamp": 32.0,
+      "max_delay_d": 25.2573,
+      "priority_weight": 0.174282,
+      "size_rho": 2424123.0,
+      "task_id": 304,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 8870921.0,
+      "generation_timestamp": 34.0,
+      "max_delay_d": 21.6216,
+      "priority_weight": 0.123047,
+      "size_rho": 4626802.63,
+      "task_id": 305,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3654477.67,
+      "generation_timestamp": 36.0,
+      "max_delay_d": 28.8741,
+      "priority_weight": 0.748641,
+      "size_rho": 2335583.5,
+      "task_id": 306,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7057747.87,
+      "generation_timestamp": 38.0,
+      "max_delay_d": 22.4446,
+      "priority_weight": 0.771572,
+      "size_rho": 4905853.99,
+      "task_id": 307,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9358600.45,
+      "generation_timestamp": 40.0,
+      "max_delay_d": 27.7517,
+      "priority_weight": 0.866363,
+      "size_rho": 3817113.26,
+      "task_id": 308,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 5494187.87,
+      "generation_timestamp": 42.0,
+      "max_delay_d": 23.2182,
+      "priority_weight": 0.55257,
+      "size_rho": 2103340.66,
+      "task_id": 309,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6757945.38,
+      "generation_timestamp": 24.8,
+      "max_delay_d": 23.5656,
+      "priority_weight": 0.208146,
+      "size_rho": 3216428.36,
+      "task_id": 310,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8442302.74,
+      "generation_timestamp": 26.8,
+      "max_delay_d": 29.6016,
+      "priority_weight": 0.84034,
+      "size_rho": 4180740.91,
+      "task_id": 311,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2006874.73,
+      "generation_timestamp": 28.8,
+      "max_delay_d": 23.6278,
+      "priority_weight": 0.297111,
+      "size_rho": 3141921.65,
+      "task_id": 312,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7537250.67,
+      "generation_timestamp": 30.8,
+      "max_delay_d": 28.7813,
+      "priority_weight": 0.719943,
+      "size_rho": 3477711.85,
+      "task_id": 313,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5345204.13,
+      "generation_timestamp": 32.8,
+      "max_delay_d": 21.1623,
+      "priority_weight": 0.905127,
+      "size_rho": 2200971.85,
+      "task_id": 314,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2089807.23,
+      "generation_timestamp": 34.8,
+      "max_delay_d": 23.3062,
+      "priority_weight": 0.434843,
+      "size_rho": 2484551.01,
+      "task_id": 315,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6427818.85,
+      "generation_timestamp": 36.8,
+      "max_delay_d": 25.243,
+      "priority_weight": 0.425193,
+      "size_rho": 3944526.73,
+      "task_id": 316,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6055800.88,
+      "generation_timestamp": 38.8,
+      "max_delay_d": 23.2569,
+      "priority_weight": 0.165864,
+      "size_rho": 4034717.45,
+      "task_id": 317,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4090580.7,
+      "generation_timestamp": 40.8,
+      "max_delay_d": 20.9352,
+      "priority_weight": 0.521636,
+      "size_rho": 2215606.44,
+      "task_id": 318,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1186737.91,
+      "generation_timestamp": 42.8,
+      "max_delay_d": 27.951,
+      "priority_weight": 0.365406,
+      "size_rho": 3336692.61,
+      "task_id": 319,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1742505.55,
+      "generation_timestamp": 25.6,
+      "max_delay_d": 20.4373,
+      "priority_weight": 0.7722,
+      "size_rho": 3245159.23,
+      "task_id": 320,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2638532.84,
+      "generation_timestamp": 27.6,
+      "max_delay_d": 25.5357,
+      "priority_weight": 0.821668,
+      "size_rho": 3092233.23,
+      "task_id": 321,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4653200.92,
+      "generation_timestamp": 29.6,
+      "max_delay_d": 22.7085,
+      "priority_weight": 0.245201,
+      "size_rho": 2238342.91,
+      "task_id": 322,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2857094.45,
+      "generation_timestamp": 31.6,
+      "max_delay_d": 21.3231,
+      "priority_weight": 0.671372,
+      "size_rho": 4373309.49,
+      "task_id": 323,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3252982.33,
+      "generation_timestamp": 33.6,
+      "max_delay_d": 22.8351,
+      "priority_weight": 0.756494,
+      "size_rho": 3085104.12,
+      "task_id": 324,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6717818.72,
+      "generation_timestamp": 35.6,
+      "max_delay_d": 26.952,
+      "priority_weight": 0.940857,
+      "size_rho": 4917708.18,
+      "task_id": 325,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9545480.17,
+      "generation_timestamp": 37.6,
+      "max_delay_d": 22.3144,
+      "priority_weight": 0.65461,
+      "size_rho": 4330981.89,
+      "task_id": 326,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8256992.77,
+      "generation_timestamp": 39.6,
+      "max_delay_d": 21.2278,
+      "priority_weight": 0.617175,
+      "size_rho": 3557214.67,
+      "task_id": 327,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4005856.16,
+      "generation_timestamp": 41.6,
+      "max_delay_d": 29.0013,
+      "priority_weight": 0.824711,
+      "size_rho": 3645785.62,
+      "task_id": 328,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3907034.05,
+      "generation_timestamp": 43.6,
+      "max_delay_d": 22.9744,
+      "priority_weight": 0.600987,
+      "size_rho": 2475204.57,
+      "task_id": 329,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8634043.39,
+      "generation_timestamp": 26.4,
+      "max_delay_d": 26.0178,
+      "priority_weight": 0.215379,
+      "size_rho": 3747596.55,
+      "task_id": 330,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5202297.54,
+      "generation_timestamp": 28.4,
+      "max_delay_d": 21.6234,
+      "priority_weight": 0.353733,
+      "size_rho": 3299772.19,
+      "task_id": 331,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4528769.5,
+      "generation_timestamp": 30.4,
+      "max_delay_d": 26.143,
+      "priority_weight": 0.391759,
+      "size_rho": 2877858.62,
+      "task_id": 332,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9220590.88,
+      "generation_timestamp": 32.4,
+      "max_delay_d": 22.4183,
+      "priority_weight": 0.78432,
+      "size_rho": 3773015.38,
+      "task_id": 333,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3571433.22,
+      "generation_timestamp": 34.4,
+      "max_delay_d": 22.445,
+      "priority_weight": 0.265142,
+      "size_rho": 2051951.63,
+      "task_id": 334,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1753277.26,
+      "generation_timestamp": 36.4,
+      "max_delay_d": 27.3682,
+      "priority_weight": 0.352123,
+      "size_rho": 2970114.97,
+      "task_id": 335,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8244518.09,
+      "generation_timestamp": 38.4,
+      "max_delay_d": 22.4909,
+      "priority_weight": 0.262091,
+      "size_rho": 2847236.74,
+      "task_id": 336,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6842716.36,
+      "generation_timestamp": 40.4,
+      "max_delay_d": 26.4103,
+      "priority_weight": 0.934291,
+      "size_rho": 3927778.16,
+      "task_id": 337,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4010646.62,
+      "generation_timestamp": 42.4,
+      "max_delay_d": 23.4533,
+      "priority_weight": 0.368287,
+      "size_rho": 3946065.89,
+      "task_id": 338,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6258631.98,
+      "generation_timestamp": 44.4,
+      "max_delay_d": 28.3574,
+      "priority_weight": 0.924458,
+      "size_rho": 3464166.62,
+      "task_id": 339,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7670916.24,
+      "generation_timestamp": 27.2,
+      "max_delay_d": 27.5947,
+      "priority_weight": 0.290275,
+      "size_rho": 2925439.72,
+      "task_id": 340,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5626760.31,
+      "generation_timestamp": 29.2,
+      "max_delay_d": 26.8854,
+      "priority_weight": 0.934556,
+      "size_rho": 2822614.63,
+      "task_id": 341,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3944332.71,
+      "generation_timestamp": 31.2,
+      "max_delay_d": 22.3763,
+      "priority_weight": 0.257939,
+      "size_rho": 2976464.58,
+      "task_id": 342,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2695508.51,
+      "generation_timestamp": 33.2,
+      "max_delay_d": 22.6072,
+      "priority_weight": 0.885353,
+      "size_rho": 4063442.1,
+      "task_id": 343,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7263720.95,
+      "generation_timestamp": 35.2,
+      "max_delay_d": 29.7981,
+      "priority_weight": 0.131086,
+      "size_rho": 3985928.31,
+      "task_id": 344,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1768522.33,
+      "generation_timestamp": 37.2,
+      "max_delay_d": 25.0866,
+      "priority_weight": 0.274022,
+      "size_rho": 2044724.76,
+      "task_id": 345,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8287892.16,
+      "generation_timestamp": 39.2,
+      "max_delay_d": 21.9891,
+      "priority_weight": 0.713822,
+      "size_rho": 2766838.13,
+      "task_id": 346,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1989069.61,
+      "generation_timestamp": 41.2,
+      "max_delay_d": 22.2667,
+      "priority_weight": 0.823064,
+      "size_rho": 3825101.86,
+      "task_id": 347,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3916486.68,
+      "generation_timestamp": 43.2,
+      "max_delay_d": 27.2682,
+      "priority_weight": 0.101098,
+      "size_rho": 3935582.94,
+      "task_id": 348,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3699011.0,
+      "generation_timestamp": 45.2,
+      "max_delay_d": 26.4918,
+      "priority_weight": 0.547858,
+      "size_rho": 2404312.81,
+      "task_id": 349,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9875147.33,
+      "generation_timestamp": 28.0,
+      "max_delay_d": 24.0519,
+      "priority_weight": 0.266812,
+      "size_rho": 2129357.4,
+      "task_id": 350,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 6193273.5,
+      "generation_timestamp": 30.0,
+      "max_delay_d": 23.8912,
+      "priority_weight": 0.487785,
+      "size_rho": 3296003.92,
+      "task_id": 351,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2586364.01,
+      "generation_timestamp": 32.0,
+      "max_delay_d": 22.8304,
+      "priority_weight": 0.25567,
+      "size_rho": 3430715.8,
+      "task_id": 352,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2959218.5,
+      "generation_timestamp": 34.0,
+      "max_delay_d": 22.2145,
+      "priority_weight": 0.366774,
+      "size_rho": 4884679.64,
+      "task_id": 353,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8577818.36,
+      "generation_timestamp": 36.0,
+      "max_delay_d": 24.1439,
+      "priority_weight": 0.730809,
+      "size_rho": 2633752.89,
+      "task_id": 354,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7563773.77,
+      "generation_timestamp": 38.0,
+      "max_delay_d": 22.2416,
+      "priority_weight": 0.279084,
+      "size_rho": 3354269.4,
+      "task_id": 355,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1797833.53,
+      "generation_timestamp": 40.0,
+      "max_delay_d": 29.0702,
+      "priority_weight": 0.932772,
+      "size_rho": 2340918.08,
+      "task_id": 356,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6165984.3,
+      "generation_timestamp": 42.0,
+      "max_delay_d": 24.2328,
+      "priority_weight": 0.988543,
+      "size_rho": 3808269.55,
+      "task_id": 357,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5510121.31,
+      "generation_timestamp": 44.0,
+      "max_delay_d": 29.8836,
+      "priority_weight": 0.224944,
+      "size_rho": 4294775.8,
+      "task_id": 358,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7736431.44,
+      "generation_timestamp": 46.0,
+      "max_delay_d": 26.6992,
+      "priority_weight": 0.336234,
+      "size_rho": 4410270.76,
+      "task_id": 359,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3442006.95,
+      "generation_timestamp": 28.8,
+      "max_delay_d": 22.6962,
+      "priority_weight": 0.898402,
+      "size_rho": 4949754.05,
+      "task_id": 360,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2595389.9,
+      "generation_timestamp": 30.8,
+      "max_delay_d": 21.58,
+      "priority_weight": 0.238603,
+      "size_rho": 4541377.15,
+      "task_id": 361,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7875851.09,
+      "generation_timestamp": 32.8,
+      "max_delay_d": 21.7893,
+      "priority_weight": 0.557496,
+      "size_rho": 3483790.92,
+      "task_id": 362,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 4395202.15,
+      "generation_timestamp": 34.8,
+      "max_delay_d": 26.5525,
+      "priority_weight": 0.454377,
+      "size_rho": 3210455.97,
+      "task_id": 363,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 1939755.49,
+      "generation_timestamp": 36.8,
+      "max_delay_d": 25.5679,
+      "priority_weight": 0.411707,
+      "size_rho": 3578156.42,
+      "task_id": 364,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7401734.18,
+      "generation_timestamp": 38.8,
+      "max_delay_d": 23.1298,
+      "priority_weight": 0.875925,
+      "size_rho": 2281698.67,
+      "task_id": 365,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2548872.25,
+      "generation_timestamp": 40.8,
+      "max_delay_d": 23.5572,
+      "priority_weight": 0.330602,
+      "size_rho": 4880668.62,
+      "task_id": 366,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3915089.59,
+      "generation_timestamp": 42.8,
+      "max_delay_d": 22.5486,
+      "priority_weight": 0.422867,
+      "size_rho": 2884228.28,
+      "task_id": 367,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5225988.16,
+      "generation_timestamp": 44.8,
+      "max_delay_d": 25.3847,
+      "priority_weight": 0.316531,
+      "size_rho": 3278835.52,
+      "task_id": 368,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7502799.2,
+      "generation_timestamp": 46.8,
+      "max_delay_d": 21.4945,
+      "priority_weight": 0.180919,
+      "size_rho": 3279791.22,
+      "task_id": 369,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5471089.17,
+      "generation_timestamp": 29.6,
+      "max_delay_d": 25.0082,
+      "priority_weight": 0.498341,
+      "size_rho": 4425845.95,
+      "task_id": 370,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1491575.62,
+      "generation_timestamp": 31.6,
+      "max_delay_d": 25.5698,
+      "priority_weight": 0.657926,
+      "size_rho": 3449682.83,
+      "task_id": 371,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8274809.99,
+      "generation_timestamp": 33.6,
+      "max_delay_d": 28.5909,
+      "priority_weight": 0.642565,
+      "size_rho": 3920615.42,
+      "task_id": 372,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1531330.87,
+      "generation_timestamp": 35.6,
+      "max_delay_d": 28.9077,
+      "priority_weight": 0.681618,
+      "size_rho": 3247113.14,
+      "task_id": 373,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2546987.36,
+      "generation_timestamp": 37.6,
+      "max_delay_d": 20.6099,
+      "priority_weight": 0.813921,
+      "size_rho": 4113452.3,
+      "task_id": 374,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2113100.87,
+      "generation_timestamp": 39.6,
+      "max_delay_d": 23.9657,
+      "priority_weight": 0.457453,
+      "size_rho": 3101871.26,
+      "task_id": 375,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2466611.71,
+      "generation_timestamp": 41.6,
+      "max_delay_d": 21.5483,
+      "priority_weight": 0.931548,
+      "size_rho": 2418364.3,
+      "task_id": 376,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1338777.35,
+      "generation_timestamp": 43.6,
+      "max_delay_d": 27.1829,
+      "priority_weight": 0.516012,
+      "size_rho": 2546231.4,
+      "task_id": 377,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 1597633.79,
+      "generation_timestamp": 45.6,
+      "max_delay_d": 24.0956,
+      "priority_weight": 0.404007,
+      "size_rho": 4626519.65,
+      "task_id": 378,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7809028.08,
+      "generation_timestamp": 47.6,
+      "max_delay_d": 20.4241,
+      "priority_weight": 0.182103,
+      "size_rho": 4071965.24,
+      "task_id": 379,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5542200.67,
+      "generation_timestamp": 30.4,
+      "max_delay_d": 28.5679,
+      "priority_weight": 0.557597,
+      "size_rho": 2267611.5,
+      "task_id": 380,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8396848.71,
+      "generation_timestamp": 32.4,
+      "max_delay_d": 22.0032,
+      "priority_weight": 0.162842,
+      "size_rho": 3191221.93,
+      "task_id": 381,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 6808945.15,
+      "generation_timestamp": 34.4,
+      "max_delay_d": 20.6757,
+      "priority_weight": 0.54432,
+      "size_rho": 4598079.05,
+      "task_id": 382,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9404629.08,
+      "generation_timestamp": 36.4,
+      "max_delay_d": 26.5293,
+      "priority_weight": 0.378286,
+      "size_rho": 2647702.28,
+      "task_id": 383,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7488559.33,
+      "generation_timestamp": 38.4,
+      "max_delay_d": 21.2395,
+      "priority_weight": 0.105353,
+      "size_rho": 3835638.58,
+      "task_id": 384,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2849640.74,
+      "generation_timestamp": 40.4,
+      "max_delay_d": 29.7238,
+      "priority_weight": 0.315902,
+      "size_rho": 4740013.82,
+      "task_id": 385,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8070099.38,
+      "generation_timestamp": 42.4,
+      "max_delay_d": 26.6845,
+      "priority_weight": 0.985994,
+      "size_rho": 2942618.59,
+      "task_id": 386,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3581633.74,
+      "generation_timestamp": 44.4,
+      "max_delay_d": 27.3093,
+      "priority_weight": 0.606891,
+      "size_rho": 2267189.44,
+      "task_id": 387,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8691930.98,
+      "generation_timestamp": 46.4,
+      "max_delay_d": 26.3007,
+      "priority_weight": 0.813222,
+      "size_rho": 2399726.54,
+      "task_id": 388,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6434941.56,
+      "generation_timestamp": 48.4,
+      "max_delay_d": 28.4808,
+      "priority_weight": 0.418986,
+      "size_rho": 3416809.6,
+      "task_id": 389,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2788410.9,
+      "generation_timestamp": 31.2,
+      "max_delay_d": 24.9656,
+      "priority_weight": 0.280544,
+      "size_rho": 4686082.43,
+      "task_id": 390,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8913413.95,
+      "generation_timestamp": 33.2,
+      "max_delay_d": 25.2821,
+      "priority_weight": 0.437825,
+      "size_rho": 4762981.48,
+      "task_id": 391,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4796819.66,
+      "generation_timestamp": 35.2,
+      "max_delay_d": 22.2029,
+      "priority_weight": 0.638549,
+      "size_rho": 2563359.43,
+      "task_id": 392,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8969929.17,
+      "generation_timestamp": 37.2,
+      "max_delay_d": 23.048,
+      "priority_weight": 0.107646,
+      "size_rho": 4154582.98,
+      "task_id": 393,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2379532.86,
+      "generation_timestamp": 39.2,
+      "max_delay_d": 27.9087,
+      "priority_weight": 0.412542,
+      "size_rho": 3421081.38,
+      "task_id": 394,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1809212.91,
+      "generation_timestamp": 41.2,
+      "max_delay_d": 29.9626,
+      "priority_weight": 0.961348,
+      "size_rho": 3035679.66,
+      "task_id": 395,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2002380.18,
+      "generation_timestamp": 43.2,
+      "max_delay_d": 24.0369,
+      "priority_weight": 0.303504,
+      "size_rho": 3003842.82,
+      "task_id": 396,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3562460.37,
+      "generation_timestamp": 45.2,
+      "max_delay_d": 26.2399,
+      "priority_weight": 0.492942,
+      "size_rho": 4178394.41,
+      "task_id": 397,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7456582.17,
+      "generation_timestamp": 47.2,
+      "max_delay_d": 29.5612,
+      "priority_weight": 0.807717,
+      "size_rho": 2034384.65,
+      "task_id": 398,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8763462.69,
+      "generation_timestamp": 49.2,
+      "max_delay_d": 28.1597,
+      "priority_weight": 0.551567,
+      "size_rho": 3019677.92,
+      "task_id": 399,
+      "vehicle_id": "v_9"
+    }
+  ],
+  "vehicle_trajectories": [
+    {
+      "entry_time": 0.0,
+      "initial_position": [
+        124.4196,
+        39.5873
+      ],
+      "initial_speed": 35.1,
+      "trajectory_points": [
+        {
+          "speed": 35.1,
+          "timestamp": 0.0,
+          "x": 141.9715,
+          "y": 39.5873
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 1.0,
+          "x": 159.4357,
+          "y": 41.3396
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 2.0,
+          "x": 176.6377,
+          "y": 44.8266
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 3.0,
+          "x": 193.4056,
+          "y": 50.0136
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 4.0,
+          "x": 200.0,
+          "y": 56.8486
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 5.0,
+          "x": 200.0,
+          "y": 65.2634
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 6.0,
+          "x": 200.0,
+          "y": 75.1739
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 7.0,
+          "x": 200.0,
+          "y": 86.4811
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 8.0,
+          "x": 200.0,
+          "y": 99.0721
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 9.0,
+          "x": 200.0,
+          "y": 112.8209
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 10.0,
+          "x": 200.0,
+          "y": 127.5903
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 11.0,
+          "x": 200.0,
+          "y": 143.2327
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 12.0,
+          "x": 200.0,
+          "y": 159.5917
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 13.0,
+          "x": 200.0,
+          "y": 176.5039
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 14.0,
+          "x": 200.0,
+          "y": 193.8004
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 15.0,
+          "x": 200.0,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 16.0,
+          "x": 199.4875,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 17.0,
+          "x": 197.226,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 18.0,
+          "x": 193.2382,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 19.0,
+          "x": 187.5639,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 20.0,
+          "x": 180.2597,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 21.0,
+          "x": 171.3987,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 22.0,
+          "x": 161.0694,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 23.0,
+          "x": 149.3751,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 24.0,
+          "x": 136.4324,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 25.0,
+          "x": 122.3708,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 26.0,
+          "x": 107.3309,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 27.0,
+          "x": 91.4627,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 28.0,
+          "x": 74.9249,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 29.0,
+          "x": 57.8828,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 30.0,
+          "x": 40.5066,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 31.0,
+          "x": 22.9699,
+          "y": 200.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 32.0,
+          "x": 5.448,
+          "y": 198.9754
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 33.0,
+          "x": 0.0,
+          "y": 196.2067
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 34.0,
+          "x": 0.0,
+          "y": 191.7215
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 35.0,
+          "x": 0.0,
+          "y": 185.5646
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 36.0,
+          "x": 0.0,
+          "y": 177.7975
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 37.0,
+          "x": 0.0,
+          "y": 168.4979
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 38.0,
+          "x": 0.0,
+          "y": 157.7586
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 39.0,
+          "x": 0.0,
+          "y": 145.6871
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 40.0,
+          "x": 0.0,
+          "y": 132.4038
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 41.0,
+          "x": 0.0,
+          "y": 118.0415
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 42.0,
+          "x": 0.0,
+          "y": 102.7437
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 43.0,
+          "x": 0.0,
+          "y": 86.6633
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 44.0,
+          "x": 0.0,
+          "y": 69.9609
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 45.0,
+          "x": 0.0,
+          "y": 52.8034
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 46.0,
+          "x": 0.0,
+          "y": 35.3623
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 47.0,
+          "x": 0.0,
+          "y": 17.8118
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 48.0,
+          "x": 1.5358,
+          "y": 0.3272
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 49.0,
+          "x": 4.8094,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 50.0,
+          "x": 9.7882,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 51.0,
+          "x": 16.4224,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 52.0,
+          "x": 24.6458,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 53.0,
+          "x": 34.3761,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 54.0,
+          "x": 45.5161,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 55.0,
+          "x": 57.9546,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 56.0,
+          "x": 71.5672,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 57.0,
+          "x": 86.218,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 58.0,
+          "x": 101.7605,
+          "y": 0.0
+        },
+        {
+          "speed": 35.1,
+          "timestamp": 59.0,
+          "x": 118.0395,
+          "y": 0.0
+        }
+      ],
+      "vehicle_id": "v_0"
+    },
+    {
+      "entry_time": 2.0,
+      "initial_position": [
+        44.9679,
+        32.8774
+      ],
+      "initial_speed": 32.64,
+      "trajectory_points": [
+        {
+          "speed": 32.64,
+          "timestamp": 2.0,
+          "x": 53.7868,
+          "y": 46.6121
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 3.0,
+          "x": 61.1905,
+          "y": 61.1585
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 4.0,
+          "x": 67.105,
+          "y": 76.3714
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 5.0,
+          "x": 71.4711,
+          "y": 92.0988
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 6.0,
+          "x": 74.2454,
+          "y": 108.1835
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 7.0,
+          "x": 75.3999,
+          "y": 124.4648
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 8.0,
+          "x": 74.9233,
+          "y": 140.78
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 9.0,
+          "x": 72.8203,
+          "y": 156.9662
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 10.0,
+          "x": 69.1119,
+          "y": 172.8615
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 11.0,
+          "x": 63.8351,
+          "y": 188.3072
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 12.0,
+          "x": 57.0427,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 13.0,
+          "x": 48.8025,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 14.0,
+          "x": 39.1968,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 15.0,
+          "x": 28.3218,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 16.0,
+          "x": 16.2859,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 17.0,
+          "x": 3.2095,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 18.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 19.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 20.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 21.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 22.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 23.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 24.0,
+          "x": 0.0,
+          "y": 199.0472
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 25.0,
+          "x": 0.0,
+          "y": 196.4725
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 26.0,
+          "x": 0.0,
+          "y": 192.3015
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 27.0,
+          "x": 0.0,
+          "y": 186.5759
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 28.0,
+          "x": 0.0,
+          "y": 179.353
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 29.0,
+          "x": 0.0,
+          "y": 170.7049
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 30.0,
+          "x": 0.0,
+          "y": 160.7181
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 31.0,
+          "x": 0.0,
+          "y": 149.4922
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 32.0,
+          "x": 0.0,
+          "y": 137.1395
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 33.0,
+          "x": 0.0,
+          "y": 123.7835
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 34.0,
+          "x": 0.0,
+          "y": 109.5574
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 35.0,
+          "x": 0.0,
+          "y": 94.6036
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 36.0,
+          "x": 0.0,
+          "y": 79.0714
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 37.0,
+          "x": 0.0,
+          "y": 63.116
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 38.0,
+          "x": 0.0,
+          "y": 46.8967
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 39.0,
+          "x": 0.0,
+          "y": 30.5758
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 40.0,
+          "x": 1.4282,
+          "y": 14.3162
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 41.0,
+          "x": 4.4725,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 42.0,
+          "x": 9.1025,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 43.0,
+          "x": 15.2719,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 44.0,
+          "x": 22.9191,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 45.0,
+          "x": 31.9677,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 46.0,
+          "x": 42.3273,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 47.0,
+          "x": 53.8943,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 48.0,
+          "x": 66.5532,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 49.0,
+          "x": 80.1776,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 50.0,
+          "x": 94.6312,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 51.0,
+          "x": 109.7697,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 52.0,
+          "x": 125.4418,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 53.0,
+          "x": 141.4909,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 54.0,
+          "x": 157.7566,
+          "y": 0.0
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 55.0,
+          "x": 174.0765,
+          "y": 0.2744
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 56.0,
+          "x": 190.2874,
+          "y": 2.1768
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 57.0,
+          "x": 200.0,
+          "y": 5.688
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 58.0,
+          "x": 200.0,
+          "y": 10.773
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 59.0,
+          "x": 200.0,
+          "y": 17.3811
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 60.0,
+          "x": 200.0,
+          "y": 25.4461
+        },
+        {
+          "speed": 32.64,
+          "timestamp": 61.0,
+          "x": 200.0,
+          "y": 34.8875
+        }
+      ],
+      "vehicle_id": "v_1"
+    },
+    {
+      "entry_time": 4.0,
+      "initial_position": [
+        115.6159,
+        138.0441
+      ],
+      "initial_speed": 37.19,
+      "trajectory_points": [
+        {
+          "speed": 37.19,
+          "timestamp": 4.0,
+          "x": 107.8781,
+          "y": 154.9515
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 5.0,
+          "x": 98.4911,
+          "y": 171.0019
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 6.0,
+          "x": 87.5486,
+          "y": 186.035
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 7.0,
+          "x": 75.1599,
+          "y": 199.9005
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 8.0,
+          "x": 61.4489,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 9.0,
+          "x": 46.5525,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 10.0,
+          "x": 30.6196,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 11.0,
+          "x": 13.8094,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 12.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 13.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 14.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 15.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 16.0,
+          "x": 0.0,
+          "y": 198.9146
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 17.0,
+          "x": 0.0,
+          "y": 195.9815
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 18.0,
+          "x": 0.0,
+          "y": 191.23
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 19.0,
+          "x": 0.0,
+          "y": 184.7076
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 20.0,
+          "x": 0.0,
+          "y": 176.4794
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 21.0,
+          "x": 0.0,
+          "y": 166.6277
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 22.0,
+          "x": 0.0,
+          "y": 155.2509
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 23.0,
+          "x": 0.0,
+          "y": 142.4626
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 24.0,
+          "x": 0.0,
+          "y": 128.3907
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 25.0,
+          "x": 0.0,
+          "y": 113.1758
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 26.0,
+          "x": 0.0,
+          "y": 96.9698
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 27.0,
+          "x": 0.0,
+          "y": 79.9347
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 28.0,
+          "x": 0.0,
+          "y": 62.2408
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 29.0,
+          "x": 0.0,
+          "y": 44.0647
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 30.0,
+          "x": 0.0,
+          "y": 25.5881
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 31.0,
+          "x": 0.0,
+          "y": 6.9956
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 32.0,
+          "x": 1.6269,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 33.0,
+          "x": 5.0949,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 34.0,
+          "x": 10.3693,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 35.0,
+          "x": 17.3974,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 36.0,
+          "x": 26.1089,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 37.0,
+          "x": 36.4169,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 38.0,
+          "x": 48.2183,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 39.0,
+          "x": 61.3952,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 40.0,
+          "x": 75.816,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 41.0,
+          "x": 91.3366,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 42.0,
+          "x": 107.8018,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 43.0,
+          "x": 125.0472,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 44.0,
+          "x": 142.9005,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 45.0,
+          "x": 161.1833,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 46.0,
+          "x": 179.7129,
+          "y": 0.0
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 47.0,
+          "x": 198.3041,
+          "y": 0.3126
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 48.0,
+          "x": 200.0,
+          "y": 2.4797
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 49.0,
+          "x": 200.0,
+          "y": 6.4797
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 50.0,
+          "x": 200.0,
+          "y": 12.2724
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 51.0,
+          "x": 200.0,
+          "y": 19.8001
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 52.0,
+          "x": 200.0,
+          "y": 28.9876
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 53.0,
+          "x": 200.0,
+          "y": 39.7431
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 54.0,
+          "x": 200.0,
+          "y": 51.959
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 55.0,
+          "x": 200.0,
+          "y": 65.5134
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 56.0,
+          "x": 200.0,
+          "y": 80.2707
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 57.0,
+          "x": 200.0,
+          "y": 96.0837
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 58.0,
+          "x": 200.0,
+          "y": 112.7941
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 59.0,
+          "x": 200.0,
+          "y": 130.2352
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 60.0,
+          "x": 200.0,
+          "y": 148.2326
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 61.0,
+          "x": 200.0,
+          "y": 166.6065
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 62.0,
+          "x": 200.0,
+          "y": 185.1733
+        },
+        {
+          "speed": 37.19,
+          "timestamp": 63.0,
+          "x": 199.1446,
+          "y": 200.0
+        }
+      ],
+      "vehicle_id": "v_2"
+    },
+    {
+      "entry_time": 6.0,
+      "initial_position": [
+        65.4264,
+        164.5152
+      ],
+      "initial_speed": 31.61,
+      "trajectory_points": [
+        {
+          "speed": 31.61,
+          "timestamp": 6.0,
+          "x": 49.7791,
+          "y": 166.7456
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 7.0,
+          "x": 33.9873,
+          "y": 167.4028
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 8.0,
+          "x": 18.2088,
+          "y": 166.4802
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 9.0,
+          "x": 2.6012,
+          "y": 163.987
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 10.0,
+          "x": 0.0,
+          "y": 159.948
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 11.0,
+          "x": 0.0,
+          "y": 154.4037
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 12.0,
+          "x": 0.0,
+          "y": 147.4095
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 13.0,
+          "x": 0.0,
+          "y": 139.0352
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 14.0,
+          "x": 0.0,
+          "y": 129.3645
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 15.0,
+          "x": 0.0,
+          "y": 118.494
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 16.0,
+          "x": 0.0,
+          "y": 106.5324
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 17.0,
+          "x": 0.0,
+          "y": 93.5991
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 18.0,
+          "x": 0.0,
+          "y": 79.8235
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 19.0,
+          "x": 0.0,
+          "y": 65.343
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 20.0,
+          "x": 0.0,
+          "y": 50.3025
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 21.0,
+          "x": 0.0,
+          "y": 34.8522
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 22.0,
+          "x": 0.0,
+          "y": 19.1465
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 23.0,
+          "x": 0.0,
+          "y": 3.3422
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 24.0,
+          "x": 1.383,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 25.0,
+          "x": 4.3309,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 26.0,
+          "x": 8.8143,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 27.0,
+          "x": 14.7884,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 28.0,
+          "x": 22.1935,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 29.0,
+          "x": 30.9557,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 30.0,
+          "x": 40.9873,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 31.0,
+          "x": 52.1881,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 32.0,
+          "x": 64.4463,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 33.0,
+          "x": 77.6393,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 34.0,
+          "x": 91.6354,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 35.0,
+          "x": 106.2946,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 36.0,
+          "x": 121.4706,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 37.0,
+          "x": 137.0116,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 38.0,
+          "x": 152.7624,
+          "y": 0.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 39.0,
+          "x": 168.5656,
+          "y": 0.2658
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 40.0,
+          "x": 184.2634,
+          "y": 2.1079
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 41.0,
+          "x": 199.6988,
+          "y": 5.5079
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 42.0,
+          "x": 200.0,
+          "y": 10.432
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 43.0,
+          "x": 200.0,
+          "y": 16.8308
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 44.0,
+          "x": 200.0,
+          "y": 24.6405
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 45.0,
+          "x": 200.0,
+          "y": 33.783
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 46.0,
+          "x": 200.0,
+          "y": 44.167
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 47.0,
+          "x": 200.0,
+          "y": 55.6887
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 48.0,
+          "x": 200.0,
+          "y": 68.233
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 49.0,
+          "x": 200.0,
+          "y": 81.6745
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 50.0,
+          "x": 200.0,
+          "y": 95.879
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 51.0,
+          "x": 200.0,
+          "y": 110.7046
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 52.0,
+          "x": 200.0,
+          "y": 126.003
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 53.0,
+          "x": 200.0,
+          "y": 141.6215
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 54.0,
+          "x": 200.0,
+          "y": 157.4039
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 55.0,
+          "x": 199.2729,
+          "y": 173.1926
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 56.0,
+          "x": 196.9732,
+          "y": 188.8299
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 57.0,
+          "x": 193.1239,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 58.0,
+          "x": 187.7634,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 59.0,
+          "x": 180.9453,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 60.0,
+          "x": 172.7377,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 61.0,
+          "x": 163.2226,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 62.0,
+          "x": 152.4951,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 63.0,
+          "x": 140.6624,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 64.0,
+          "x": 127.8427,
+          "y": 200.0
+        },
+        {
+          "speed": 31.61,
+          "timestamp": 65.0,
+          "x": 114.1641,
+          "y": 200.0
+        }
+      ],
+      "vehicle_id": "v_3"
+    },
+    {
+      "entry_time": 8.0,
+      "initial_position": [
+        42.1346,
+        42.389
+      ],
+      "initial_speed": 34.07,
+      "trajectory_points": [
+        {
+          "speed": 34.07,
+          "timestamp": 8.0,
+          "x": 30.9989,
+          "y": 29.4958
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 9.0,
+          "x": 21.2059,
+          "y": 15.5553
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 10.0,
+          "x": 12.8537,
+          "y": 0.7068
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 11.0,
+          "x": 6.0255,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 12.0,
+          "x": 0.7896,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 13.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 14.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 15.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 16.0,
+          "x": 1.4907,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 17.0,
+          "x": 4.6682,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 18.0,
+          "x": 9.5007,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 19.0,
+          "x": 15.9401,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 20.0,
+          "x": 23.922,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 21.0,
+          "x": 33.3665,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 22.0,
+          "x": 44.1794,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 23.0,
+          "x": 56.2526,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 24.0,
+          "x": 69.4654,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 25.0,
+          "x": 83.6859,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 26.0,
+          "x": 98.772,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 27.0,
+          "x": 114.5728,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 28.0,
+          "x": 130.9307,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 29.0,
+          "x": 147.682,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 30.0,
+          "x": 164.6595,
+          "y": 0.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 31.0,
+          "x": 181.6935,
+          "y": 0.2864
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 32.0,
+          "x": 198.6138,
+          "y": 2.272
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 33.0,
+          "x": 200.0,
+          "y": 5.9369
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 34.0,
+          "x": 200.0,
+          "y": 11.2444
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 35.0,
+          "x": 200.0,
+          "y": 18.1416
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 36.0,
+          "x": 200.0,
+          "y": 26.5595
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 37.0,
+          "x": 200.0,
+          "y": 36.4141
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 38.0,
+          "x": 200.0,
+          "y": 47.6067
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 39.0,
+          "x": 200.0,
+          "y": 60.0257
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 40.0,
+          "x": 200.0,
+          "y": 73.547
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 41.0,
+          "x": 200.0,
+          "y": 88.0354
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 42.0,
+          "x": 200.0,
+          "y": 103.3461
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 43.0,
+          "x": 200.0,
+          "y": 119.3262
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 44.0,
+          "x": 200.0,
+          "y": 135.8161
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 45.0,
+          "x": 200.0,
+          "y": 152.6509
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 46.0,
+          "x": 200.0,
+          "y": 169.6625
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 47.0,
+          "x": 199.2163,
+          "y": 186.6809
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 48.0,
+          "x": 196.7375,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 49.0,
+          "x": 192.5884,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 50.0,
+          "x": 186.8104,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 51.0,
+          "x": 179.4613,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 52.0,
+          "x": 170.6145,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 53.0,
+          "x": 160.3584,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 54.0,
+          "x": 148.7954,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 55.0,
+          "x": 136.0412,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 56.0,
+          "x": 122.2231,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 57.0,
+          "x": 107.4792,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 58.0,
+          "x": 91.9568,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 59.0,
+          "x": 75.8111,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 60.0,
+          "x": 59.2033,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 61.0,
+          "x": 42.2993,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 62.0,
+          "x": 25.2682,
+          "y": 200.0
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 63.0,
+          "x": 8.2799,
+          "y": 198.7197
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 64.0,
+          "x": 0.0,
+          "y": 195.7498
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 65.0,
+          "x": 0.0,
+          "y": 191.12
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 66.0,
+          "x": 0.0,
+          "y": 184.8765
+        },
+        {
+          "speed": 34.07,
+          "timestamp": 67.0,
+          "x": 0.0,
+          "y": 177.0817
+        }
+      ],
+      "vehicle_id": "v_4"
+    },
+    {
+      "entry_time": 10.0,
+      "initial_position": [
+        117.2515,
+        23.3108
+      ],
+      "initial_speed": 39.5,
+      "trajectory_points": [
+        {
+          "speed": 39.5,
+          "timestamp": 10.0,
+          "x": 122.8541,
+          "y": 4.371
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 11.0,
+          "x": 130.3196,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 12.0,
+          "x": 139.5733,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 13.0,
+          "x": 150.5227,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 14.0,
+          "x": 163.0585,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 15.0,
+          "x": 177.0555,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 16.0,
+          "x": 192.3737,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 17.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 18.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 19.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 20.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 21.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 22.0,
+          "x": 200.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 23.0,
+          "x": 200.0,
+          "y": 0.3321
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 24.0,
+          "x": 200.0,
+          "y": 2.6341
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 25.0,
+          "x": 200.0,
+          "y": 6.8829
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 26.0,
+          "x": 200.0,
+          "y": 13.0362
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 27.0,
+          "x": 200.0,
+          "y": 21.0324
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 28.0,
+          "x": 200.0,
+          "y": 30.7916
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 29.0,
+          "x": 200.0,
+          "y": 42.2164
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 30.0,
+          "x": 200.0,
+          "y": 55.1925
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 31.0,
+          "x": 200.0,
+          "y": 69.5904
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 32.0,
+          "x": 200.0,
+          "y": 85.2661
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 33.0,
+          "x": 200.0,
+          "y": 102.0631
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 34.0,
+          "x": 200.0,
+          "y": 119.8135
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 35.0,
+          "x": 200.0,
+          "y": 138.34
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 36.0,
+          "x": 200.0,
+          "y": 157.4574
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 37.0,
+          "x": 200.0,
+          "y": 176.9747
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 38.0,
+          "x": 200.0,
+          "y": 196.697
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 39.0,
+          "x": 199.0914,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 40.0,
+          "x": 196.2176,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 41.0,
+          "x": 191.4074,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 42.0,
+          "x": 184.7087,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 43.0,
+          "x": 176.1886,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 44.0,
+          "x": 165.9321,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 45.0,
+          "x": 154.0418,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 46.0,
+          "x": 140.6364,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 47.0,
+          "x": 125.8498,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 48.0,
+          "x": 109.8299,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 49.0,
+          "x": 92.7367,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 50.0,
+          "x": 74.7409,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 51.0,
+          "x": 56.0225,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 52.0,
+          "x": 36.7683,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 53.0,
+          "x": 17.1709,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 54.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 55.0,
+          "x": 0.0,
+          "y": 198.5157
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 56.0,
+          "x": 0.0,
+          "y": 195.0726
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 57.0,
+          "x": 0.0,
+          "y": 189.705
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 58.0,
+          "x": 0.0,
+          "y": 182.4667
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 59.0,
+          "x": 0.0,
+          "y": 173.4299
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 60.0,
+          "x": 0.0,
+          "y": 162.6849
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 61.0,
+          "x": 0.0,
+          "y": 150.3391
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 62.0,
+          "x": 0.0,
+          "y": 136.5159
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 63.0,
+          "x": 0.0,
+          "y": 121.3533
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 64.0,
+          "x": 0.0,
+          "y": 105.0029
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 65.0,
+          "x": 0.0,
+          "y": 87.628
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 66.0,
+          "x": 0.0,
+          "y": 69.4023
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 67.0,
+          "x": 0.0,
+          "y": 50.5077
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 68.0,
+          "x": 0.0,
+          "y": 31.1333
+        },
+        {
+          "speed": 39.5,
+          "timestamp": 69.0,
+          "x": 0.0,
+          "y": 11.4724
+        }
+      ],
+      "vehicle_id": "v_5"
+    },
+    {
+      "entry_time": 12.0,
+      "initial_position": [
+        108.601,
+        88.6576
+      ],
+      "initial_speed": 37.48,
+      "trajectory_points": [
+        {
+          "speed": 37.48,
+          "timestamp": 12.0,
+          "x": 126.5964,
+          "y": 83.4208
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 13.0,
+          "x": 145.0248,
+          "y": 80.0068
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 14.0,
+          "x": 163.7019,
+          "y": 78.4495
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 15.0,
+          "x": 182.4412,
+          "y": 78.7646
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 16.0,
+          "x": 200.0,
+          "y": 80.949
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 17.0,
+          "x": 200.0,
+          "y": 84.9808
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 18.0,
+          "x": 200.0,
+          "y": 90.8196
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 19.0,
+          "x": 200.0,
+          "y": 98.4073
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 20.0,
+          "x": 200.0,
+          "y": 107.6679
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 21.0,
+          "x": 200.0,
+          "y": 118.509
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 22.0,
+          "x": 200.0,
+          "y": 130.8222
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 23.0,
+          "x": 200.0,
+          "y": 144.4845
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 24.0,
+          "x": 200.0,
+          "y": 159.3594
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 25.0,
+          "x": 200.0,
+          "y": 175.2982
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 26.0,
+          "x": 200.0,
+          "y": 192.1417
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 27.0,
+          "x": 200.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 28.0,
+          "x": 200.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 29.0,
+          "x": 200.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 30.0,
+          "x": 200.0,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 31.0,
+          "x": 199.1378,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 32.0,
+          "x": 196.4109,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 33.0,
+          "x": 191.8464,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 34.0,
+          "x": 185.49,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 35.0,
+          "x": 177.4051,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 36.0,
+          "x": 167.6727,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 37.0,
+          "x": 156.3898,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 38.0,
+          "x": 143.6693,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 39.0,
+          "x": 129.6382,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 40.0,
+          "x": 114.4368,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 41.0,
+          "x": 98.2168,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 42.0,
+          "x": 81.1405,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 43.0,
+          "x": 63.3784,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 44.0,
+          "x": 45.1079,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 45.0,
+          "x": 26.5117,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 46.0,
+          "x": 7.7756,
+          "y": 200.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 47.0,
+          "x": 0.0,
+          "y": 198.5915
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 48.0,
+          "x": 0.0,
+          "y": 195.3243
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 49.0,
+          "x": 0.0,
+          "y": 190.231
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 50.0,
+          "x": 0.0,
+          "y": 183.3625
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 51.0,
+          "x": 0.0,
+          "y": 174.7874
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 52.0,
+          "x": 0.0,
+          "y": 164.5914
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 53.0,
+          "x": 0.0,
+          "y": 152.8763
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 54.0,
+          "x": 0.0,
+          "y": 139.7593
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 55.0,
+          "x": 0.0,
+          "y": 125.3714
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 56.0,
+          "x": 0.0,
+          "y": 109.8564
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 57.0,
+          "x": 0.0,
+          "y": 93.3692
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 58.0,
+          "x": 0.0,
+          "y": 76.0746
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 59.0,
+          "x": 0.0,
+          "y": 58.1454
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 60.0,
+          "x": 0.0,
+          "y": 39.7608
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 61.0,
+          "x": 0.0,
+          "y": 21.1044
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 62.0,
+          "x": 0.0829,
+          "y": 2.3626
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 63.0,
+          "x": 2.0365,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 64.0,
+          "x": 5.8412,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 65.0,
+          "x": 11.459,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 66.0,
+          "x": 18.8338,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 67.0,
+          "x": 27.8919,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 68.0,
+          "x": 38.5427,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 69.0,
+          "x": 50.6799,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 70.0,
+          "x": 64.1822,
+          "y": 0.0
+        },
+        {
+          "speed": 37.48,
+          "timestamp": 71.0,
+          "x": 78.9147,
+          "y": 0.0
+        }
+      ],
+      "vehicle_id": "v_6"
+    },
+    {
+      "entry_time": 14.0,
+      "initial_position": [
+        64.9446,
+        16.688
+      ],
+      "initial_speed": 32.45,
+      "trajectory_points": [
+        {
+          "speed": 32.45,
+          "timestamp": 14.0,
+          "x": 77.1766,
+          "y": 27.3475
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 15.0,
+          "x": 88.2833,
+          "y": 39.175
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 16.0,
+          "x": 98.1537,
+          "y": 52.0522
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 17.0,
+          "x": 106.6893,
+          "y": 65.8504
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 18.0,
+          "x": 113.8047,
+          "y": 80.4319
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 19.0,
+          "x": 119.4288,
+          "y": 95.6509
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 20.0,
+          "x": 123.5055,
+          "y": 111.3553
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 21.0,
+          "x": 125.994,
+          "y": 127.3882
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 22.0,
+          "x": 126.8694,
+          "y": 143.5895
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 23.0,
+          "x": 126.123,
+          "y": 159.7972
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 24.0,
+          "x": 123.7623,
+          "y": 175.8495
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 25.0,
+          "x": 119.8108,
+          "y": 191.5859
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 26.0,
+          "x": 114.308,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 27.0,
+          "x": 107.309,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 28.0,
+          "x": 98.8836,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 29.0,
+          "x": 89.116,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 30.0,
+          "x": 78.1038,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 31.0,
+          "x": 65.9571,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 32.0,
+          "x": 52.7971,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 33.0,
+          "x": 38.7555,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 34.0,
+          "x": 23.9725,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 35.0,
+          "x": 8.5958,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 36.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 37.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 38.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 39.0,
+          "x": 0.0,
+          "y": 198.7807
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 40.0,
+          "x": 0.0,
+          "y": 195.9522
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 41.0,
+          "x": 0.0,
+          "y": 191.5429
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 42.0,
+          "x": 0.0,
+          "y": 185.5969
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 43.0,
+          "x": 0.0,
+          "y": 178.1734
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 44.0,
+          "x": 0.0,
+          "y": 169.3467
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 45.0,
+          "x": 0.0,
+          "y": 159.205
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 46.0,
+          "x": 0.0,
+          "y": 147.8496
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 47.0,
+          "x": 0.0,
+          "y": 135.3939
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 48.0,
+          "x": 0.0,
+          "y": 121.9625
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 49.0,
+          "x": 0.0,
+          "y": 107.6895
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 50.0,
+          "x": 0.0,
+          "y": 92.7176
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 51.0,
+          "x": 0.0,
+          "y": 77.1962
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 52.0,
+          "x": 0.0,
+          "y": 61.2806
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 53.0,
+          "x": 0.0,
+          "y": 45.1298
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 54.0,
+          "x": 0.0718,
+          "y": 28.905
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 55.0,
+          "x": 1.763,
+          "y": 12.7685
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 56.0,
+          "x": 5.0568,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 57.0,
+          "x": 9.9201,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 58.0,
+          "x": 16.3045,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 59.0,
+          "x": 24.146,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 60.0,
+          "x": 33.3665,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 61.0,
+          "x": 43.8737,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 62.0,
+          "x": 55.5626,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 63.0,
+          "x": 68.3166,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 64.0,
+          "x": 82.008,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 65.0,
+          "x": 96.5002,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 66.0,
+          "x": 111.6483,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 67.0,
+          "x": 127.301,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 68.0,
+          "x": 143.3019,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 69.0,
+          "x": 159.4911,
+          "y": 0.0
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 70.0,
+          "x": 175.7069,
+          "y": 0.5455
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 71.0,
+          "x": 191.7871,
+          "y": 2.7072
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 72.0,
+          "x": 200.0,
+          "y": 6.4634
+        },
+        {
+          "speed": 32.45,
+          "timestamp": 73.0,
+          "x": 200.0,
+          "y": 11.7767
+        }
+      ],
+      "vehicle_id": "v_7"
+    },
+    {
+      "entry_time": 16.0,
+      "initial_position": [
+        22.5626,
+        33.4633
+      ],
+      "initial_speed": 39.29,
+      "trajectory_points": [
+        {
+          "speed": 39.29,
+          "timestamp": 16.0,
+          "x": 19.7042,
+          "y": 52.9
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 17.0,
+          "x": 14.9196,
+          "y": 71.9541
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 18.0,
+          "x": 8.2566,
+          "y": 90.4354
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 19.0,
+          "x": 0.0,
+          "y": 108.1592
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 20.0,
+          "x": 0.0,
+          "y": 124.9484
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 21.0,
+          "x": 0.0,
+          "y": 140.6353
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 22.0,
+          "x": 0.0,
+          "y": 155.063
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 23.0,
+          "x": 0.0,
+          "y": 168.0875
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 24.0,
+          "x": 0.0,
+          "y": 179.5786
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 25.0,
+          "x": 0.0,
+          "y": 189.4215
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 26.0,
+          "x": 0.0,
+          "y": 197.5179
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 27.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 28.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 29.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 30.0,
+          "x": 0.0,
+          "y": 200.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 31.0,
+          "x": 0.0,
+          "y": 198.5236
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 32.0,
+          "x": 0.0,
+          "y": 195.0988
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 33.0,
+          "x": 0.0,
+          "y": 189.7599
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 34.0,
+          "x": 0.0,
+          "y": 182.5602
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 35.0,
+          "x": 0.0,
+          "y": 173.5716
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 36.0,
+          "x": 0.0,
+          "y": 162.8839
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 37.0,
+          "x": 0.0,
+          "y": 150.6039
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 38.0,
+          "x": 0.0,
+          "y": 136.8544
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 39.0,
+          "x": 0.0,
+          "y": 121.7727
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 40.0,
+          "x": 0.0,
+          "y": 105.5094
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 41.0,
+          "x": 0.0,
+          "y": 88.2272
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 42.0,
+          "x": 0.0,
+          "y": 70.0986
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 43.0,
+          "x": 0.0,
+          "y": 51.3049
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 44.0,
+          "x": 0.0,
+          "y": 32.0337
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 45.0,
+          "x": 0.0,
+          "y": 12.4776
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 46.0,
+          "x": 0.0869,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 47.0,
+          "x": 2.1347,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 48.0,
+          "x": 6.1229,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 49.0,
+          "x": 12.0116,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 50.0,
+          "x": 19.742,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 51.0,
+          "x": 29.2369,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 52.0,
+          "x": 40.4013,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 53.0,
+          "x": 53.1238,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 54.0,
+          "x": 67.2772,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 55.0,
+          "x": 82.7201,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 56.0,
+          "x": 99.2982,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 57.0,
+          "x": 116.8459,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 58.0,
+          "x": 135.1878,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 59.0,
+          "x": 154.1406,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 60.0,
+          "x": 173.5151,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 61.0,
+          "x": 193.1175,
+          "y": 0.0
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 62.0,
+          "x": 200.0,
+          "y": 0.6605
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 63.0,
+          "x": 200.0,
+          "y": 3.278
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 64.0,
+          "x": 200.0,
+          "y": 7.8262
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 65.0,
+          "x": 200.0,
+          "y": 14.2596
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 66.0,
+          "x": 200.0,
+          "y": 22.5141
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 67.0,
+          "x": 200.0,
+          "y": 32.5071
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 68.0,
+          "x": 200.0,
+          "y": 44.1388
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 69.0,
+          "x": 200.0,
+          "y": 57.293
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 70.0,
+          "x": 200.0,
+          "y": 71.8382
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 71.0,
+          "x": 200.0,
+          "y": 87.6291
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 72.0,
+          "x": 200.0,
+          "y": 104.5079
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 73.0,
+          "x": 200.0,
+          "y": 122.306
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 74.0,
+          "x": 200.0,
+          "y": 140.8456
+        },
+        {
+          "speed": 39.29,
+          "timestamp": 75.0,
+          "x": 200.0,
+          "y": 159.9414
+        }
+      ],
+      "vehicle_id": "v_8"
+    },
+    {
+      "entry_time": 18.0,
+      "initial_position": [
+        39.1994,
+        156.2007
+      ],
+      "initial_speed": 39.4,
+      "trajectory_points": [
+        {
+          "speed": 39.4,
+          "timestamp": 18.0,
+          "x": 21.2482,
+          "y": 164.3204
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 19.0,
+          "x": 2.5761,
+          "y": 170.6073
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 20.0,
+          "x": 0.0,
+          "y": 174.9987
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 21.0,
+          "x": 0.0,
+          "y": 177.4507
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 22.0,
+          "x": 0.0,
+          "y": 177.9388
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 23.0,
+          "x": 0.0,
+          "y": 176.4582
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 24.0,
+          "x": 0.0,
+          "y": 173.0236
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 25.0,
+          "x": 0.0,
+          "y": 167.6693
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 26.0,
+          "x": 0.0,
+          "y": 160.4489
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 27.0,
+          "x": 0.0,
+          "y": 151.4345
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 28.0,
+          "x": 0.0,
+          "y": 140.7161
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 29.0,
+          "x": 0.0,
+          "y": 128.4009
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 30.0,
+          "x": 0.0,
+          "y": 114.6118
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 31.0,
+          "x": 0.0,
+          "y": 99.4868
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 32.0,
+          "x": 0.0,
+          "y": 83.1769
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 33.0,
+          "x": 0.0,
+          "y": 65.845
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 34.0,
+          "x": 0.0,
+          "y": 47.6643
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 35.0,
+          "x": 0.0,
+          "y": 28.8166
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 36.0,
+          "x": 0.0,
+          "y": 9.4901
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 37.0,
+          "x": 0.0,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 38.0,
+          "x": 0.0872,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 39.0,
+          "x": 2.1409,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 40.0,
+          "x": 6.1405,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 41.0,
+          "x": 12.0461,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 42.0,
+          "x": 19.7987,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 43.0,
+          "x": 29.3209,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 44.0,
+          "x": 40.5174,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 45.0,
+          "x": 53.2764,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 46.0,
+          "x": 67.4705,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 47.0,
+          "x": 82.9577,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 48.0,
+          "x": 99.5834,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 49.0,
+          "x": 117.1815,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 50.0,
+          "x": 135.5761,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 51.0,
+          "x": 154.5834,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 52.0,
+          "x": 174.0134,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 53.0,
+          "x": 193.6722,
+          "y": 0.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 54.0,
+          "x": 200.0,
+          "y": 0.6624
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 55.0,
+          "x": 200.0,
+          "y": 3.2874
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 56.0,
+          "x": 200.0,
+          "y": 7.8486
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 57.0,
+          "x": 200.0,
+          "y": 14.3006
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 58.0,
+          "x": 200.0,
+          "y": 22.5788
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 59.0,
+          "x": 200.0,
+          "y": 32.6005
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 60.0,
+          "x": 200.0,
+          "y": 44.2656
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 61.0,
+          "x": 200.0,
+          "y": 57.4575
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 62.0,
+          "x": 200.0,
+          "y": 72.0445
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 63.0,
+          "x": 200.0,
+          "y": 87.8808
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 64.0,
+          "x": 200.0,
+          "y": 104.8081
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 65.0,
+          "x": 200.0,
+          "y": 122.6573
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 66.0,
+          "x": 200.0,
+          "y": 141.2502
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 67.0,
+          "x": 200.0,
+          "y": 160.4008
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 68.0,
+          "x": 200.0,
+          "y": 179.9178
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 69.0,
+          "x": 200.0,
+          "y": 199.6064
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 70.0,
+          "x": 198.7629,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 71.0,
+          "x": 195.5689,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 72.0,
+          "x": 190.4499,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 73.0,
+          "x": 183.4572,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 74.0,
+          "x": 174.6604,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 75.0,
+          "x": 164.1477,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 76.0,
+          "x": 152.0239,
+          "y": 200.0
+        },
+        {
+          "speed": 39.4,
+          "timestamp": 77.0,
+          "x": 138.4103,
+          "y": 200.0
+        }
+      ],
+      "vehicle_id": "v_9"
+    }
+  ],
+  "workload": 40,
+  "workload_configuration": {
+    "max_task_cpu": 10.0,
+    "task_deadline_range": [
+      20.0,
+      30.0
+    ],
+    "task_size_range": [
+      2000000.0,
+      5000000.0
+    ],
+    "tasks_per_vehicle": 40,
+    "total_tasks": 400
+  }
+}

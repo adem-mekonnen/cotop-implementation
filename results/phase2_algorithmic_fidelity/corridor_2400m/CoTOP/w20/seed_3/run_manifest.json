@@ -1,0 +1,14 @@
+{
+  "cell_id": "corridor_2400m_CoTOP_w20_seed3",
+  "algorithm": "CoTOP",
+  "geometry": "corridor_2400m",
+  "workload": 20,
+  "seed": 3,
+  "eval_seed": 30003,
+  "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+  "realization_file": "data\\evaluation_realizations\\corridor_2400m_w20_seed3_realization.json",
+  "realization_hash": "c704c2fe624b164e26c8d1e198c240edb5beeb6b32535665b8331c2db9890b75",
+  "checkpoint_file": "results\\phase2_algorithmic_fidelity\\corridor_2400m\\CoTOP\\w20\\seed_3\\checkpoint_ep500.pt",
+  "checkpoint_sha256": "fa62cea882b67156f083042b0a73d841c9d6a3225c931d0442745b2dfeaed799",
+  "created_at": "2026-08-29T09:11:45Z"
+}
