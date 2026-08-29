@@ -32,12 +32,42 @@ class SharedAdam(optim.Adam):
                 state['exp_avg_sq'].share_memory_()
 
 
-def worker_process(worker_id, global_model, optimizer, config, max_episodes, save_dir, mobility_model_path, seed_base):
+def worker_process(
+    worker_id,
+    global_model,
+    optimizer,
+    config,
+    max_episodes,
+    save_dir,
+    mobility_model_path,
+    seed_base,
+    scenario_geometry="corridor_2400m",
+    use_mobility_model=True,
+    use_priority=True,
+    priority_mode="paper_literal",
+    coverage_mode="completion_position",
+    spatial_graph_radius=200.0,
+    max_vehicles=10
+):
     worker_seed = seed_base + worker_id
     set_seed(worker_seed)
     
-    port = 8813 + worker_id
-    env = VECEnv(config=config, port=port, seed=worker_seed)
+    # Canonical mapping
+    sim_geom = "grid_200m" if scenario_geometry in ["grid_200m", "urban_manhattan"] else "corridor_2400m"
+    port = 8813 + (worker_id * 2)
+    
+    env = VECEnv(
+        config=config,
+        port=port,
+        scenario_geometry=sim_geom,
+        use_mobility_model=use_mobility_model,
+        use_priority=use_priority,
+        priority_mode=priority_mode,
+        coverage_mode=coverage_mode,
+        spatial_graph_radius=spatial_graph_radius,
+        max_vehicles=max_vehicles,
+        seed=worker_seed
+    )
     
     input_dim = env.observation_space.shape[0]
     num_actions = env.action_space.n
@@ -113,17 +143,33 @@ def train(args):
     
     with open(args.config, 'r') as f:
         config_data = yaml.safe_load(f)
+        
+    if args.workload is not None:
+        config_data["num_tasks_per_vehicle_range"] = [args.workload, args.workload]
+        
     config = SimulationConfig(**config_data)
+    
+    sim_geom = "grid_200m" if args.scenario_geometry in ["grid_200m", "urban_manhattan"] else "corridor_2400m"
     
     os.makedirs(args.save_dir, exist_ok=True)
     
-    temp_env = VECEnv(config=config, seed=args.seed)
+    temp_env = VECEnv(
+        config=config,
+        scenario_geometry=sim_geom,
+        use_mobility_model=args.use_mobility_model,
+        use_priority=args.use_priority,
+        priority_mode=args.priority_mode,
+        coverage_mode=args.coverage_mode,
+        spatial_graph_radius=args.spatial_graph_radius,
+        max_vehicles=args.max_vehicles,
+        seed=args.seed
+    )
     input_dim = temp_env.observation_space.shape[0]
     num_actions = temp_env.action_space.n
     temp_env.close()
     
     print(f"=== Starting A3C Training ===")
-    print(f"State Dim: {input_dim} | Action Dim: {num_actions} | Workers: {args.workers} | Max Episodes: {args.episodes}")
+    print(f"Geometry: {sim_geom} | State Dim: {input_dim} | Action Dim: {num_actions} | Workers: {args.workers} | Max Episodes: {args.episodes}")
 
     global_model = ActorCritic(input_dim, num_actions)
     global_model.share_memory()
@@ -138,7 +184,23 @@ def train(args):
     for i in range(args.workers):
         p = mp.Process(
             target=worker_process, 
-            args=(i, global_model, optimizer, config, args.episodes, args.save_dir, "results/checkpoints/mobility_model.pth", args.seed)
+            args=(
+                i,
+                global_model,
+                optimizer,
+                config,
+                args.episodes,
+                args.save_dir,
+                "results/checkpoints/mobility_model.pth",
+                args.seed,
+                args.scenario_geometry,
+                args.use_mobility_model,
+                args.use_priority,
+                args.priority_mode,
+                args.coverage_mode,
+                args.spatial_graph_radius,
+                args.max_vehicles
+            )
         )
         p.start()
         processes.append(p)
@@ -158,6 +220,16 @@ if __name__ == "__main__":
     parser.add_argument("--seed", type=int, default=42)
     parser.add_argument("--config", type=str, default="configs/paper_parameters.yaml")
     parser.add_argument("--save_dir", type=str, default="results/checkpoints")
+    parser.add_argument("--scenario_geometry", type=str, default="corridor_2400m", choices=["corridor_2400m", "grid_200m", "linear_corridor", "urban_manhattan"])
+    parser.add_argument("--use_mobility_model", action="store_true", default=True)
+    parser.add_argument("--no_mobility_model", dest="use_mobility_model", action="store_false")
+    parser.add_argument("--use_priority", action="store_true", default=True)
+    parser.add_argument("--no_priority", dest="use_priority", action="store_false")
+    parser.add_argument("--priority_mode", type=str, default="paper_literal", choices=["paper_literal", "normalized_candidate"])
+    parser.add_argument("--coverage_mode", type=str, default="completion_position", choices=["completion_position", "continuous_required_rsus"])
+    parser.add_argument("--spatial_graph_radius", type=float, default=200.0)
+    parser.add_argument("--max_vehicles", type=int, default=10)
+    parser.add_argument("--workload", type=int, default=None, help="Tasks per vehicle override")
     args = parser.parse_args()
     
     train(args)
