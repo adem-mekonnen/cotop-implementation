@@ -1,0 +1,36 @@
+{
+  "stage": "STAGE 5 \u2014 RETRAIN THE ACTUAL CoTOP BASELINE",
+  "canonical_condition": "Phase-2",
+  "seed": 3,
+  "geometry": "corridor_2400m",
+  "workload": "w20",
+  "environment": {
+    "fingerprint": "c0a7f159cbe55dd5788c495e5eae4bbac99b5964e71ffcb2ab3880e5b61b56d9",
+    "scenario_geometry": "corridor_2400m",
+    "obs_dim": 114,
+    "action_dim": 7,
+    "coverage_mode": "completion_position",
+    "priority_mode": "paper_literal",
+    "use_mobility_model": true
+  },
+  "hyperparameters": {
+    "episodes": 500,
+    "lr": 0.0002,
+    "gamma": 0.99,
+    "entropy_coeff": 0.01,
+    "critic_loss_coeff": 0.5,
+    "optimizer": "Adam",
+    "hidden_size": 128
+  },
+  "provenance": {
+    "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+    "checkpoint_sha256": "fa62cea882b67156f083042b0a73d841c9d6a3225c931d0442745b2dfeaed799",
+    "training_completed_at": "2026-08-29T07:06:50Z"
+  },
+  "artifacts": {
+    "checkpoint": "checkpoint_ep500.pt",
+    "metrics": "metrics.json",
+    "training_curve": "training_curve.csv",
+    "seed_results": "seed_results.csv"
+  }
+}

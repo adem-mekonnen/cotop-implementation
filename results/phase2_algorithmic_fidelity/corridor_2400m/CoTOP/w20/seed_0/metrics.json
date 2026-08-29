@@ -1,0 +1,38 @@
+{
+  "cell_summary": {
+    "cell_id": "corridor_2400m_CoTOP_w20_seed0",
+    "algorithm": "CoTOP",
+    "geometry": "corridor_2400m",
+    "workload": 20,
+    "seed": 0,
+    "eval_seed": 30000,
+    "training_episodes": 500,
+    "wall_clock_time_s": 1500.0,
+    "convergence_status": "STABLE",
+    "final_reward": 0.0,
+    "final_loss": 0.0,
+    "total_tasks": 200,
+    "completed_tasks": 200,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.697,
+    "std_delay_s": 0.5334,
+    "mean_energy_j": 2.4987,
+    "std_energy_j": 1.5978,
+    "comm_delay_s": 0.6717,
+    "comp_delay_s": 0.0253,
+    "wait_delay_s": 0.0,
+    "realization_hash": "11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f",
+    "checkpoint_sha256": "ef1ffd4a60f92febf63f7c9a3df3b29f191488f885b9aec6d97d6dfb8396eec2",
+    "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "checkpoint_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}

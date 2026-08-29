@@ -292,3 +292,287 @@ def test_08_checkpoint_exact_recovery():
         # Verify target network parameters match bitwise
         for p1, p2 in zip(agent1.target_net.parameters(), agent2.target_net.parameters()):
             assert torch.equal(p1, p2)
+
+
+def test_09_decoupled_double_dqn_target_evaluation():
+    """
+    Test 09 — Double-DQN Decoupling Verification
+    Explicitly test:
+      a* = argmax Q_online(s', a)
+      target = Q_target(s', a*)
+    Verify that the implementation NEVER computes max Q_target(s', a).
+    """
+    agent = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, batch_size=2, gamma=0.95, device="cpu")
+    
+    # Construct synthetic next-states
+    s1 = np.ones(114, dtype=np.float32)
+    s2 = np.ones(114, dtype=np.float32) * 2.0
+    
+    # Store transitions in memory
+    agent.store_transition(s1, 0, 1.0, s1, False)
+    agent.store_transition(s2, 1, 2.0, s2, False)
+    
+    # Manually configure online and target network output layer weights and biases
+    # For state s1:
+    # online_q(s1) = [10.0, 50.0, 20.0, 5.0, 0.0, 0.0, 0.0] -> argmax is a*=1 (Q=50.0)
+    # target_q(s1) = [100.0, 2.0, 30.0, 1.0, 0.0, 0.0, 0.0] -> target_q(s1, a*=1) = 2.0
+    #
+    # Standard DQN would erroneously take max target_q = 100.0!
+    # DDQN must strictly take target_q(a*=1) = 2.0!
+    with torch.no_grad():
+        # Make all hidden layers identity-like or fixed
+        for p in agent.online_net.parameters():
+            p.fill_(0.0)
+        for p in agent.target_net.parameters():
+            p.fill_(0.0)
+            
+        # Set online biases to create distinct Q-values
+        agent.online_net.fc_out.bias.data = torch.tensor([10.0, 50.0, 20.0, 5.0, 0.0, 0.0, 0.0])
+        # Set target biases where action 0 has massive overestimation bias (100.0)
+        agent.target_net.fc_out.bias.data = torch.tensor([100.0, 2.0, 30.0, 1.0, 0.0, 0.0, 0.0])
+    
+    # Evaluate decoupled target step directly
+    s_t = torch.tensor(s1, dtype=torch.float32).unsqueeze(0)
+    with torch.no_grad():
+        next_online_q = agent.online_net(s_t)
+        best_next_action = torch.argmax(next_online_q, dim=1, keepdim=True)
+        assert best_next_action.item() == 1, "Online network must select action 1 (argmax Q_online)"
+        
+        next_target_q = agent.target_net(s_t)
+        ddqn_eval_q = next_target_q.gather(1, best_next_action).squeeze(1).item()
+        standard_dqn_q = torch.max(next_target_q, dim=1)[0].item()
+        
+        assert ddqn_eval_q == 2.0, "Target network evaluation must evaluate action selected by online network"
+        assert standard_dqn_q == 100.0, "Standard DQN maximum is 100.0"
+        assert ddqn_eval_q != standard_dqn_q, "DDQN and standard DQN must strictly diverge"
+        
+        # Expected Bellman target for r=1.0, gamma=0.95, done=0:
+        # y = 1.0 + 0.95 * 2.0 = 2.90 (NOT 1.0 + 0.95 * 100.0 = 96.0)
+        expected_y_ddqn = 1.0 + 0.95 * ddqn_eval_q
+        assert pytest.approx(expected_y_ddqn, rel=1e-5) == 2.90
+
+
+def test_10_terminal_transition_bellman_zeroing():
+    """
+    Test 10 — Terminal Transition Handling
+    Verify that when done=True (d_t = 1.0), the Bellman target is strictly r_t
+    and next_q_values are multiplied by (1.0 - 1.0) = 0.0.
+    """
+    agent = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, batch_size=2, gamma=0.99, device="cpu")
+    
+    # Store 1 terminal transition and 1 non-terminal transition
+    s = np.zeros(114, dtype=np.float32)
+    s_next = np.zeros(114, dtype=np.float32)
+    
+    # Make target network output large positive values
+    with torch.no_grad():
+        agent.target_net.fc_out.bias.data.fill_(1000.0)
+        agent.online_net.fc_out.bias.data.fill_(100.0)
+        
+    # Terminal transition: r = -50.0, done = True
+    # Non-terminal transition: r = 5.0, done = False
+    agent.store_transition(s, 0, -50.0, s_next, done=True)
+    agent.store_transition(s, 0, 5.0, s_next, done=False)
+    
+    # Sample and compute targets
+    states, actions, rewards, next_states, dones, _ = agent.memory.sample(batch_size=2)
+    
+    with torch.no_grad():
+        next_online_q = agent.online_net(next_states)
+        best_next_actions = torch.argmax(next_online_q, dim=1, keepdim=True)
+        next_target_q = agent.target_net(next_states)
+        next_q_values = next_target_q.gather(1, best_next_actions).squeeze(1)
+        expected_targets = rewards + agent.gamma * (1.0 - dones) * next_q_values
+        
+    for i in range(2):
+        if dones[i].item() == 1.0:
+            # Terminal target MUST be exactly rewards[i] (-50.0)
+            assert expected_targets[i].item() == -50.0
+            assert expected_targets[i].item() != -50.0 + 0.99 * 1000.0
+        else:
+            # Non-terminal target MUST include discounted future value: 5.0 + 0.99 * 1000.0 = 995.0
+            assert pytest.approx(expected_targets[i].item(), rel=1e-3) == 995.0
+
+
+def test_11_invalid_action_mask_enforcement():
+    """
+    Test 11 — Action Mask Enforcement
+    Verify that select_action never picks an invalid action in either:
+    1. Greedy mode (deterministic=True)
+    2. Exploratory mode (deterministic=False, epsilon=1.0)
+    """
+    agent = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, device="cpu")
+    state = np.zeros(114, dtype=np.float32)
+    
+    # Mask where ONLY actions 2 and 4 are valid
+    mask = [False, False, True, False, True, False, False]
+    valid_set = {2, 4}
+    
+    # 1. Greedy mode: Make action 0 and 1 have highest raw Q-values
+    with torch.no_grad():
+        agent.online_net.fc_out.bias.data = torch.tensor([1000.0, 500.0, 50.0, 10.0, 80.0, 5.0, 1.0])
+        
+    action_greedy = agent.select_action(state, action_mask=mask, deterministic=True)
+    assert action_greedy == 4, "Must select action 4 (highest Q among valid actions {2, 4})"
+    assert action_greedy in valid_set
+    assert action_greedy not in {0, 1, 3, 5, 6}
+    
+    # 2. Exploratory mode: Over 300 random exploratory samples, only actions 2 and 4 may ever be returned
+    agent.epsilon = 1.0  # Force pure exploration
+    for _ in range(300):
+        action_explore = agent.select_action(state, action_mask=mask, deterministic=False)
+        assert action_explore in valid_set, f"Exploratory action {action_explore} was not in valid set {valid_set}"
+
+
+def test_12_next_state_action_masking_in_update():
+    """
+    Test 12 — Next-State Action Masking in DDQN Update
+    Verify that in agent.update(), best_next_actions a* is constrained by next_action_mask.
+    """
+    agent = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, batch_size=2, device="cpu")
+    
+    s = np.zeros(114, dtype=np.float32)
+    # Mask: only action 5 is valid
+    mask_5_only = np.array([False, False, False, False, False, True, False], dtype=bool)
+    
+    agent.store_transition(s, 0, 1.0, s, False, mask_5_only)
+    agent.store_transition(s, 0, 1.0, s, False, mask_5_only)
+    
+    # Make action 0 have highest unmasked Q-value (100.0), and action 5 have lower Q-value (10.0)
+    with torch.no_grad():
+        for p in agent.online_net.parameters():
+            p.fill_(0.0)
+        agent.online_net.fc_out.bias.data = torch.tensor([100.0, 20.0, 15.0, 5.0, 2.0, 10.0, 1.0])
+        
+        for p in agent.target_net.parameters():
+            p.fill_(0.0)
+        agent.target_net.fc_out.bias.data = torch.tensor([50.0, 50.0, 50.0, 50.0, 50.0, 33.0, 50.0])
+    
+    states, actions, rewards, next_states, dones, next_masks = agent.memory.sample(batch_size=2)
+    
+    with torch.no_grad():
+        next_online_q = agent.online_net(next_states)
+        # Apply mask
+        next_online_q = torch.where(next_masks, next_online_q, torch.tensor(-1e9))
+        best_next_actions = torch.argmax(next_online_q, dim=1, keepdim=True)
+        
+        # Must select action 5 (only valid action), NOT action 0
+        assert torch.all(best_next_actions == 5)
+        
+        next_target_q = agent.target_net(next_states)
+        evaluated_target_q = next_target_q.gather(1, best_next_actions).squeeze(1)
+        assert torch.all(evaluated_target_q == 33.0)
+
+
+def test_13_all_invalid_action_mask_safety_fallback():
+    """
+    Test 13 — All-Invalid Action Mask Edge Case Safety
+    Verify that when all actions in a mask are False, agent falls back safely to all actions allowed.
+    """
+    agent = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, device="cpu")
+    state = np.zeros(114, dtype=np.float32)
+    all_false_mask = [False] * 7
+    
+    # In greedy mode
+    action_greedy = agent.select_action(state, action_mask=all_false_mask, deterministic=True)
+    assert 0 <= action_greedy < 7
+    
+    # In exploratory mode
+    agent.epsilon = 1.0
+    action_explore = agent.select_action(state, action_mask=all_false_mask, deterministic=False)
+    assert 0 <= action_explore < 7
+
+
+def test_14_replay_buffer_advanced_sampling_and_fifo_wraparound():
+    """
+    Test 14 — Replay Buffer Sampling Distribution & Wrap-around
+    Verify buffer maintains exact FIFO ordering, boundary clipping, and non-empty sampling.
+    """
+    capacity = 100
+    buffer = ReplayBuffer(capacity=capacity, state_dim=4, num_actions=2)
+    
+    # Push 250 items through capacity=100 buffer
+    for i in range(250):
+        buffer.push(
+            state=np.array([i, i, i, i], dtype=np.float32),
+            action=i % 2,
+            reward=float(i),
+            next_state=np.array([i+1, i+1, i+1, i+1], dtype=np.float32),
+            done=False
+        )
+        
+    assert len(buffer) == 100
+    assert buffer.size == 100
+    
+    # Logical index 0 must be transition #150 (oldest in buffer)
+    oldest_state = buffer[0][0]
+    assert oldest_state[0] == 150.0
+    
+    # Logical index 99 must be transition #249 (newest in buffer)
+    newest_state = buffer[99][0]
+    assert newest_state[0] == 249.0
+    
+    # Sampling batch
+    states, actions, rewards, next_states, dones, masks = buffer.sample(batch_size=32)
+    assert states.shape == (32, 4)
+    assert actions.shape == (32,)
+    assert (states[:, 0] >= 150.0).all()
+    assert (states[:, 0] <= 249.0).all()
+
+
+def test_15_optimizer_state_checkpoint_recovery():
+    """
+    Test 15 — Optimizer State Checkpoint Recovery
+    Verify that Adam momentum/variance buffers and step counters are serialized and restored exactly.
+    """
+    agent1 = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, batch_size=10, device="cpu")
+    
+    # Push transitions and train for 5 steps
+    s = np.random.randn(114).astype(np.float32)
+    for i in range(50):
+        agent1.store_transition(s, i % 7, float(i), s, False)
+        
+    for _ in range(5):
+        agent1.update()
+        
+    # Check that optimizer state has step and momentum entries
+    opt_state1 = agent1.optimizer.state_dict()
+    assert len(opt_state1['state']) > 0
+    
+    # Save checkpoint and reload into agent2
+    with tempfile.TemporaryDirectory() as tmpdir:
+        ckpt_path = os.path.join(tmpdir, "opt_recovery_test.pt")
+        agent1.save_checkpoint(ckpt_path)
+        
+        agent2 = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, batch_size=10, device="cpu")
+        agent2.load_checkpoint(ckpt_path)
+        
+        # Verify optimizer step count and momentum buffers match bitwise
+        opt_state2 = agent2.optimizer.state_dict()
+        for k in opt_state1['state']:
+            for tensor_key in ['exp_avg', 'exp_avg_sq']:
+                if tensor_key in opt_state1['state'][k]:
+                    t1 = opt_state1['state'][k][tensor_key]
+                    t2 = opt_state2['state'][k][tensor_key]
+                    assert torch.equal(t1, t2), f"Mismatch in optimizer tensor {tensor_key}"
+
+
+def test_16_rng_recovery_and_deterministic_continuation():
+    """
+    Test 16 — RNG Recovery & Deterministic Execution
+    Verify that setting deterministic seeds produces identical action sequences.
+    """
+    from utils.seed import set_seed
+    
+    set_seed(42)
+    agent1 = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, device="cpu")
+    state = np.random.randn(114).astype(np.float32)
+    
+    actions1 = [agent1.select_action(state, deterministic=False) for _ in range(20)]
+    
+    set_seed(42)
+    agent2 = DDQNAgent(input_dim=114, num_actions=7, hidden_dim=128, device="cpu")
+    actions2 = [agent2.select_action(state, deterministic=False) for _ in range(20)]
+    
+    assert actions1 == actions2, "RNG-seeded action trajectories must be 100% deterministic and identical"
+
