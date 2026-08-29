@@ -468,6 +468,23 @@ class VECEnv(gym.Env):
         terminated = (len(self.pending_tasks) == 0 and len(self.active_vehicles) == 0)
         return self._get_obs(), float(reward), terminated, False, info
 
+    def get_action_mask(self) -> np.ndarray:
+        """
+        Returns authoritative boolean action feasibility mask of shape (7,).
+        Action 0: Standalone execution (always feasible).
+        Actions 1..6: Collaborative offloading to RSUs 0..5 (feasible if RSU active).
+        """
+        mask = np.ones(self.action_space.n, dtype=bool)
+        if len(self.active_vehicles) == 0:
+            mask[1:] = False
+            return mask
+        mask[0] = True
+        for i in range(min(len(self.rsus), self.action_space.n - 1)):
+            mask[i + 1] = True
+        for i in range(len(self.rsus), self.action_space.n - 1):
+            mask[i + 1] = False
+        return mask
+
     def reset(self, seed=None, options=None) -> Tuple[np.ndarray, dict]:
         super().reset(seed=seed)
 
