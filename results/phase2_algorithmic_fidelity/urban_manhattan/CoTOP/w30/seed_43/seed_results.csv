@@ -1,0 +1,2 @@
+geometry,algorithm,workload_w,seed,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,completion_ratio,completed_tasks,failed_tasks,total_tasks
+urban_manhattan,CoTOP,30,43,0.6934421299966275,0.21384196776146286,1.130147301532738,1.5388090252701685,1.0,900,0,900

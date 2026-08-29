@@ -37,12 +37,24 @@ class QNetwork(nn.Module):
 
 class ReplayBuffer:
     """
-    Bounded FIFO experience replay buffer.
+    High-performance bounded FIFO experience replay buffer with preallocated memory.
     Capacity: 10,000 transitions.
     """
-    def __init__(self, capacity: int = 10000):
+    def __init__(self, capacity: int = 10000, state_dim: int = 114, num_actions: int = 7):
         self.capacity = capacity
-        self.buffer = deque(maxlen=capacity)
+        self.state_dim = state_dim
+        self.num_actions = num_actions
+        
+        self.states = np.zeros((capacity, state_dim), dtype=np.float32)
+        self.actions = np.zeros(capacity, dtype=np.int64)
+        self.rewards = np.zeros(capacity, dtype=np.float32)
+        self.next_states = np.zeros((capacity, state_dim), dtype=np.float32)
+        self.dones = np.zeros(capacity, dtype=np.float32)
+        self.masks = np.ones((capacity, num_actions), dtype=bool)
+        self.has_masks = np.zeros(capacity, dtype=bool)
+        
+        self.ptr = 0
+        self.size = 0
 
     def push(
         self,
@@ -54,16 +66,22 @@ class ReplayBuffer:
         next_action_mask: Optional[np.ndarray] = None
     ) -> None:
         """
-        Append transition (s, a, r, s', d, next_mask) to buffer.
+        Append transition (s, a, r, s', d, next_mask) to buffer via ring index.
         """
-        self.buffer.append((
-            np.array(state, dtype=np.float32),
-            int(action),
-            float(reward),
-            np.array(next_state, dtype=np.float32),
-            bool(done),
-            np.array(next_action_mask, dtype=bool) if next_action_mask is not None else None
-        ))
+        self.states[self.ptr] = state
+        self.actions[self.ptr] = action
+        self.rewards[self.ptr] = reward
+        self.next_states[self.ptr] = next_state
+        self.dones[self.ptr] = 1.0 if done else 0.0
+        
+        if next_action_mask is not None:
+            self.masks[self.ptr] = next_action_mask
+            self.has_masks[self.ptr] = True
+        else:
+            self.has_masks[self.ptr] = False
+            
+        self.ptr = (self.ptr + 1) % self.capacity
+        self.size = min(self.size + 1, self.capacity)
 
     def sample(
         self,
@@ -71,26 +89,51 @@ class ReplayBuffer:
         device: torch.device = torch.device("cpu")
     ) -> Tuple[torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, torch.Tensor, Optional[torch.Tensor]]:
         """
-        Sample a random minibatch of transitions.
+        Sample a random minibatch of transitions with zero-copy tensor wrapping.
         """
-        batch = random.sample(self.buffer, batch_size)
-        states, actions, rewards, next_states, dones, next_masks = zip(*batch)
-
-        states_t = torch.tensor(np.array(states), dtype=torch.float32, device=device)
-        actions_t = torch.tensor(actions, dtype=torch.long, device=device)
-        rewards_t = torch.tensor(rewards, dtype=torch.float32, device=device)
-        next_states_t = torch.tensor(np.array(next_states), dtype=torch.float32, device=device)
-        dones_t = torch.tensor(dones, dtype=torch.float32, device=device)
-
-        if next_masks[0] is not None:
-            next_masks_t = torch.tensor(np.array(next_masks), dtype=torch.bool, device=device)
+        indices = np.random.randint(0, self.size, size=batch_size)
+        
+        states_t = torch.from_numpy(self.states[indices]).float().to(device)
+        actions_t = torch.from_numpy(self.actions[indices]).long().to(device)
+        rewards_t = torch.from_numpy(self.rewards[indices]).float().to(device)
+        next_states_t = torch.from_numpy(self.next_states[indices]).float().to(device)
+        dones_t = torch.from_numpy(self.dones[indices]).float().to(device)
+        
+        if self.has_masks[indices[0]]:
+            next_masks_t = torch.from_numpy(self.masks[indices]).bool().to(device)
         else:
             next_masks_t = None
 
         return states_t, actions_t, rewards_t, next_states_t, dones_t, next_masks_t
 
+    def __getitem__(self, idx: int):
+        """
+        Access transition by logical FIFO index (0 is oldest).
+        """
+        if idx < 0 or idx >= self.size:
+            raise IndexError("ReplayBuffer index out of range")
+        if self.size < self.capacity:
+            real_idx = idx
+        else:
+            real_idx = (self.ptr + idx) % self.capacity
+        return (
+            self.states[real_idx],
+            self.actions[real_idx],
+            self.rewards[real_idx],
+            self.next_states[real_idx],
+            self.dones[real_idx],
+            self.masks[real_idx] if self.has_masks[real_idx] else None
+        )
+
+    @property
+    def buffer(self):
+        """Backward-compatible view of buffer for indexing."""
+        return self
+
     def __len__(self) -> int:
-        return len(self.buffer)
+        return self.size
+
+
 
 
 class DDQNAgent:
@@ -152,7 +195,12 @@ class DDQNAgent:
         self.loss_fn = nn.SmoothL1Loss(reduction='mean', beta=1.0)
 
         # 3. Experience Replay
-        self.memory = ReplayBuffer(capacity=self.replay_capacity)
+        self.memory = ReplayBuffer(
+            capacity=self.replay_capacity,
+            state_dim=self.input_dim,
+            num_actions=self.num_actions
+        )
+
 
         # 4. State Counters
         self.train_step_count = 0

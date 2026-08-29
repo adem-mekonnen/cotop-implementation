@@ -1,0 +1,2 @@
+geometry,algorithm,workload_w,seed,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,completion_ratio,completed_tasks,failed_tasks,total_tasks
+linear_corridor,DDQN,20,46,1.9741007906105112,1.5325806007789804,0.38301681971692025,0.8532310457951585,0.9733333333333334,584,16,600

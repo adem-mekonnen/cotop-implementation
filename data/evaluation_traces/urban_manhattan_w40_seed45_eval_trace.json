@@ -1,0 +1,3261 @@
+{
+  "eval_seed": 30045,
+  "geometry": "urban_manhattan",
+  "num_vehicles": 10,
+  "tasks": [
+    {
+      "cpu_phi": 2751804.6856317325,
+      "max_delay_d": 26.208392605731795,
+      "priority_weight": 0.29826299917389376,
+      "size_rho": 4062626.627794395,
+      "task_id": 0,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3427329.2925160294,
+      "max_delay_d": 22.21191320725411,
+      "priority_weight": 0.3583228247389857,
+      "size_rho": 4540797.339856613,
+      "task_id": 1,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7056049.656939727,
+      "max_delay_d": 25.754902575473505,
+      "priority_weight": 0.23160105217788465,
+      "size_rho": 2126482.8050614325,
+      "task_id": 2,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6141192.962654847,
+      "max_delay_d": 28.559330885112338,
+      "priority_weight": 0.8809816296192313,
+      "size_rho": 4559322.421199995,
+      "task_id": 3,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7544551.651347115,
+      "max_delay_d": 27.823003447220636,
+      "priority_weight": 0.5072130614920746,
+      "size_rho": 3734963.275204102,
+      "task_id": 4,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4225713.986603364,
+      "max_delay_d": 27.158837475962915,
+      "priority_weight": 0.3427988923655252,
+      "size_rho": 3819534.946415057,
+      "task_id": 5,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 7046616.477175953,
+      "max_delay_d": 28.865792912665427,
+      "priority_weight": 0.17893135652247766,
+      "size_rho": 3131002.107383492,
+      "task_id": 6,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9271439.815256726,
+      "max_delay_d": 24.67301300333041,
+      "priority_weight": 0.11429292994851831,
+      "size_rho": 4914988.572930681,
+      "task_id": 7,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4551244.706865845,
+      "max_delay_d": 28.98422743952595,
+      "priority_weight": 0.3219716688072654,
+      "size_rho": 4052438.436911019,
+      "task_id": 8,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6019218.895112318,
+      "max_delay_d": 26.379197485370778,
+      "priority_weight": 0.14257257964559067,
+      "size_rho": 2084418.4303579545,
+      "task_id": 9,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6808646.825804888,
+      "max_delay_d": 28.763195684175294,
+      "priority_weight": 0.4798840379333016,
+      "size_rho": 2313035.623170231,
+      "task_id": 10,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1465964.8689045357,
+      "max_delay_d": 21.0350649358402,
+      "priority_weight": 0.7210270807110304,
+      "size_rho": 4817710.690534578,
+      "task_id": 11,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1537884.8707806715,
+      "max_delay_d": 24.290769842242113,
+      "priority_weight": 0.9090012096857812,
+      "size_rho": 4126254.4278821377,
+      "task_id": 12,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 4270153.212103514,
+      "max_delay_d": 21.02536872056771,
+      "priority_weight": 0.3413442382844964,
+      "size_rho": 2311194.403378756,
+      "task_id": 13,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2478975.336317068,
+      "max_delay_d": 24.878691172568228,
+      "priority_weight": 0.42532733535681366,
+      "size_rho": 4695499.439001884,
+      "task_id": 14,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1824243.7493503452,
+      "max_delay_d": 23.930690580411778,
+      "priority_weight": 0.5191340687311867,
+      "size_rho": 3438117.7776835985,
+      "task_id": 15,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2316248.4609965114,
+      "max_delay_d": 27.41509178489456,
+      "priority_weight": 0.8849955145588879,
+      "size_rho": 3755067.4346729983,
+      "task_id": 16,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9730851.647784386,
+      "max_delay_d": 22.44693328949065,
+      "priority_weight": 0.7153995804546486,
+      "size_rho": 3279183.3790990897,
+      "task_id": 17,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7802757.001131648,
+      "max_delay_d": 27.61141349164705,
+      "priority_weight": 0.8508873870567076,
+      "size_rho": 4826137.913844956,
+      "task_id": 18,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4059122.4806874315,
+      "max_delay_d": 25.932232323276896,
+      "priority_weight": 0.2979611792248641,
+      "size_rho": 3591814.6288420735,
+      "task_id": 19,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6905445.99255843,
+      "max_delay_d": 23.65194841045501,
+      "priority_weight": 0.42438111622067565,
+      "size_rho": 3625144.049460458,
+      "task_id": 20,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9546662.333698446,
+      "max_delay_d": 25.604600205213252,
+      "priority_weight": 0.4245304078574975,
+      "size_rho": 3190236.7891026475,
+      "task_id": 21,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8716865.4697273,
+      "max_delay_d": 28.21795564571836,
+      "priority_weight": 0.5971932746597797,
+      "size_rho": 3768198.4658642183,
+      "task_id": 22,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5909416.75712793,
+      "max_delay_d": 25.109655132172136,
+      "priority_weight": 0.14511581718500996,
+      "size_rho": 2264587.3572789156,
+      "task_id": 23,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9230784.797788456,
+      "max_delay_d": 20.314968647205607,
+      "priority_weight": 0.16914995208550182,
+      "size_rho": 3658375.539161283,
+      "task_id": 24,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 5255769.803374912,
+      "max_delay_d": 21.424150403905273,
+      "priority_weight": 0.8842825147413198,
+      "size_rho": 2196741.408044213,
+      "task_id": 25,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8864307.324034432,
+      "max_delay_d": 26.418926109077674,
+      "priority_weight": 0.8449572455492316,
+      "size_rho": 3875394.6192199616,
+      "task_id": 26,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5632798.510559214,
+      "max_delay_d": 26.13832409176021,
+      "priority_weight": 0.4785396937358368,
+      "size_rho": 3407995.3393545514,
+      "task_id": 27,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9453137.880239604,
+      "max_delay_d": 27.33189776641203,
+      "priority_weight": 0.23106724167366413,
+      "size_rho": 3223025.353453094,
+      "task_id": 28,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 5254478.679451315,
+      "max_delay_d": 27.785470206725044,
+      "priority_weight": 0.34495425056459594,
+      "size_rho": 3660941.1992542464,
+      "task_id": 29,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2297226.757637246,
+      "max_delay_d": 23.30646702241539,
+      "priority_weight": 0.6495724483779721,
+      "size_rho": 4424536.899180522,
+      "task_id": 30,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1970777.5993807274,
+      "max_delay_d": 26.026772886117033,
+      "priority_weight": 0.7707880061244764,
+      "size_rho": 2226994.8591763903,
+      "task_id": 31,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3302681.8055859013,
+      "max_delay_d": 29.908711845888725,
+      "priority_weight": 0.11504838357872865,
+      "size_rho": 4675401.53369209,
+      "task_id": 32,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8126722.157160989,
+      "max_delay_d": 21.18694203003593,
+      "priority_weight": 0.14249070703048936,
+      "size_rho": 4711655.074002316,
+      "task_id": 33,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7808380.676678684,
+      "max_delay_d": 25.03732753183595,
+      "priority_weight": 0.661156867958828,
+      "size_rho": 3518876.9855081923,
+      "task_id": 34,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3732416.344481638,
+      "max_delay_d": 23.19697585695835,
+      "priority_weight": 0.6881358125091059,
+      "size_rho": 4365644.92974715,
+      "task_id": 35,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2883649.658175666,
+      "max_delay_d": 24.869290697555005,
+      "priority_weight": 0.880348089762449,
+      "size_rho": 4192291.440868179,
+      "task_id": 36,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6559708.778549452,
+      "max_delay_d": 21.77035446588108,
+      "priority_weight": 0.4518183494794691,
+      "size_rho": 2733694.905602554,
+      "task_id": 37,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9278989.86464804,
+      "max_delay_d": 25.589098442462067,
+      "priority_weight": 0.10603551840513059,
+      "size_rho": 2520712.0789733906,
+      "task_id": 38,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6813513.852055577,
+      "max_delay_d": 27.135848756240364,
+      "priority_weight": 0.5330999783577143,
+      "size_rho": 4736712.7415132485,
+      "task_id": 39,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5158633.825704076,
+      "max_delay_d": 20.976814306086755,
+      "priority_weight": 0.8924681466379869,
+      "size_rho": 2486245.2749223458,
+      "task_id": 40,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2453886.1826304216,
+      "max_delay_d": 24.917791860764897,
+      "priority_weight": 0.49141097995284666,
+      "size_rho": 4304427.092997554,
+      "task_id": 41,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2426469.570458714,
+      "max_delay_d": 23.953742866253418,
+      "priority_weight": 0.8756165214606607,
+      "size_rho": 4266467.132117453,
+      "task_id": 42,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6692288.295142075,
+      "max_delay_d": 27.91000063572292,
+      "priority_weight": 0.6802795811531409,
+      "size_rho": 4904574.649818217,
+      "task_id": 43,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3981657.369960683,
+      "max_delay_d": 23.64698415083553,
+      "priority_weight": 0.538622330986439,
+      "size_rho": 2406787.2264067503,
+      "task_id": 44,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3443287.7809412717,
+      "max_delay_d": 25.87441199060605,
+      "priority_weight": 0.709563968449673,
+      "size_rho": 4514808.026352449,
+      "task_id": 45,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8271201.707685617,
+      "max_delay_d": 28.297204725804434,
+      "priority_weight": 0.7505380300279537,
+      "size_rho": 2783323.8372701034,
+      "task_id": 46,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9332700.211039808,
+      "max_delay_d": 21.986684813404253,
+      "priority_weight": 0.1256226038071163,
+      "size_rho": 3304717.735959188,
+      "task_id": 47,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2141950.3250155966,
+      "max_delay_d": 27.64018908404803,
+      "priority_weight": 0.23269369166436749,
+      "size_rho": 4637325.092915359,
+      "task_id": 48,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4500253.42332505,
+      "max_delay_d": 26.7835867868301,
+      "priority_weight": 0.6871182381731432,
+      "size_rho": 3082457.2325517694,
+      "task_id": 49,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6814802.44534232,
+      "max_delay_d": 26.044674928156123,
+      "priority_weight": 0.9777279394096711,
+      "size_rho": 3949450.626861452,
+      "task_id": 50,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9724634.722608194,
+      "max_delay_d": 27.58242499591119,
+      "priority_weight": 0.366363234716369,
+      "size_rho": 4124387.91848508,
+      "task_id": 51,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3760975.617634159,
+      "max_delay_d": 20.16986459659924,
+      "priority_weight": 0.19797143538294643,
+      "size_rho": 2890965.8232742352,
+      "task_id": 52,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5310968.311092145,
+      "max_delay_d": 22.13209092571812,
+      "priority_weight": 0.42894788034030784,
+      "size_rho": 3554819.862715259,
+      "task_id": 53,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8245167.517348089,
+      "max_delay_d": 28.762174114396593,
+      "priority_weight": 0.7480709987651779,
+      "size_rho": 4621718.632833192,
+      "task_id": 54,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 5823951.947782384,
+      "max_delay_d": 21.19073497774753,
+      "priority_weight": 0.3740164334386332,
+      "size_rho": 2714850.7167816414,
+      "task_id": 55,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6353410.02578455,
+      "max_delay_d": 22.70842943676473,
+      "priority_weight": 0.9531253014921277,
+      "size_rho": 3409633.8967526257,
+      "task_id": 56,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5746803.073345845,
+      "max_delay_d": 28.649744689239498,
+      "priority_weight": 0.3013284558781816,
+      "size_rho": 3725580.625260153,
+      "task_id": 57,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7340378.392882984,
+      "max_delay_d": 28.148312470885386,
+      "priority_weight": 0.2683052551246708,
+      "size_rho": 2633119.0132418033,
+      "task_id": 58,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4334526.8735360075,
+      "max_delay_d": 25.716122449785182,
+      "priority_weight": 0.7782697055659119,
+      "size_rho": 2402150.951634828,
+      "task_id": 59,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5918065.0727118235,
+      "max_delay_d": 29.192092131890078,
+      "priority_weight": 0.7296716071698853,
+      "size_rho": 4842735.603866487,
+      "task_id": 60,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7876244.844259702,
+      "max_delay_d": 22.057770181838446,
+      "priority_weight": 0.8660394181293237,
+      "size_rho": 2958807.3013291005,
+      "task_id": 61,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4630277.567498326,
+      "max_delay_d": 26.621109099226366,
+      "priority_weight": 0.9503011478327965,
+      "size_rho": 4468340.850372946,
+      "task_id": 62,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3526733.9585619317,
+      "max_delay_d": 22.594984424817714,
+      "priority_weight": 0.291222670323328,
+      "size_rho": 4285036.308984896,
+      "task_id": 63,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5397403.418518963,
+      "max_delay_d": 27.454818614921773,
+      "priority_weight": 0.868627230874497,
+      "size_rho": 3859315.9922837988,
+      "task_id": 64,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 1921192.8575335094,
+      "max_delay_d": 20.14428484442343,
+      "priority_weight": 0.8903482859434051,
+      "size_rho": 3868377.0183163006,
+      "task_id": 65,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4170142.5631356267,
+      "max_delay_d": 29.75848147369782,
+      "priority_weight": 0.6084454058949067,
+      "size_rho": 4494819.551853796,
+      "task_id": 66,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3565202.575270762,
+      "max_delay_d": 25.33941693400609,
+      "priority_weight": 0.17941980531815466,
+      "size_rho": 4309150.869614846,
+      "task_id": 67,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8606519.91134214,
+      "max_delay_d": 25.730355186191787,
+      "priority_weight": 0.2769058454508465,
+      "size_rho": 4393076.035871701,
+      "task_id": 68,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3477708.650548089,
+      "max_delay_d": 22.39904593939486,
+      "priority_weight": 0.24666971557605905,
+      "size_rho": 4015644.7936150753,
+      "task_id": 69,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5847239.101650759,
+      "max_delay_d": 24.722740785656658,
+      "priority_weight": 0.406359913228414,
+      "size_rho": 2688370.1424256745,
+      "task_id": 70,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3970201.458301891,
+      "max_delay_d": 27.41704450777779,
+      "priority_weight": 0.9112738274400648,
+      "size_rho": 4320886.479458122,
+      "task_id": 71,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2831578.0819640355,
+      "max_delay_d": 23.973576313351984,
+      "priority_weight": 0.13959262844743459,
+      "size_rho": 4293221.57296291,
+      "task_id": 72,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8433645.689673562,
+      "max_delay_d": 20.880101228203188,
+      "priority_weight": 0.20845881400621075,
+      "size_rho": 4802134.382795062,
+      "task_id": 73,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 5304957.345263724,
+      "max_delay_d": 29.902245972609244,
+      "priority_weight": 0.589499505437835,
+      "size_rho": 3555832.893452621,
+      "task_id": 74,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 8111125.304011397,
+      "max_delay_d": 20.33450202214854,
+      "priority_weight": 0.10056379712415368,
+      "size_rho": 4702412.138636095,
+      "task_id": 75,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3190474.614783233,
+      "max_delay_d": 27.015467931192553,
+      "priority_weight": 0.7530244345180133,
+      "size_rho": 2677900.0491322055,
+      "task_id": 76,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3936580.4257613355,
+      "max_delay_d": 29.433972850886512,
+      "priority_weight": 0.2479369040407656,
+      "size_rho": 4336215.540423484,
+      "task_id": 77,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7839011.695783244,
+      "max_delay_d": 23.244163437590696,
+      "priority_weight": 0.791326571011446,
+      "size_rho": 2229640.043198529,
+      "task_id": 78,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8465596.12454094,
+      "max_delay_d": 21.624517669348347,
+      "priority_weight": 0.13571665497237162,
+      "size_rho": 3730228.7380426694,
+      "task_id": 79,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8189714.613411828,
+      "max_delay_d": 25.938231894835667,
+      "priority_weight": 0.8541614898733254,
+      "size_rho": 2233236.126996338,
+      "task_id": 80,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8301622.843551959,
+      "max_delay_d": 27.668294955076888,
+      "priority_weight": 0.9216939219842325,
+      "size_rho": 2235740.083005819,
+      "task_id": 81,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7808954.454068665,
+      "max_delay_d": 21.104545287218027,
+      "priority_weight": 0.5789228086189387,
+      "size_rho": 2930457.8951746216,
+      "task_id": 82,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9387153.814039418,
+      "max_delay_d": 22.547493067604385,
+      "priority_weight": 0.39443039910443345,
+      "size_rho": 4728061.538329143,
+      "task_id": 83,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9879970.88713467,
+      "max_delay_d": 23.09427608319378,
+      "priority_weight": 0.24362140219372297,
+      "size_rho": 2682305.9984706147,
+      "task_id": 84,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4270207.63197869,
+      "max_delay_d": 22.78730083463449,
+      "priority_weight": 0.2610603867794218,
+      "size_rho": 4470837.080637595,
+      "task_id": 85,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5577042.063058832,
+      "max_delay_d": 26.824492629056607,
+      "priority_weight": 0.4392764748970138,
+      "size_rho": 2474853.0266636563,
+      "task_id": 86,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6631862.085344127,
+      "max_delay_d": 25.497949610656807,
+      "priority_weight": 0.1993930461788962,
+      "size_rho": 2816363.2729808777,
+      "task_id": 87,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9397113.421090096,
+      "max_delay_d": 20.75279409177782,
+      "priority_weight": 0.46914258247821117,
+      "size_rho": 2145834.8069933974,
+      "task_id": 88,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6298159.077590582,
+      "max_delay_d": 23.900018503288933,
+      "priority_weight": 0.40340553419954805,
+      "size_rho": 3548276.775927877,
+      "task_id": 89,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2653337.901976672,
+      "max_delay_d": 22.113240951342455,
+      "priority_weight": 0.7840983489809056,
+      "size_rho": 3414437.9379006526,
+      "task_id": 90,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 5973851.325471835,
+      "max_delay_d": 25.95126561032385,
+      "priority_weight": 0.6355850827908269,
+      "size_rho": 2739984.170967751,
+      "task_id": 91,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2125385.549696683,
+      "max_delay_d": 23.600361296391874,
+      "priority_weight": 0.36210165342335654,
+      "size_rho": 2723407.3660070016,
+      "task_id": 92,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5047793.152909437,
+      "max_delay_d": 25.223004906397186,
+      "priority_weight": 0.7691456601128234,
+      "size_rho": 4908008.910356788,
+      "task_id": 93,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2120924.034989925,
+      "max_delay_d": 28.350059202299114,
+      "priority_weight": 0.4922360141927258,
+      "size_rho": 2396439.4744144073,
+      "task_id": 94,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9905488.410634357,
+      "max_delay_d": 26.675415923062012,
+      "priority_weight": 0.31941474216620136,
+      "size_rho": 3950898.040290122,
+      "task_id": 95,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3654517.718724189,
+      "max_delay_d": 21.402787576046357,
+      "priority_weight": 0.8330769804884521,
+      "size_rho": 3354235.530580313,
+      "task_id": 96,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9749294.11213103,
+      "max_delay_d": 20.844791975600764,
+      "priority_weight": 0.4333790091972225,
+      "size_rho": 4489734.059828309,
+      "task_id": 97,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2122737.3304473893,
+      "max_delay_d": 23.376129313540602,
+      "priority_weight": 0.7321393608367205,
+      "size_rho": 4512847.163930738,
+      "task_id": 98,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6369773.038902396,
+      "max_delay_d": 28.22887056592514,
+      "priority_weight": 0.2954156089609855,
+      "size_rho": 3732255.6256925836,
+      "task_id": 99,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6882628.02862707,
+      "max_delay_d": 20.065887435432508,
+      "priority_weight": 0.4463682298599093,
+      "size_rho": 3896757.045674963,
+      "task_id": 100,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7103224.470397202,
+      "max_delay_d": 25.80080716447201,
+      "priority_weight": 0.3743245975571232,
+      "size_rho": 4292194.856990572,
+      "task_id": 101,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7537736.365627934,
+      "max_delay_d": 27.937681968069267,
+      "priority_weight": 0.6927803263356674,
+      "size_rho": 3228593.151127341,
+      "task_id": 102,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1565620.0503801494,
+      "max_delay_d": 22.82508534812949,
+      "priority_weight": 0.7985960770750972,
+      "size_rho": 2627499.596635205,
+      "task_id": 103,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9456289.161771964,
+      "max_delay_d": 24.742061415215396,
+      "priority_weight": 0.7746604160842151,
+      "size_rho": 3580301.0913232174,
+      "task_id": 104,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7939397.347059134,
+      "max_delay_d": 22.051595340942377,
+      "priority_weight": 0.5919413536221729,
+      "size_rho": 3240010.580758641,
+      "task_id": 105,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6667245.252053025,
+      "max_delay_d": 24.77859253811026,
+      "priority_weight": 0.7233379413967035,
+      "size_rho": 2045573.4970211727,
+      "task_id": 106,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3468403.878198847,
+      "max_delay_d": 22.550857152753956,
+      "priority_weight": 0.3502322061630244,
+      "size_rho": 2919994.912363165,
+      "task_id": 107,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9509864.11104203,
+      "max_delay_d": 22.40694396720994,
+      "priority_weight": 0.8218294808164547,
+      "size_rho": 3907830.7371473443,
+      "task_id": 108,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1469411.9783311994,
+      "max_delay_d": 20.746258834366223,
+      "priority_weight": 0.4856787533757272,
+      "size_rho": 2190547.4357499415,
+      "task_id": 109,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1200243.961706182,
+      "max_delay_d": 22.633669516132997,
+      "priority_weight": 0.288641142851093,
+      "size_rho": 2394491.7397867143,
+      "task_id": 110,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2539268.8095375663,
+      "max_delay_d": 28.367310170759893,
+      "priority_weight": 0.4069802505575886,
+      "size_rho": 4769294.505294813,
+      "task_id": 111,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5471374.188127735,
+      "max_delay_d": 27.739671782324415,
+      "priority_weight": 0.5565235311326735,
+      "size_rho": 4139462.7777404343,
+      "task_id": 112,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2839028.5969114974,
+      "max_delay_d": 23.89545892160995,
+      "priority_weight": 0.11812113374757383,
+      "size_rho": 2031781.475988248,
+      "task_id": 113,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6634184.073982109,
+      "max_delay_d": 21.603575722318546,
+      "priority_weight": 0.26944523878923826,
+      "size_rho": 4812158.630106719,
+      "task_id": 114,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 5960320.618913032,
+      "max_delay_d": 23.41565188712096,
+      "priority_weight": 0.2667833877251963,
+      "size_rho": 3797946.6253780248,
+      "task_id": 115,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5416496.9941188,
+      "max_delay_d": 27.03668318558403,
+      "priority_weight": 0.9223768818324991,
+      "size_rho": 3834664.9954060707,
+      "task_id": 116,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6103222.518102706,
+      "max_delay_d": 25.75889174357191,
+      "priority_weight": 0.10482937243733793,
+      "size_rho": 2369855.044384153,
+      "task_id": 117,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5698575.232396733,
+      "max_delay_d": 25.975968630630458,
+      "priority_weight": 0.914828875571093,
+      "size_rho": 2621722.8246959522,
+      "task_id": 118,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6529294.056501006,
+      "max_delay_d": 25.95903034574083,
+      "priority_weight": 0.11369930883327538,
+      "size_rho": 3833736.625500717,
+      "task_id": 119,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9315534.319069847,
+      "max_delay_d": 29.66057024259095,
+      "priority_weight": 0.2602408579959287,
+      "size_rho": 2206973.6648611496,
+      "task_id": 120,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4753479.753674052,
+      "max_delay_d": 26.15611712486205,
+      "priority_weight": 0.5311292161388612,
+      "size_rho": 2111276.076314297,
+      "task_id": 121,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3792883.742261671,
+      "max_delay_d": 20.16544094571713,
+      "priority_weight": 0.48241726175679545,
+      "size_rho": 3612841.7192183705,
+      "task_id": 122,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1458620.6597208788,
+      "max_delay_d": 26.594302084949422,
+      "priority_weight": 0.36745019651539,
+      "size_rho": 3584663.117750203,
+      "task_id": 123,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6472811.852280203,
+      "max_delay_d": 28.267906504495006,
+      "priority_weight": 0.828320557203561,
+      "size_rho": 3474825.017075807,
+      "task_id": 124,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3221387.238971087,
+      "max_delay_d": 28.16142136458609,
+      "priority_weight": 0.13905042153012026,
+      "size_rho": 4875613.742860995,
+      "task_id": 125,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6365117.610265601,
+      "max_delay_d": 20.095438382948714,
+      "priority_weight": 0.2750874064106155,
+      "size_rho": 3785424.8764726524,
+      "task_id": 126,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7978174.649635699,
+      "max_delay_d": 22.971198721680647,
+      "priority_weight": 0.21301981752791826,
+      "size_rho": 2646043.2995132264,
+      "task_id": 127,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7864479.388260675,
+      "max_delay_d": 29.957358798632225,
+      "priority_weight": 0.35916923052401795,
+      "size_rho": 2910025.7527079773,
+      "task_id": 128,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9985548.17077751,
+      "max_delay_d": 29.5793502061276,
+      "priority_weight": 0.9810217672465688,
+      "size_rho": 2706789.154494209,
+      "task_id": 129,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1772172.1417921013,
+      "max_delay_d": 26.125694885001806,
+      "priority_weight": 0.6780351416407576,
+      "size_rho": 4397043.062540098,
+      "task_id": 130,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 6479013.7792724585,
+      "max_delay_d": 29.270472459292378,
+      "priority_weight": 0.2148941939397186,
+      "size_rho": 2361682.663120567,
+      "task_id": 131,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 7258309.421515203,
+      "max_delay_d": 21.728491099024726,
+      "priority_weight": 0.7737189057632105,
+      "size_rho": 4049927.5932810083,
+      "task_id": 132,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8512302.09174775,
+      "max_delay_d": 24.358294911498632,
+      "priority_weight": 0.6896388119384096,
+      "size_rho": 2256780.1713403333,
+      "task_id": 133,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9974210.917080667,
+      "max_delay_d": 27.20119029514626,
+      "priority_weight": 0.29103515407296754,
+      "size_rho": 2768377.691279627,
+      "task_id": 134,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4380735.478288714,
+      "max_delay_d": 29.248352376771066,
+      "priority_weight": 0.2063707041677902,
+      "size_rho": 2132607.1281628916,
+      "task_id": 135,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3040974.357001867,
+      "max_delay_d": 27.715392533637022,
+      "priority_weight": 0.19052980431753225,
+      "size_rho": 2252880.0033170846,
+      "task_id": 136,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3902578.932087405,
+      "max_delay_d": 27.61237353169843,
+      "priority_weight": 0.1844684193404177,
+      "size_rho": 4038652.038653851,
+      "task_id": 137,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 1763508.5690052193,
+      "max_delay_d": 23.112592459693822,
+      "priority_weight": 0.791540745682748,
+      "size_rho": 2418125.651799645,
+      "task_id": 138,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4082255.555269046,
+      "max_delay_d": 28.3964920408624,
+      "priority_weight": 0.39091430741220745,
+      "size_rho": 4119776.601518363,
+      "task_id": 139,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2303469.770449075,
+      "max_delay_d": 23.748410804354055,
+      "priority_weight": 0.17697947301779493,
+      "size_rho": 4832325.002833638,
+      "task_id": 140,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3032552.2475813422,
+      "max_delay_d": 20.501216701521795,
+      "priority_weight": 0.957973020982552,
+      "size_rho": 2152621.5744546168,
+      "task_id": 141,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4879435.657448787,
+      "max_delay_d": 20.626767529988467,
+      "priority_weight": 0.24746132135653062,
+      "size_rho": 2063083.908712326,
+      "task_id": 142,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2232002.051499147,
+      "max_delay_d": 29.979393797409365,
+      "priority_weight": 0.46698494569039517,
+      "size_rho": 3939524.13546046,
+      "task_id": 143,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6655225.518833433,
+      "max_delay_d": 20.694117918311182,
+      "priority_weight": 0.1391650104459625,
+      "size_rho": 4085743.805400395,
+      "task_id": 144,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2653623.443846173,
+      "max_delay_d": 25.155483013319788,
+      "priority_weight": 0.4127558339787727,
+      "size_rho": 3102357.8491287017,
+      "task_id": 145,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 7555041.755890063,
+      "max_delay_d": 24.546087365523988,
+      "priority_weight": 0.9225524614639277,
+      "size_rho": 3846835.476781979,
+      "task_id": 146,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8884666.061317038,
+      "max_delay_d": 27.8250450995147,
+      "priority_weight": 0.8584509335275616,
+      "size_rho": 4610204.363422276,
+      "task_id": 147,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5897958.1682915315,
+      "max_delay_d": 29.45894654520609,
+      "priority_weight": 0.6472303695732555,
+      "size_rho": 4833113.345705228,
+      "task_id": 148,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8012950.99373352,
+      "max_delay_d": 23.30555200944115,
+      "priority_weight": 0.5467912445440912,
+      "size_rho": 3912649.167996271,
+      "task_id": 149,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1924993.726558681,
+      "max_delay_d": 24.70125917314506,
+      "priority_weight": 0.9237095563539581,
+      "size_rho": 3750489.961712274,
+      "task_id": 150,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 6338413.221967027,
+      "max_delay_d": 24.97926593162888,
+      "priority_weight": 0.15602732053334542,
+      "size_rho": 2553832.4963930477,
+      "task_id": 151,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1891309.4469931317,
+      "max_delay_d": 29.3855754179253,
+      "priority_weight": 0.5269427665655185,
+      "size_rho": 3740371.4860584293,
+      "task_id": 152,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2730750.2455053627,
+      "max_delay_d": 21.934848873210743,
+      "priority_weight": 0.8017538544202356,
+      "size_rho": 3314777.47249863,
+      "task_id": 153,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3881064.963176811,
+      "max_delay_d": 23.882652441916694,
+      "priority_weight": 0.19839408075683135,
+      "size_rho": 2997888.1110954545,
+      "task_id": 154,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7551056.076439867,
+      "max_delay_d": 23.101393181759697,
+      "priority_weight": 0.9474546862876315,
+      "size_rho": 2202675.7839676095,
+      "task_id": 155,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1512549.1535990792,
+      "max_delay_d": 29.2119642765308,
+      "priority_weight": 0.7369997347905383,
+      "size_rho": 3091403.475188463,
+      "task_id": 156,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 5488221.378072474,
+      "max_delay_d": 24.954929227873592,
+      "priority_weight": 0.11653373881057162,
+      "size_rho": 3137603.958300656,
+      "task_id": 157,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9224914.173414435,
+      "max_delay_d": 21.250574547325137,
+      "priority_weight": 0.44195754386762687,
+      "size_rho": 2418764.3523977255,
+      "task_id": 158,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2785600.1598170055,
+      "max_delay_d": 27.041774210761005,
+      "priority_weight": 0.969278237013914,
+      "size_rho": 2103484.0009694044,
+      "task_id": 159,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7687377.3063214095,
+      "max_delay_d": 24.193651285690134,
+      "priority_weight": 0.255320535797993,
+      "size_rho": 3381428.222356542,
+      "task_id": 160,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7577165.151604604,
+      "max_delay_d": 20.721165577251536,
+      "priority_weight": 0.208553617906095,
+      "size_rho": 4763826.055218872,
+      "task_id": 161,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2512877.9224597523,
+      "max_delay_d": 21.53801536683747,
+      "priority_weight": 0.9106951549832213,
+      "size_rho": 4343482.173607696,
+      "task_id": 162,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7671792.8565201145,
+      "max_delay_d": 21.838456031579085,
+      "priority_weight": 0.661054571009069,
+      "size_rho": 2005978.8270392064,
+      "task_id": 163,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7075332.010676565,
+      "max_delay_d": 21.637730066130217,
+      "priority_weight": 0.43032486656787583,
+      "size_rho": 2097448.238770116,
+      "task_id": 164,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9425331.037736632,
+      "max_delay_d": 28.868142793858684,
+      "priority_weight": 0.5956878585861397,
+      "size_rho": 4264648.574805411,
+      "task_id": 165,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4804562.309905584,
+      "max_delay_d": 20.00252246191591,
+      "priority_weight": 0.22553161789024231,
+      "size_rho": 2281095.652472948,
+      "task_id": 166,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8362035.08086636,
+      "max_delay_d": 28.963466840699255,
+      "priority_weight": 0.9905005262019614,
+      "size_rho": 4828099.766467562,
+      "task_id": 167,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9087576.57873676,
+      "max_delay_d": 20.146503751524836,
+      "priority_weight": 0.7648938110272421,
+      "size_rho": 2898073.2673017364,
+      "task_id": 168,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2546390.3880410152,
+      "max_delay_d": 23.904531997062406,
+      "priority_weight": 0.4054694766845114,
+      "size_rho": 3208444.6092319908,
+      "task_id": 169,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8614358.962330718,
+      "max_delay_d": 22.01746373951557,
+      "priority_weight": 0.6933625943690603,
+      "size_rho": 2450613.118177487,
+      "task_id": 170,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2527573.764233852,
+      "max_delay_d": 26.364228445872797,
+      "priority_weight": 0.8490889336821985,
+      "size_rho": 2699954.0239255587,
+      "task_id": 171,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4234268.727314848,
+      "max_delay_d": 20.35520828782552,
+      "priority_weight": 0.24886463530761205,
+      "size_rho": 2666647.2679965426,
+      "task_id": 172,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6655021.552314117,
+      "max_delay_d": 24.764795497928873,
+      "priority_weight": 0.5482004729808408,
+      "size_rho": 4715226.949805193,
+      "task_id": 173,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3489345.4316982785,
+      "max_delay_d": 23.244712989816534,
+      "priority_weight": 0.17648372404050622,
+      "size_rho": 2919714.2234145557,
+      "task_id": 174,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4411378.421068009,
+      "max_delay_d": 20.102261540150003,
+      "priority_weight": 0.5061239326179194,
+      "size_rho": 2008967.9576208899,
+      "task_id": 175,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5583337.192681361,
+      "max_delay_d": 26.340232458561704,
+      "priority_weight": 0.45015787412868435,
+      "size_rho": 3835030.3984537446,
+      "task_id": 176,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6225932.735733807,
+      "max_delay_d": 20.122686683347023,
+      "priority_weight": 0.7342100028882259,
+      "size_rho": 4641776.357629348,
+      "task_id": 177,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5119680.006138314,
+      "max_delay_d": 21.912039654902436,
+      "priority_weight": 0.17678110840168035,
+      "size_rho": 3586391.119064914,
+      "task_id": 178,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9209963.923195451,
+      "max_delay_d": 24.756248711161163,
+      "priority_weight": 0.14937247898906683,
+      "size_rho": 2949787.605586901,
+      "task_id": 179,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5000850.269666821,
+      "max_delay_d": 26.386735169495466,
+      "priority_weight": 0.3923932298586138,
+      "size_rho": 3055932.2756071156,
+      "task_id": 180,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8011864.7906171605,
+      "max_delay_d": 28.285310399486875,
+      "priority_weight": 0.6420498569913049,
+      "size_rho": 4894747.4244820755,
+      "task_id": 181,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4935278.0457709655,
+      "max_delay_d": 21.994492395778877,
+      "priority_weight": 0.8333955135741343,
+      "size_rho": 4781937.6457203645,
+      "task_id": 182,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2233716.067485585,
+      "max_delay_d": 27.365046448059083,
+      "priority_weight": 0.3320046888499777,
+      "size_rho": 4032952.4443956157,
+      "task_id": 183,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8425690.526600411,
+      "max_delay_d": 29.351525021115904,
+      "priority_weight": 0.4456909680674619,
+      "size_rho": 2547786.456883327,
+      "task_id": 184,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6203045.167385967,
+      "max_delay_d": 26.4994157837223,
+      "priority_weight": 0.7387076688205014,
+      "size_rho": 4405733.006253181,
+      "task_id": 185,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4939744.3805044,
+      "max_delay_d": 29.83653393659389,
+      "priority_weight": 0.2644432710995105,
+      "size_rho": 3587815.4852507487,
+      "task_id": 186,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2668329.714263614,
+      "max_delay_d": 29.74304123894001,
+      "priority_weight": 0.4151753151658989,
+      "size_rho": 2496626.3597722324,
+      "task_id": 187,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6459969.791789003,
+      "max_delay_d": 21.61089340721452,
+      "priority_weight": 0.6898944902020475,
+      "size_rho": 4048713.5615680157,
+      "task_id": 188,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9473666.16098989,
+      "max_delay_d": 22.074932218847636,
+      "priority_weight": 0.32084902486865585,
+      "size_rho": 4420864.840815859,
+      "task_id": 189,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4986145.948963862,
+      "max_delay_d": 25.58714189944959,
+      "priority_weight": 0.9760342647198911,
+      "size_rho": 3179889.958522653,
+      "task_id": 190,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4835384.913520977,
+      "max_delay_d": 20.068762833228682,
+      "priority_weight": 0.2878780218076139,
+      "size_rho": 4426196.253307455,
+      "task_id": 191,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1311553.267784092,
+      "max_delay_d": 29.41246105303924,
+      "priority_weight": 0.9243933059403766,
+      "size_rho": 2055229.7632037366,
+      "task_id": 192,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2778789.321603997,
+      "max_delay_d": 20.482571017329107,
+      "priority_weight": 0.1591575709250528,
+      "size_rho": 4000173.377534163,
+      "task_id": 193,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8852173.44221704,
+      "max_delay_d": 29.35721166496377,
+      "priority_weight": 0.21597893817734132,
+      "size_rho": 2716938.9934876487,
+      "task_id": 194,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2917250.2811340634,
+      "max_delay_d": 25.15303922690532,
+      "priority_weight": 0.8791941232007554,
+      "size_rho": 3584991.4786338853,
+      "task_id": 195,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5355159.032618874,
+      "max_delay_d": 22.42939434444574,
+      "priority_weight": 0.4993682823036929,
+      "size_rho": 2941712.85951835,
+      "task_id": 196,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4758768.563597542,
+      "max_delay_d": 22.065370989114513,
+      "priority_weight": 0.2406645704941252,
+      "size_rho": 2140587.5304585756,
+      "task_id": 197,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 5482667.861816653,
+      "max_delay_d": 24.12577202619182,
+      "priority_weight": 0.48149413799750806,
+      "size_rho": 4569666.457514949,
+      "task_id": 198,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 2236840.1388186887,
+      "max_delay_d": 29.540076679900256,
+      "priority_weight": 0.22162831644412545,
+      "size_rho": 2131070.2606694372,
+      "task_id": 199,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2399450.202278957,
+      "max_delay_d": 22.200414351797228,
+      "priority_weight": 0.540926056221213,
+      "size_rho": 4810930.701140895,
+      "task_id": 200,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8551482.436767079,
+      "max_delay_d": 21.2093248070893,
+      "priority_weight": 0.3924135808025695,
+      "size_rho": 3529013.7869700296,
+      "task_id": 201,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3167558.7774721505,
+      "max_delay_d": 26.017377225659292,
+      "priority_weight": 0.7775583134767909,
+      "size_rho": 3512767.664333525,
+      "task_id": 202,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1051606.747857671,
+      "max_delay_d": 26.910675825100594,
+      "priority_weight": 0.8287616682429269,
+      "size_rho": 2557134.7994980714,
+      "task_id": 203,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7106319.014049532,
+      "max_delay_d": 26.078632053130125,
+      "priority_weight": 0.49864374052835825,
+      "size_rho": 3183128.4919011756,
+      "task_id": 204,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 8225640.210642403,
+      "max_delay_d": 26.8386344287239,
+      "priority_weight": 0.559446703438648,
+      "size_rho": 3949147.999907586,
+      "task_id": 205,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9433820.87474831,
+      "max_delay_d": 27.354040349047587,
+      "priority_weight": 0.8346514632105978,
+      "size_rho": 2420431.2996469056,
+      "task_id": 206,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8991359.800570935,
+      "max_delay_d": 23.343756760121078,
+      "priority_weight": 0.6967857762669004,
+      "size_rho": 2259539.0980767957,
+      "task_id": 207,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9901661.259429501,
+      "max_delay_d": 28.466941111736848,
+      "priority_weight": 0.7262900042896259,
+      "size_rho": 4265580.193541927,
+      "task_id": 208,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3773540.472629522,
+      "max_delay_d": 26.205482175320622,
+      "priority_weight": 0.3335707859871492,
+      "size_rho": 4961023.781330745,
+      "task_id": 209,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4453658.539420532,
+      "max_delay_d": 27.99178908565054,
+      "priority_weight": 0.9892281563518973,
+      "size_rho": 3198152.245805273,
+      "task_id": 210,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8933820.563177992,
+      "max_delay_d": 29.59048190829224,
+      "priority_weight": 0.7418218600370127,
+      "size_rho": 2380581.3473263816,
+      "task_id": 211,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5409738.935788353,
+      "max_delay_d": 26.443243050540985,
+      "priority_weight": 0.4515241672972454,
+      "size_rho": 3277034.2986147,
+      "task_id": 212,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1186364.1356585226,
+      "max_delay_d": 28.24332646835768,
+      "priority_weight": 0.7754712565663147,
+      "size_rho": 3768397.381046233,
+      "task_id": 213,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3964098.851312266,
+      "max_delay_d": 26.775625286119205,
+      "priority_weight": 0.4454694831332521,
+      "size_rho": 3676952.3672727672,
+      "task_id": 214,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 5633682.52566373,
+      "max_delay_d": 26.858020864128456,
+      "priority_weight": 0.6843658739289795,
+      "size_rho": 4812874.61268727,
+      "task_id": 215,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2684039.7683136025,
+      "max_delay_d": 27.828886841125833,
+      "priority_weight": 0.6266565781990421,
+      "size_rho": 3210375.100484806,
+      "task_id": 216,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3377335.435553478,
+      "max_delay_d": 23.96957535686514,
+      "priority_weight": 0.8833886270234741,
+      "size_rho": 3176661.3063030713,
+      "task_id": 217,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8484920.670226797,
+      "max_delay_d": 20.127090406327067,
+      "priority_weight": 0.5089847673323631,
+      "size_rho": 3442913.8524405053,
+      "task_id": 218,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3478074.45755327,
+      "max_delay_d": 21.77129926172387,
+      "priority_weight": 0.4285812752996042,
+      "size_rho": 2108831.9390059765,
+      "task_id": 219,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1487886.2342103086,
+      "max_delay_d": 25.230142016157902,
+      "priority_weight": 0.5420811810814652,
+      "size_rho": 4607362.462450352,
+      "task_id": 220,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4387277.223244315,
+      "max_delay_d": 29.957497897611834,
+      "priority_weight": 0.8023500541274778,
+      "size_rho": 3613324.9991698824,
+      "task_id": 221,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1330538.3324657294,
+      "max_delay_d": 23.912303240483414,
+      "priority_weight": 0.8333422394751849,
+      "size_rho": 4870622.157641323,
+      "task_id": 222,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6776954.484781124,
+      "max_delay_d": 26.788790270206142,
+      "priority_weight": 0.5108594746860419,
+      "size_rho": 3923500.7297934256,
+      "task_id": 223,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3593641.6828602073,
+      "max_delay_d": 23.74501676416819,
+      "priority_weight": 0.6776273108582873,
+      "size_rho": 2955238.0559663363,
+      "task_id": 224,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6830384.295918355,
+      "max_delay_d": 23.446143511461635,
+      "priority_weight": 0.13953079008231775,
+      "size_rho": 4664808.477036757,
+      "task_id": 225,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4742636.346583415,
+      "max_delay_d": 20.929729525129545,
+      "priority_weight": 0.6857823731539205,
+      "size_rho": 2111122.3714575614,
+      "task_id": 226,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9718204.42793127,
+      "max_delay_d": 26.857920456926525,
+      "priority_weight": 0.446422722719376,
+      "size_rho": 3134356.121056044,
+      "task_id": 227,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6075046.833310283,
+      "max_delay_d": 24.26942635659163,
+      "priority_weight": 0.23373952006658105,
+      "size_rho": 4306992.158027666,
+      "task_id": 228,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1269991.802210558,
+      "max_delay_d": 26.963490530401256,
+      "priority_weight": 0.8827412396820713,
+      "size_rho": 4376803.055596655,
+      "task_id": 229,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3310131.230448827,
+      "max_delay_d": 27.174318906069367,
+      "priority_weight": 0.9013680978482026,
+      "size_rho": 2634392.8564180904,
+      "task_id": 230,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1824563.120132098,
+      "max_delay_d": 23.278580055987366,
+      "priority_weight": 0.12224408505308693,
+      "size_rho": 4191329.426980225,
+      "task_id": 231,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9947219.880707966,
+      "max_delay_d": 20.942610916946983,
+      "priority_weight": 0.23290992523224413,
+      "size_rho": 4663932.255095689,
+      "task_id": 232,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7348794.032959615,
+      "max_delay_d": 26.06270824257278,
+      "priority_weight": 0.1539928524591076,
+      "size_rho": 4411394.400202645,
+      "task_id": 233,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4189055.5750590162,
+      "max_delay_d": 23.562859410223524,
+      "priority_weight": 0.4439992044791403,
+      "size_rho": 2435206.7800114956,
+      "task_id": 234,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2952334.3635022957,
+      "max_delay_d": 24.033003916384146,
+      "priority_weight": 0.8423088441941484,
+      "size_rho": 2653877.6362876724,
+      "task_id": 235,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2963941.3527213135,
+      "max_delay_d": 22.223997356879245,
+      "priority_weight": 0.11115967124769979,
+      "size_rho": 3177103.687281008,
+      "task_id": 236,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1172119.72234461,
+      "max_delay_d": 22.73891913941352,
+      "priority_weight": 0.2414640697028407,
+      "size_rho": 3938103.52107375,
+      "task_id": 237,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4008747.054876294,
+      "max_delay_d": 22.46210193116128,
+      "priority_weight": 0.5792339879295341,
+      "size_rho": 2276213.982719468,
+      "task_id": 238,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7789955.509411533,
+      "max_delay_d": 20.82907775585825,
+      "priority_weight": 0.2534788194726071,
+      "size_rho": 3409115.0376014905,
+      "task_id": 239,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 6543313.114487514,
+      "max_delay_d": 29.000049357368667,
+      "priority_weight": 0.16477196219376614,
+      "size_rho": 4396433.357396945,
+      "task_id": 240,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9598048.308950242,
+      "max_delay_d": 29.626248226287867,
+      "priority_weight": 0.6822896929512273,
+      "size_rho": 2976441.882979514,
+      "task_id": 241,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1937036.3339597122,
+      "max_delay_d": 27.34117221018213,
+      "priority_weight": 0.11078474350848488,
+      "size_rho": 2511425.327536428,
+      "task_id": 242,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8538252.367180586,
+      "max_delay_d": 24.51557349650005,
+      "priority_weight": 0.5790241910932897,
+      "size_rho": 2912527.576444787,
+      "task_id": 243,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6680039.539890491,
+      "max_delay_d": 25.133384306254186,
+      "priority_weight": 0.4251625579918201,
+      "size_rho": 4634838.564161757,
+      "task_id": 244,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3672581.39355408,
+      "max_delay_d": 24.624278005870146,
+      "priority_weight": 0.2919113384623667,
+      "size_rho": 4039170.0028465413,
+      "task_id": 245,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9841642.457769968,
+      "max_delay_d": 20.974350072649628,
+      "priority_weight": 0.5254083757364668,
+      "size_rho": 3777624.4893352436,
+      "task_id": 246,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6253925.790312876,
+      "max_delay_d": 26.718983554718722,
+      "priority_weight": 0.9321501723069269,
+      "size_rho": 4624635.563464727,
+      "task_id": 247,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4308426.911779041,
+      "max_delay_d": 29.873704605208708,
+      "priority_weight": 0.8082432757124035,
+      "size_rho": 2783658.2417941587,
+      "task_id": 248,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7436172.284994694,
+      "max_delay_d": 27.99908036666598,
+      "priority_weight": 0.799330773679946,
+      "size_rho": 4465035.3568924945,
+      "task_id": 249,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 5785164.519665469,
+      "max_delay_d": 28.804041147285027,
+      "priority_weight": 0.40061695834623123,
+      "size_rho": 4392197.085765159,
+      "task_id": 250,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3290557.4456466963,
+      "max_delay_d": 20.458464165637533,
+      "priority_weight": 0.5182411910680332,
+      "size_rho": 3746066.293986058,
+      "task_id": 251,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 9620485.125879027,
+      "max_delay_d": 25.936774772596998,
+      "priority_weight": 0.6617336935668704,
+      "size_rho": 2180966.818246584,
+      "task_id": 252,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1088929.8674020604,
+      "max_delay_d": 25.038380539226576,
+      "priority_weight": 0.9787234294802921,
+      "size_rho": 4626622.489198847,
+      "task_id": 253,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7256548.536012613,
+      "max_delay_d": 22.419974148956126,
+      "priority_weight": 0.8909307286638092,
+      "size_rho": 4715639.310144909,
+      "task_id": 254,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4821431.228583341,
+      "max_delay_d": 25.75329170910757,
+      "priority_weight": 0.1863869017113215,
+      "size_rho": 2539179.0622938545,
+      "task_id": 255,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4278814.943498183,
+      "max_delay_d": 26.689244930679596,
+      "priority_weight": 0.6521947383227208,
+      "size_rho": 4330417.125555996,
+      "task_id": 256,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6169002.12465634,
+      "max_delay_d": 29.530992859190846,
+      "priority_weight": 0.8288552879767906,
+      "size_rho": 4630402.821342903,
+      "task_id": 257,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8985141.525369994,
+      "max_delay_d": 27.46593288753891,
+      "priority_weight": 0.4114139158700292,
+      "size_rho": 3883284.404900621,
+      "task_id": 258,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3787621.422409151,
+      "max_delay_d": 23.37340702463785,
+      "priority_weight": 0.4811161393414277,
+      "size_rho": 2989996.2812374453,
+      "task_id": 259,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3274597.2489976883,
+      "max_delay_d": 29.04514834362215,
+      "priority_weight": 0.33259860098622784,
+      "size_rho": 3520669.895049956,
+      "task_id": 260,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8482066.005175155,
+      "max_delay_d": 25.766781096852306,
+      "priority_weight": 0.9196921559198895,
+      "size_rho": 3925251.8945445507,
+      "task_id": 261,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1179242.2758897399,
+      "max_delay_d": 20.361380975812395,
+      "priority_weight": 0.8034227348555193,
+      "size_rho": 2737906.96539014,
+      "task_id": 262,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7548321.131368574,
+      "max_delay_d": 25.244063631611464,
+      "priority_weight": 0.542253145510871,
+      "size_rho": 2010998.7515518074,
+      "task_id": 263,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6614499.975064717,
+      "max_delay_d": 21.618263701356284,
+      "priority_weight": 0.12723248299010845,
+      "size_rho": 3100355.0478454856,
+      "task_id": 264,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3820390.4555224567,
+      "max_delay_d": 20.037383025155492,
+      "priority_weight": 0.3592264287964766,
+      "size_rho": 4486453.563539516,
+      "task_id": 265,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6209402.167720373,
+      "max_delay_d": 25.758771075047893,
+      "priority_weight": 0.244563984494076,
+      "size_rho": 4429132.052273473,
+      "task_id": 266,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 1672585.4317052993,
+      "max_delay_d": 27.197400408495625,
+      "priority_weight": 0.4826870254297133,
+      "size_rho": 2024979.3387063413,
+      "task_id": 267,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9035033.460310735,
+      "max_delay_d": 28.832566106868477,
+      "priority_weight": 0.41901173333669994,
+      "size_rho": 4367645.088624677,
+      "task_id": 268,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7740968.441948588,
+      "max_delay_d": 27.812154649074113,
+      "priority_weight": 0.18206353735725894,
+      "size_rho": 2196368.682858734,
+      "task_id": 269,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9031991.935532477,
+      "max_delay_d": 26.051166232629267,
+      "priority_weight": 0.8126958000205338,
+      "size_rho": 2553831.668550221,
+      "task_id": 270,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8060432.786942565,
+      "max_delay_d": 25.32822956306811,
+      "priority_weight": 0.18948574972039897,
+      "size_rho": 2605486.890959628,
+      "task_id": 271,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3532538.1647722716,
+      "max_delay_d": 21.87464290937931,
+      "priority_weight": 0.5158905645556159,
+      "size_rho": 3861900.788195274,
+      "task_id": 272,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 3027671.5061602527,
+      "max_delay_d": 24.338833601446268,
+      "priority_weight": 0.8230725545440574,
+      "size_rho": 3481423.732411866,
+      "task_id": 273,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6432724.506066552,
+      "max_delay_d": 26.7774973610182,
+      "priority_weight": 0.6197834799769355,
+      "size_rho": 4708354.2873700205,
+      "task_id": 274,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7268289.444229915,
+      "max_delay_d": 26.621601196085393,
+      "priority_weight": 0.4755013695154864,
+      "size_rho": 4983360.965987442,
+      "task_id": 275,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 7788373.480959877,
+      "max_delay_d": 26.83596105911007,
+      "priority_weight": 0.9485922275086769,
+      "size_rho": 3530800.161850906,
+      "task_id": 276,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3352619.6237191143,
+      "max_delay_d": 25.19893925680919,
+      "priority_weight": 0.8530891453418051,
+      "size_rho": 4858634.984344179,
+      "task_id": 277,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4736527.602389688,
+      "max_delay_d": 27.429001533149815,
+      "priority_weight": 0.8494938165344773,
+      "size_rho": 4024533.064693792,
+      "task_id": 278,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 7690090.609531281,
+      "max_delay_d": 28.73607707557558,
+      "priority_weight": 0.5546940697698656,
+      "size_rho": 4548046.723450738,
+      "task_id": 279,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7605445.818455143,
+      "max_delay_d": 22.512609941734873,
+      "priority_weight": 0.7482549923156393,
+      "size_rho": 3424280.9210453006,
+      "task_id": 280,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8358587.613779053,
+      "max_delay_d": 29.394780336437293,
+      "priority_weight": 0.8069686780936539,
+      "size_rho": 2141936.20151185,
+      "task_id": 281,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 3825915.229801403,
+      "max_delay_d": 28.62921552533482,
+      "priority_weight": 0.5307504974697395,
+      "size_rho": 4944484.239775685,
+      "task_id": 282,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 8564314.141217884,
+      "max_delay_d": 28.814190625551802,
+      "priority_weight": 0.5126466861381942,
+      "size_rho": 2026914.0324196925,
+      "task_id": 283,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 8971127.367329964,
+      "max_delay_d": 24.375113964117922,
+      "priority_weight": 0.8728582257950149,
+      "size_rho": 3584477.7082213126,
+      "task_id": 284,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3997382.165585236,
+      "max_delay_d": 20.992666095576503,
+      "priority_weight": 0.6536561632015422,
+      "size_rho": 3340608.856447642,
+      "task_id": 285,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 6332691.439079899,
+      "max_delay_d": 29.30086719889355,
+      "priority_weight": 0.467284539474738,
+      "size_rho": 3354178.9329498718,
+      "task_id": 286,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 4173339.399931484,
+      "max_delay_d": 26.895077617040766,
+      "priority_weight": 0.8342999736638724,
+      "size_rho": 3044865.3353536935,
+      "task_id": 287,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8429751.708199441,
+      "max_delay_d": 26.534972566143594,
+      "priority_weight": 0.4262254090134413,
+      "size_rho": 3410274.2110594483,
+      "task_id": 288,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1926361.3930120245,
+      "max_delay_d": 27.771083665531066,
+      "priority_weight": 0.9812082763980715,
+      "size_rho": 3566025.0769429402,
+      "task_id": 289,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9132137.043663701,
+      "max_delay_d": 23.168642623726363,
+      "priority_weight": 0.866357599900373,
+      "size_rho": 4666065.6196174715,
+      "task_id": 290,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8673802.742546925,
+      "max_delay_d": 28.731364153042776,
+      "priority_weight": 0.8892860536514063,
+      "size_rho": 2507445.021621676,
+      "task_id": 291,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8363480.037966412,
+      "max_delay_d": 24.193829669384428,
+      "priority_weight": 0.2824027358122156,
+      "size_rho": 4533055.033740841,
+      "task_id": 292,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 1161631.6723020386,
+      "max_delay_d": 24.978179437749056,
+      "priority_weight": 0.7117473935272132,
+      "size_rho": 4636507.110696048,
+      "task_id": 293,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2694155.333303704,
+      "max_delay_d": 29.84663678571202,
+      "priority_weight": 0.40118195815892477,
+      "size_rho": 2287071.3785130335,
+      "task_id": 294,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 9209234.636363953,
+      "max_delay_d": 20.67489757305261,
+      "priority_weight": 0.7527888894818111,
+      "size_rho": 4684417.609195298,
+      "task_id": 295,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9564138.43233776,
+      "max_delay_d": 26.63162979691915,
+      "priority_weight": 0.4507705549256982,
+      "size_rho": 2486727.5358989905,
+      "task_id": 296,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6784966.092060579,
+      "max_delay_d": 24.573056607119753,
+      "priority_weight": 0.56355576862427,
+      "size_rho": 2705641.9067504555,
+      "task_id": 297,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9358073.032425035,
+      "max_delay_d": 29.821277480243474,
+      "priority_weight": 0.5724534610557337,
+      "size_rho": 2704505.6813601074,
+      "task_id": 298,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9472749.059904553,
+      "max_delay_d": 23.5278829517601,
+      "priority_weight": 0.7872906020216779,
+      "size_rho": 4614194.212375803,
+      "task_id": 299,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8417328.487115296,
+      "max_delay_d": 27.46297331302507,
+      "priority_weight": 0.13823686679053684,
+      "size_rho": 3931576.9826517934,
+      "task_id": 300,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7146725.605158737,
+      "max_delay_d": 24.78799227130955,
+      "priority_weight": 0.8185835806666665,
+      "size_rho": 2988916.6438483815,
+      "task_id": 301,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 6441049.0114506,
+      "max_delay_d": 26.515193265437375,
+      "priority_weight": 0.5939621061989638,
+      "size_rho": 4050144.1851873826,
+      "task_id": 302,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2732101.9976620115,
+      "max_delay_d": 20.863638446331013,
+      "priority_weight": 0.5355893281190593,
+      "size_rho": 4279067.094648017,
+      "task_id": 303,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2859606.9062745026,
+      "max_delay_d": 27.201617255431525,
+      "priority_weight": 0.17221261070148544,
+      "size_rho": 4289221.754983066,
+      "task_id": 304,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3801475.045999266,
+      "max_delay_d": 21.627465309511457,
+      "priority_weight": 0.5516868362893622,
+      "size_rho": 4734323.208281865,
+      "task_id": 305,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 2244680.234763012,
+      "max_delay_d": 25.992407865276064,
+      "priority_weight": 0.34440907084684325,
+      "size_rho": 3323671.466482934,
+      "task_id": 306,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2944722.0759567227,
+      "max_delay_d": 21.820940134341463,
+      "priority_weight": 0.7309111427472406,
+      "size_rho": 3595104.6652482525,
+      "task_id": 307,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6172181.270380523,
+      "max_delay_d": 22.348616727417166,
+      "priority_weight": 0.4675189661015746,
+      "size_rho": 3204496.3405364067,
+      "task_id": 308,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3922639.1144553674,
+      "max_delay_d": 21.361401892573546,
+      "priority_weight": 0.8047755409529062,
+      "size_rho": 3249086.6653589,
+      "task_id": 309,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1035797.8840224436,
+      "max_delay_d": 28.140112411254115,
+      "priority_weight": 0.9470592097530716,
+      "size_rho": 4723998.468116388,
+      "task_id": 310,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7590594.773210584,
+      "max_delay_d": 25.47621527721892,
+      "priority_weight": 0.319884502684224,
+      "size_rho": 4642720.059682392,
+      "task_id": 311,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5492760.4182755705,
+      "max_delay_d": 27.049002360777365,
+      "priority_weight": 0.5252121535949154,
+      "size_rho": 2898981.15177883,
+      "task_id": 312,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 7906257.871844335,
+      "max_delay_d": 29.82321334778868,
+      "priority_weight": 0.9436336958129634,
+      "size_rho": 3435094.079547054,
+      "task_id": 313,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4041505.346845212,
+      "max_delay_d": 29.889753952426908,
+      "priority_weight": 0.691673172263326,
+      "size_rho": 4736643.747189777,
+      "task_id": 314,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3692525.921420643,
+      "max_delay_d": 24.229180615970627,
+      "priority_weight": 0.33786016101450755,
+      "size_rho": 4224241.193169053,
+      "task_id": 315,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 4790299.809621504,
+      "max_delay_d": 22.488183508137098,
+      "priority_weight": 0.5483144457505349,
+      "size_rho": 2657482.0716907233,
+      "task_id": 316,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2682449.7316544987,
+      "max_delay_d": 20.46775781715677,
+      "priority_weight": 0.9344497139958012,
+      "size_rho": 2359999.865101235,
+      "task_id": 317,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4353946.624903306,
+      "max_delay_d": 25.811341178206494,
+      "priority_weight": 0.8681067761869008,
+      "size_rho": 4676527.541928159,
+      "task_id": 318,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 9734490.589145187,
+      "max_delay_d": 23.69022056648405,
+      "priority_weight": 0.6353093527910272,
+      "size_rho": 3459718.624393603,
+      "task_id": 319,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4344116.802888736,
+      "max_delay_d": 27.15196930614607,
+      "priority_weight": 0.5016369780196194,
+      "size_rho": 3852635.92790487,
+      "task_id": 320,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4977116.397046531,
+      "max_delay_d": 20.824223479701548,
+      "priority_weight": 0.8370498180978101,
+      "size_rho": 4658419.513066616,
+      "task_id": 321,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 4727011.074924389,
+      "max_delay_d": 26.531611121584206,
+      "priority_weight": 0.8198149946664094,
+      "size_rho": 4087706.0493465615,
+      "task_id": 322,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5232914.465853977,
+      "max_delay_d": 23.8570206559736,
+      "priority_weight": 0.19118787407520477,
+      "size_rho": 3094146.1584828813,
+      "task_id": 323,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6642464.965784664,
+      "max_delay_d": 28.7822018596975,
+      "priority_weight": 0.19879703094328272,
+      "size_rho": 2853175.8614627286,
+      "task_id": 324,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3452985.5221004286,
+      "max_delay_d": 22.401251561160144,
+      "priority_weight": 0.28667880319405853,
+      "size_rho": 2921441.1852212166,
+      "task_id": 325,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 9915690.761895508,
+      "max_delay_d": 20.2014820367371,
+      "priority_weight": 0.7842692514840668,
+      "size_rho": 3204725.2200597115,
+      "task_id": 326,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6067661.799533521,
+      "max_delay_d": 26.304400803607194,
+      "priority_weight": 0.4479644795624672,
+      "size_rho": 2509174.2832642915,
+      "task_id": 327,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9399216.01289718,
+      "max_delay_d": 23.87981936077811,
+      "priority_weight": 0.8148462057878124,
+      "size_rho": 2546088.883764403,
+      "task_id": 328,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6419004.642257085,
+      "max_delay_d": 21.865930534621597,
+      "priority_weight": 0.970924584175331,
+      "size_rho": 3257917.3013054957,
+      "task_id": 329,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 4981516.081608982,
+      "max_delay_d": 23.840976181916513,
+      "priority_weight": 0.38677256401904814,
+      "size_rho": 3203769.0564485826,
+      "task_id": 330,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 9167144.538118668,
+      "max_delay_d": 21.219485519872297,
+      "priority_weight": 0.8233177914147993,
+      "size_rho": 2893457.7747157323,
+      "task_id": 331,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1346893.160183813,
+      "max_delay_d": 21.2745789526268,
+      "priority_weight": 0.803164154507984,
+      "size_rho": 4910106.2756901365,
+      "task_id": 332,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5417342.913826125,
+      "max_delay_d": 26.457932670945095,
+      "priority_weight": 0.20634065256138165,
+      "size_rho": 4855970.960102273,
+      "task_id": 333,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 6722569.740472076,
+      "max_delay_d": 25.22892691642633,
+      "priority_weight": 0.9665125169911029,
+      "size_rho": 3856211.015767395,
+      "task_id": 334,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 2985873.888828662,
+      "max_delay_d": 23.211563222053112,
+      "priority_weight": 0.8364361495145536,
+      "size_rho": 4229225.924366244,
+      "task_id": 335,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 7292976.85555234,
+      "max_delay_d": 21.923521152375145,
+      "priority_weight": 0.9832863811958117,
+      "size_rho": 2250976.1253239904,
+      "task_id": 336,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 8394583.575379068,
+      "max_delay_d": 24.9327770181811,
+      "priority_weight": 0.4296467266675985,
+      "size_rho": 2072584.4947689176,
+      "task_id": 337,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 3032134.2957408912,
+      "max_delay_d": 28.73824940126387,
+      "priority_weight": 0.21796474079613448,
+      "size_rho": 2830431.753732517,
+      "task_id": 338,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6823445.373621676,
+      "max_delay_d": 28.900090877995652,
+      "priority_weight": 0.7239743850628277,
+      "size_rho": 2536674.320954821,
+      "task_id": 339,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 3713464.003583918,
+      "max_delay_d": 24.00829699827844,
+      "priority_weight": 0.16501969783645712,
+      "size_rho": 2223187.263771402,
+      "task_id": 340,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 2969141.198913074,
+      "max_delay_d": 25.681585994941962,
+      "priority_weight": 0.44731008373935,
+      "size_rho": 4263155.57924547,
+      "task_id": 341,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1589752.4494075754,
+      "max_delay_d": 22.522032157052788,
+      "priority_weight": 0.5081021826060003,
+      "size_rho": 4472116.460529466,
+      "task_id": 342,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6420113.899341648,
+      "max_delay_d": 23.379763090234302,
+      "priority_weight": 0.6134177159454001,
+      "size_rho": 4894187.043910015,
+      "task_id": 343,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9271919.70578401,
+      "max_delay_d": 23.214431189289844,
+      "priority_weight": 0.8852498929675247,
+      "size_rho": 4737871.69730985,
+      "task_id": 344,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 8377601.068894691,
+      "max_delay_d": 22.319294749461083,
+      "priority_weight": 0.4784876408803911,
+      "size_rho": 3083463.851741731,
+      "task_id": 345,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3432890.0879453453,
+      "max_delay_d": 21.811428878067034,
+      "priority_weight": 0.8881526556663562,
+      "size_rho": 2332876.346509453,
+      "task_id": 346,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9394625.652514284,
+      "max_delay_d": 26.01704630719548,
+      "priority_weight": 0.8203919013169291,
+      "size_rho": 4345062.08048084,
+      "task_id": 347,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 6867760.028411552,
+      "max_delay_d": 22.838166071211724,
+      "priority_weight": 0.1606495097919576,
+      "size_rho": 2336180.7107699434,
+      "task_id": 348,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6565806.798924291,
+      "max_delay_d": 22.173048687622156,
+      "priority_weight": 0.7595541248348037,
+      "size_rho": 3687283.067728361,
+      "task_id": 349,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 9709415.51864621,
+      "max_delay_d": 20.2938460174678,
+      "priority_weight": 0.703601319730708,
+      "size_rho": 4000000.5127279568,
+      "task_id": 350,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 4663822.182293395,
+      "max_delay_d": 26.566631490141525,
+      "priority_weight": 0.5294489288840816,
+      "size_rho": 3460099.345018153,
+      "task_id": 351,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 6237518.108024541,
+      "max_delay_d": 23.253097852409923,
+      "priority_weight": 0.875268103576793,
+      "size_rho": 2573142.809338048,
+      "task_id": 352,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 2397465.891637368,
+      "max_delay_d": 22.314904528377056,
+      "priority_weight": 0.8294354331704027,
+      "size_rho": 3653592.3671754734,
+      "task_id": 353,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 3043256.957211723,
+      "max_delay_d": 24.105623301431972,
+      "priority_weight": 0.9649065177088689,
+      "size_rho": 4811295.673644505,
+      "task_id": 354,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6186862.595345843,
+      "max_delay_d": 22.713818526984447,
+      "priority_weight": 0.7170649558652761,
+      "size_rho": 4961108.071575449,
+      "task_id": 355,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 3158114.054900542,
+      "max_delay_d": 22.922760161016228,
+      "priority_weight": 0.6424479746892633,
+      "size_rho": 2347411.2589548547,
+      "task_id": 356,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 2077641.6954067454,
+      "max_delay_d": 22.359688309463245,
+      "priority_weight": 0.9069561004615678,
+      "size_rho": 2396880.9850786887,
+      "task_id": 357,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 2931241.4445880083,
+      "max_delay_d": 20.577015779003474,
+      "priority_weight": 0.6573878224158172,
+      "size_rho": 3376760.126132464,
+      "task_id": 358,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 4275119.200601105,
+      "max_delay_d": 25.053220224202747,
+      "priority_weight": 0.8824716828413739,
+      "size_rho": 2449411.3879240886,
+      "task_id": 359,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 1050855.1267028847,
+      "max_delay_d": 20.335921319461185,
+      "priority_weight": 0.622269220040321,
+      "size_rho": 2880839.7650111886,
+      "task_id": 360,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 3615273.4366384055,
+      "max_delay_d": 25.472309327742423,
+      "priority_weight": 0.363387914616384,
+      "size_rho": 3321657.5239781933,
+      "task_id": 361,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 8706588.2829185,
+      "max_delay_d": 22.73716195719872,
+      "priority_weight": 0.8927096261196054,
+      "size_rho": 4837748.413323326,
+      "task_id": 362,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5835413.037111202,
+      "max_delay_d": 28.032427552530063,
+      "priority_weight": 0.6648421016193136,
+      "size_rho": 2369332.081975042,
+      "task_id": 363,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 7413087.646580605,
+      "max_delay_d": 25.822105966166795,
+      "priority_weight": 0.4465327042338918,
+      "size_rho": 3446987.521577214,
+      "task_id": 364,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 6283672.273653597,
+      "max_delay_d": 23.057895084938252,
+      "priority_weight": 0.22117487027362764,
+      "size_rho": 2372278.904570546,
+      "task_id": 365,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 5181972.614691583,
+      "max_delay_d": 24.40870360229673,
+      "priority_weight": 0.8287307069295958,
+      "size_rho": 3746877.1003184803,
+      "task_id": 366,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 6799622.85527098,
+      "max_delay_d": 24.965216971264518,
+      "priority_weight": 0.7562620462472001,
+      "size_rho": 2037764.680327967,
+      "task_id": 367,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 8309261.519898756,
+      "max_delay_d": 27.33831682710204,
+      "priority_weight": 0.549938924892304,
+      "size_rho": 3095769.782955393,
+      "task_id": 368,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 3245799.9260469805,
+      "max_delay_d": 26.068563141825507,
+      "priority_weight": 0.5628858678067581,
+      "size_rho": 2056629.7708818559,
+      "task_id": 369,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 7268918.19989471,
+      "max_delay_d": 25.830043879192186,
+      "priority_weight": 0.7829339874806408,
+      "size_rho": 2917691.6205913457,
+      "task_id": 370,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 7218718.727224102,
+      "max_delay_d": 25.57077223005527,
+      "priority_weight": 0.1593637626432213,
+      "size_rho": 2458588.358328015,
+      "task_id": 371,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 5660877.121080709,
+      "max_delay_d": 28.960705428671137,
+      "priority_weight": 0.10418175528086666,
+      "size_rho": 2193339.4845141717,
+      "task_id": 372,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 6587429.7914298335,
+      "max_delay_d": 21.061884381148943,
+      "priority_weight": 0.9523860585938108,
+      "size_rho": 2808885.5652031433,
+      "task_id": 373,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 9995143.655544912,
+      "max_delay_d": 20.08261541295693,
+      "priority_weight": 0.4751525867981752,
+      "size_rho": 2859204.4935502848,
+      "task_id": 374,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 3777591.1167945517,
+      "max_delay_d": 24.596570220360086,
+      "priority_weight": 0.8157397289395025,
+      "size_rho": 4417046.440877009,
+      "task_id": 375,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8088213.329817563,
+      "max_delay_d": 28.24949221039508,
+      "priority_weight": 0.9213359193869957,
+      "size_rho": 4615920.023558028,
+      "task_id": 376,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 7621453.647786728,
+      "max_delay_d": 24.56904421042615,
+      "priority_weight": 0.9360934002161191,
+      "size_rho": 4135601.650262742,
+      "task_id": 377,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 9391790.136284813,
+      "max_delay_d": 20.345640088941103,
+      "priority_weight": 0.19111349513120213,
+      "size_rho": 3369884.772207479,
+      "task_id": 378,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 6614783.159867316,
+      "max_delay_d": 29.06339825190532,
+      "priority_weight": 0.9013396269565872,
+      "size_rho": 3559299.410245491,
+      "task_id": 379,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 8486318.000577655,
+      "max_delay_d": 28.822830324540902,
+      "priority_weight": 0.8105336654122589,
+      "size_rho": 3813730.828620279,
+      "task_id": 380,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 1623420.0888931423,
+      "max_delay_d": 29.430458577873104,
+      "priority_weight": 0.6411824416886661,
+      "size_rho": 3654610.6852636943,
+      "task_id": 381,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 2558178.2113541747,
+      "max_delay_d": 23.73391487220124,
+      "priority_weight": 0.5804282366734406,
+      "size_rho": 3189318.282221418,
+      "task_id": 382,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 9244561.109710813,
+      "max_delay_d": 25.39227349508812,
+      "priority_weight": 0.7908715680244266,
+      "size_rho": 2617850.090699513,
+      "task_id": 383,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 2695386.3923978396,
+      "max_delay_d": 24.674015831253,
+      "priority_weight": 0.3613742712775787,
+      "size_rho": 2108129.790158228,
+      "task_id": 384,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 7767697.962952026,
+      "max_delay_d": 20.424412247973557,
+      "priority_weight": 0.369853451979433,
+      "size_rho": 4398681.372377912,
+      "task_id": 385,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 1212436.114049976,
+      "max_delay_d": 21.776812308765038,
+      "priority_weight": 0.6798257493975572,
+      "size_rho": 2812342.38519325,
+      "task_id": 386,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 3242559.143067506,
+      "max_delay_d": 25.677821106521225,
+      "priority_weight": 0.648018901512866,
+      "size_rho": 4136171.38407143,
+      "task_id": 387,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 7346588.760648766,
+      "max_delay_d": 29.92361770780815,
+      "priority_weight": 0.439435696757967,
+      "size_rho": 4920803.489761128,
+      "task_id": 388,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 1704076.5364026304,
+      "max_delay_d": 23.121950917034564,
+      "priority_weight": 0.5240688956637058,
+      "size_rho": 3753234.1624133363,
+      "task_id": 389,
+      "vehicle_id": "v_9"
+    },
+    {
+      "cpu_phi": 2929023.4974322743,
+      "max_delay_d": 20.00349802234328,
+      "priority_weight": 0.5561908853971086,
+      "size_rho": 4601688.624868182,
+      "task_id": 390,
+      "vehicle_id": "v_0"
+    },
+    {
+      "cpu_phi": 8166099.173769043,
+      "max_delay_d": 20.352045063937528,
+      "priority_weight": 0.3764960596248895,
+      "size_rho": 4778986.358749868,
+      "task_id": 391,
+      "vehicle_id": "v_1"
+    },
+    {
+      "cpu_phi": 1943226.6267251049,
+      "max_delay_d": 27.35023658602246,
+      "priority_weight": 0.17158983249074322,
+      "size_rho": 2778945.122452897,
+      "task_id": 392,
+      "vehicle_id": "v_2"
+    },
+    {
+      "cpu_phi": 5077336.481169755,
+      "max_delay_d": 27.34457554828225,
+      "priority_weight": 0.9293361034100527,
+      "size_rho": 4939692.552809376,
+      "task_id": 393,
+      "vehicle_id": "v_3"
+    },
+    {
+      "cpu_phi": 4442548.126543036,
+      "max_delay_d": 20.858201197253234,
+      "priority_weight": 0.6026386233854172,
+      "size_rho": 3366314.573149843,
+      "task_id": 394,
+      "vehicle_id": "v_4"
+    },
+    {
+      "cpu_phi": 4735317.899126722,
+      "max_delay_d": 26.812579403818617,
+      "priority_weight": 0.23528931094789865,
+      "size_rho": 2037730.879117081,
+      "task_id": 395,
+      "vehicle_id": "v_5"
+    },
+    {
+      "cpu_phi": 8167452.341792664,
+      "max_delay_d": 27.974788994636683,
+      "priority_weight": 0.126943578242555,
+      "size_rho": 4387674.262086263,
+      "task_id": 396,
+      "vehicle_id": "v_6"
+    },
+    {
+      "cpu_phi": 9304887.703816138,
+      "max_delay_d": 20.369694539299633,
+      "priority_weight": 0.37676671898994585,
+      "size_rho": 3668249.09381463,
+      "task_id": 397,
+      "vehicle_id": "v_7"
+    },
+    {
+      "cpu_phi": 4193885.4772807467,
+      "max_delay_d": 20.865557711753958,
+      "priority_weight": 0.5909821050115578,
+      "size_rho": 2303797.3441710854,
+      "task_id": 398,
+      "vehicle_id": "v_8"
+    },
+    {
+      "cpu_phi": 8549809.752113663,
+      "max_delay_d": 26.316783504921986,
+      "priority_weight": 0.588144712313039,
+      "size_rho": 4092413.5170378014,
+      "task_id": 399,
+      "vehicle_id": "v_9"
+    }
+  ],
+  "total_tasks": 400,
+  "vehicle_entries": [
+    {
+      "entry_time": 0.0,
+      "speed": 38.81468120507864,
+      "vehicle_id": "v_0"
+    },
+    {
+      "entry_time": 2.0,
+      "speed": 33.420773864388785,
+      "vehicle_id": "v_1"
+    },
+    {
+      "entry_time": 4.0,
+      "speed": 38.71697696116492,
+      "vehicle_id": "v_2"
+    },
+    {
+      "entry_time": 6.0,
+      "speed": 38.017062938245736,
+      "vehicle_id": "v_3"
+    },
+    {
+      "entry_time": 8.0,
+      "speed": 36.4817317535376,
+      "vehicle_id": "v_4"
+    },
+    {
+      "entry_time": 10.0,
+      "speed": 30.827631781755603,
+      "vehicle_id": "v_5"
+    },
+    {
+      "entry_time": 12.0,
+      "speed": 35.692199663752056,
+      "vehicle_id": "v_6"
+    },
+    {
+      "entry_time": 14.0,
+      "speed": 39.65911980377963,
+      "vehicle_id": "v_7"
+    },
+    {
+      "entry_time": 16.0,
+      "speed": 33.41546518433731,
+      "vehicle_id": "v_8"
+    },
+    {
+      "entry_time": 18.0,
+      "speed": 38.9445838050751,
+      "vehicle_id": "v_9"
+    }
+  ],
+  "workload_tasks_per_vehicle": 40
+}
