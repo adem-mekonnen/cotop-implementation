@@ -1,0 +1,13 @@
+{
+  "cell_id": "grid_200m_Greedy_w30_seed0",
+  "algorithm": "Greedy",
+  "geometry": "grid_200m",
+  "workload": 30,
+  "seed": 0,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\grid_200m_w30_seed0_realization.json",
+  "realization_hash": "19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890",
+  "checkpoint_file": "NONE_HEURISTIC_BASELINE",
+  "checkpoint_sha256": "NONE",
+  "created_at": "2026-08-31T06:01:08Z"
+}

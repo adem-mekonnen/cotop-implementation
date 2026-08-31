@@ -1,0 +1,14 @@
+{
+  "cell_id": "corridor_2400m_DDQN_w20_seed0",
+  "algorithm": "DDQN",
+  "geometry": "corridor_2400m",
+  "workload": 20,
+  "seed": 0,
+  "eval_seed": 30000,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\corridor_2400m_w20_seed0_realization.json",
+  "realization_hash": "11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f",
+  "checkpoint_file": "results\\phase2_algorithmic_fidelity\\corridor_2400m\\DDQN\\w20\\seed_0\\checkpoint_ep500.pt",
+  "checkpoint_sha256": "ccad013ccca5f8e60a1531646373a005c63627f88fa405641eb06447cd03e292",
+  "created_at": "2026-08-31T05:14:02Z"
+}

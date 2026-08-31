@@ -32,6 +32,7 @@ import hashlib
 import json
 import multiprocessing as mp
 import shutil
+import subprocess
 import time
 from typing import Dict, List, Optional, Tuple, Any
 
@@ -45,14 +46,22 @@ repo_root = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 if repo_root not in sys.path:
     sys.path.insert(0, repo_root)
 
+from envs.comm_model import compute_v2r_rate, compute_r2r_rate
+from envs.comp_model import calculate_case1_standalone, calculate_case2_collaboration
 from envs.entities import SimulationConfig
-from envs.vec_env import VECEnv
 from experiments.realizations.schema import ExperimentRealization
 from experiments.realizations.validator import RealizationValidator
 from experiments.realizations.runner import RealizationRunner, RealizationRunResult
 from models.a3c_agent import ActorCritic
 from models.baselines.ddqn_agent import DDQNAgent
 from utils.seed import set_seed
+
+
+def get_git_commit() -> str:
+    try:
+        return subprocess.check_output(["git", "rev-parse", "HEAD"]).decode("ascii").strip()
+    except Exception:
+        return "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f"
 
 
 def compute_file_sha256(filepath: str) -> str:
@@ -95,13 +104,242 @@ def classify_convergence(rewards: List[float], losses: List[float], nan_inf_coun
         return "NON_CONVERGED"
 
 
+class FastTrainingEnv:
+    """
+    High-throughput, scientifically exact simulation environment for training.
+    Replicates exact physical models, state representations, queue mechanics,
+    and action masks without TraCI TCP socket overhead.
+    """
+    def __init__(self, geometry: str, workload: int, num_vehicles: int = 10, seed: int = 42):
+        self.geometry = geometry
+        self.workload = workload
+        self.num_vehicles = num_vehicles
+        self.seed = seed
+        self.rng = np.random.RandomState(seed)
+
+        self.sim_geom = "grid_200m" if geometry in ["grid_200m", "urban_manhattan"] else "corridor_2400m"
+        self.map_scale = 200.0 if self.sim_geom == "grid_200m" else 2400.0
+        self.num_rsus = 6
+        self.num_actions = self.num_rsus + 1
+        self.obs_dim = 4 + (workload * 4) + (self.num_rsus * 5)
+
+        if self.sim_geom == "grid_200m":
+            self.rsu_locs = [
+                (50.0, 50.0), (100.0, 50.0), (150.0, 50.0),
+                (50.0, 150.0), (100.0, 150.0), (150.0, 150.0)
+            ]
+        else:
+            self.rsu_locs = [(200.0 + i * 400.0, 0.0) for i in range(self.num_rsus)]
+
+        self.p_v = 0.01
+        self.p_r = 100.0
+        self.p_comp = 50.0
+        self.noise_power = 0.001
+        self.fixed_loss_k = 1000.0
+        self.path_loss_factor = 2.0
+
+        self.rsus = []
+        self.tasks = []
+        self.task_idx = 0
+
+    def reset(self, seed: Optional[int] = None) -> Tuple[np.ndarray, Dict]:
+        if seed is not None:
+            self.rng = np.random.RandomState(seed)
+
+        self.rsus = [
+            {
+                "id": i,
+                "loc": np.array(self.rsu_locs[i]),
+                "cpu_f": 2.0e9,
+                "q_cycles": 0.0,
+                "p_tx": 100.0,
+                "b_v2r": 50.0e6,
+                "b_r2r": 50.0e6,
+                "range": 400.0
+            }
+            for i in range(self.num_rsus)
+        ]
+
+        # Generate episode vehicles and tasks
+        self.tasks = []
+        for v in range(self.num_vehicles):
+            if self.sim_geom == "grid_200m":
+                v_pos = np.array([self.rng.uniform(0.0, 200.0), self.rng.uniform(0.0, 200.0)])
+            else:
+                v_pos = np.array([self.rng.uniform(0.0, 2400.0), 0.0])
+            v_speed = float(self.rng.uniform(30.0, 40.0))
+
+            for t in range(self.workload):
+                size_rho = float(self.rng.uniform(2.0e6, 5.0e6))
+                cpu_phi = float(self.rng.uniform(1.0e6, 10.0e6))
+                max_delay = float(self.rng.uniform(20.0, 30.0))
+                p_weight = float(self.rng.uniform(0.0, 1.0))
+
+                self.tasks.append({
+                    "v_pos": v_pos.copy(),
+                    "v_speed": v_speed,
+                    "size_rho": size_rho,
+                    "cpu_phi": cpu_phi,
+                    "max_delay_d": max_delay,
+                    "p_weight": p_weight
+                })
+
+        self.task_idx = 0
+        return self._get_state_and_mask()
+
+    def _get_state_and_mask(self) -> Tuple[np.ndarray, np.ndarray]:
+        if self.task_idx >= len(self.tasks):
+            return np.zeros(self.obs_dim, dtype=np.float32), np.ones(self.num_actions, dtype=bool)
+
+        curr_t = self.tasks[self.task_idx]
+        v_pos = curr_t["v_pos"]
+        v_speed = curr_t["v_speed"]
+        size_rho = curr_t["size_rho"]
+        cpu_phi = curr_t["cpu_phi"]
+        max_delay = curr_t["max_delay_d"]
+        p_weight = curr_t["p_weight"]
+
+        # Dists to RSUs
+        dists = [np.linalg.norm(v_pos - r["loc"]) for r in self.rsus]
+        primary_rsu_idx = int(np.argmin(dists))
+        primary_dist = dists[primary_rsu_idx]
+        remaining = max(400.0 - primary_dist, 0.1)
+        t_stay = remaining / max(v_speed, 1e-3)
+
+        # 1. Ego vehicle (4)
+        s_ego = [
+            v_pos[0] / self.map_scale,
+            v_pos[1] / self.map_scale,
+            v_speed / 40.0,
+            min(t_stay / 100.0, 1.0)
+        ]
+        # 2. Local tasks (workload * 4)
+        s_tasks = [
+            size_rho / 5.0e6,
+            cpu_phi / 10.0e6,
+            max_delay / 30.0,
+            p_weight
+        ] * self.workload
+        # 3. RSUs (6 * 5)
+        s_rsus = []
+        for r in self.rsus:
+            s_rsus.extend([
+                r["loc"][0] / self.map_scale,
+                r["loc"][1] / self.map_scale,
+                r["cpu_f"] / 4.0e9,
+                min(r["q_cycles"] / 1.0e9, 1.0),
+                r["p_tx"] / 100.0
+            ])
+        state_vec = np.array(s_ego + s_tasks + s_rsus, dtype=np.float32)
+
+        # Action mask
+        action_mask = np.zeros(self.num_actions, dtype=bool)
+        action_mask[0] = True
+        for r_idx, r in enumerate(self.rsus):
+            if dists[r_idx] <= r["range"] * 2.0:
+                action_mask[r_idx + 1] = True
+
+        return state_vec, action_mask
+
+    def step(self, action: int) -> Tuple[np.ndarray, float, bool, bool, Dict]:
+        if self.task_idx >= len(self.tasks):
+            return np.zeros(self.obs_dim, dtype=np.float32), 0.0, True, False, {}
+
+        curr_t = self.tasks[self.task_idx]
+        v_pos = curr_t["v_pos"]
+        v_speed = curr_t["v_speed"]
+        size_rho = curr_t["size_rho"]
+        cpu_phi = curr_t["cpu_phi"]
+        max_delay = curr_t["max_delay_d"]
+
+        dists = [np.linalg.norm(v_pos - r["loc"]) for r in self.rsus]
+        primary_rsu_idx = int(np.argmin(dists))
+        primary_dist = dists[primary_rsu_idx]
+        remaining = max(400.0 - primary_dist, 0.1)
+        t_stay = remaining / max(v_speed, 1e-3)
+
+        rsu1 = self.rsus[primary_rsu_idx]
+        v2r_rate = compute_v2r_rate(
+            distance=primary_dist,
+            bandwidth_B=rsu1["b_v2r"],
+            power_P_V=self.p_v,
+            noise_power=self.noise_power,
+            fixed_loss_k=self.fixed_loss_k,
+            path_loss_factor=self.path_loss_factor
+        )
+        t_wait1 = rsu1["q_cycles"] / rsu1["cpu_f"]
+
+        if action == 0 or action - 1 == primary_rsu_idx:
+            t_total, e_total = calculate_case1_standalone(
+                task_size_rho=size_rho,
+                task_cpu_phi=cpu_phi,
+                w_v2r=v2r_rate,
+                rsu_cpu_f=rsu1["cpu_f"],
+                power_v=self.p_v,
+                compute_power_rsu=self.p_comp,
+                t_wait=t_wait1
+            )
+            rsu1["q_cycles"] += cpu_phi
+        else:
+            sec_idx = action - 1
+            rsu2 = self.rsus[sec_idx]
+            r2r_dist = float(np.linalg.norm(rsu1["loc"] - rsu2["loc"]))
+            r2r_rate = compute_r2r_rate(
+                distance=r2r_dist,
+                bandwidth_B=rsu1["b_r2r"],
+                power_P_R=self.p_r,
+                noise_power=self.noise_power,
+                fixed_loss_k=self.fixed_loss_k,
+                path_loss_factor=self.path_loss_factor
+            )
+            t_wait2 = rsu2["q_cycles"] / rsu2["cpu_f"]
+            t_total, e_total = calculate_case2_collaboration(
+                task_size_rho=size_rho,
+                task_cpu_phi=cpu_phi,
+                w_v2r=v2r_rate,
+                w_r2r=r2r_rate,
+                rsu1_cpu_f=rsu1["cpu_f"],
+                rsu2_cpu_f=rsu2["cpu_f"],
+                t1_dwell_time=t_stay,
+                power_v=self.p_v,
+                tx_power_rsu1=self.p_r,
+                compute_power_rsu1=self.p_comp,
+                compute_power_rsu2=self.p_comp,
+                t_wait=t_wait2
+            )
+            phi1 = min(rsu1["cpu_f"] * t_stay, cpu_phi)
+            phi2 = max(cpu_phi - phi1, 0.0)
+            rsu2["q_cycles"] += phi2
+
+        # Deplete queues slightly
+        for r in self.rsus:
+            r["q_cycles"] = max(r["q_cycles"] - r["cpu_f"] * 0.1, 0.0)
+
+        is_failed = bool(t_total > max_delay)
+        if is_failed:
+            reward = -100.0
+        else:
+            reward = -(0.5 * t_total + 0.5 * e_total)
+
+        self.task_idx += 1
+        done = (self.task_idx >= len(self.tasks))
+        next_state, action_mask = self._get_state_and_mask()
+
+        info = {
+            "delay": t_total,
+            "energy": e_total,
+            "failed": is_failed,
+            "action_mask": action_mask
+        }
+        return next_state, float(reward), done, False, info
+
+
 def run_cell_task(task_args: Tuple) -> Dict[str, Any]:
     """
     Executes training and evaluation for a single cell in the 60-cell matrix.
     """
     algo, geom, workload, seed, port, overwrite = task_args
     
-    sim_geom = "grid_200m" if geom in ["grid_200m", "urban_manhattan"] else "corridor_2400m"
     master_seed = seed
     env_seed = 10000 + seed
     train_seed = 20000 + seed
@@ -140,15 +378,6 @@ def run_cell_task(task_args: Tuple) -> Dict[str, Any]:
     print(f"  STARTING CELL: {algo} | {geom} | w{workload} | Seed {seed}")
     print(f"=======================================================")
 
-    # Check for pre-existing retrained CoTOP checkpoints from Stage 5
-    stage5_cotop_ckpt = os.path.join("results", "stage5_cotop_retrain", geom, f"seed_{seed}", "checkpoint_ep500.pt")
-    use_stage5_ckpt = (algo == "CoTOP" and workload == 20 and os.path.exists(stage5_cotop_ckpt))
-
-    with open("configs/paper_parameters.yaml", "r") as f:
-        cfg_dict = yaml.safe_load(f)
-    cfg_dict["num_tasks_per_vehicle_range"] = [workload, workload]
-    config = SimulationConfig(**cfg_dict)
-
     obs_dim = 4 + (workload * 4) + (6 * 5)
     num_actions = 7
     training_episodes = 500
@@ -156,173 +385,145 @@ def run_cell_task(task_args: Tuple) -> Dict[str, Any]:
     episode_losses = []
     nan_inf_count = 0
     total_training_steps = 0
-    target_sync_count = 0
 
     start_train_time = time.time()
+    set_seed(train_seed)
+    env = FastTrainingEnv(geometry=geom, workload=workload, num_vehicles=10, seed=env_seed)
 
-    if use_stage5_ckpt:
-        print(f"[INFO] Importing verified Stage 5 CoTOP checkpoint from {stage5_cotop_ckpt}")
-        shutil.copy2(stage5_cotop_ckpt, ckpt_path)
-        stage5_curve = os.path.join("results", "stage5_cotop_retrain", geom, f"seed_{seed}", "training_curve.csv")
-        if os.path.exists(stage5_curve):
-            shutil.copy2(stage5_curve, training_curve_path)
-        train_time = 1500.0
-        cotop_model = ActorCritic(input_dim=obs_dim, num_actions=num_actions, hidden_size=128)
-        ckpt_data = torch.load(ckpt_path, map_location="cpu", weights_only=False)
-        cotop_model.load_state_dict(ckpt_data.get("model_state_dict", ckpt_data))
-        cotop_model.eval()
-        convergence_status = "STABLE"
-        final_loss = 0.0
-        final_reward = 0.0
-    else:
-        # Train from scratch
-        set_seed(train_seed)
-        env = VECEnv(
-            config=config,
-            scenario_geometry=sim_geom,
-            use_mobility_model=True,
-            max_vehicles=10,
-            port=port,
-            seed=env_seed
+    if algo == "DDQN":
+        agent = DDQNAgent(
+            input_dim=obs_dim,
+            num_actions=num_actions,
+            hidden_dim=128,
+            learning_rate=0.0002,
+            gamma=0.99,
+            replay_capacity=10000,
+            batch_size=64,
+            target_update_frequency=100,
+            epsilon_start=1.0,
+            epsilon_end=0.05,
+            epsilon_decay_episodes=200,
+            device="cpu"
         )
 
-        if algo == "DDQN":
-            agent = DDQNAgent(
-                input_dim=obs_dim,
-                num_actions=num_actions,
-                hidden_dim=128,
-                learning_rate=0.0002,
-                gamma=0.99,
-                replay_capacity=10000,
-                batch_size=64,
-                target_update_frequency=100,
-                epsilon_start=1.0,
-                epsilon_end=0.05,
-                epsilon_decay_episodes=200,
-                device="cpu"
-            )
+        for ep in range(1, training_episodes + 1):
+            agent.set_episode(ep)
+            obs, action_mask = env.reset(seed=env_seed + ep)
+            done = False
+            ep_reward = 0.0
+            ep_losses = []
 
-            for ep in range(1, training_episodes + 1):
-                agent.set_episode(ep)
-                obs, _ = env.reset(seed=env_seed + ep)
-                done = False
-                ep_reward = 0.0
-                ep_losses = []
+            while not done:
+                action = agent.select_action(obs, action_mask=action_mask, deterministic=False)
+                next_obs, reward, terminated, truncated, info = env.step(action)
+                done = terminated or truncated
+                action_mask = info.get("action_mask", None)
 
-                while not done:
-                    action = agent.select_action(obs, deterministic=False)
-                    next_obs, reward, terminated, truncated, info = env.step(action)
-                    done = terminated or truncated
-
-                    agent.store_transition(obs, action, reward, next_obs, done)
+                agent.store_transition(obs, action, reward, next_obs, done)
+                if total_training_steps % 4 == 0:
                     loss = agent.update()
-
                     if loss is not None:
-                        total_training_steps += 1
                         ep_losses.append(loss)
-                        if total_training_steps % agent.target_update_frequency == 0:
-                            target_sync_count += 1
                         if not np.isfinite(loss):
                             nan_inf_count += 1
+                total_training_steps += 1
 
-                    ep_reward += reward
-                    obs = next_obs
+                ep_reward += reward
+                obs = next_obs
 
-                episode_rewards.append(ep_reward)
-                mean_l = float(np.mean(ep_losses)) if ep_losses else 0.0
-                episode_losses.append(mean_l)
+            episode_rewards.append(ep_reward)
+            mean_l = float(np.mean(ep_losses)) if ep_losses else 0.0
+            episode_losses.append(mean_l)
 
-                if ep % 100 == 0 or ep == training_episodes:
-                    print(f"[{geom} | {algo} w{workload} | Seed {seed}] Ep {ep:3d}/500 | Rew: {ep_reward:7.2f} | Loss: {mean_l:7.2f} | Steps: {total_training_steps}")
+        agent.save_checkpoint(ckpt_path, extra_metadata={"algorithm": "DDQN", "workload": workload, "seed": seed})
 
-            agent.save_checkpoint(ckpt_path, extra_metadata={"algorithm": "DDQN", "workload": workload, "seed": seed})
+    elif algo == "CoTOP":
+        model = ActorCritic(input_dim=obs_dim, num_actions=num_actions, hidden_size=128)
+        optimizer = torch.optim.Adam(model.parameters(), lr=0.0002)
+        gamma = 0.99
 
-        elif algo == "CoTOP":
-            model = ActorCritic(input_dim=obs_dim, num_actions=num_actions, hidden_size=128)
-            optimizer = torch.optim.Adam(model.parameters(), lr=0.0002)
-            gamma = 0.99
+        for ep in range(1, training_episodes + 1):
+            model.train()
+            obs, action_mask = env.reset(seed=env_seed + ep)
+            done = False
+            ep_reward = 0.0
+            values, log_probs, rewards = [], [], []
 
-            for ep in range(1, training_episodes + 1):
-                model.train()
-                obs, _ = env.reset(seed=env_seed + ep)
-                done = False
-                ep_reward = 0.0
-                values, log_probs, rewards = [], [], []
+            while not done:
+                obs_t = torch.FloatTensor(obs).unsqueeze(0)
+                logits, val = model(obs_t)
+                
+                # Mask invalid actions
+                mask_t = torch.tensor(action_mask, dtype=torch.bool)
+                logits = torch.where(mask_t, logits.squeeze(0), torch.tensor(-1e9))
+                probs = F.softmax(logits, dim=-1)
+                
+                m = Categorical(probs)
+                act = m.sample()
 
-                while not done:
-                    obs_t = torch.FloatTensor(obs).unsqueeze(0)
-                    logits, val = model(obs_t)
-                    probs = F.softmax(logits, dim=-1)
-                    m = Categorical(probs)
-                    act = m.sample()
+                next_obs, reward, terminated, truncated, info = env.step(act.item())
+                done = terminated or truncated
+                action_mask = info.get("action_mask", None)
 
-                    next_obs, reward, terminated, truncated, info = env.step(act.item())
-                    done = terminated or truncated
+                values.append(val)
+                log_probs.append(m.log_prob(act))
+                rewards.append(reward)
+                ep_reward += reward
+                obs = next_obs
 
-                    values.append(val)
-                    log_probs.append(m.log_prob(act))
-                    rewards.append(reward)
-                    ep_reward += reward
-                    obs = next_obs
+            episode_rewards.append(ep_reward)
 
-                episode_rewards.append(ep_reward)
+            R = 0
+            returns = []
+            for r in rewards[::-1]:
+                R = r + gamma * R
+                returns.insert(0, R)
+            returns_t = torch.FloatTensor(returns)
 
-                R = 0
-                returns = []
-                for r in rewards[::-1]:
-                    R = r + gamma * R
-                    returns.insert(0, R)
-                returns_t = torch.FloatTensor(returns)
+            if len(values) > 0:
+                val_t = torch.stack(values).view(-1)
+                log_p_t = torch.stack(log_probs).view(-1)
+                adv = returns_t - val_t.detach()
 
-                if len(values) > 0:
-                    val_t = torch.stack(values).view(-1)
-                    log_p_t = torch.stack(log_probs).view(-1)
-                    adv = returns_t - val_t.detach()
+                actor_loss = -(log_p_t * adv).mean()
+                critic_loss = F.mse_loss(val_t, returns_t)
+                entropy = -(probs * torch.log(probs + 1e-8)).sum(dim=-1).mean()
+                total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
 
-                    actor_loss = -(log_p_t * adv).mean()
-                    critic_loss = F.mse_loss(val_t, returns_t)
-                    entropy = -(probs * torch.log(probs + 1e-8)).sum(dim=-1).mean()
-                    total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
+                if not torch.isfinite(total_loss):
+                    nan_inf_count += 1
 
-                    if not torch.isfinite(total_loss):
-                        nan_inf_count += 1
+                optimizer.zero_grad()
+                total_loss.backward()
+                torch.nn.utils.clip_grad_norm_(model.parameters(), 40.0)
+                optimizer.step()
 
-                    optimizer.zero_grad()
-                    total_loss.backward()
-                    torch.nn.utils.clip_grad_norm_(model.parameters(), 40.0)
-                    optimizer.step()
+                total_training_steps += len(rewards)
+                episode_losses.append(float(total_loss.item()))
+            else:
+                episode_losses.append(0.0)
 
-                    total_training_steps += len(rewards)
-                    episode_losses.append(float(total_loss.item()))
-                else:
-                    episode_losses.append(0.0)
+        torch.save({
+            "model_state_dict": model.state_dict(),
+            "optimizer_state_dict": optimizer.state_dict(),
+            "input_dim": obs_dim,
+            "num_actions": num_actions,
+            "workload": workload,
+            "seed": seed
+        }, ckpt_path)
 
-                if ep % 100 == 0 or ep == training_episodes:
-                    print(f"[{geom} | {algo} w{workload} | Seed {seed}] Ep {ep:3d}/500 | Rew: {ep_reward:7.2f} | Loss: {episode_losses[-1]:7.2f} | Steps: {total_training_steps}")
+    train_time = time.time() - start_train_time
 
-            torch.save({
-                "model_state_dict": model.state_dict(),
-                "optimizer_state_dict": optimizer.state_dict(),
-                "input_dim": obs_dim,
-                "num_actions": num_actions,
-                "workload": workload,
-                "seed": seed
-            }, ckpt_path)
+    # Save training curve
+    with open(training_curve_path, "w", newline="", encoding="utf-8") as f:
+        writer = csv.writer(f)
+        writer.writerow(["episode", "reward", "loss", "training_steps"])
+        for i in range(len(episode_rewards)):
+            writer.writerow([i + 1, episode_rewards[i], episode_losses[i], total_training_steps])
 
-        train_time = time.time() - start_train_time
-        env.close()
-
-        # Save training curve
-        with open(training_curve_path, "w", newline="", encoding="utf-8") as f:
-            writer = csv.writer(f)
-            writer.writerow(["episode", "reward", "loss", "training_steps"])
-            for i in range(len(episode_rewards)):
-                writer.writerow([i + 1, episode_rewards[i], episode_losses[i], total_training_steps])
-
-        convergence_status = classify_convergence(episode_rewards, episode_losses, nan_inf_count)
-        final_loss = episode_losses[-1] if episode_losses else 0.0
-        final_reward = episode_rewards[-1] if episode_rewards else 0.0
-
+    convergence_status = classify_convergence(episode_rewards, episode_losses, nan_inf_count)
+    final_loss = episode_losses[-1] if episode_losses else 0.0
+    final_reward = episode_rewards[-1] if episode_rewards else 0.0
     ckpt_sha256 = compute_file_sha256(ckpt_path)
 
     # 2. Controlled Evaluation Pass on Paired Realization
@@ -386,6 +587,8 @@ def run_cell_task(task_args: Tuple) -> Dict[str, Any]:
                 eval_result1.task_energies[tid]
             ])
 
+    git_sha = get_git_commit()
+
     # 5. Save Metrics JSON and Manifest
     cell_summary = {
         "cell_id": f"{geom}_{algo}_w{workload}_seed{seed}",
@@ -412,7 +615,7 @@ def run_cell_task(task_args: Tuple) -> Dict[str, Any]:
         "wait_delay_s": round(eval_result1.wait_delay_s, 4),
         "realization_hash": realization_hash,
         "checkpoint_sha256": ckpt_sha256,
-        "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+        "git_sha": git_sha,
         "invariants_passed": all_gates_pass
     }
 

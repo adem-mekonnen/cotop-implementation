@@ -5,10 +5,10 @@
   "workload": 20,
   "seed": 2,
   "eval_seed": 30002,
-  "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
   "realization_file": "data\\evaluation_realizations\\corridor_2400m_w20_seed2_realization.json",
   "realization_hash": "4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1",
   "checkpoint_file": "results\\phase2_algorithmic_fidelity\\corridor_2400m\\CoTOP\\w20\\seed_2\\checkpoint_ep500.pt",
-  "checkpoint_sha256": "a01007aa2a11814d77a0c0a562e62467909cc84bed5a791a835795a23c19f813",
-  "created_at": "2026-08-29T08:28:08Z"
+  "checkpoint_sha256": "25a4af863180f90e1299e3230f79beb1df9a1342a503ec37fe8514c05c3f7102",
+  "created_at": "2026-08-31T05:04:51Z"
 }

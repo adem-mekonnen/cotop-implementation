@@ -1,0 +1,14 @@
+{
+  "cell_id": "grid_200m_DDQN_w30_seed0",
+  "algorithm": "DDQN",
+  "geometry": "grid_200m",
+  "workload": 30,
+  "seed": 0,
+  "eval_seed": 30000,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\grid_200m_w30_seed0_realization.json",
+  "realization_hash": "19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890",
+  "checkpoint_file": "results\\phase2_algorithmic_fidelity\\grid_200m\\DDQN\\w30\\seed_0\\checkpoint_ep500.pt",
+  "checkpoint_sha256": "915895d87c6a7ed5b06d142f7f18e42e62299a866507ed3fc5f57aa28b4c2a13",
+  "created_at": "2026-08-31T05:45:36Z"
+}

@@ -1,0 +1,2 @@
+cell_id,algorithm,geometry,workload,seed,training_episodes,wall_clock_time_s,convergence_status,total_tasks,completed_tasks,failed_tasks,completion_ratio,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,comm_delay_s,comp_delay_s,wait_delay_s,realization_hash,git_sha,invariants_passed
+corridor_2400m_Local_w40_seed4,Local,corridor_2400m,40,4,0,0.0,NOT_APPLICABLE_HEURISTIC,400,400,0,1.0,0.6832,0.5282,0.1433,0.0627,0.6804,0.0027,0.0,f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214,4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f,True

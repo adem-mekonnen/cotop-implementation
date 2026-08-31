@@ -1,0 +1,38 @@
+{
+  "cell_summary": {
+    "cell_id": "grid_200m_CoTOP_w30_seed1",
+    "algorithm": "CoTOP",
+    "geometry": "grid_200m",
+    "workload": 30,
+    "seed": 1,
+    "eval_seed": 30001,
+    "training_episodes": 500,
+    "wall_clock_time_s": 460.99,
+    "convergence_status": "STABLE",
+    "final_reward": -50.0343,
+    "final_loss": 8.5979,
+    "total_tasks": 300,
+    "completed_tasks": 300,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.2765,
+    "std_delay_s": 0.0976,
+    "mean_energy_j": 0.141,
+    "std_energy_j": 0.0667,
+    "comm_delay_s": 0.2738,
+    "comp_delay_s": 0.0028,
+    "wait_delay_s": 0.0,
+    "realization_hash": "a4f8e883710373708659204b013aa06b55333c27b5b86ba8485b3904b24764ba",
+    "checkpoint_sha256": "03562bb2143e0ce5266a1cef1c070d156348495eb69273a0c34a7bf451e6f7e7",
+    "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "checkpoint_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}

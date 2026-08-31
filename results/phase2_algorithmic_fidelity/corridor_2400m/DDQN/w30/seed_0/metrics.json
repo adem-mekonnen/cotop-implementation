@@ -1,0 +1,38 @@
+{
+  "cell_summary": {
+    "cell_id": "corridor_2400m_DDQN_w30_seed0",
+    "algorithm": "DDQN",
+    "geometry": "corridor_2400m",
+    "workload": 30,
+    "seed": 0,
+    "eval_seed": 30000,
+    "training_episodes": 500,
+    "wall_clock_time_s": 362.12,
+    "convergence_status": "OSCILLATORY",
+    "final_reward": -148.7842,
+    "final_loss": 0.6981,
+    "total_tasks": 300,
+    "completed_tasks": 300,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.6718,
+    "std_delay_s": 0.5251,
+    "mean_energy_j": 0.1377,
+    "std_energy_j": 0.0631,
+    "comm_delay_s": 0.6692,
+    "comp_delay_s": 0.0026,
+    "wait_delay_s": 0.0,
+    "realization_hash": "cef38e3680b4e9aed1b2b71aa0f21fdb504e1917a3ee4eea64ce22b8ec295b69",
+    "checkpoint_sha256": "8e0f0629a276692ddd7a64c06eb36972956e5e2b6334147260e1b329c3263e3e",
+    "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "checkpoint_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}
