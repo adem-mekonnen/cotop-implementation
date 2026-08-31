@@ -1,0 +1,16 @@
+{
+  "algorithm": "DDQN",
+  "geometry": "corridor_2400m",
+  "workload": "w20",
+  "seed": 46,
+  "git_sha": "692621aebc39ac55dad44327f17ca10147552bd9",
+  "model_hash": "8597ebddba8abbdac22b529d924d9eb734f59acde10870b8f33ba523c4f05728",
+  "realization_hash": "04ef7c838e8795c5894976cdfac799704524a1893e32ae121dae50ab5b3d7343",
+  "config_hash": "9885c1b7b396aa6c99cefbd5114379d2dc4f5ab8b37d4e5ac7d376cd255d20bc",
+  "environment_fingerprint": {
+    "python": "3.11.9",
+    "pytorch": "2.12.1+cpu",
+    "os": "Windows 10",
+    "hardware": "Intel64 Family 6 Model 151 Stepping 5, GenuineIntel"
+  }
+}

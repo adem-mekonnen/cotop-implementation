@@ -1,0 +1,23 @@
+{
+  "tasks_generated": 200,
+  "tasks_completed": 198,
+  "tasks_failed": 2,
+  "tasks_pending": 0,
+  "completion_ratio": 0.99,
+  "mean_delay_s": 1.9123326669016742,
+  "median_delay_s": 1.6445689754140707,
+  "std_delay_s": 1.4508696966301609,
+  "min_delay_s": 0.1448578681885269,
+  "max_delay_s": 5.588941558877225,
+  "mean_energy_J": 0.3889594402378465,
+  "median_energy_J": 0.27867456333788576,
+  "std_energy_J": 1.0969602424531948,
+  "min_energy_J": 0.05148108650213197,
+  "max_energy_J": 12.118087870427102,
+  "comm_delay_mean_s": 1.857830081678642,
+  "comp_delay_mean_s": 0.0052368450103434825,
+  "wait_delay_mean_s": 0.04926574021268905,
+  "eval_action_hash": "d8b466e5f2cc1963c26deb9f22a4c68cfc1fdeb3bb4f52713d0616eaec8fad37",
+  "eval_state_hash": "3d4fd42f0a223171ddfc0513dd607fcc37f6b79449bfcf3795bfcddd2764fc58",
+  "eval_realization_hash": "805b00e6ec8c010f4a340d5e45c5cce35fc48264d889b507bc198891b5bf460f"
+}

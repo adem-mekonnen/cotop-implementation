@@ -1,0 +1,21 @@
+{
+  "num_episodes": 500,
+  "train_duration_s": 754.0704734325409,
+  "optimization_steps": 99937,
+  "target_sync_count": 999,
+  "reward_first_50_mean": -1086.6187529706829,
+  "reward_first_50_std": 58.525865986807794,
+  "reward_last_50_mean": -576.6929638912499,
+  "reward_last_50_std": 26.703566884754817,
+  "reward_overall_mean": -698.839459945105,
+  "reward_overall_std": 185.61205608610808,
+  "loss_initial": 496.78374742939525,
+  "loss_final": 3.059399033039808,
+  "loss_mean": 9.891087499953498,
+  "loss_std": 27.84885350364716,
+  "final_epsilon": 0.05,
+  "final_buffer_size": 10000,
+  "nan_inf_obs": 0,
+  "nan_inf_q": 0,
+  "nan_inf_loss": 0
+}
