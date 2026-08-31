@@ -106,6 +106,9 @@ def evaluate():
                 obs_tensor = torch.FloatTensor(obs).unsqueeze(0)
                 with torch.no_grad():
                     logits, _ = model(obs_tensor)
+                mask = env.get_action_mask()
+                mask_tensor = torch.BoolTensor(mask).unsqueeze(0)
+                logits[~mask_tensor] = -1e9
                 action = torch.argmax(logits, dim=-1).item()
                 
             obs, reward, terminated, truncated, info = env.step(action)

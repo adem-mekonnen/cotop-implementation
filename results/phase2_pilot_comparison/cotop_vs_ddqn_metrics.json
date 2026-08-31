@@ -1,0 +1,42 @@
+{
+  "metadata": {
+    "git_sha": "e27fd31dd9bcb392abe1c65cc64dfa6fb0cce12d",
+    "timestamp": "2026-08-31T13:53:54.888684"
+  },
+  "config": {
+    "geometry": "corridor_2400m",
+    "workload": "I_20",
+    "seed": 42,
+    "episodes": 50
+  },
+  "CoTOP": {
+    "mean_delay": 2.0681683212083266,
+    "mean_energy": 3.734902512293817,
+    "tasks_generated": 200,
+    "tasks_completed": 193,
+    "tasks_failed": 7,
+    "tasks_pending": 0,
+    "fail_deadlines": 0,
+    "fail_coverages": 7,
+    "fail_departures": 0,
+    "fail_duals": 0
+  },
+  "DDQN": {
+    "mean_delay": 2.054425641464148,
+    "mean_energy": 5.5292365892175,
+    "tasks_generated": 200,
+    "tasks_completed": 194,
+    "tasks_failed": 6,
+    "tasks_pending": 0,
+    "fail_deadlines": 0,
+    "fail_coverages": 6,
+    "fail_departures": 0,
+    "fail_duals": 0
+  },
+  "Paired_Differences": {
+    "delta_mean_delay": 0.013742679744178421,
+    "delta_mean_energy": -1.7943340769236826,
+    "delta_completed": -1,
+    "delta_failed": 1
+  }
+}

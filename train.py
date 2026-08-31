@@ -87,6 +87,9 @@ def worker_process(
         
         while not done:
             policy_logits, value = local_model(state)
+            mask = env.get_action_mask()
+            mask_tensor = torch.BoolTensor(mask)
+            policy_logits[~mask_tensor] = -1e9
             probs = F.softmax(policy_logits, dim=-1)
             
             m = Categorical(probs)
@@ -116,7 +119,9 @@ def worker_process(
             actor_loss = -(log_probs * advantages).mean()
             critic_loss = F.mse_loss(values, returns)
             
-            probs_all = F.softmax(local_model(state)[0].detach(), dim=-1)
+            logits_all = local_model(state)[0].detach()
+            logits_all[~mask_tensor] = -1e9
+            probs_all = F.softmax(logits_all, dim=-1)
             entropy = -(probs_all * (probs_all + 1e-8).log()).sum(dim=-1).mean()
             total_loss = actor_loss + 0.5 * critic_loss - 0.01 * entropy
             
