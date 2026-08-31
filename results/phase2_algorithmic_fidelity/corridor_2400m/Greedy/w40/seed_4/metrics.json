@@ -1,0 +1,33 @@
+{
+  "cell_summary": {
+    "cell_id": "corridor_2400m_Greedy_w40_seed4",
+    "algorithm": "Greedy",
+    "geometry": "corridor_2400m",
+    "workload": 40,
+    "seed": 4,
+    "training_episodes": 0,
+    "wall_clock_time_s": 0.0,
+    "convergence_status": "NOT_APPLICABLE_HEURISTIC",
+    "total_tasks": 400,
+    "completed_tasks": 400,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.7235,
+    "std_delay_s": 0.5321,
+    "mean_energy_j": 4.305,
+    "std_energy_j": 1.7253,
+    "comm_delay_s": 0.6804,
+    "comp_delay_s": 0.0431,
+    "wait_delay_s": 0.0,
+    "realization_hash": "f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214",
+    "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}

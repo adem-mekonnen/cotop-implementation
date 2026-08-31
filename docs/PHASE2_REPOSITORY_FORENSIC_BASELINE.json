@@ -1,0 +1,133 @@
+{
+  "timestamp_utc": "2026-08-29 05:11:00",
+  "repository": "https://github.com/adem-mekonnen/cotop-implementation",
+  "current_branch": "reproduction/scientific-fidelity",
+  "current_head_sha": "2cfc822e707759ad408711ae77c2514757303c23",
+  "main_branch_sha": "bd34c65a0435df17882fb3aa632c0282ee0a9fc9",
+  "key_commits": {
+    "bd34c65": {
+      "sha": "bd34c65a0435df17882fb3aa632c0282ee0a9fc9",
+      "message": "Finalize audited method-level reproduction and publication package",
+      "branch": "main"
+    },
+    "52f2d3c": {
+      "sha": "52f2d3c81f0b8843edd08594cccedbaca4888ea8",
+      "message": "feat(reproduction): complete phase 1 scientific fidelity repairs and acceptance validation",
+      "branch": "reproduction/scientific-fidelity"
+    },
+    "0dc55a9": {
+      "sha": "0dc55a978135fadb43fd58cdd620b2f4d0430df1",
+      "message": "add DDQN",
+      "branch": "reproduction/scientific-fidelity"
+    },
+    "2cfc822": {
+      "sha": "2cfc822e707759ad408711ae77c2514757303c23",
+      "message": "feat(phase2): complete Step 14 multi-seed training and convergence diagnostics for 60-run matrix",
+      "branch": "reproduction/scientific-fidelity"
+    }
+  },
+  "working_tree_status": {
+    "is_dirty": false,
+    "dirty_files": [],
+    "untracked_files": [],
+    "modified_files": [],
+    "deleted_files": []
+  },
+  "protected_physics_hashes": {
+    "envs/comm_model.py": {
+      "sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+      "status": "IMMUTABLE_HASH_LOCKED",
+      "diff_against_phase1": 0
+    },
+    "envs/comp_model.py": {
+      "sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff",
+      "status": "IMMUTABLE_HASH_LOCKED",
+      "diff_against_phase1": 0
+    }
+  },
+  "phase2_model_implementations": {
+    "CoTOP": {
+      "path": "models/a3c_agent.py",
+      "architecture": "ActorCritic(input_dim=D, num_actions=7, hidden_size=128)",
+      "optimizer": "Adam(lr=0.0002)",
+      "loss": "Advantage Actor-Critic (A3C policy gradient + 0.5 * critic MSE)"
+    },
+    "DDQN": {
+      "path": "models/baselines/ddqn_agent.py",
+      "architecture": "QNetwork(input_dim=D, num_actions=7, hidden_dim=128)",
+      "optimizer": "Adam(lr=0.0002)",
+      "loss": "Smooth L1 (Huber) Loss with decoupled target",
+      "replay_buffer_capacity": 10000,
+      "batch_size": 64,
+      "target_sync_frequency": 100,
+      "epsilon_schedule": "1.0 -> 0.05 over 200 episodes"
+    },
+    "QRMP-DQN": {
+      "status": "EXCLUDED_FROM_PRIMARY_MATRIX",
+      "forensic_rationale": "Target paper does not specify how Ref [33] Multi-Pass mechanism adapts to discrete 7-action environment. Formal scientific exclusion under Step 3 forensic gate."
+    }
+  },
+  "phase2_scripts": [
+    "scripts/run_phase2_multiseed.py",
+    "scripts/run_phase2_pilot.py",
+    "scripts/check_matrix_status.py",
+    "scripts/extract_paper_section_v.py",
+    "scripts/extract_tables.py",
+    "scripts/inspect_paper_baselines.py",
+    "scripts/inspect_tables_deep.py",
+    "scripts/record_baseline_characterization.py"
+  ],
+  "phase2_tests": [
+    "tests/test_phase2_step14_multiseed.py",
+    "tests/test_phase2_step12_audit.py",
+    "tests/test_phase2_cross_algorithm.py",
+    "tests/test_phase2_ddqn_fidelity.py",
+    "tests/test_phase2_mathematical_toy_spec.py",
+    "tests/test_phase2_state_action_contract.py"
+  ],
+  "configuration_files": [
+    "configs/simulation.yaml",
+    "configs/paper_parameters.yaml",
+    "configs/environment_parameters.yaml",
+    "sumo_config/hangzhou.sumocfg",
+    "sumo_config/hangzhou_200m.sumocfg"
+  ],
+  "result_directories": {
+    "active_phase2_matrix": "results/phase2_algorithmic_fidelity/",
+    "active_phase2_index": "results/phase2_algorithmic_fidelity/PHASE2_EXPERIMENT_INDEX.csv",
+    "completed_replications": 60,
+    "stale_superseded_directories": [
+      "results/stage9",
+      "results/stage10",
+      "results/stage12",
+      "results/stage13",
+      "results/stage14",
+      "results/stage15",
+      "results/stage16",
+      "results/stage17",
+      "results/final",
+      "results/training"
+    ]
+  },
+  "manuscript_and_audit_documentation": [
+    "docs/EXTRACTED_TABLES.txt",
+    "docs/PAPER_SECTION_V_EXCERPT.md",
+    "docs/PHASE2_FORENSIC_AUDIT.md",
+    "docs/PHASE2_TRACEABILITY_MATRIX.md",
+    "docs/PHASE2_ASSUMPTION_REGISTRY.md",
+    "docs/PHASE2_CROSS_ALGORITHM_VERIFICATION.md",
+    "docs/PHASE2_WORKLOAD_ACCOUNTING_AUDIT.md",
+    "docs/PHASE2_CONVERGENCE_DIAGNOSTICS.md",
+    "docs/PHASE2_STEP14_MULTI_SEED_REPORT.md"
+  ],
+  "test_execution_summary": {
+    "command": "pytest tests/ -v",
+    "total_collected": 88,
+    "total_passed": 88,
+    "total_failed": 0,
+    "total_skipped": 0,
+    "warnings": 2,
+    "execution_time_s": 12.03,
+    "verdict": "ALL_TESTS_PASS"
+  }
+}

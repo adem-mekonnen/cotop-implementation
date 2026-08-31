@@ -1,0 +1,2 @@
+seed,geometry,workload,total_episodes,optimization_steps,wall_clock_time_sec,converged_episode,mean_final_100_reward,std_final_100_reward,mean_final_100_loss,final_entropy,checkpoint_path,checkpoint_sha256,git_sha,env_fingerprint
+2,grid_200m,w20,500,500,1427.66,400,-1487.2091,31.9581,2408.637162,-0.0,checkpoint_ep500.pt,5d37a9401205e8d376910e268a52d9fc8ab15e05f272ce8792614d934fa2e19d,a43abc5ec175824f66b68d0e5fab35fe4ba3220d,2db848908cf5ba364bcea252012d878b131ed16449756432d0cd3ec00a7a4d8e

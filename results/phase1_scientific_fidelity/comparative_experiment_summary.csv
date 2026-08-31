@@ -1,0 +1,5 @@
+Experiment,Configuration Name,Geometry,GAT Architecture,Priority Formulation,Scientific Purpose,Mean Delay (s),Delay Std (s),Delay 95% CI,Mean Energy (J),Energy Std (J),Energy 95% CI,Completion Rate (%),RSU Backlog (Mcycles)
+Exp A,"2400m Corridor (Legacy 1-Node GAT, Literal Eq. 23)",corridor_2400m,Legacy 1-Node Fallback,Paper-Literal Eq. 23,Pre-repair regression control,2.0226,0.0165,"[2.0082, 2.0370]",1.0165,0.0124,"[1.0057, 1.0273]",98.44,11.69
+Exp B,"2400m Corridor (Multi-Node GAT, Literal Eq. 23)",corridor_2400m,Multi-Node Spatial (Eq. 18),Paper-Literal Eq. 23,Isolate Multi-Node GAT effect,2.0343,0.0162,"[2.0201, 2.0485]",1.737,0.0259,"[1.7143, 1.7597]",98.4,11.69
+Exp C,"200m x 200m Grid (Multi-Node GAT, Literal Eq. 23)",grid_200m,Multi-Node Spatial (Eq. 18),Paper-Literal Eq. 23,Isolate 2D Geometry effect,0.6521,0.0054,"[0.6473, 0.6568]",0.5046,0.0079,"[0.4977, 0.5116]",100.0,9.7
+Exp D,"200m x 200m Grid (Multi-Node GAT, Normalized Eq. 23)",grid_200m,Multi-Node Spatial (Eq. 18),Normalized Candidate Eq. 23,Measure Priority Stabilization effect,0.6521,0.0054,"[0.6473, 0.6568]",0.5046,0.0079,"[0.4977, 0.5116]",100.0,9.7

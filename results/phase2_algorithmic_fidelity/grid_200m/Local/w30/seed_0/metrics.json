@@ -1,0 +1,33 @@
+{
+  "cell_summary": {
+    "cell_id": "grid_200m_Local_w30_seed0",
+    "algorithm": "Local",
+    "geometry": "grid_200m",
+    "workload": 30,
+    "seed": 0,
+    "training_episodes": 0,
+    "wall_clock_time_s": 0.0,
+    "convergence_status": "NOT_APPLICABLE_HEURISTIC",
+    "total_tasks": 300,
+    "completed_tasks": 300,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.2754,
+    "std_delay_s": 0.0948,
+    "mean_energy_j": 0.1392,
+    "std_energy_j": 0.0643,
+    "comm_delay_s": 0.2727,
+    "comp_delay_s": 0.0027,
+    "wait_delay_s": 0.0,
+    "realization_hash": "19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890",
+    "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}

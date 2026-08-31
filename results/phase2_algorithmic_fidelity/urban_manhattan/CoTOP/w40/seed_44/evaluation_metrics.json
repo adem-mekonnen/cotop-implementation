@@ -1,0 +1,32 @@
+{
+  "evaluation_metrics": {
+    "mean_delay_s": 0.6734195368550939,
+    "std_delay_s": 0.22954977257867396,
+    "mean_energy_j": 0.6055704515853902,
+    "std_energy_j": 0.9208726502816968,
+    "completion_ratio": 1.0,
+    "completed_tasks": 1200,
+    "failed_tasks": 0,
+    "pending_tasks": 0,
+    "total_generated_tasks": 1200,
+    "mean_comm_delay_s": 0.584663537778662,
+    "mean_wait_delay_s": 0.08333748586841298,
+    "mean_comp_delay_s": 0.005418513208019049,
+    "max_latency_decomposition_residual_s": 2.220446049250313e-16
+  },
+  "training_metrics": {
+    "episodes": 500,
+    "final_reward": -780.7258710322753,
+    "mean_last_50_reward": -782.2289721333341,
+    "final_loss": 540.9771118164062,
+    "total_training_steps": 600000,
+    "target_synchronizations": 0,
+    "training_time_s": 2761.1817433834076,
+    "nan_inf_count": 0
+  },
+  "convergence": {
+    "classification": "DIVERGED",
+    "rolling_std_last_100": 11.574596278531532,
+    "rolling_mean_last_100": -787.2076966686826
+  }
+}

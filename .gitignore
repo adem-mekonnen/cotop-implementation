@@ -20,6 +20,9 @@ results/checkpoints/*.pth
 results/**/*.pth
 checkpoints/*.pth
 *.pth
+results/**/*.pt
+*.pt
+
 
 # Jupyter Notebook checkpoints & scratch
 .ipynb_checkpoints/

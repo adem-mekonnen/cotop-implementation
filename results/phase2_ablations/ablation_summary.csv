@@ -1,0 +1,8 @@
+Ablation_Name,Description,Mean_Delay (s),Delta_Delay (s),Cohen_dz_Delay,p_val_Delay,Mean_Energy (J),Delta_Energy (J),Cohen_dz_Energy,p_val_Energy,Mean_Completion,Delta_Completion
+Canonical_CoTOP,Full Mechanism Baseline,2.0226 ± 0.0331,+0.0000,+0.000,1.0000,5.3687 ± 2.6926,+0.0000,+0.000,1.0000,0.9780,+0.0000
+No_GAT_Mobility,Removes Spatial GAT Dwell Estimation (Kinematic Fallback),1.9942 ± 0.0531,-0.0283,-0.865,0.1254,3.8755 ± 1.0179,-1.4932,-0.607,0.2465,0.9790,+0.0010
+No_Collaboration,Removes RSU Collaboration (Standalone Case 1 Only),1.9867 ± 0.0498,-0.0358,-1.145,0.0627,0.2944 ± 0.0116,-5.0743,-1.884,0.0136,0.9800,+0.0020
+No_Mobility_Awareness,Zeroes Speed & Dwell Time in Observation Vector,2.0169 ± 0.0441,-0.0057,-0.333,0.4982,5.2276 ± 2.5058,-0.1412,-0.273,0.5739,0.9770,-0.0010
+No_Queue_Awareness,Zeroes RSU Queue Backlogs in Observation Vector,2.0172 ± 0.0400,-0.0054,-0.439,0.3822,5.3389 ± 2.6380,-0.0299,-0.089,0.8518,0.9780,+0.0000
+No_Action_Masking,Disables Action Space Masking on Out-of-Range RSUs,2.0226 ± 0.0331,+0.0000,+0.000,1.0000,5.3687 ± 2.6926,+0.0000,+0.000,1.0000,0.9780,+0.0000
+PVA_Timeslot_Aggregation,Paper Workload Aggregation Hypothesis (Summed I Tasks),40.4510 ± 0.6626,+38.4285,+61.050,0.0000,107.3745 ± 53.8530,+102.0057,+1.994,0.0112,0.9780,+0.0000

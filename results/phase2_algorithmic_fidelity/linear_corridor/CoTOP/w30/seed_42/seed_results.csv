@@ -1,0 +1,2 @@
+geometry,algorithm,workload_w,seed,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,completion_ratio,completed_tasks,failed_tasks,total_tasks
+linear_corridor,CoTOP,30,42,1.964239787337268,1.4645054969752356,6.199687867378499,4.357135490471842,0.9855555555555555,887,13,900

@@ -1,0 +1,13 @@
+{
+  "cell_id": "corridor_2400m_Local_w20_seed2",
+  "algorithm": "Local",
+  "geometry": "corridor_2400m",
+  "workload": 20,
+  "seed": 2,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\corridor_2400m_w20_seed2_realization.json",
+  "realization_hash": "4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1",
+  "checkpoint_file": "NONE_HEURISTIC_BASELINE",
+  "checkpoint_sha256": "NONE",
+  "created_at": "2026-08-31T06:01:01Z"
+}

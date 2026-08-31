@@ -1,0 +1,14 @@
+{
+  "cell_id": "grid_200m_CoTOP_w20_seed2",
+  "algorithm": "CoTOP",
+  "geometry": "grid_200m",
+  "workload": 20,
+  "seed": 2,
+  "eval_seed": 30002,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\grid_200m_w20_seed2_realization.json",
+  "realization_hash": "baaf5ad60a61abf81aa6420695172ae5a225d02d51c1d9a9e809af740910c3d9",
+  "checkpoint_file": "results\\phase2_algorithmic_fidelity\\grid_200m\\CoTOP\\w20\\seed_2\\checkpoint_ep500.pt",
+  "checkpoint_sha256": "5b0c1d91cb6d79bd066b9bd1aeb3a26dd7ca12c41719b42c573aa6d9a027c463",
+  "created_at": "2026-08-31T05:28:55Z"
+}

@@ -1,0 +1,457 @@
+{
+  "metadata": {
+    "git_sha": "e27fd31dd9bcb392abe1c65cc64dfa6fb0cce12d",
+    "env_fingerprint": {
+      "python": "3.11.9 (tags/v3.11.9:de54cf5, Apr  2 2024, 10:12:12) [MSC v.1938 64 bit (AMD64)]",
+      "pytorch": "2.12.1+cpu",
+      "hardware": "Windows 10 (AMD64), CPUs: 12",
+      "sumo": "Eclipse SUMO sumo 1.27.1\r"
+    },
+    "checkpoint_hash": "4187464a946b0737c724a57cf4730f5ae9c143c8d9f5e8406f8d9bfe489ffed4",
+    "timestamp": "2026-08-31T13:49:35.053708"
+  },
+  "hyperparameters": {
+    "seed": 42,
+    "episodes": 50,
+    "geometry": "corridor_2400m",
+    "workload": "w20",
+    "learning_rate": 0.0002,
+    "gamma": 0.99
+  },
+  "telemetry": [
+    {
+      "episode": 1,
+      "reward": -1248.5872942564054,
+      "actor_loss": 9.603677608538419e-05,
+      "critic_loss": 1000058.8125,
+      "grad_norm": 32080287.803397883,
+      "steps": 200
+    },
+    {
+      "episode": 2,
+      "reward": -1253.1593906882406,
+      "actor_loss": 0.20197665691375732,
+      "critic_loss": 356552.71875,
+      "grad_norm": 15742570.444659533,
+      "steps": 200
+    },
+    {
+      "episode": 3,
+      "reward": -1247.2916127923304,
+      "actor_loss": 9.952372010957333e-07,
+      "critic_loss": 144014.90625,
+      "grad_norm": 2053437.6064531605,
+      "steps": 200
+    },
+    {
+      "episode": 4,
+      "reward": -1247.2916127923304,
+      "actor_loss": -3.348741665831767e-05,
+      "critic_loss": 216320.09375,
+      "grad_norm": 9344284.886368673,
+      "steps": 200
+    },
+    {
+      "episode": 5,
+      "reward": -1252.00545251357,
+      "actor_loss": -5.2275954658398405e-05,
+      "critic_loss": 339294.46875,
+      "grad_norm": 14862869.265354482,
+      "steps": 200
+    },
+    {
+      "episode": 6,
+      "reward": -1252.00545251357,
+      "actor_loss": -5.658426744048484e-05,
+      "critic_loss": 372124.8125,
+      "grad_norm": 16005781.647155803,
+      "steps": 200
+    },
+    {
+      "episode": 7,
+      "reward": -1252.00545251357,
+      "actor_loss": -0.850172758102417,
+      "critic_loss": 318512.4375,
+      "grad_norm": 14290693.66706888,
+      "steps": 200
+    },
+    {
+      "episode": 8,
+      "reward": -1277.6513615717604,
+      "actor_loss": -6.16231991443783e-05,
+      "critic_loss": 233272.421875,
+      "grad_norm": 10983976.028554404,
+      "steps": 200
+    },
+    {
+      "episode": 9,
+      "reward": -1280.1639037444272,
+      "actor_loss": 0.007615153677761555,
+      "critic_loss": 152282.046875,
+      "grad_norm": 6704161.1847911365,
+      "steps": 200
+    },
+    {
+      "episode": 10,
+      "reward": -1281.7900430202296,
+      "actor_loss": 9.648702689446509e-05,
+      "critic_loss": 106693.78125,
+      "grad_norm": 2257818.792915668,
+      "steps": 200
+    },
+    {
+      "episode": 11,
+      "reward": -1296.554030202646,
+      "actor_loss": 4.893118784821127e-06,
+      "critic_loss": 101700.0625,
+      "grad_norm": 1964052.1100682823,
+      "steps": 200
+    },
+    {
+      "episode": 12,
+      "reward": -1329.1354148488517,
+      "actor_loss": 0.26919448375701904,
+      "critic_loss": 121891.671875,
+      "grad_norm": 5049730.349122967,
+      "steps": 200
+    },
+    {
+      "episode": 13,
+      "reward": -1340.1081609661492,
+      "actor_loss": 0.0009413479128852487,
+      "critic_loss": 150434.328125,
+      "grad_norm": 7318157.96499049,
+      "steps": 200
+    },
+    {
+      "episode": 14,
+      "reward": -1336.6622747550873,
+      "actor_loss": 0.32541123032569885,
+      "critic_loss": 169417.78125,
+      "grad_norm": 8500751.177212272,
+      "steps": 200
+    },
+    {
+      "episode": 15,
+      "reward": -1342.9587249584958,
+      "actor_loss": -0.007483710069209337,
+      "critic_loss": 168418.203125,
+      "grad_norm": 8490414.773750782,
+      "steps": 200
+    },
+    {
+      "episode": 16,
+      "reward": -1350.1925036492548,
+      "actor_loss": -0.025042934343218803,
+      "critic_loss": 150508.5625,
+      "grad_norm": 7483512.236937266,
+      "steps": 200
+    },
+    {
+      "episode": 17,
+      "reward": -1344.9791641289153,
+      "actor_loss": 4.304844856262207,
+      "critic_loss": 124687.296875,
+      "grad_norm": 5846502.891668038,
+      "steps": 200
+    },
+    {
+      "episode": 18,
+      "reward": -1349.7180700008716,
+      "actor_loss": -0.007412945851683617,
+      "critic_loss": 101077.171875,
+      "grad_norm": 3699332.3289242857,
+      "steps": 200
+    },
+    {
+      "episode": 19,
+      "reward": -1335.2479490883925,
+      "actor_loss": -1.2107419967651367,
+      "critic_loss": 86296.78125,
+      "grad_norm": 1596429.722401714,
+      "steps": 200
+    },
+    {
+      "episode": 20,
+      "reward": -1339.9743760094198,
+      "actor_loss": 0.07150602340698242,
+      "critic_loss": 82844.21875,
+      "grad_norm": 780160.1913795689,
+      "steps": 200
+    },
+    {
+      "episode": 21,
+      "reward": -1330.3405243643342,
+      "actor_loss": -0.2690097987651825,
+      "critic_loss": 88165.0078125,
+      "grad_norm": 2410750.6235518195,
+      "steps": 200
+    },
+    {
+      "episode": 22,
+      "reward": -1323.0112834272777,
+      "actor_loss": 5.209990978240967,
+      "critic_loss": 96844.46875,
+      "grad_norm": 3681237.193643703,
+      "steps": 200
+    },
+    {
+      "episode": 23,
+      "reward": -1324.7438538437082,
+      "actor_loss": -0.06851249933242798,
+      "critic_loss": 103746.5390625,
+      "grad_norm": 4522638.8372005485,
+      "steps": 200
+    },
+    {
+      "episode": 24,
+      "reward": -1332.9347073273939,
+      "actor_loss": -0.15488578379154205,
+      "critic_loss": 106751.578125,
+      "grad_norm": 4811562.081808943,
+      "steps": 200
+    },
+    {
+      "episode": 25,
+      "reward": -1333.418993021525,
+      "actor_loss": -0.354654997587204,
+      "critic_loss": 101552.9375,
+      "grad_norm": 4465654.223932338,
+      "steps": 200
+    },
+    {
+      "episode": 26,
+      "reward": -1332.9347073273939,
+      "actor_loss": 0.07973682135343552,
+      "critic_loss": 92447.3515625,
+      "grad_norm": 3693179.220418306,
+      "steps": 200
+    },
+    {
+      "episode": 27,
+      "reward": -1312.9222756274303,
+      "actor_loss": -6.0509020840981975e-05,
+      "critic_loss": 80859.828125,
+      "grad_norm": 2424979.5484255557,
+      "steps": 200
+    },
+    {
+      "episode": 28,
+      "reward": -1305.808869558811,
+      "actor_loss": 0.9115751385688782,
+      "critic_loss": 74201.0625,
+      "grad_norm": 1096603.0205615354,
+      "steps": 200
+    },
+    {
+      "episode": 29,
+      "reward": -1315.8714503747813,
+      "actor_loss": 0.004318708553910255,
+      "critic_loss": 71473.0078125,
+      "grad_norm": 356768.89891902555,
+      "steps": 200
+    },
+    {
+      "episode": 30,
+      "reward": -1312.7888177112432,
+      "actor_loss": 0.08123990893363953,
+      "critic_loss": 72683.8046875,
+      "grad_norm": 1362118.736476601,
+      "steps": 200
+    },
+    {
+      "episode": 31,
+      "reward": -1309.6896799438618,
+      "actor_loss": 0.7233222723007202,
+      "critic_loss": 75818.2421875,
+      "grad_norm": 2281265.7426447305,
+      "steps": 200
+    },
+    {
+      "episode": 32,
+      "reward": -1309.6896799438618,
+      "actor_loss": 0.014523199759423733,
+      "critic_loss": 78419.578125,
+      "grad_norm": 2832928.5258883093,
+      "steps": 200
+    },
+    {
+      "episode": 33,
+      "reward": -1304.0810098387806,
+      "actor_loss": 0.010608311742544174,
+      "critic_loss": 79817.40625,
+      "grad_norm": 3060769.4940259396,
+      "steps": 200
+    },
+    {
+      "episode": 34,
+      "reward": -1305.6117682415506,
+      "actor_loss": -1.014108147501247e-05,
+      "critic_loss": 77480.203125,
+      "grad_norm": 2828367.1550319637,
+      "steps": 200
+    },
+    {
+      "episode": 35,
+      "reward": -1308.3070452718741,
+      "actor_loss": -0.6786807179450989,
+      "critic_loss": 72984.09375,
+      "grad_norm": 2264678.1342104357,
+      "steps": 200
+    },
+    {
+      "episode": 36,
+      "reward": -1280.3648970681938,
+      "actor_loss": 0.01916484534740448,
+      "critic_loss": 68930.5390625,
+      "grad_norm": 1728770.0622140851,
+      "steps": 200
+    },
+    {
+      "episode": 37,
+      "reward": -1278.5039760860795,
+      "actor_loss": 2.863992929458618,
+      "critic_loss": 65124.0390625,
+      "grad_norm": 843121.9851960478,
+      "steps": 200
+    },
+    {
+      "episode": 38,
+      "reward": -1275.9378712037978,
+      "actor_loss": 0.01225577387958765,
+      "critic_loss": 63468.85546875,
+      "grad_norm": 262747.9974784192,
+      "steps": 200
+    },
+    {
+      "episode": 39,
+      "reward": -1283.1886747197661,
+      "actor_loss": 0.0001211251801578328,
+      "critic_loss": 64469.28515625,
+      "grad_norm": 1006921.0199490484,
+      "steps": 200
+    },
+    {
+      "episode": 40,
+      "reward": -1274.9405246204788,
+      "actor_loss": 0.641862690448761,
+      "critic_loss": 65721.4609375,
+      "grad_norm": 1554494.7105863702,
+      "steps": 200
+    },
+    {
+      "episode": 41,
+      "reward": -1272.4864398171121,
+      "actor_loss": -0.012085288763046265,
+      "critic_loss": 66551.1171875,
+      "grad_norm": 1890452.727343914,
+      "steps": 200
+    },
+    {
+      "episode": 42,
+      "reward": -1277.416689103331,
+      "actor_loss": -0.13055221736431122,
+      "critic_loss": 66899.2265625,
+      "grad_norm": 1997058.7614261077,
+      "steps": 200
+    },
+    {
+      "episode": 43,
+      "reward": -1273.7038992517432,
+      "actor_loss": -0.0478280745446682,
+      "critic_loss": 65257.890625,
+      "grad_norm": 1800317.6504321436,
+      "steps": 200
+    },
+    {
+      "episode": 44,
+      "reward": -1275.4644716987486,
+      "actor_loss": -0.012970631010830402,
+      "critic_loss": 62974.96875,
+      "grad_norm": 1387863.617555779,
+      "steps": 200
+    },
+    {
+      "episode": 45,
+      "reward": -1274.440768836253,
+      "actor_loss": -0.2686978280544281,
+      "critic_loss": 60372.3359375,
+      "grad_norm": 781169.4665411394,
+      "steps": 200
+    },
+    {
+      "episode": 46,
+      "reward": -1269.345883680679,
+      "actor_loss": 0.09046418219804764,
+      "critic_loss": 59011.8515625,
+      "grad_norm": 237816.41756007154,
+      "steps": 200
+    },
+    {
+      "episode": 47,
+      "reward": -1273.055689349426,
+      "actor_loss": -0.0002851142198778689,
+      "critic_loss": 58715.2734375,
+      "grad_norm": 509842.50165011646,
+      "steps": 200
+    },
+    {
+      "episode": 48,
+      "reward": -1269.345883680679,
+      "actor_loss": 0.000495205051265657,
+      "critic_loss": 59033.875,
+      "grad_norm": 973323.5442369996,
+      "steps": 200
+    },
+    {
+      "episode": 49,
+      "reward": -1269.345883680679,
+      "actor_loss": 1.0675052180886269e-05,
+      "critic_loss": 59298.484375,
+      "grad_norm": 1265039.712654798,
+      "steps": 200
+    },
+    {
+      "episode": 50,
+      "reward": -1269.345883680679,
+      "actor_loss": 0.0015291078016161919,
+      "critic_loss": 59013.53125,
+      "grad_norm": 1351853.966600056,
+      "steps": 200
+    }
+  ],
+  "evaluation": {
+    "subtask_metrics": {
+      "mean_delay": 2.0721510009649275,
+      "median_delay": 1.717740498932464,
+      "std_delay": 1.619426837586434,
+      "mean_energy": 4.319913206738253
+    },
+    "aggregate_metrics": {
+      "a1_mean_delay": 41.44302001929855,
+      "a1_mean_energy": 86.39826413476506,
+      "published_target_delay": 13.9,
+      "published_target_energy": 25.14,
+      "delay_discrepancy_pct": 198.15122316042124,
+      "energy_discrepancy_pct": 243.668512867005
+    },
+    "accounting": {
+      "generated": 200,
+      "completed": 193,
+      "failed": 7,
+      "pending": 0,
+      "completion_ratio": 0.965,
+      "failure_ratio": 0.035
+    },
+    "failures": {
+      "deadline": 0,
+      "coverage": 7,
+      "departure": 0,
+      "dual": 0
+    },
+    "queues": {
+      "mean": 54496147.92716309,
+      "max": 124254154.14489506
+    }
+  }
+}

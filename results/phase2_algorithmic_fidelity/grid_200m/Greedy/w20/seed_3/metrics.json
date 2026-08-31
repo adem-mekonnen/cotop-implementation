@@ -1,0 +1,33 @@
+{
+  "cell_summary": {
+    "cell_id": "grid_200m_Greedy_w20_seed3",
+    "algorithm": "Greedy",
+    "geometry": "grid_200m",
+    "workload": 20,
+    "seed": 3,
+    "training_episodes": 0,
+    "wall_clock_time_s": 0.0,
+    "convergence_status": "NOT_APPLICABLE_HEURISTIC",
+    "total_tasks": 200,
+    "completed_tasks": 200,
+    "failed_tasks": 0,
+    "completion_ratio": 1.0,
+    "mean_delay_s": 0.252,
+    "std_delay_s": 0.104,
+    "mean_energy_j": 1.8286,
+    "std_energy_j": 0.9475,
+    "comm_delay_s": 0.2334,
+    "comp_delay_s": 0.0185,
+    "wait_delay_s": 0.0,
+    "realization_hash": "c87ffc566d12c41fee78283f3c9d06bdd7cbaab0827f9c2786b56392a69c3dd8",
+    "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+    "invariants_passed": true
+  },
+  "gates": {
+    "task_accounting": true,
+    "deterministic_evaluation": true,
+    "trace_hash": true,
+    "physics_hashes": true,
+    "no_nan_inf": true
+  }
+}

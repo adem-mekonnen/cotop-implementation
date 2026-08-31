@@ -1,0 +1,2 @@
+cell_id,algorithm,geometry,workload,seed,training_episodes,wall_clock_time_s,convergence_status,total_tasks,completed_tasks,failed_tasks,completion_ratio,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,comm_delay_s,comp_delay_s,wait_delay_s,realization_hash,git_sha,invariants_passed
+corridor_2400m_Greedy_w20_seed4,Greedy,corridor_2400m,20,4,0,0.0,NOT_APPLICABLE_HEURISTIC,200,200,0,1.0,0.711,0.5337,3.6299,1.718,0.6746,0.0364,0.0,9d693f1775a70d4f8d9eb927123a6b39f02c052eaddf798cb66be93ca26b2e9f,4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f,True

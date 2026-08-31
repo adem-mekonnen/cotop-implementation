@@ -1,0 +1,17 @@
+{
+  "seed": 1,
+  "geometry": "grid_200m",
+  "workload": "w20",
+  "total_episodes": 500,
+  "optimization_steps": 500,
+  "wall_clock_time_sec": 1409.95,
+  "converged_episode": 400,
+  "mean_final_100_reward": -302.2353,
+  "std_final_100_reward": 18.4216,
+  "mean_final_100_loss": 398.035553,
+  "final_entropy": -0.0,
+  "checkpoint_path": "checkpoint_ep500.pt",
+  "checkpoint_sha256": "d9e7a015c1d6c7d60723bb7c6a7e20b6a373b84fcff1228882d046d62bb2a888",
+  "git_sha": "a43abc5ec175824f66b68d0e5fab35fe4ba3220d",
+  "env_fingerprint": "2db848908cf5ba364bcea252012d878b131ed16449756432d0cd3ec00a7a4d8e"
+}

@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<routes xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="http://sumo.dlr.de/xsd/routes_file.xsd">
+    <vType id="car" accel="2.6" decel="4.5" sigma="0.5" length="4.5" minGap="2.5" maxSpeed="40.0" speedDev="0.1"/>
+    
+    <!-- Valid continuous loops in 200m x 200m grid -->
+    <route id="r_perimeter_ccw" edges="A0B0 B0C0 C0C1 C1C2 C2B2 B2A2 A2A1 A1A0"/>
+    <route id="r_perimeter_cw" edges="A0A1 A1A2 A2B2 B2C2 C2C1 C1C0 C0B0 B0A0"/>
+    <route id="r_cross_loop1" edges="A1B1 B1C1 C1C2 C2B2 B2B1 B1A1 A1A0 A0B0"/>
+    <route id="r_cross_loop2" edges="B0B1 B1B2 B2C2 C2C1 C1B1 B1A1 A1A2 A2B2"/>
+    <route id="r_figure8" edges="A0B0 B0B1 B1C1 C1C2 C2B2 B2B1 B1A1 A1A0"/>
+
+    <!-- 30 Vehicles with staggered departure times -->
+    <vehicle id="veh_0" type="car" route="r_perimeter_ccw" depart="0.0" departSpeed="max" departPos="0.0"/>
+    <vehicle id="veh_1" type="car" route="r_perimeter_cw" depart="1.0" departSpeed="max" departPos="10.0"/>
+    <vehicle id="veh_2" type="car" route="r_cross_loop1" depart="2.0" departSpeed="max" departPos="20.0"/>
+    <vehicle id="veh_3" type="car" route="r_cross_loop2" depart="3.0" departSpeed="max" departPos="30.0"/>
+    <vehicle id="veh_4" type="car" route="r_figure8" depart="4.0" departSpeed="max" departPos="15.0"/>
+    <vehicle id="veh_5" type="car" route="r_perimeter_ccw" depart="5.0" departSpeed="max" departPos="25.0"/>
+    <vehicle id="veh_6" type="car" route="r_perimeter_cw" depart="6.0" departSpeed="max" departPos="40.0"/>
+    <vehicle id="veh_7" type="car" route="r_cross_loop1" depart="7.0" departSpeed="max" departPos="10.0"/>
+    <vehicle id="veh_8" type="car" route="r_cross_loop2" depart="8.0" departSpeed="max" departPos="50.0"/>
+    <vehicle id="veh_9" type="car" route="r_figure8" depart="9.0" departSpeed="max" departPos="35.0"/>
+    
+    <vehicle id="veh_10" type="car" route="r_perimeter_ccw" depart="10.0" departSpeed="max" departPos="5.0"/>
+    <vehicle id="veh_11" type="car" route="r_perimeter_cw" depart="11.0" departSpeed="max" departPos="20.0"/>
+    <vehicle id="veh_12" type="car" route="r_cross_loop1" depart="12.0" departSpeed="max" departPos="10.0"/>
+    <vehicle id="veh_13" type="car" route="r_cross_loop2" depart="13.0" departSpeed="max" departPos="30.0"/>
+    <vehicle id="veh_14" type="car" route="r_figure8" depart="14.0" departSpeed="max" departPos="15.0"/>
+    <vehicle id="veh_15" type="car" route="r_perimeter_ccw" depart="15.0" departSpeed="max" departPos="45.0"/>
+    <vehicle id="veh_16" type="car" route="r_perimeter_cw" depart="16.0" departSpeed="max" departPos="25.0"/>
+    <vehicle id="veh_17" type="car" route="r_cross_loop1" depart="17.0" departSpeed="max" departPos="35.0"/>
+    <vehicle id="veh_18" type="car" route="r_cross_loop2" depart="18.0" departSpeed="max" departPos="15.0"/>
+    <vehicle id="veh_19" type="car" route="r_figure8" depart="19.0" departSpeed="max" departPos="40.0"/>
+    
+    <vehicle id="veh_20" type="car" route="r_perimeter_ccw" depart="20.0" departSpeed="max" departPos="10.0"/>
+    <vehicle id="veh_21" type="car" route="r_perimeter_cw" depart="21.0" departSpeed="max" departPos="20.0"/>
+    <vehicle id="veh_22" type="car" route="r_cross_loop1" depart="22.0" departSpeed="max" departPos="15.0"/>
+    <vehicle id="veh_23" type="car" route="r_cross_loop2" depart="23.0" departSpeed="max" departPos="25.0"/>
+    <vehicle id="veh_24" type="car" route="r_figure8" depart="24.0" departSpeed="max" departPos="30.0"/>
+    <vehicle id="veh_25" type="car" route="r_perimeter_ccw" depart="25.0" departSpeed="max" departPos="10.0"/>
+    <vehicle id="veh_26" type="car" route="r_perimeter_cw" depart="26.0" departSpeed="max" departPos="50.0"/>
+    <vehicle id="veh_27" type="car" route="r_cross_loop1" depart="27.0" departSpeed="max" departPos="15.0"/>
+    <vehicle id="veh_28" type="car" route="r_cross_loop2" depart="28.0" departSpeed="max" departPos="30.0"/>
+    <vehicle id="veh_29" type="car" route="r_figure8" depart="29.0" departSpeed="max" departPos="40.0"/>
+</routes>

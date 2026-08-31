@@ -1,0 +1,2 @@
+geometry,algorithm,workload_w,seed,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,completion_ratio,completed_tasks,failed_tasks,total_tasks
+urban_manhattan,DDQN,40,42,0.689827853288238,0.21532131346411423,0.2754424879054849,0.12993487365354386,1.0,1200,0,1200

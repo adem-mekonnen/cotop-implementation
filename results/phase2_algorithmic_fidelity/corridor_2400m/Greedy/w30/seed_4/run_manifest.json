@@ -1,0 +1,13 @@
+{
+  "cell_id": "corridor_2400m_Greedy_w30_seed4",
+  "algorithm": "Greedy",
+  "geometry": "corridor_2400m",
+  "workload": 30,
+  "seed": 4,
+  "git_sha": "4b25c60a9bc9e2a5367a8ded450e0da15ee8ba0f",
+  "realization_file": "data\\evaluation_realizations\\corridor_2400m_w30_seed4_realization.json",
+  "realization_hash": "68fdabb746ce62ee8c5678ad5e5cda55d1106f59878f693a9e2feac4f2c5eedf",
+  "checkpoint_file": "NONE_HEURISTIC_BASELINE",
+  "checkpoint_sha256": "NONE",
+  "created_at": "2026-08-31T06:01:04Z"
+}
