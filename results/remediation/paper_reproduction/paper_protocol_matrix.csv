@@ -1,0 +1,24 @@
+Parameter,Paper Specification,Repository Configuration,Match,Evidence
+Scenario Geometry,Arterial road / 2D urban,corridor_2400m / grid_200m,EXACT,scenario_geometry.py
+Road Length,2400m / 200m x 200m,2400.0m / 200.0m,EXACT,paper_parameters.yaml
+Number of RSUs,6 RSUs,6 RSUs,EXACT,paper_parameters.yaml
+RSU Locations,Uniformly deployed,"x = [200, 600, 1000, 1400, 1800, 2200]",EXACT,scenario_geometry.py
+Coverage Radius,200m / 400m span,rsu_comm_range: 200m (400m span),EXACT,paper_parameters.yaml
+Vehicle Count,10 - 30 vehicles,"num_vehicles_range: [10, 30]",EXACT,paper_parameters.yaml
+Vehicle Speed,30 - 40 m/s,"vehicle_speed_range: [30.0, 40.0]",EXACT,paper_parameters.yaml
+Vehicle Mobility,SUMO microscopic simulation,Eclipse SUMO TraCI / replay,EXACT,envs/sumo_manager.py
+Task Count,20 - 40 tasks/veh,"num_tasks_per_vehicle_range: [20, 40]",EXACT,paper_parameters.yaml
+Task CPU Cycles,Average 10 Mcycles (or Gcycles),max_task_cpu: 10.0 (5.6 Mcycles mean),CONFLICTING,Paper text vs paper_parameters.yaml
+Task Data Size,2 - 5 MB,"task_size_range: [2e6, 5e6] Bytes",EXACT,paper_parameters.yaml
+Task Deadline,20 - 30 s,"task_deadline_range: [20.0, 30.0]",EXACT,paper_parameters.yaml
+V2R Bandwidth,20 - 100 MHz,"bandwidth_v2r_range: [2e7, 1e8]",EXACT,paper_parameters.yaml
+R2R Bandwidth,50 MHz,bandwidth_r2r: 5e7,EXACT,paper_parameters.yaml
+Vehicle Tx Power,10 dBm (0.01 W),tx_power_vehicle: 0.01 W,EXACT,paper_parameters.yaml
+RSU Tx Power,50 dBm (100 W),tx_power_rsu: 100.0 W,EXACT,paper_parameters.yaml
+RSU CPU Capacity,1 - 4 GHz,"rsu_cpu_capacity_range: [1e9, 4e9]",EXACT,paper_parameters.yaml
+RSU Compute Power,Not explicitly stated,compute_power_rsu: 50.0 W,ASSUMED,paper_parameters.yaml line 26
+Reward Trade-off,eps * delay + (1-eps)*energy,"epsilon: 0.5, penalty_z: 100.0",DERIVED,paper_parameters.yaml
+Training Episodes,500 episodes,500 episodes,EXACT,run_phase2_gpu_campaign.py
+Evaluation Seeds,Not specified in paper text,Seeds 42..51 (10 seeds),ASSUMED,run_phase2_gpu_campaign.py
+Evaluation Matrix,4 algorithms x 2 scenarios x 3 workloads,4 algorithms x 2 scenarios x 3 workloads x 10 seeds = 240 runs,EXACT,run_inventory.csv
+Metric Aggregation,Unclear (per-task vs per-vehicle sum),Per-task mean across all evaluated tasks,CONFLICTING,Paper Fig 6/7/8 vs evaluate.py

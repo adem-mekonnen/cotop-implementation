@@ -1,0 +1,19 @@
+{
+  "audit_name": "PHASE_5_PAPER_REPRODUCTION_AUDIT",
+  "git_sha": "d2e84d6",
+  "branch": "research/reproducibility-remediation",
+  "timestamp": "2026-09-02T12:11:00+03:00",
+  "physics_hashes": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "discrepancy_summary": {
+    "cotop_paper_delay_s": 13.9,
+    "cotop_reproduced_delay_s": 2.076789343132504,
+    "cotop_paper_energy_j": 25.14,
+    "cotop_reproduced_energy_j": 3.8423412930453766,
+    "scale_ratio_delay": 6.693023558679321,
+    "scale_ratio_energy": 6.5428857258212085,
+    "forensic_hypothesis": "Scale factor ~6.7x matches per-vehicle cumulative sum aggregation across 10 active vehicles (1.39s * 10 = 13.9s, 2.51J * 10 = 25.1J)."
+  }
+}

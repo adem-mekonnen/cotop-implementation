@@ -1,0 +1,10 @@
+Variable,Formula / Meaning,Internal Unit,Paper Unit,Conversion Factor,Verified
+task_size (rho),Input payload size,Bytes,MB,1 MB = 1e6 Bytes,EXACT
+task_cpu (phi),Total CPU cycles required,Cycles,Mcycles / Gcycles,1 Mcycle = 1e6 Cycles,EXACT
+rsu_cpu_capacity (f_m),RSU CPU frequency,Cycles / s (Hz),GHz,1 GHz = 1e9 Hz,EXACT
+vehicle_speed (v),Vehicle speed along corridor,m / s,m / s,1.0,EXACT
+bandwidth (B),Channel bandwidth,Hz,MHz,1 MHz = 1e6 Hz,EXACT
+tx_power_vehicle (P_V),Vehicle transmit power,Watts,dBm,10 dBm = 0.01 W,EXACT
+tx_power_rsu (P_R),RSU transmit power,Watts,dBm,50 dBm = 100 W,EXACT
+energy (E),Dynamic offloading energy,Joules (W * s),Joules,1.0,EXACT
+delay (T),Total execution latency,Seconds,Seconds,1.0,EXACT
