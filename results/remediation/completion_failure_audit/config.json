@@ -1,0 +1,25 @@
+{
+  "audit_name": "PHASE_3_COMPLETION_FAILURE_AUDIT",
+  "git_sha": "5d1af48",
+  "branch": "research/reproducibility-remediation",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "realization_path": "data/evaluation_realizations/realization_corridor_2400m_w20_seed42.json",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "parameters": {
+    "num_rsus": 6,
+    "rsu_comm_range_m": 200.0,
+    "corridor_length_m": 2400.0,
+    "rsu_cpu_capacity_f": 1000000000.0,
+    "vehicle_speed_m_s": 35.0,
+    "penalty_z": 100.0,
+    "epsilon": 0.5
+  },
+  "timestamp": "2026-09-02T11:51:38+03:00",
+  "commands": [
+    "python scripts/audit_failure_details.py",
+    "python scripts/audit_local_distributions.py",
+    "pytest -q tests/test_completion_failure_semantics.py"
+  ]
+}
