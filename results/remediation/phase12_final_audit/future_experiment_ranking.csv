@@ -1,0 +1,6 @@
+experiment_name,rank,scientific_purpose
+Continuous Long-Horizon Multi-Burst Trajectory Evaluation,STRONGLY RECOMMENDED,Exercises GAT-GRU spatial attention across multi-minute vehicle transit with continuous task arrival streams.
+Task Payload Scaling Sensitivity Analysis (2 MB -> 20 MB),STRONGLY RECOMMENDED,Quantifies whether a 10x task payload scaling closes the numerical gap with the published 13.90s delay.
+Unseen Real-World SUMO Urban Road Geometries,OPTIONAL,Evaluates policy generalization on realistic irregular city road networks beyond Manhattan grid.
+Additional DRL Baselines (PPO / SAC),OPTIONAL,Expands baseline comparison to modern on-policy and off-policy actor-critic architectures.
+Ad-Hoc Generic QR-DQN Implementation,NOT RECOMMENDED,Violates scientific attribution by masquerading discrete QR-DQN as STAR-RIS QRMP-DQN.

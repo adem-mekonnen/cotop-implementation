@@ -1,0 +1,8 @@
+algorithm,mean_delay_s,delay_rank,mean_energy_j,energy_rank,completion_ratio_pct,completion_rank,collaboration_ratio_pct,pareto_classification,statistical_notes
+Local,1.3335,3,0.2892,1,99.31,1,0.0,Pareto-Efficient (Energy-Optimal Minimizer),Consumes 0J optical forwarding energy by computing locally on vehicle CPU.
+Greedy,1.3111,1,5.1209,7,99.23,4,87.2,Pareto-Efficient (Delay-Aggressive Minimizer),Achieves lowest delay by routing aggressively to lowest-queue RSU at high optical power.
+DDQN,1.3187,2,3.4148,3,99.3,3,74.3,Pareto-Efficient (Balanced Q-Learning),Maintains intermediate collaboration rate with balanced delay and energy.
+CoTOP,1.3513,6,4.0355,5,99.17,6,94.3,Pareto-Efficient (Collaborative Actor-Critic),"Maximizes multi-head collaboration (94.3%), stabilizing RSU queue distributions."
+wo_md,1.3513,6,4.0355,5,99.17,6,94.3,Identical to CoTOP in short burst evaluation,GAT is untriggered in short episodes (< 5 frames); diverges on longer traces (+0.024s).
+wo_tp,1.3513,6,4.0355,5,99.17,6,94.3,FIFO Queue Baseline,Modifies queue ordering and state priority feature (1.0 vs 135446.27).
+wo_co,1.3335,3,0.2892,1,99.31,1,0.0,Formally Equivalent to Local,100% Action 0; 0.0s delay difference and 0.0J energy difference from Local.
