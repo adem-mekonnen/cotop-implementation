@@ -1,0 +1,13 @@
+condition_id,scenario,workload,metric,p_value_raw,holm_p_adjusted,fdr_q_adjusted,significant_fdr_alpha05
+corridor_2400m_w20_delay,corridor_2400m,w20,delay,0.08738844128359881,1.0,0.6389672713503102,False
+corridor_2400m_w20_energy,corridor_2400m,w20,energy,0.15974181783757754,1.0,0.6389672713503102,False
+corridor_2400m_w30_delay,corridor_2400m,w30,delay,1.0,1.0,1.0,False
+corridor_2400m_w30_energy,corridor_2400m,w30,energy,1.0,1.0,1.0,False
+corridor_2400m_w40_delay,corridor_2400m,w40,delay,1.0,1.0,1.0,False
+corridor_2400m_w40_energy,corridor_2400m,w40,energy,1.0,1.0,1.0,False
+grid_200m_w20_delay,grid_200m,w20,delay,0.7926724468498707,1.0,1.0,False
+grid_200m_w20_energy,grid_200m,w20,energy,0.146041304238395,1.0,0.6389672713503102,False
+grid_200m_w30_delay,grid_200m,w30,delay,1.0,1.0,1.0,False
+grid_200m_w30_energy,grid_200m,w30,energy,1.0,1.0,1.0,False
+grid_200m_w40_delay,grid_200m,w40,delay,1.0,1.0,1.0,False
+grid_200m_w40_energy,grid_200m,w40,energy,1.0,1.0,1.0,False

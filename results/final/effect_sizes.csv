@@ -1,0 +1,13 @@
+condition_id,scenario,workload,metric,cohens_dz,cohens_dz_ci95_lower,cohens_dz_ci95_upper,cles
+corridor_2400m_w20_delay,corridor_2400m,w20,delay,0.6064059208706764,-0.1719418648087826,1.3847537065501352,0.65
+corridor_2400m_w20_energy,corridor_2400m,w20,energy,0.4846466722546779,-0.2715506126381578,1.2408439571475136,0.65
+corridor_2400m_w30_delay,corridor_2400m,w30,delay,0.0,0.0,0.0,0.5
+corridor_2400m_w30_energy,corridor_2400m,w30,energy,0.0,0.0,0.0,0.5
+corridor_2400m_w40_delay,corridor_2400m,w40,delay,0.0,0.0,0.0,0.5
+corridor_2400m_w40_energy,corridor_2400m,w40,energy,0.0,0.0,0.0,0.5
+grid_200m_w20_delay,grid_200m,w20,delay,-0.0856262227129282,-0.8022931515561529,0.6310407061302965,0.45
+grid_200m_w20_energy,grid_200m,w20,energy,0.5031631829248044,-0.2561222426102887,1.2624486084598976,0.65
+grid_200m_w30_delay,grid_200m,w30,delay,0.0,0.0,0.0,0.5
+grid_200m_w30_energy,grid_200m,w30,energy,0.0,0.0,0.0,0.5
+grid_200m_w40_delay,grid_200m,w40,delay,0.0,0.0,0.0,0.5
+grid_200m_w40_energy,grid_200m,w40,energy,0.0,0.0,0.0,0.5
