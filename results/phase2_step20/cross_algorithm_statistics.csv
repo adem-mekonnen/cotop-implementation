@@ -1,0 +1,4 @@
+,mean_delay_s,mean_delay_s,mean_delay_s,mean_energy_j,mean_energy_j,mean_energy_j,completion_ratio,completion_ratio,completion_ratio
+,mean,std,count,mean,std,count,mean,std,count
+algorithm,,,,,,,,,
+DDQN,2.067412322037985,,1,6.754210396144597,,1,0.965,,1

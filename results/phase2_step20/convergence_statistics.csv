@@ -1,0 +1,2 @@
+algorithm,scenario,workload,mean_delay_s,mean_energy_j,completion_ratio
+DDQN,corridor_2400m,20,2.067412322037985,6.754210396144597,0.965

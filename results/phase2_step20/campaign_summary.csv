@@ -1,0 +1,2 @@
+algorithm,scenario,workload,seed,tasks_generated,tasks_completed,tasks_failed,completion_ratio,mean_delay_s,std_delay_s,mean_energy_j,std_energy_j,comm_delay_s,comp_delay_s,wait_delay_s,realization_sha256,checkpoint_sha256
+DDQN,corridor_2400m,20,42,200,193,7,0.965,2.067412322037985,1.5967165918143997,6.754210396144597,4.495989105998534,2.0487451817460247,0.005239927184714474,0.013427213107246008,f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6,de20ba23342bb0ae73c8d3f178fd38b46f4b14e100371a0925090f674a656827
