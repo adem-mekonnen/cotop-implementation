@@ -1,0 +1,27 @@
+{
+  "audit_name": "PHASE_8_ABLATION_VALIDITY_AND_STATISTICAL_SIGNIFICANCE",
+  "git_commit": "0169b68",
+  "branch": "research/reproducibility-remediation",
+  "timestamp": "2026-09-02T15:20:00+03:00",
+  "protected_physics": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "total_evaluated_runs": 420,
+  "total_realizations": 60,
+  "algorithms_audited": [
+    "CoTOP",
+    "DDQN",
+    "Local",
+    "Greedy",
+    "wo_md",
+    "wo_tp",
+    "wo_co"
+  ],
+  "paired_tests_performed": [
+    "Student's Paired t-test",
+    "Wilcoxon Signed-Rank Test",
+    "Cohen's d Effect Size"
+  ],
+  "verdict": "PASS WITH CAVEATS"
+}
