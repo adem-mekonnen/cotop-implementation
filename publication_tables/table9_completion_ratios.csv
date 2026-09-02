@@ -1,0 +1,5 @@
+algorithm,tasks_generated,tasks_completed,tasks_failed,completion_ratio_pct
+CoTOP,18000,17860,140,99.22222222222223
+DDQN,18000,17864,136,99.24444444444444
+Greedy,18000,17865,135,99.25
+Local,18000,17879,121,99.32777777777778

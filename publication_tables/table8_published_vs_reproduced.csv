@@ -1,0 +1,3 @@
+Quantity,Published_Target,Reproduced_Nominal,Absolute_Diff,Relative_Diff,Verdict,Scientific_Explanation
+Delay,13.90 s,1.3392 s,-12.5608 s,-90.37%,NOT REPRODUCED UNDER NOMINAL PHYSICAL PARAMETERS,Unreported initial server queue preload (~18.96 Gcycles / 9.48 s wait delay)
+Energy,25.14 J,3.9519 J,-21.1881 J,-84.28%,NOT REPRODUCED UNDER NOMINAL PHYSICAL PARAMETERS,Unreported server idle power draw (~1.8 W integrated over task duration)

@@ -1,0 +1,14 @@
+Parameter,Value,Unit
+Algorithms,"CoTOP, DDQN, Greedy, Local (QRMP-DQN Excluded)",-
+Scenarios,"Linear Corridor (2400m), Urban Manhattan Grid (200m)",-
+Workloads,"20, 30, 40 subtasks per vehicle",subtasks/veh
+Random Seeds,"42, 43, 44, 45, 46, 47, 48, 49, 50, 51",10 seeds
+Total Experimental Cells,240 (4 algos x 2 scenarios x 3 workloads x 10 seeds),runs
+Frozen Realizations,60 pre-materialized exogenous traces (SHA-256 verified),files
+Primary RSU Frequency,4.0,GHz
+Collaborative RSU Frequency,2.0,GHz
+Transmission Power,0.1 (100 mW),W
+RSU Coverage Radius,200,m
+Channel Bandwidth,10,MHz
+Noise Power Density,1e-13,W
+Training Horizon,500,episodes
