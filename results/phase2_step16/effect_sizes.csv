@@ -1,0 +1,13 @@
+comparison,geometry,workload,metric,n,cohens_dz,cohens_dz_ci_low,cohens_dz_ci_high,cles,interpretation
+CoTOP_vs_DDQN_corridor_2400m_w20_delay,corridor_2400m,w20,delay,5,-0.6784349435301305,-2.055583614398773,0.698713727338512,0.1,Medium effect
+CoTOP_vs_DDQN_corridor_2400m_w20_energy,corridor_2400m,w20,energy,5,-0.6748822179068786,-2.050684591548294,0.7009201557345365,0.1,Medium effect
+CoTOP_vs_DDQN_corridor_2400m_w30_delay,corridor_2400m,w30,delay,5,0.9844406473455961,-0.528434937497987,2.497316232189179,0.7,Large effect
+CoTOP_vs_DDQN_corridor_2400m_w30_energy,corridor_2400m,w30,energy,5,0.9849756371457925,-0.5281683520020857,2.4981196262936707,0.7,Large effect
+CoTOP_vs_DDQN_corridor_2400m_w40_delay,corridor_2400m,w40,delay,5,0.9286106440910855,-0.5568050612876876,2.4140263494698586,0.7,Large effect
+CoTOP_vs_DDQN_corridor_2400m_w40_energy,corridor_2400m,w40,energy,5,0.9248383966952707,-0.558762016890129,2.4084388102806704,0.7,Large effect
+CoTOP_vs_DDQN_grid_200m_w20_delay,grid_200m,w20,delay,5,0.0,0.0,0.0,0.5,Small/negligible
+CoTOP_vs_DDQN_grid_200m_w20_energy,grid_200m,w20,energy,5,0.0,0.0,0.0,0.5,Small/negligible
+CoTOP_vs_DDQN_grid_200m_w30_delay,grid_200m,w30,delay,5,1.7856687596580996,-0.21426092921623452,3.7855984485324337,0.9,Large effect
+CoTOP_vs_DDQN_grid_200m_w30_energy,grid_200m,w30,energy,5,1.7858351633037304,-0.21420905971919457,3.7858793863266555,0.9,Large effect
+CoTOP_vs_DDQN_grid_200m_w40_delay,grid_200m,w40,delay,5,1.7781503872855127,-0.21660877574269222,3.7729095503137176,0.9,Large effect
+CoTOP_vs_DDQN_grid_200m_w40_energy,grid_200m,w40,energy,5,1.7773324379758115,-0.2168647152668659,3.771529591218489,0.9,Large effect

@@ -1,0 +1,5 @@
+condition,algorithm,tasks_generated,tasks_completed,completion_ratio,mean_delay_s,mean_energy_j,comm_delay_s,comp_delay_s,wait_delay_s,provenance
+corridor_2400m_w20_single_seed,Local,200,200,1.0,0.6743204346055292,0.1388773969661063,0.6716772221106292,0.0026432124949,0.0,results/stage9_single_condition_gate/single_condition_gate_results.json
+corridor_2400m_w20_single_seed,Greedy,200,200,1.0,0.7080672223648863,3.6280397321093107,0.6716772221106292,0.03639000025425704,0.0,results/stage9_single_condition_gate/single_condition_gate_results.json
+corridor_2400m_w20_single_seed,DDQN,200,200,1.0,0.6919831470663239,1.980968707316824,0.6716772221106292,0.020305924955694676,0.0,results/stage9_single_condition_gate/single_condition_gate_results.json
+corridor_2400m_w20_single_seed,CoTOP,200,200,1.0,0.6903528486286408,1.8056277181147484,0.6716772221106292,0.01867562651801142,0.0,results/stage9_single_condition_gate/single_condition_gate_results.json
