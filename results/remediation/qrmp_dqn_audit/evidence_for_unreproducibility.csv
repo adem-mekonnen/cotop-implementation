@@ -1,0 +1,5 @@
+evidence_id,investigation,query,result,conclusion
+EVID-01,Author Codebase Search,"qrmp, quantile, mp_dqn, distribution",0 matches found across 100% of files.,No authentic QRMP-DQN code was released by the authors.
+EVID-02,Paper Text Audit,QRMP-DQN description in Section V-B,"Exactly one sentence in Section V-B; 0 equations, 0 parameters in Table III.",Paper provides insufficient information for independent reconstruction.
+EVID-03,PAMDP Action Space Theory,MP-DQN on discrete action space,"Q(s, k, empty) reduces to standard DQN Q(s, k).",MP-DQN is mathematically degenerate in discrete VEC environment without continuous variables.
+EVID-04,Reference [33] Subject Matter,STAR-RIS MEC System Model,Reference [33] optimizes continuous phase shift matrices for reflective surfaces.,Unbridgeable domain mismatch between STAR-RIS and discrete RSU offloading.

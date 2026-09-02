@@ -1,0 +1,24 @@
+{
+  "baseline_name": "QRMP-DQN",
+  "full_name": "Quantile Regression Multi-Pass Deep Q-Network",
+  "paper_citation": "Reference [33] in Du et al. (IEEE TMC 2026)",
+  "cited_source": "L. Guo, J. Jia, J. Chen, and X. Wang, 'QRMP-DQN Empowered Task Offloading and Resource Allocation for the STAR-RIS Assisted MEC Systems'",
+  "scientific_status": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE",
+  "exclusion_reason": "Fundamental continuous action space domain mismatch (STAR-RIS PAMDP vs discrete VEC offloading) and zero implementation code in author release.",
+  "specification_audit": {
+    "algorithm_definition": "Multi-Pass Parameterized Action Space Q-learning with Quantile Regression",
+    "state_representation": "UNSPECIFIED in Du et al. (Presumed 114-dim VEC state)",
+    "action_space_in_source_ref33": "Hybrid continuous-discrete PAMDP: (d, Phi_t, Phi_r, p)",
+    "action_space_in_target_paper": "Purely discrete 7-action set: {0, 1, ..., 6}",
+    "continuous_parameters_in_target": "NONE (Transmitter power, CPU clock, and bandwidth are fixed constants)",
+    "q_network_architecture": "UNSPECIFIED in Du et al.",
+    "actor_parameter_network": "UNSPECIFIED in Du et al.",
+    "quantile_count_N": "UNSPECIFIED in Du et al. (Common values 50, 100, 200)",
+    "huber_loss_threshold_kappa": "UNSPECIFIED in Du et al.",
+    "replay_buffer_size": "UNSPECIFIED in Du et al.",
+    "batch_size": "UNSPECIFIED in Du et al.",
+    "learning_rate": "UNSPECIFIED for QRMP-DQN in Du et al.",
+    "target_update_frequency": "UNSPECIFIED in Du et al.",
+    "exploration_schedule": "UNSPECIFIED in Du et al."
+  }
+}

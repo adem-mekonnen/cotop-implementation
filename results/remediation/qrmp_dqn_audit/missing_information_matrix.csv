@@ -1,0 +1,8 @@
+component,paper_state,evidence,impact
+Continuous Action Parameterization,NOT_SPECIFIED,Du et al. Table III contains only discrete 7 actions; no continuous parameters defined.,CRITICAL — MP-DQN architecture is undefined without continuous parameters.
+Quantile Distribution Count N,NOT_SPECIFIED,"Zero mention of quantile resolution N (e.g. 50, 100, 200).",HIGH — Directly determines output layer dimensionality and loss scaling.
+Huber Loss Threshold Kappa,NOT_SPECIFIED,Zero mention of quantile Huber loss parameter.,HIGH — Determines gradient clipping threshold in distributional update.
+Actor Network Architecture,NOT_SPECIFIED,"No layers, activations, or dimensions provided for continuous parameter actor.",CRITICAL — Actor cannot be instantiated without architecture.
+Target Update Frequency C,NOT_SPECIFIED,Target network synchronization steps completely omitted.,HIGH — Controls training stability and convergence rate.
+Replay Buffer Capacity,NOT_SPECIFIED,Memory buffer size unstated.,MEDIUM — Impacts sample correlation and memory usage.
+Author Code Release,MISSING,Author GitHub release repository contains 0 QRMP files or references.,CRITICAL — Checkpoint provenance cannot be established.

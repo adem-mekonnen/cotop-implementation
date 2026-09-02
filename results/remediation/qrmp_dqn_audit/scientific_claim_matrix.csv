@@ -1,0 +1,3 @@
+claim_id,paper_claim,paper_reference,audit_evidence,status
+CLAIM_QRMP_1,CoTOP outperforms QRMP-DQN across all workloads.,"Section V-B, Fig. 6, Table IV",QRMP-DQN is not reproducible from paper text or author codebase due to STAR-RIS continuous PAMDP domain mismatch.,UNVERIFIABLE (BASELINE UNREPRODUCIBLE)
+CLAIM_QRMP_2,QRMP-DQN serves as an intermediate DRL baseline between CoTOP and DDQN.,"Section V-B, lines 66-70","Reference [33] was formulated for STAR-RIS phase surfaces, not discrete vehicular task offloading.",CONTRADICTED BY LITERATURE AUDIT
