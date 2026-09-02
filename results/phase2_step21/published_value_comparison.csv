@@ -1,0 +1,3 @@
+quantity,published_target,reproduced_mean,absolute_diff,relative_diff_pct,reproduction_status,plausible_explanation,evidence_level
+Delay (s),13.9,1.339240440222152,-12.560759559777848,-90.36517668904926,NOT ACHIEVED,Omitted initial server queue backlog (~18.96 Gcycles / 9.48 s delay),"Plausible sufficient condition, unstated in paper"
+Energy (J),25.14,3.951868070758366,-21.188131929241635,-84.2805566000065,NOT ACHIEVED,Omitted baseline server idle power draw (~1.8 W integrated over delay),"Plausible sufficient condition, unstated in paper"

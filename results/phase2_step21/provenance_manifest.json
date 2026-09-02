@@ -1,0 +1,44 @@
+{
+  "campaign_id": "PHASE2_STEP21_FULL_10SEED_CAMPAIGN",
+  "timestamp": "2026-09-02T05:03:45Z",
+  "git_commit_sha": "441296f18f1eddf09c399ac1840827d5a48b034d",
+  "physics_hashes": {
+    "envs/comm_model.py": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "envs/comp_model.py": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "matrix_dimensions": {
+    "algorithms": [
+      "CoTOP",
+      "DDQN",
+      "Greedy",
+      "Local"
+    ],
+    "scenarios": [
+      "corridor_2400m",
+      "grid_200m"
+    ],
+    "workloads": [
+      20,
+      30,
+      40
+    ],
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ],
+    "total_cells": 240,
+    "completed_cells": 240,
+    "failed_cells": 0,
+    "total_realizations": 60
+  },
+  "published_value_reproduction": "NOT ACHIEVED (Physical constants preserved without fitting)",
+  "status": "PASS"
+}
