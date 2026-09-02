@@ -1,0 +1,5 @@
+mechanism,required_condition,official_evaluation_activates,activation_rate_pct,scientific_consequence
+GAT-GRU Mobility Prediction,Vehicle trajectory history >= 5 frames (sim_time >= 5.0s),False,0.0,"Untriggered in official evaluation due to 2-3s episode length; defaults to linear distance fallback, rendering wo_md identical to CoTOP."
+Task Prioritization (Eq. 23),use_priority=True in VECEnv with multi-task queue,True,100.0,Reorders tasks according to urgency and dwell time; state vector feature s[t].priority changes from 1.0 to urgency score.
+Multi-Head Collaboration (Case 2),Action in {1..6} and secondary RSU available,True,94.3,"Actively splits compute workloads across primary and secondary RSUs, consuming inter-RSU optical forwarding energy."
+A3C Policy Execution,Strictly loaded ActorCritic model weights matching workload dim,True,100.0,Deterministic neural forward pass outputs action logits across all evaluated realizations.

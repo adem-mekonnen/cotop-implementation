@@ -1,0 +1,2 @@
+comparison,realization,woco_action_0_count,local_action_0_count,total_tasks,mean_delay_woco_s,mean_delay_local_s,delay_max_abs_difference,mean_energy_woco_j,mean_energy_local_j,energy_max_abs_difference,action_sequences_bitwise_identical,mathematical_equivalence_proven
+wo_co vs Local Formal Equivalence,realization_corridor_2400m_w20_42.json,200,200,200,2.04136596953117,2.04136596953117,0.0,0.3000039329119527,0.3000039329119527,0.0,True,True

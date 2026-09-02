@@ -1,0 +1,2 @@
+experiment_type,cotop_use_priority,wotp_use_priority,cotop_initial_task_order,wotp_initial_task_order,cotop_priority_scores_sample,wotp_priority_scores_sample,state_priority_feature_cotop,state_priority_feature_wotp,priority_mechanism_active_and_distinct
+TASK_PRIORITY_ACTIVATION_AUDIT,True,False,"[3, 7, 9, 12, 20, 1, 8, 13, 17, 6]","[1, 2, 3, 4, 5, 6, 7, 8, 9, 10]","[156860.4837216332, 154488.45892139548, 145945.44625409113, 144776.09099755436, 135488.96852838795]","[1.0, 1.0, 1.0, 1.0, 1.0]",135446.265625,1.0,True
