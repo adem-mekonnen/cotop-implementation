@@ -1,0 +1,42 @@
+{
+  "audit_name": "PHASE_7_MULTISEED_FACTORIAL_EVALUATION",
+  "git_commit": "4e25265",
+  "branch": "research/reproducibility-remediation",
+  "evaluation_date": "2026-09-02T15:00:00+03:00",
+  "protected_physics": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "algorithms": [
+    "CoTOP",
+    "DDQN",
+    "Local",
+    "Greedy",
+    "wo_md",
+    "wo_tp",
+    "wo_co"
+  ],
+  "scenarios": [
+    "corridor_2400m",
+    "grid_200m"
+  ],
+  "workloads": [
+    20,
+    30,
+    40
+  ],
+  "seeds": [
+    42,
+    43,
+    44,
+    45,
+    46,
+    47,
+    48,
+    49,
+    50,
+    51
+  ],
+  "total_runs": 420,
+  "deterministic_re_evaluation_verified": true
+}
