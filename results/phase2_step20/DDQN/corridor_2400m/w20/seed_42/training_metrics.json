@@ -1,0 +1,6 @@
+{
+  "train_duration_s": 5.4024412631988525,
+  "total_episodes": 2,
+  "checkpoint_sha256": "de20ba23342bb0ae73c8d3f178fd38b46f4b14e100371a0925090f674a656827",
+  "final_reward": -4198.159057418342
+}

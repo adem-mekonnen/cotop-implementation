@@ -1,0 +1,27 @@
+{
+  "git_commit_sha": "2156339e828ff847170524daa55ac6939e86bb5c",
+  "git_branch": "main",
+  "timestamp": "2026-09-02T04:48:41Z",
+  "algorithm": "DDQN",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "episodes": 2,
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "NO GPU (CPU Fallback)",
+    "gpu_mem_mb": 0,
+    "cuda_ver": "N/A"
+  },
+  "software": {
+    "python_version": "3.11.9",
+    "pytorch_version": "2.12.1+cpu"
+  },
+  "physics_hashes": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_sha256": "de20ba23342bb0ae73c8d3f178fd38b46f4b14e100371a0925090f674a656827",
+  "status": "COMPLETED"
+}

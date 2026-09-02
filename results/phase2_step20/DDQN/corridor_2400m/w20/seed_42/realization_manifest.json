@@ -1,0 +1,7 @@
+{
+  "realization_path": "D:\\cotop-implementation\\data\\evaluation_realizations\\realization_corridor_2400m_w20_seed42.json",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42
+}

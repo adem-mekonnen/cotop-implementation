@@ -1,0 +1,19 @@
+{
+  "algorithm": "DDQN",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "tasks_generated": 200,
+  "tasks_completed": 193,
+  "tasks_failed": 7,
+  "completion_ratio": 0.965,
+  "mean_delay_s": 2.067412322037985,
+  "std_delay_s": 1.5967165918143997,
+  "mean_energy_j": 6.754210396144597,
+  "std_energy_j": 4.495989105998534,
+  "comm_delay_s": 2.0487451817460247,
+  "comp_delay_s": 0.005239927184714474,
+  "wait_delay_s": 0.013427213107246008,
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_sha256": "de20ba23342bb0ae73c8d3f178fd38b46f4b14e100371a0925090f674a656827"
+}

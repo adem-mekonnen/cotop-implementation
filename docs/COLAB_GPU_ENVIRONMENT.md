@@ -71,7 +71,32 @@ The script `scripts/verify_colab_gpu.py` executes an automated 6-step sanity gat
 
 ---
 
-## 5. Experimental Safety Rules for Colab Execution
+## 5. Unified Campaign Execution on Colab
+
+To execute the complete 60-cell experimental campaign with interruption protection:
+
+```bash
+# Full factorial campaign across all algorithms, scenarios, workloads, and seeds
+!python scripts/run_phase2_gpu_campaign.py \
+    --algorithm all \
+    --scenario all \
+    --workload all \
+    --seed 42,43,44,45,46 \
+    --episodes 500 \
+    --device cuda:0 \
+    --resume \
+    --output-dir results/phase2_step20
+```
+
+### Resume & Interruption Safety
+If Google Colab disconnects or times out:
+1. Reconnect to the GPU instance.
+2. Re-run the identical command above with `--resume`.
+3. Completed seeds are detected and skipped; interrupted seeds resume from their last saved periodic checkpoint without data loss.
+
+---
+
+## 6. Experimental Safety Rules for Colab Execution
 
 1. **No Parameter Tuning**: Do not alter learning rates, queue capacities, task arrival rates, or energy coefficients to force target convergence to $13.90\text{ s}$ / $25.14\text{ J}$.
 2. **QRMP-DQN Exclusion**: Reference [33] remains formally classified as `EXCLUDED (DOMAIN MISMATCH - STAR-RIS)` per `docs/PHASE2_QRMP_DQN_DISPOSITION.md`.
