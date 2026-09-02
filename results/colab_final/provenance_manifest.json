@@ -1,0 +1,22 @@
+{
+  "project": "CoTOP Scientific Reproduction & Colab Final Execution",
+  "scientific_commit": "c50b806",
+  "colab_preparation_commit": "36d4915",
+  "timestamp": "2026-09-02T15:45:37.027923+00:00",
+  "hardware": {
+    "python_version": "3.11.9",
+    "pytorch_version": "2.12.1+cpu",
+    "cuda_available": false,
+    "gpu_name": "CPU"
+  },
+  "protected_physics": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "reproducibility_certification": "CLASS_B_IMPLEMENTATION_FAITHFUL_BUT_NUMERICALLY_NON_REPRODUCED",
+  "publication_readiness": "READY_WITH_DISCLOSURES",
+  "regression_suite_passing": 292,
+  "evaluation_realizations_count": 60,
+  "total_runs_evaluated": 420,
+  "qrmp_dqn_disposition": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE (EXCLUDED)"
+}

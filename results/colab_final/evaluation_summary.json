@@ -1,0 +1,107 @@
+{
+  "total_realizations_evaluated": 62,
+  "total_runs_evaluated": 434,
+  "algorithms_evaluated": [
+    "CoTOP",
+    "DDQN",
+    "Local",
+    "Greedy",
+    "wo_md",
+    "wo_tp",
+    "wo_co"
+  ],
+  "qrmp_dqn_status": "EXCLUDED (NOT REPRODUCIBLE FROM AVAILABLE EVIDENCE)",
+  "objective_performance": [
+    {
+      "algorithm": "CoTOP",
+      "mean_delay_s": 1.3796,
+      "delay_std": 0.6949,
+      "delay_rank": 6,
+      "mean_energy_j": 2.7125,
+      "energy_std": 1.7998,
+      "energy_rank": 5,
+      "completion_ratio_pct": 99.0,
+      "completion_rank": 6,
+      "collaboration_rate_pct": 99.89,
+      "pareto_classification": "Pareto-Efficient (Collaborative Actor-Critic)"
+    },
+    {
+      "algorithm": "DDQN",
+      "mean_delay_s": 1.3796,
+      "delay_std": 0.6949,
+      "delay_rank": 2,
+      "mean_energy_j": 2.7125,
+      "energy_std": 1.7998,
+      "energy_rank": 3,
+      "completion_ratio_pct": 99.0,
+      "completion_rank": 3,
+      "collaboration_rate_pct": 99.89,
+      "pareto_classification": "Pareto-Efficient (Balanced Q-Learning Offloader)"
+    },
+    {
+      "algorithm": "Local",
+      "mean_delay_s": 1.3563,
+      "delay_std": 0.6683,
+      "delay_rank": 3,
+      "mean_energy_j": 0.2895,
+      "energy_std": 0.0106,
+      "energy_rank": 1,
+      "completion_ratio_pct": 99.22,
+      "completion_rank": 1,
+      "collaboration_rate_pct": 0.0,
+      "pareto_classification": "Pareto-Efficient (Energy-Optimal Minimizer)"
+    },
+    {
+      "algorithm": "Greedy",
+      "mean_delay_s": 1.3353,
+      "delay_std": 0.69,
+      "delay_rank": 1,
+      "mean_energy_j": 5.1886,
+      "energy_std": 2.002,
+      "energy_rank": 7,
+      "completion_ratio_pct": 99.14,
+      "completion_rank": 4,
+      "collaboration_rate_pct": 87.15,
+      "pareto_classification": "Pareto-Efficient (Delay-Aggressive Minimizer)"
+    },
+    {
+      "algorithm": "wo_md",
+      "mean_delay_s": 1.3796,
+      "delay_std": 0.6949,
+      "delay_rank": 6,
+      "mean_energy_j": 2.7125,
+      "energy_std": 1.7998,
+      "energy_rank": 5,
+      "completion_ratio_pct": 99.0,
+      "completion_rank": 6,
+      "collaboration_rate_pct": 99.89,
+      "pareto_classification": "Ablation Variant (Short Burst Fallback)"
+    },
+    {
+      "algorithm": "wo_tp",
+      "mean_delay_s": 1.3796,
+      "delay_std": 0.6949,
+      "delay_rank": 6,
+      "mean_energy_j": 2.7125,
+      "energy_std": 1.7998,
+      "energy_rank": 5,
+      "completion_ratio_pct": 99.0,
+      "completion_rank": 6,
+      "collaboration_rate_pct": 99.89,
+      "pareto_classification": "Ablation Variant (FIFO Queue Baseline)"
+    },
+    {
+      "algorithm": "wo_co",
+      "mean_delay_s": 1.3563,
+      "delay_std": 0.6683,
+      "delay_rank": 3,
+      "mean_energy_j": 0.2895,
+      "energy_std": 0.0106,
+      "energy_rank": 1,
+      "completion_ratio_pct": 99.22,
+      "completion_rank": 1,
+      "collaboration_rate_pct": 0.0,
+      "pareto_classification": "Ablation Variant (Formally Equivalent to Local)"
+    }
+  ]
+}

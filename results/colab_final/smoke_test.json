@@ -1,0 +1,13 @@
+{
+  "smoke_test_status": "PASS",
+  "device": "cpu",
+  "cuda_available": false,
+  "forward_pass": "PASS",
+  "backward_pass": "PASS",
+  "optimizer_step": "PASS",
+  "checkpoint_save": "PASS",
+  "checkpoint_reload": "PASS",
+  "policy_divergence": 0.0,
+  "value_divergence": 0.0,
+  "timestamp": "2026-09-02T15:37:50.533143+00:00"
+}

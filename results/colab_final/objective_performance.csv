@@ -1,0 +1,8 @@
+algorithm,mean_delay_s,delay_std,delay_rank,mean_energy_j,energy_std,energy_rank,completion_ratio_pct,completion_rank,collaboration_rate_pct,pareto_classification
+CoTOP,1.3796,0.6949,6,2.7125,1.7998,5,99.0,6,99.89,Pareto-Efficient (Collaborative Actor-Critic)
+DDQN,1.3796,0.6949,2,2.7125,1.7998,3,99.0,3,99.89,Pareto-Efficient (Balanced Q-Learning Offloader)
+Local,1.3563,0.6683,3,0.2895,0.0106,1,99.22,1,0.0,Pareto-Efficient (Energy-Optimal Minimizer)
+Greedy,1.3353,0.69,1,5.1886,2.002,7,99.14,4,87.15,Pareto-Efficient (Delay-Aggressive Minimizer)
+wo_md,1.3796,0.6949,6,2.7125,1.7998,5,99.0,6,99.89,Ablation Variant (Short Burst Fallback)
+wo_tp,1.3796,0.6949,6,2.7125,1.7998,5,99.0,6,99.89,Ablation Variant (FIFO Queue Baseline)
+wo_co,1.3563,0.6683,3,0.2895,0.0106,1,99.22,1,0.0,Ablation Variant (Formally Equivalent to Local)

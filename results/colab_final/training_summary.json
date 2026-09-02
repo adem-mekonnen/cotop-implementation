@@ -1,0 +1,18 @@
+{
+  "episodes": 50,
+  "seed": 42,
+  "duration_s": 11.405489444732666,
+  "final_reward": -55.08910830487111,
+  "final_mean_delay_s": 0.74288272116192,
+  "final_mean_energy_j": 0.3588994449355022,
+  "checkpoint": {
+    "checkpoint_path": "D:\\cotop-implementation\\results\\colab_final\\cotop_colab_trained.pt",
+    "checkpoint_sha256": "79439642f5dc22bd8620614afc8413f74c0688b33fad32cebb2934aa6ea84c0c",
+    "model_param_hash": "dd912c838f3ddf70108a6a052eda3c75bfc9ecd8d6ef329cfb805cd3c2e8da28",
+    "algorithm": "CoTOP",
+    "training_episodes": 50,
+    "training_seed": 42,
+    "training_duration_s": 11.405489444732666,
+    "reload_verified": true
+  }
+}
