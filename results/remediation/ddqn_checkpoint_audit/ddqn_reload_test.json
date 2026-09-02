@@ -1,0 +1,11 @@
+{
+  "checkpoint_path": "D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\checkpoints\\ddqn_smoke_checkpoint.pt",
+  "checkpoint_sha256": "84ccb912a6572f3b3f3331a8bad247fe482eecaf446d957843036e7c27df0c04",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "evaluation_seed": 42,
+  "reload_successful": true,
+  "deterministic": true,
+  "mean_delay_s": 2.0536535631628405,
+  "mean_energy_j": 4.8225145078634215,
+  "completion_ratio": 0.965
+}

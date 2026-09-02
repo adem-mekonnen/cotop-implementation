@@ -1,0 +1,26 @@
+{
+  "evaluation_1": {
+    "mean_delay_s": 2.0536535631628405,
+    "mean_energy_j": 4.8225145078634215,
+    "completion_ratio": 0.965,
+    "tasks_completed": 193,
+    "tasks_failed": 7,
+    "action_sequence_sha256": "a1db94c901280268cfcfe05e1d134c004650e0e9bd29274ca17786ef7e771d8c"
+  },
+  "evaluation_2": {
+    "mean_delay_s": 2.0536535631628405,
+    "mean_energy_j": 4.8225145078634215,
+    "completion_ratio": 0.965,
+    "tasks_completed": 193,
+    "tasks_failed": 7,
+    "action_sequence_sha256": "a1db94c901280268cfcfe05e1d134c004650e0e9bd29274ca17786ef7e771d8c"
+  },
+  "deterministic_verification": {
+    "actions_bitwise_match": true,
+    "delays_bitwise_match": true,
+    "energies_bitwise_match": true,
+    "completions_bitwise_match": true,
+    "action_hash_match": true,
+    "is_fully_deterministic": true
+  }
+}

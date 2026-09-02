@@ -1,0 +1,29 @@
+{
+  "git_commit_sha": "2bc18d0f6d563b339f3449e84d6b2b687f66986b",
+  "git_branch": "research/reproducibility-remediation",
+  "timestamp": "2026-09-02T09:57:17Z",
+  "algorithm": "DDQN",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "episodes": 20,
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "CPU",
+    "gpu_mem_mb": 0,
+    "cuda_ver": "N/A"
+  },
+  "software": {
+    "python_version": "3.11.9",
+    "pytorch_version": "2.12.1+cpu"
+  },
+  "physics_hashes": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "action_sequence_sha256": "a1db94c901280268cfcfe05e1d134c004650e0e9bd29274ca17786ef7e771d8c",
+  "state_sequence_sha256": "96087508258a12d5fa78b2917659223e73b6a54a7dc49a367c5320b4b1d38c2b",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_sha256": "84ccb912a6572f3b3f3331a8bad247fe482eecaf446d957843036e7c27df0c04",
+  "status": "COMPLETED"
+}

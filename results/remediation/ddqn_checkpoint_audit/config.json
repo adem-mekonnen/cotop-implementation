@@ -1,0 +1,16 @@
+{
+  "audit_name": "PHASE_6_DDQN_CHECKPOINT_RELOAD_AUDIT",
+  "git_sha": "2bc18d0",
+  "branch": "research/reproducibility-remediation",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "checkpoint_path": "D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\checkpoints\\ddqn_smoke_checkpoint.pt",
+  "checkpoint_sha256": "84ccb912a6572f3b3f3331a8bad247fe482eecaf446d957843036e7c27df0c04",
+  "realization_path": "D:\\cotop-implementation\\data\\evaluation_realizations\\realization_corridor_2400m_w20_seed42.json",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "commands": [
+    "C:\\Users\\DELL 7020\\AppData\\Local\\Programs\\Python\\Python311\\python.exe evaluate.py --mode ddqn --scenario corridor_2400m --workload 20 --seed 42 --checkpoint_path D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\checkpoints\\ddqn_smoke_checkpoint.pt --realization_path D:\\cotop-implementation\\data\\evaluation_realizations\\realization_corridor_2400m_w20_seed42.json --output_csv D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\evaluation_1\\task_trace.csv --manifest_path D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\evaluation_1\\evaluation_metrics.json",
+    "C:\\Users\\DELL 7020\\AppData\\Local\\Programs\\Python\\Python311\\python.exe evaluate.py --mode ddqn --scenario corridor_2400m --workload 20 --seed 42 --checkpoint_path D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\checkpoints\\ddqn_smoke_checkpoint.pt --realization_path D:\\cotop-implementation\\data\\evaluation_realizations\\realization_corridor_2400m_w20_seed42.json --output_csv D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\evaluation_2\\task_trace.csv --manifest_path D:\\cotop-implementation\\results\\remediation\\ddqn_checkpoint_audit\\evaluation_2\\evaluation_metrics.json"
+  ]
+}
