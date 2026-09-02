@@ -1,0 +1,4 @@
+,mean_delay_s,mean_delay_s,mean_delay_s,mean_energy_j,mean_energy_j,mean_energy_j,completion_ratio,completion_ratio,completion_ratio
+,mean,std,count,mean,std,count,mean,std,count
+algorithm,,,,,,,,,
+CoTOP,2.076789343132504,,1,3.8423412930453766,,1,0.965,,1

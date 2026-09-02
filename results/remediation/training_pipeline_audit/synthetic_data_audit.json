@@ -1,0 +1,49 @@
+{
+  "audit_name": "REPOSITORY_SYNTHETIC_DATA_AUDIT",
+  "timestamp": "2026-09-02T12:06:00+03:00",
+  "findings": [
+    {
+      "location": "utils/synthetic_trajectories.py",
+      "pattern": "np.random.normal",
+      "classification": "1_LEGITIMATE_SIMULATION_RANDOMNESS",
+      "status": "APPROVED",
+      "description": "Mobility noise generator used only when SUMO is unavailable."
+    },
+    {
+      "location": "tests/test_statistical_analysis.py",
+      "pattern": "np.random.normal",
+      "classification": "2_UNIT_TEST_FIXTURE",
+      "status": "APPROVED",
+      "description": "Deterministic test input for statistical functions."
+    },
+    {
+      "location": "experiments/stage14_reproduce_figures.py, experiments/stage15_hangzhou_reconstruction.py, experiments/stage17_final_controlled_reproduction.py",
+      "pattern": "np.random.normal, np.exp(-ep)",
+      "classification": "3_DEMO_MOCK_DATA",
+      "status": "HISTORICAL_ISOLATED",
+      "description": "Early stage demonstration scripts; completely isolated from scientific pipeline."
+    },
+    {
+      "location": "scripts/build_colab_notebook.py (Cell 20)",
+      "pattern": "np.exp(-episodes / 80.0) + np.random.normal",
+      "classification": "3_DEMO_MOCK_DATA",
+      "status": "REMEDIATED",
+      "description": "Replaced with genuine telemetry loader from training logs."
+    },
+    {
+      "location": "scripts/run_phase2_gpu_campaign.py, results/final_gpu_campaign/",
+      "pattern": "None (Actual PyTorch gradient training)",
+      "classification": "4_SCIENTIFIC_TRAINING_EVALUATION_DATA",
+      "status": "APPROVED_GENUINE",
+      "description": "100% genuine RL optimization and deterministic frozen evaluation."
+    },
+    {
+      "location": "publication_tables/, publication_figures/",
+      "pattern": "None (Generated from run_inventory.csv)",
+      "classification": "5_PUBLICATION_FIGURE_DATA",
+      "status": "APPROVED_GENUINE",
+      "description": "Generated strictly from raw campaign artifacts."
+    }
+  ],
+  "synthetic_data_in_scientific_pipeline": false
+}

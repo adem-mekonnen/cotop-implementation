@@ -1,0 +1,21 @@
+{
+  "algorithm": "CoTOP",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "tasks_generated": 200,
+  "tasks_completed": 193,
+  "tasks_failed": 7,
+  "completion_ratio": 0.965,
+  "mean_delay_s": 2.076789343132504,
+  "std_delay_s": 1.6244510516935253,
+  "mean_energy_j": 3.8423412930453766,
+  "std_energy_j": 5.639160387318429,
+  "comm_delay_s": 2.0196264907150328,
+  "comp_delay_s": 0.005603238034816316,
+  "wait_delay_s": 0.05155961438265527,
+  "action_sequence_sha256": "36df4597b03fb95f666f114f552fed956c56a532e1c123953225b816080bda32",
+  "state_sequence_sha256": "e342de46c8a2ae3b8f4e10e0c45356924495307dd93b7de3ff14d0f9f80577ca",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_sha256": "1772abf36e56a147103ea9ac5424e2c44377a59b15fff0c7e76cca2e60a73ba0"
+}

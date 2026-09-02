@@ -1,0 +1,10 @@
+{
+  "model_type": "ActorCritic (CoTOP)",
+  "input_dim": 114,
+  "num_actions": 7,
+  "parameter_hash_before_training": "N/A (Freshly initialized)",
+  "parameter_hash_after_training": "0db8859cd51aedacbd35189ed05c3fe27d54bb07af36047029667d5d352bbfb2",
+  "parameter_hash_after_reload": "0db8859cd51aedacbd35189ed05c3fe27d54bb07af36047029667d5d352bbfb2",
+  "parameter_mutation_confirmed": true,
+  "reload_exact_match": true
+}

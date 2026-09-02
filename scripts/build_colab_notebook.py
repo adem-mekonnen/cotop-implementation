@@ -547,29 +547,30 @@ print("\\n[SCIENTIFIC VERDICT] A3C policy is fully converged and stable.")
     # CELL 20: TRAINING CURVES
     add_md("### Cell 20: Training Trajectory Curve Generation")
     add_code("""# ============================================================
-# CELL 20: PLOT & SAVE TRAINING TRAJECTORY CURVES
+# CELL 20: PLOT & SAVE TRAINING TRAJECTORY CURVES FROM GENUINE LOGS
 # ============================================================
 import matplotlib.pyplot as plt
+import glob
 
-episodes = np.arange(1, 501)
-# Empirical smoothed convergence trajectory
-rewards = -48.0 + 3.2 * (1.0 - np.exp(-episodes / 80.0)) + np.random.normal(0, 0.4, 500)
-delays = 4.418 + np.random.normal(0, 0.05, 500)
-energies = 0.316 + np.random.normal(0, 0.01, 500)
-
-plt.figure(figsize=(10, 4))
-plt.plot(episodes, rewards, label="A3C Mean Reward", color="tab:blue")
-plt.axhline(y=-44.8, color='r', linestyle='--', label="Convergence Plateau (-44.8)")
-plt.title("CoTOP A3C Reward Convergence (500 Episodes)")
-plt.xlabel("Episode")
-plt.ylabel("Reward")
-plt.grid(True, alpha=0.3)
-plt.legend()
-plt.tight_layout()
-plt.savefig("results/stage11/reward_curve.png", dpi=150)
-plt.show()
-
-print("[SUCCESS] Training curve plots saved to results/stage11/reward_curve.png")
+log_files = sorted(glob.glob("results/stage11/checkpoints/seed_*/training_log.csv"))
+if len(log_files) > 0:
+    plt.figure(figsize=(10, 4))
+    for lf in log_files:
+        seed_name = os.path.basename(os.path.dirname(lf))
+        df_l = pd.read_csv(lf)
+        if "reward" in df_l.columns:
+            plt.plot(df_l["episode"], df_l["reward"], label=f"{seed_name} Reward", alpha=0.7)
+    plt.title("CoTOP A3C Reward Convergence (Genuine Telemetry)")
+    plt.xlabel("Episode")
+    plt.ylabel("Reward")
+    plt.grid(True, alpha=0.3)
+    plt.legend()
+    plt.tight_layout()
+    plt.savefig("results/stage11/reward_curve.png", dpi=150)
+    plt.show()
+    print("[SUCCESS] Genuine training curve plots saved to results/stage11/reward_curve.png")
+else:
+    print("[INFO] No training logs found to plot; skipping curve generation.")
 """)
 
     # CELL 21: CHECKPOINT VERIFICATION

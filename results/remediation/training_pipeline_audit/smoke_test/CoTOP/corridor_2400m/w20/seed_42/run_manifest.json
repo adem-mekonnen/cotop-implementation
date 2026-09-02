@@ -1,0 +1,29 @@
+{
+  "git_commit_sha": "9090787036cf673c1d0b170193d203c70ea20db9",
+  "git_branch": "research/reproducibility-remediation",
+  "timestamp": "2026-09-02T09:02:37Z",
+  "algorithm": "CoTOP",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "episodes": 20,
+  "hardware": {
+    "device": "cpu",
+    "gpu_name": "CPU",
+    "gpu_mem_mb": 0,
+    "cuda_ver": "N/A"
+  },
+  "software": {
+    "python_version": "3.11.9",
+    "pytorch_version": "2.12.1+cpu"
+  },
+  "physics_hashes": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "action_sequence_sha256": "36df4597b03fb95f666f114f552fed956c56a532e1c123953225b816080bda32",
+  "state_sequence_sha256": "e342de46c8a2ae3b8f4e10e0c45356924495307dd93b7de3ff14d0f9f80577ca",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_sha256": "1772abf36e56a147103ea9ac5424e2c44377a59b15fff0c7e76cca2e60a73ba0",
+  "status": "COMPLETED"
+}

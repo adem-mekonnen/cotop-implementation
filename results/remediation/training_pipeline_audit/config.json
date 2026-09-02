@@ -1,0 +1,20 @@
+{
+  "audit_name": "PHASE_4_TRAINING_PIPELINE_INTEGRITY_AUDIT",
+  "git_sha": "9090787",
+  "branch": "research/reproducibility-remediation",
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "seed": 42,
+  "episodes": 20,
+  "device": "cpu",
+  "realization_path": "data/evaluation_realizations/realization_corridor_2400m_w20_seed42.json",
+  "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+  "checkpoint_path": "results/remediation/training_pipeline_audit/smoke_test/CoTOP/corridor_2400m/w20/seed_42/checkpoint.pt",
+  "checkpoint_sha256": "1772abf36e56a147103ea9ac5424e2c44377a59b15fff0c7e76cca2e60a73ba0",
+  "timestamp": "2026-09-02T12:05:30+03:00",
+  "commands": [
+    "python scripts/run_phase2_gpu_campaign.py --algorithm CoTOP --scenario corridor_2400m --workload 20 --seed 42 --episodes 20 --device cpu --allow-cpu --output-dir results/remediation/training_pipeline_audit/smoke_test",
+    "python scripts/verify_checkpoint_reload.py",
+    "pytest -q tests/test_training_pipeline_integrity.py"
+  ]
+}

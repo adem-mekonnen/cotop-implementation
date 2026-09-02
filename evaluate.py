@@ -14,7 +14,7 @@ from utils.seed import set_seed
 def evaluate():
     parser = argparse.ArgumentParser()
     parser.add_argument('--mode', type=str, 
-                        choices=['cotop', 'local', 'greedy', 'wo_md', 'wo_tp', 'wo_co'], 
+                        choices=['cotop', 'ddqn', 'local', 'greedy', 'wo_md', 'wo_tp', 'wo_co'], 
                         default='cotop')
     parser.add_argument('--episodes', type=int, default=20)
     parser.add_argument('--seed', type=int, default=42)
@@ -63,7 +63,7 @@ def evaluate():
         ckpt_path = args.checkpoint_path
         if os.path.exists(ckpt_path):
             try:
-                ckpt_data = torch.load(ckpt_path, map_location='cpu')
+                ckpt_data = torch.load(ckpt_path, map_location='cpu', weights_only=False)
                 if isinstance(ckpt_data, dict) and "model_state_dict" in ckpt_data:
                     model.load_state_dict(ckpt_data["model_state_dict"])
                 else:
@@ -73,6 +73,26 @@ def evaluate():
                 print(f"[WARN] Error loading checkpoint ({e}). Using initialized weights.")
         else:
             print(f"[WARN] Checkpoint not found at {ckpt_path}. Evaluating with untrained agent.")
+        model.eval()
+        policy = None
+    elif args.mode == 'ddqn':
+        from models.baselines.ddqn_agent import QNetwork
+        model = QNetwork(env.observation_space.shape[0], env.action_space.n)
+        ckpt_path = args.checkpoint_path
+        if os.path.exists(ckpt_path):
+            try:
+                ckpt_data = torch.load(ckpt_path, map_location='cpu', weights_only=False)
+                if isinstance(ckpt_data, dict) and "online_net_state_dict" in ckpt_data:
+                    model.load_state_dict(ckpt_data["online_net_state_dict"])
+                elif isinstance(ckpt_data, dict) and "model_state_dict" in ckpt_data:
+                    model.load_state_dict(ckpt_data["model_state_dict"])
+                else:
+                    model.load_state_dict(ckpt_data)
+                print(f"[INFO] Loaded trained DDQN model from {ckpt_path}.")
+            except Exception as e:
+                print(f"[WARN] Error loading checkpoint ({e}). Using initialized weights.")
+        else:
+            print(f"[WARN] Checkpoint not found at {ckpt_path}. Evaluating with untrained DDQN agent.")
         model.eval()
         policy = None
     elif args.mode in ['local', 'wo_co']:
@@ -105,7 +125,10 @@ def evaluate():
             else:
                 obs_tensor = torch.FloatTensor(obs).unsqueeze(0)
                 with torch.no_grad():
-                    logits, _ = model(obs_tensor)
+                    if args.mode == 'ddqn':
+                        logits = model(obs_tensor)
+                    else:
+                        logits, _ = model(obs_tensor)
                 mask = env.get_action_mask()
                 mask_tensor = torch.BoolTensor(mask).unsqueeze(0)
                 logits[~mask_tensor] = -1e9

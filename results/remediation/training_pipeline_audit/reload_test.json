@@ -1,0 +1,10 @@
+{
+  "checkpoint_path": "D:\\cotop-implementation\\results\\remediation\\training_pipeline_audit\\smoke_test\\CoTOP\\corridor_2400m\\w20\\seed_42\\checkpoint.pt",
+  "checkpoint_sha256": "1772abf36e56a147103ea9ac5424e2c44377a59b15fff0c7e76cca2e60a73ba0",
+  "weight_hash": "0db8859cd51aedacbd35189ed05c3fe27d54bb07af36047029667d5d352bbfb2",
+  "reloaded_mean_delay_s": 2.076789343132504,
+  "reloaded_mean_energy_j": 3.8423412930453766,
+  "reloaded_completion_ratio": 0.965,
+  "action_sequence_sha256": "36df4597b03fb95f666f114f552fed956c56a532e1c123953225b816080bda32",
+  "exact_match_verified": true
+}

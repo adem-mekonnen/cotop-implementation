@@ -1,0 +1,17 @@
+{
+  "checkpoint_path": "results/remediation/training_pipeline_audit/smoke_test/CoTOP/corridor_2400m/w20/seed_42/checkpoint.pt",
+  "file_size_bytes": 610997,
+  "checkpoint_sha256": "1772abf36e56a147103ea9ac5424e2c44377a59b15fff0c7e76cca2e60a73ba0",
+  "algorithm": "CoTOP",
+  "seed": 42,
+  "scenario": "corridor_2400m",
+  "workload": 20,
+  "episodes": 20,
+  "git_commit": "9090787036cf673c1d0b170193d203c70ea20db9",
+  "python_version": "3.11.9",
+  "pytorch_version": "2.12.1+cpu",
+  "device": "cpu",
+  "training_duration_s": 57.85,
+  "physically_retained": true,
+  "reloadable": true
+}

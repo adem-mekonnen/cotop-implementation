@@ -1,0 +1,2 @@
+algorithm,scenario,workload,mean_delay_s,mean_energy_j,completion_ratio
+CoTOP,corridor_2400m,20,2.076789343132504,3.8423412930453766,0.965
