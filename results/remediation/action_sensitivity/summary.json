@@ -1,0 +1,56 @@
+{
+  "config": {
+    "scenario": "corridor_2400m",
+    "workload": 20,
+    "seed": 42,
+    "realization_path": "data\\evaluation_realizations\\realization_corridor_2400m_w20_seed42.json",
+    "realization_sha256": "f06fda410fdea551aae2cc024389d8de42630a73f2d504a19ec1fb4b747224a6",
+    "git_commit": "1f3589fb25ef38f170f0744747ebc7a9ea1bceaa",
+    "timestamp": "2026-09-02T11:44:39.696489",
+    "physics_hashes": {
+      "comm_model": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+      "comp_model": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+    }
+  },
+  "local_summary": {
+    "policy": "AlwaysLocal",
+    "total_tasks": 200,
+    "completed_tasks": 193,
+    "failed_tasks": 7,
+    "completion_ratio": 0.965,
+    "mean_delay_s": 2.0413659695311694,
+    "mean_energy_j": 0.30000393291195265,
+    "mean_queue_wait_s": 0.05155961438265526
+  },
+  "collab_summary": {
+    "policy": "AlwaysCollaborate",
+    "total_tasks": 200,
+    "completed_tasks": 193,
+    "failed_tasks": 7,
+    "completion_ratio": 0.965,
+    "mean_delay_s": 2.1082505591513256,
+    "mean_energy_j": 7.552117200200339,
+    "mean_queue_wait_s": 0.04647912940987673
+  },
+  "comparison_metrics": {
+    "total_tasks": 200,
+    "collab_opportunities": 200,
+    "local_executions_local_policy": 200,
+    "collab_executions_collab_policy": 200,
+    "action_diff_count": 200,
+    "case_diff_count": 200,
+    "rsu_diff_count": 200,
+    "delay_diff_count": 200,
+    "energy_diff_count": 200,
+    "completion_diff_count": 0
+  },
+  "pass_criteria": {
+    "action_0_is_standalone_case1": true,
+    "collab_action_is_case2": true,
+    "case_differences_exist": true,
+    "rsu_differences_exist": true,
+    "energy_differences_exist": true,
+    "deterministic_replay_exact": true
+  },
+  "verdict": "PASS"
+}
