@@ -1,0 +1,15 @@
+{
+  "audit_name": "PHASE_10_PAPER_TO_IMPLEMENTATION_FIDELITY_AND_CLAIM_VALIDATION",
+  "starting_git_commit": "74e3770",
+  "protected_physics": {
+    "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
+  },
+  "published_delay_target_s": 13.9,
+  "reproduced_delay_s": 1.3513,
+  "published_energy_target_j": 25.14,
+  "reproduced_energy_j": 4.0355,
+  "scale_discrepancy_ratio": 10.28,
+  "verdict": "PASS WITH CAVEATS",
+  "timestamp": "2026-09-02T17:30:00+03:00"
+}

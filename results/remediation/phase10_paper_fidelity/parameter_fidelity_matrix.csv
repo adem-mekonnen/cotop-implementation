@@ -1,0 +1,20 @@
+parameter,paper_value,repo_value,paper_unit,code_unit,conversion,status
+Vehicle Count Range,"[10, 30]","[10, 30]",vehicles,int,None,EXACT MATCH
+RSU Count,6,6,RSUs,int,None,EXACT MATCH
+RSU Coverage Radius,400.0,400.0,m,float (m),None,EXACT MATCH
+Vehicle Speed,"[30.0, 40.0]","[30.0, 40.0]",m/s,float (m/s),None,EXACT MATCH
+RSU CPU Frequency,"[1.0, 4.0]","[1.0e9, 4.0e9]",GHz,Hz,GHz * 1e9 -> Hz,EXACT MATCH
+Tasks per Vehicle,"[20, 40]","[20, 40]",tasks,int,None,EXACT MATCH
+Task Data Size,"[2.0, 5.0]","[2.0e6, 5.0e6]",MB,Bytes,MB * 1e6 -> Bytes,EXACT MATCH
+Task Deadline,"[20.0, 30.0]","[20.0, 30.0]",s,float (s),None,EXACT MATCH
+Vehicle TX Power,10,0.01,dBm,Watts,10^(10/10) mW = 10 mW = 0.01 W,EXACT MATCH
+RSU TX Power,50,100.0,dBm,Watts,"10^(50/10) mW = 100,000 mW = 100.0 W",EXACT MATCH
+V2R Bandwidth,"[20.0, 100.0]","[2.0e7, 1.0e8]",MHz,Hz,MHz * 1e6 -> Hz,EXACT MATCH
+R2R Bandwidth,50.0,5.0e7,MHz,Hz,MHz * 1e6 -> Hz,EXACT MATCH
+Noise Power,0.001,0.001,dBm,Watts,10^(0.001/10) mW ~ 1 mW = 0.001 W,EXACT MATCH
+Fixed Loss K,30,1000.0,dB,Linear Gain,10^(30/10) = 1000.0,EXACT MATCH
+Path Loss Factor,2.0,2.0,exponent,float,None,EXACT MATCH
+Average Task CPU Demand,10.0,10.0e6,Mcycles,Cycles,Mcycles * 1e6 -> Cycles,EXACT MATCH
+RSU Compute Power,NOT_SPECIFIED,50.0,NOT_SPECIFIED,Watts,Reconstructed assumption,PAPER-CONSISTENT RECONSTRUCTION
+Priority Weight Alpha,0.3,0.3,weight,float,None,EXACT MATCH
+Priority Weight Beta,0.7,0.7,weight,float,None,EXACT MATCH

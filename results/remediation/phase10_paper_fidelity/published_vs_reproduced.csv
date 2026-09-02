@@ -1,0 +1,5 @@
+paper_reference,metric,scenario,workload,algorithm,paper_value,reproduced_value,absolute_difference,relative_difference_percent,confidence_interval,realization_count,reproduction_status,explanation
+Du et al. 2026 Fig. 6a,Mean Total Delay (s),corridor_2400m,20,CoTOP,13.9,1.3513,12.5487,-90.28,+/- 0.0089,60,NUMERICAL_MISMATCH,Literal Table III equations produce ~1.35s delay per task; paper value 13.90s reflects multi-task queue backlog or unstated task payload scaling.
+Du et al. 2026 Fig. 6b,Mean Energy Consumption (J),corridor_2400m,20,CoTOP,25.14,4.0355,21.1045,-83.95,+/- 0.6281,60,NUMERICAL_MISMATCH,Literal Eq. 11/12 physical integrals evaluate to 4.04 J (0.01W uplink + 100W optical backhaul split).
+Du et al. 2026 Fig. 7a,Task Completion Ratio (%),corridor_2400m,20,CoTOP,99.0,99.17,0.17,0.17,+/- 0.12,60,EXACT_REPRODUCTION,High task completion ratio reproduced consistently across 60 multi-seed realizations.
+Du et al. 2026 Fig. 8a,Collaboration Rate (%),corridor_2400m,20,CoTOP,90.0,94.3,4.3,4.78,+/- 1.45,60,CLOSE_REPRODUCTION,Active multi-head collaborative offloading confirmed at 94.3% of decision steps.

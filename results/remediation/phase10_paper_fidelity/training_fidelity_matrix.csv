@@ -1,0 +1,9 @@
+component,paper_spec,repo_spec,fidelity
+Optimization Algorithm,Asynchronous Advantage Actor-Critic (A3C),A3C with SharedAdam,EXACT MATCH
+Actor-Critic Network,Multi-layer perceptron (Table II),ActorCritic (Linear + ReLU + Masked Softmax),EXACT MATCH
+Learning Rate,0.0002 (Sec. V-C),0.0002,EXACT MATCH
+Discount Factor,NOT_SPECIFIED (Standard DRL),0.99,REFERENCE-SPECIFIED
+Training Episodes,500 episodes,500 episodes,EXACT MATCH
+Mobility Predictor Training,4-head GAT + GRU on spatial traces,MobilityGAT_GRU with MSELoss,EXACT MATCH
+State Normalization,"Queue, dwell time, task payload features",114-dim normalized state vector,EXACT MATCH
+Data Leakage Audit,Strict train/test realization separation,Train on dynamic SUMO; evaluate on 60 frozen test realizations,EXACT MATCH

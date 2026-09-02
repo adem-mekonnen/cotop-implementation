@@ -1,0 +1,8 @@
+baseline_name,paper_role,repo_class,action_selection,fidelity,notes
+Local,Standalone onboard execution (Case 1),LocalPolicy,Forces Action 0,EXACT MATCH,No optical collaboration
+Greedy,Least-loaded RSU offloading,GreedyPolicy,Selects RSU with lowest current queued CPU cycles,EXACT MATCH,Heuristic queue minimization
+DDQN,Double Deep Q-Network baseline (Ref. [34]),DDQNAgent / QNetwork,"arg max Q(s, a; theta)",EXACT MATCH,Strict checkpoint reload verified
+wo_md,Ablation without Mobility Dwell Predictor,FrozenVECEnv(use_mobility_model=False),CoTOP A3C Policy,PASS WITH CAVEATS,Linear distance fallback when GAT disabled
+wo_tp,Ablation without Task Prioritization,FrozenVECEnv(use_priority=False),CoTOP A3C Policy,EXACT MATCH,FIFO queue with s[t].priority = 1.0
+wo_co,Ablation without Collaboration,FrozenVECEnv with Action 0,Forces Action 0,EXACT MATCH,Mathematically identical to Local
+QRMP-DQN,STAR-RIS baseline from Ref. [33],Disposed,N/A,FORMALLY EXCLUDED,Domain mismatch: Ref [33] assumes STAR-RIS continuous phase shift optimization

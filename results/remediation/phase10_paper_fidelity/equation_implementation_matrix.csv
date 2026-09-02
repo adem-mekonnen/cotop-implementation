@@ -1,0 +1,16 @@
+paper_section,equation_number,mathematical_concept,formula,repo_file,function_name,unit,status,notes
+Sec. III-B1,Eq. (1),Shannon V2R Wireless Uplink Rate,"W_{v,m} = B * log2(1 + P_v * K * dist^(-sigma) / omega)",envs/comm_model.py,compute_v2r_rate,bps,EXACT MATCH,Protected physics implementation
+Sec. III-B2,Eq. (2),Shannon R2R Optical Wireless Backhaul Rate,"W_{m,m'} = B * log2(1 + P_R * K * dist^(-sigma) / omega)",envs/comm_model.py,compute_r2r_rate,bps,EXACT MATCH,Protected physics implementation
+Sec. III-C1,Eq. (3),Standalone Task Upload Latency,"T^{up} = (rho * 8) / W_{v,m}",envs/comp_model.py,calculate_case1_standalone,s,EXACT MATCH,Bytes converted to bits via * 8.0
+Sec. III-C1,Eq. (4),Standalone RSU Processing Latency,T^{pro} = phi / F_m,envs/comp_model.py,calculate_case1_standalone,s,EXACT MATCH,Direct CPU cycle over clock frequency division
+Sec. III-C1,Eq. (5),RSU Queue Waiting Latency,T^{wait} = Q_m / F_m,envs/vec_env.py,step,s,EXACT MATCH,Calculated from target RSU queued CPU cycles
+Sec. III-C1,Eq. (6),Standalone Total Delay (Case 1),T^{stand} = T^{up} + T^{pro} + T^{wait},envs/comp_model.py,calculate_case1_standalone,s,EXACT MATCH,Sequential upload and execution
+Sec. III-C2,Eq. (7),Collaborative Workload Partitioning,"phi_1 = F_1 * T1, phi_2 = phi - phi_1",envs/comp_model.py,calculate_case2_collaboration,cycles,EXACT MATCH,Dynamic split based on vehicle dwell time
+Sec. III-C2,Eq. (8),Inter-RSU Data Forwarding Delay,"T^{ts} = (rho * (phi_2 / phi) * 8) / W_{m,m'}",envs/comp_model.py,calculate_case2_collaboration,s,EXACT MATCH,Proportional payload forwarded over optical wireless link
+Sec. III-C2,Eq. (9),Secondary RSU Compute Latency,T^{pro2} = phi_2 / F_2,envs/comp_model.py,calculate_case2_collaboration,s,EXACT MATCH,Parallel secondary execution
+Sec. III-C2,Eq. (10),Collaborative Parallel Delay (Case 2),"T^{coll} = T^{up} + max(T1_exec, T^{ts} + T_wait2 + T2_exec)",envs/comp_model.py,calculate_case2_collaboration,s,EXACT MATCH,Parallel primary and secondary execution branches
+Sec. III-D,Eq. (11),Computation Energy Consumption,E^{pro} = P_{comp1} * T1_exec + P_{comp2} * T2_exec,envs/comp_model.py,"calculate_case1_standalone, calculate_case2_collaboration",J,EXACT MATCH,Product of compute power and active execution duration
+Sec. III-D,Eq. (12),Transmission Energy Consumption,E^{ts} = P_V * T^{up} + P_R * T^{ts},envs/comp_model.py,"calculate_case1_standalone, calculate_case2_collaboration",J,EXACT MATCH,Vehicle uplink transmission plus optical RSU backhaul transmission
+Sec. IV-B,Eq. (16-18),Graph Attention Spatial Convolutions,alpha_{ij} = softmax(LeakyReLU(a^T [Wh_i || Wh_j])),models/mobility_gat.py,MobilityGAT_GRU,dimensionless,EXACT MATCH,4-head spatial multi-head attention
+Sec. IV-C,Eq. (23),Multi-Factor Task Prioritization,P_i = alpha * exp(-1/T_stay) + beta * (rho_i / d_i),utils/task_priority.py,compute_task_priority_paper,dimensionless / priority units,EXACT MATCH,"Verified dual implementation with alpha=0.3, beta=0.7"
+Sec. IV-D1,Eq. (25),DRL Step Reward Formulation,r = -(epsilon * Delay + (1-epsilon) * Energy) if valid else -Z,envs/vec_env.py,step,reward units,EXACT MATCH,"Penalty Z = 100.0, epsilon = 0.5"

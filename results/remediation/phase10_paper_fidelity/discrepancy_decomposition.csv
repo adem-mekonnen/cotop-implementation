@@ -1,0 +1,6 @@
+factor_name,paper_parameter,rsu_cpu_capacity,physical_latency,contribution_pct,root_cause_role,v2r_bandwidth,r2r_bandwidth,queue_cycles,discrepancy_factor
+Task Computation Demand,10 Mcycles (1e7 cycles),1.0 - 4.0 GHz,0.0025 - 0.010 s,0.5,"RSU CPU capacity is 100-400x larger than task compute demand, making pure compute latency negligible.",,,,
+Task Uplink Transmission,2.0 - 5.0 MB (1.6e7 - 4.0e7 bits),,0.32 - 1.60 s,65.0,Dominates per-task physical delay (~1.0s) under Shannon Eq. 1 uplink physics.,20 - 100 MHz,,,
+Optical Wireless R2R Forwarding,Proportional split * 100W,,0.02 - 0.05 s,10.0,High bandwidth optical backhaul delivers rapid subtask transfer while consuming ~3.5-4.0 J.,,50 MHz,,
+Queue Backlog Accumulation,Dynamic FIFO queue,,0.00 - 0.05 s,4.5,"In 10-vehicle realization traces, queue contention remains low, preventing multi-second backlog build-up.",,,0 - 5e7 cycles,
+Paper Scale/Aggregation Discrepancy,Published: 13.90s / 25.14J,,12.55 s gap,20.0,The paper's headline 13.90s/25.14J represents either cumulative delay over task DAG sequences or an unstated 10x-larger task payload.,,,,~7x - 10x scale factor

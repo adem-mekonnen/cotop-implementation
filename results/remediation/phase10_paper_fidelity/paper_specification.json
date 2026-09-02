@@ -1,0 +1,73 @@
+{
+  "paper_title": "Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing",
+  "authors": "Du et al.",
+  "publication_venue": "IEEE Transactions on Mobile Computing (TMC)",
+  "publication_year": 2026,
+  "system_model": {
+    "network_topology": "Linear highway corridor (corridor_2400m) and 2D Manhattan grid (grid_200m)",
+    "num_vehicles_range": [
+      10,
+      30
+    ],
+    "nominal_vehicles": 10,
+    "num_rsus": 6,
+    "vehicle_speed_range_mps": [
+      30.0,
+      40.0
+    ],
+    "rsu_coverage_range_m": 400.0,
+    "simulation_duration_s": 300.0,
+    "time_slot_duration_s": 1.0
+  },
+  "task_model": {
+    "num_tasks_per_vehicle_range": [
+      20,
+      40
+    ],
+    "task_data_size_range_bytes": [
+      2000000.0,
+      5000000.0
+    ],
+    "task_deadline_range_s": [
+      20.0,
+      30.0
+    ],
+    "task_cpu_cycles_mean": 10000000.0,
+    "arrival_process": "Batch arrival at start of episode / Poisson arrival in continuous simulation"
+  },
+  "compute_parameters": {
+    "vehicle_tx_power_w": 0.01,
+    "rsu_tx_power_w": 100.0,
+    "rsu_cpu_capacity_range_hz": [
+      1000000000.0,
+      4000000000.0
+    ],
+    "rsu_compute_power_w": 50.0,
+    "noise_power_w": 0.001,
+    "fixed_loss_k": 1000.0,
+    "path_loss_factor": 2.0,
+    "v2r_bandwidth_range_hz": [
+      20000000.0,
+      100000000.0
+    ],
+    "r2r_bandwidth_hz": 50000000.0
+  },
+  "algorithm_models": {
+    "task_priority_equation": "Eq. (23): P_i = alpha * exp(-1/T_stay) + beta * (rho_i / d_i)",
+    "priority_alpha": 0.3,
+    "priority_beta": 0.7,
+    "mobility_model": "MobilityGAT_GRU (4 heads, hidden dim 64, GRU encoder-decoder)",
+    "rl_algorithm": "Asynchronous Advantage Actor-Critic (A3C)",
+    "state_dimension": 114,
+    "action_dimension": 7,
+    "reward_tradeoff_epsilon": 0.5,
+    "penalty_z": 100.0,
+    "learning_rate": 0.0002,
+    "discount_factor_gamma": 0.99
+  },
+  "published_headline_results": {
+    "mean_total_delay_s": 13.9,
+    "mean_energy_consumption_j": 25.14,
+    "completion_ratio_pct": 99.0
+  }
+}
