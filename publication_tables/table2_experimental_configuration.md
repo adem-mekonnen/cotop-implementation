@@ -1,0 +1,20 @@
+| Parameter | Value | Provenance | Implementation Status |
+| --- | --- | --- | --- |
+| Corridor Geometry (Length) | 2400 m (straight road) | Table III | Exact Match |
+| RSU Infrastructure | 6 RSUs, 400 m uniform spacing, 400 m radius | Table III | Exact Match |
+| Vehicle Population | 10 to 30 concurrent vehicles | Table III | Exact Match |
+| Vehicle Velocity Range | 30.0 to 40.0 m/s (108 to 144 km/h) | Table III | Exact Match |
+| Task Data Size Range | 2.0 to 5.0 MB | Table III | Exact Match |
+| Nominal CPU Demand | 10.0 Mcycles | Section III-F, V-A | Exact Match |
+| Task QoS Latency Deadline | 20.0 to 30.0 s | Table III | Exact Match |
+| RSU CPU Frequency | 1.0 to 4.0 GHz (2.0 GHz nominal) | Table III | Exact Match |
+| Vehicle TX Power (P_V) | 10 dBm (0.01 W) | Table III | Exact Match |
+| RSU Relay TX Power (P_R) | 50 dBm (100.0 W) | Table III | Exact Match |
+| RSU Compute Power (E_RSU) | 50.0 W | Eq. 11 | Inferred / Assumed |
+| V2R Wireless Bandwidth | 20.0 to 100.0 MHz | Table III | Exact Match |
+| R2R Wireless Bandwidth | 50.0 MHz | Table III | Exact Match |
+| Thermal Noise Power | 0.001 W (0.001 dBm) | Table III | Exact Match |
+| Path Loss Parameters | K = 1000.0 (30 dB), gamma = 2.0 | Table III | Exact Match |
+| Task Priority Weights | alpha = 0.3, beta = 0.7 | Section V-C | Exact Match |
+| A3C Optimizer & Learning Rate | SharedAdam, lr = 0.0002 | Section V-C | Exact Match |
+| Training Horizon | 500-1000 episodes (50-100 epochs) | Section V-B, Fig 4 | Exact Match / Extended |

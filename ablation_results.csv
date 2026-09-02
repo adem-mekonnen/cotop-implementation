@@ -1,0 +1,121 @@
+ablation_condition,geometry,workload,seed,realization_hash,mean_delay,std_delay,mean_energy,std_energy,completion_ratio,collab_ratio,N_generated,N_completed,N_failed,disabled_code_path,invariants_passed
+Full CoTOP,grid_200m,20,0,20c11357f4d1d844b7a44ea5044c04fcb20af065fe6249474ab04119eab214b9,0.3316,0.1143,0.1404,0.0637,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,20,0,20c11357f4d1d844b7a44ea5044c04fcb20af065fe6249474ab04119eab214b9,0.3316,0.1143,0.1404,0.0637,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,20,0,20c11357f4d1d844b7a44ea5044c04fcb20af065fe6249474ab04119eab214b9,0.3326,0.129,0.1404,0.0637,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,20,0,20c11357f4d1d844b7a44ea5044c04fcb20af065fe6249474ab04119eab214b9,0.3316,0.1143,0.1404,0.0637,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,20,1,8490421c85eda64a853c6814ddd2e254df30cc816592cce1d778e8380c6fe3ed,0.3325,0.1126,0.1411,0.0674,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,20,1,8490421c85eda64a853c6814ddd2e254df30cc816592cce1d778e8380c6fe3ed,0.3325,0.1126,0.1411,0.0674,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,20,1,8490421c85eda64a853c6814ddd2e254df30cc816592cce1d778e8380c6fe3ed,0.3252,0.1302,0.1411,0.0674,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,20,1,8490421c85eda64a853c6814ddd2e254df30cc816592cce1d778e8380c6fe3ed,0.3325,0.1126,0.1411,0.0674,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,20,2,baaf5ad60a61abf81aa6420695172ae5a225d02d51c1d9a9e809af740910c3d9,0.3114,0.1093,0.1422,0.0635,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,20,2,baaf5ad60a61abf81aa6420695172ae5a225d02d51c1d9a9e809af740910c3d9,0.3114,0.1093,0.1422,0.0635,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,20,2,baaf5ad60a61abf81aa6420695172ae5a225d02d51c1d9a9e809af740910c3d9,0.3135,0.1221,0.1422,0.0635,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,20,2,baaf5ad60a61abf81aa6420695172ae5a225d02d51c1d9a9e809af740910c3d9,0.3114,0.1093,0.1422,0.0635,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,20,3,c87ffc566d12c41fee78283f3c9d06bdd7cbaab0827f9c2786b56392a69c3dd8,0.2849,0.1127,0.1363,0.0672,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,20,3,c87ffc566d12c41fee78283f3c9d06bdd7cbaab0827f9c2786b56392a69c3dd8,0.2849,0.1127,0.1363,0.0672,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,20,3,c87ffc566d12c41fee78283f3c9d06bdd7cbaab0827f9c2786b56392a69c3dd8,0.2854,0.1245,0.1363,0.0672,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,20,3,c87ffc566d12c41fee78283f3c9d06bdd7cbaab0827f9c2786b56392a69c3dd8,0.2849,0.1127,0.1363,0.0672,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,20,4,589d34324abcbcb03a8e18913ab924daff3f3d52913d345a584e667191895189,0.3367,0.1199,0.138,0.0641,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,20,4,589d34324abcbcb03a8e18913ab924daff3f3d52913d345a584e667191895189,0.3367,0.1199,0.138,0.0641,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,20,4,589d34324abcbcb03a8e18913ab924daff3f3d52913d345a584e667191895189,0.339,0.1308,0.138,0.0641,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,20,4,589d34324abcbcb03a8e18913ab924daff3f3d52913d345a584e667191895189,0.3367,0.1199,0.138,0.0641,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,30,0,19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890,0.3026,0.0993,2.0999,0.6619,1.0,0.96,300,300,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,30,0,19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890,0.7239,0.2534,4.0606,1.318,1.0,0.96,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,30,0,19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890,0.313,0.1016,2.0999,0.6619,1.0,0.96,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,30,0,19430c329c65946bf02a543a57403f3554a924148b80e42d126aca9c1735c890,0.3705,0.1244,0.1392,0.0643,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,30,1,a4f8e883710373708659204b013aa06b55333c27b5b86ba8485b3904b24764ba,0.3793,0.1224,0.141,0.0667,1.0,0.0,300,300,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,30,1,a4f8e883710373708659204b013aa06b55333c27b5b86ba8485b3904b24764ba,0.3793,0.1224,0.141,0.0667,1.0,0.0,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,30,1,a4f8e883710373708659204b013aa06b55333c27b5b86ba8485b3904b24764ba,0.372,0.1428,0.141,0.0667,1.0,0.0,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,30,1,a4f8e883710373708659204b013aa06b55333c27b5b86ba8485b3904b24764ba,0.3793,0.1224,0.141,0.0667,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,30,2,7e2fdfb718c2506a4403422af3116182596f1f199f0f95190c7097c71376609f,0.2997,0.0965,2.0166,0.6794,1.0,0.9467,300,300,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,30,2,7e2fdfb718c2506a4403422af3116182596f1f199f0f95190c7097c71376609f,0.7103,0.2514,3.8929,1.3602,1.0,0.9467,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,30,2,7e2fdfb718c2506a4403422af3116182596f1f199f0f95190c7097c71376609f,0.3104,0.1016,2.0166,0.6794,1.0,0.9467,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,30,2,7e2fdfb718c2506a4403422af3116182596f1f199f0f95190c7097c71376609f,0.3548,0.1143,0.1403,0.0634,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,30,3,c3017e2ab7a99cf10ec2ed7dae7da53626f1df66c049b4b135d0b4677d6eaee3,0.324,0.1067,1.9641,0.8562,1.0,0.87,300,300,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,30,3,c3017e2ab7a99cf10ec2ed7dae7da53626f1df66c049b4b135d0b4677d6eaee3,0.6963,0.2605,3.7892,1.7124,1.0,0.87,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,30,3,c3017e2ab7a99cf10ec2ed7dae7da53626f1df66c049b4b135d0b4677d6eaee3,0.3199,0.1166,1.9641,0.8562,1.0,0.87,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,30,3,c3017e2ab7a99cf10ec2ed7dae7da53626f1df66c049b4b135d0b4677d6eaee3,0.3372,0.1232,0.139,0.0681,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,30,4,ed79bf3a948868e9d980ee441cbaeb72b2a3fb0456d1cf721d48d1f77c97599e,0.3145,0.0985,2.0468,0.6013,1.0,0.9667,300,300,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,30,4,ed79bf3a948868e9d980ee441cbaeb72b2a3fb0456d1cf721d48d1f77c97599e,0.7275,0.2687,3.9548,1.2042,1.0,0.9667,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,30,4,ed79bf3a948868e9d980ee441cbaeb72b2a3fb0456d1cf721d48d1f77c97599e,0.3137,0.0977,2.0468,0.6013,1.0,0.9667,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,30,4,ed79bf3a948868e9d980ee441cbaeb72b2a3fb0456d1cf721d48d1f77c97599e,0.3763,0.1291,0.1388,0.064,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,40,0,46148cdd621e3648e3a6a785cc820a9b28fcaa477017e5adb878ef20b20fa801,0.3714,0.1038,1.9406,0.9037,1.0,0.8525,400,400,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,40,0,46148cdd621e3648e3a6a785cc820a9b28fcaa477017e5adb878ef20b20fa801,0.8503,0.3216,3.7432,1.8026,1.0,0.8525,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,40,0,46148cdd621e3648e3a6a785cc820a9b28fcaa477017e5adb878ef20b20fa801,0.3579,0.1131,1.9406,0.9037,1.0,0.8525,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,40,0,46148cdd621e3648e3a6a785cc820a9b28fcaa477017e5adb878ef20b20fa801,0.3954,0.1346,0.1381,0.0642,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,40,1,f01abcdc5304947d68420ab99e942b03822d59e1f8f5122d72a3eb78941cce87,0.4255,0.1235,1.813,1.0433,1.0,0.7625,400,400,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,40,1,f01abcdc5304947d68420ab99e942b03822d59e1f8f5122d72a3eb78941cce87,0.8749,0.3316,3.4843,2.0819,1.0,0.7625,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,40,1,f01abcdc5304947d68420ab99e942b03822d59e1f8f5122d72a3eb78941cce87,0.4138,0.1371,1.813,1.0433,1.0,0.7625,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,40,1,f01abcdc5304947d68420ab99e942b03822d59e1f8f5122d72a3eb78941cce87,0.4055,0.1321,0.1416,0.0673,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,40,2,dfd7bcdf0c438435dc405758f14299f466ecdcbd7f33db975e56ac9df176f7f8,0.4086,0.1129,1.7697,1.0526,1.0,0.7525,400,400,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,40,2,dfd7bcdf0c438435dc405758f14299f466ecdcbd7f33db975e56ac9df176f7f8,0.8388,0.3199,3.4006,2.0953,1.0,0.7525,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,40,2,dfd7bcdf0c438435dc405758f14299f466ecdcbd7f33db975e56ac9df176f7f8,0.4157,0.1343,1.7697,1.0526,1.0,0.7525,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,40,2,dfd7bcdf0c438435dc405758f14299f466ecdcbd7f33db975e56ac9df176f7f8,0.3821,0.1223,0.1389,0.0638,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,40,3,3de53f2e8034c1901186409f18d123f303fdccd765e32458dd4a815d43815382,0.3026,0.1028,1.9827,0.7003,1.0,0.935,400,400,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,40,3,3de53f2e8034c1901186409f18d123f303fdccd765e32458dd4a815d43815382,0.8371,0.3327,3.827,1.3995,1.0,0.935,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,40,3,3de53f2e8034c1901186409f18d123f303fdccd765e32458dd4a815d43815382,0.3197,0.1083,1.9827,0.7003,1.0,0.935,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,40,3,3de53f2e8034c1901186409f18d123f303fdccd765e32458dd4a815d43815382,0.3693,0.1333,0.1383,0.0682,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,grid_200m,40,4,ed764142a785113bdb59d6698df8a30d858931050450763aead92a4f5c28d817,0.3989,0.1373,0.1392,0.0642,1.0,0.0,400,400,0,None (Baseline Full Architecture),True
+w/o MD,grid_200m,40,4,ed764142a785113bdb59d6698df8a30d858931050450763aead92a4f5c28d817,0.3989,0.1373,0.1392,0.0642,1.0,0.0,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,grid_200m,40,4,ed764142a785113bdb59d6698df8a30d858931050450763aead92a4f5c28d817,0.4011,0.1389,0.1392,0.0642,1.0,0.0,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,grid_200m,40,4,ed764142a785113bdb59d6698df8a30d858931050450763aead92a4f5c28d817,0.3989,0.1373,0.1392,0.0642,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,20,0,11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f,0.7353,0.5312,0.1389,0.0625,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,20,0,11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f,0.7353,0.5312,0.1389,0.0625,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,20,0,11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f,0.7344,0.5341,0.1389,0.0625,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,20,0,11f3549c1e5dbb54c448763da011f774ef914ab6eb3f4c653701aa658b53714f,0.7353,0.5312,0.1389,0.0625,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,20,1,f6ccaabce93cc82ed741df73bf5e6ae1b0cf217541059f786dc44e80533819e2,0.7535,0.5502,0.1421,0.0644,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,20,1,f6ccaabce93cc82ed741df73bf5e6ae1b0cf217541059f786dc44e80533819e2,0.7535,0.5502,0.1421,0.0644,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,20,1,f6ccaabce93cc82ed741df73bf5e6ae1b0cf217541059f786dc44e80533819e2,0.7535,0.5505,0.1421,0.0644,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,20,1,f6ccaabce93cc82ed741df73bf5e6ae1b0cf217541059f786dc44e80533819e2,0.7535,0.5502,0.1421,0.0644,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,20,2,4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1,0.7465,0.5345,0.1527,0.0645,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,20,2,4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1,0.7465,0.5345,0.1527,0.0645,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,20,2,4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1,0.7443,0.5331,0.1527,0.0645,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,20,2,4e53761babda8d39eed3f5109329fb0b010d8ce2e5a692aaf745c0032cff1ba1,0.7465,0.5345,0.1527,0.0645,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,20,3,c704c2fe624b164e26c8d1e198c240edb5beeb6b32535665b8331c2db9890b75,0.7367,0.5398,0.1456,0.0646,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,20,3,c704c2fe624b164e26c8d1e198c240edb5beeb6b32535665b8331c2db9890b75,0.7367,0.5398,0.1456,0.0646,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,20,3,c704c2fe624b164e26c8d1e198c240edb5beeb6b32535665b8331c2db9890b75,0.7342,0.5369,0.1456,0.0646,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,20,3,c704c2fe624b164e26c8d1e198c240edb5beeb6b32535665b8331c2db9890b75,0.7367,0.5398,0.1456,0.0646,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,20,4,9d693f1775a70d4f8d9eb927123a6b39f02c052eaddf798cb66be93ca26b2e9f,0.7368,0.5318,0.1428,0.062,1.0,0.0,200,200,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,20,4,9d693f1775a70d4f8d9eb927123a6b39f02c052eaddf798cb66be93ca26b2e9f,0.7368,0.5318,0.1428,0.062,1.0,0.0,200,200,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,20,4,9d693f1775a70d4f8d9eb927123a6b39f02c052eaddf798cb66be93ca26b2e9f,0.7371,0.5301,0.1428,0.062,1.0,0.0,200,200,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,20,4,9d693f1775a70d4f8d9eb927123a6b39f02c052eaddf798cb66be93ca26b2e9f,0.7368,0.5318,0.1428,0.062,1.0,0.0,200,200,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,30,0,cef38e3680b4e9aed1b2b71aa0f21fdb504e1917a3ee4eea64ce22b8ec295b69,0.7557,0.5252,0.1377,0.0631,1.0,0.0,300,300,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,30,0,cef38e3680b4e9aed1b2b71aa0f21fdb504e1917a3ee4eea64ce22b8ec295b69,0.7557,0.5252,0.1377,0.0631,1.0,0.0,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,30,0,cef38e3680b4e9aed1b2b71aa0f21fdb504e1917a3ee4eea64ce22b8ec295b69,0.7555,0.5265,0.1377,0.0631,1.0,0.0,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,30,0,cef38e3680b4e9aed1b2b71aa0f21fdb504e1917a3ee4eea64ce22b8ec295b69,0.7557,0.5252,0.1377,0.0631,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,30,1,ac85df141e2b16acd81d3e178114163cdbc926685e4bc43a5ed6ea7f2ba484d8,0.764,0.5362,0.1437,0.0653,1.0,0.0,300,300,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,30,1,ac85df141e2b16acd81d3e178114163cdbc926685e4bc43a5ed6ea7f2ba484d8,0.764,0.5362,0.1437,0.0653,1.0,0.0,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,30,1,ac85df141e2b16acd81d3e178114163cdbc926685e4bc43a5ed6ea7f2ba484d8,0.7636,0.5356,0.1437,0.0653,1.0,0.0,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,30,1,ac85df141e2b16acd81d3e178114163cdbc926685e4bc43a5ed6ea7f2ba484d8,0.764,0.5362,0.1437,0.0653,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,30,2,914cedafcd4d5afb953c80be132c0f8b7239980277c0bd401903d40057fff678,0.7578,0.5479,2.6794,1.6041,1.0,0.7667,300,300,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,30,2,914cedafcd4d5afb953c80be132c0f8b7239980277c0bd401903d40057fff678,0.9729,0.5782,5.2076,3.2085,1.0,0.7667,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,30,2,914cedafcd4d5afb953c80be132c0f8b7239980277c0bd401903d40057fff678,0.7559,0.5453,2.6794,1.6041,1.0,0.7667,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,30,2,914cedafcd4d5afb953c80be132c0f8b7239980277c0bd401903d40057fff678,0.7632,0.5458,0.1512,0.0658,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,30,3,db6429caf9a88a760fa0e8435ace745f4ff2eeab20448f3d0b07a611f7bb9259,0.8156,0.5477,2.3812,1.6258,1.0,0.71,300,300,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,30,3,db6429caf9a88a760fa0e8435ace745f4ff2eeab20448f3d0b07a611f7bb9259,1.0612,0.5928,4.6177,3.25,1.0,0.71,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,30,3,db6429caf9a88a760fa0e8435ace745f4ff2eeab20448f3d0b07a611f7bb9259,0.8086,0.5523,2.3812,1.6258,1.0,0.71,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,30,3,db6429caf9a88a760fa0e8435ace745f4ff2eeab20448f3d0b07a611f7bb9259,0.7755,0.5443,0.1446,0.0648,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,30,4,68fdabb746ce62ee8c5678ad5e5cda55d1106f59878f693a9e2feac4f2c5eedf,0.753,0.5151,2.6028,1.6073,1.0,0.7533,300,300,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,30,4,68fdabb746ce62ee8c5678ad5e5cda55d1106f59878f693a9e2feac4f2c5eedf,0.9391,0.533,5.0658,3.2145,1.0,0.7533,300,300,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,30,4,68fdabb746ce62ee8c5678ad5e5cda55d1106f59878f693a9e2feac4f2c5eedf,0.7548,0.5164,2.6028,1.6073,1.0,0.7533,300,300,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,30,4,68fdabb746ce62ee8c5678ad5e5cda55d1106f59878f693a9e2feac4f2c5eedf,0.7467,0.5149,0.1398,0.0631,1.0,0.0,300,300,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,40,0,44d9f614ddd143b42301cb4e3f81b7e8d0af8cc3df9754c534e0305464913393,0.7703,0.541,2.6257,1.613,1.0,0.755,400,400,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,40,0,44d9f614ddd143b42301cb4e3f81b7e8d0af8cc3df9754c534e0305464913393,1.0063,0.5633,5.1136,3.2252,1.0,0.755,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,40,0,44d9f614ddd143b42301cb4e3f81b7e8d0af8cc3df9754c534e0305464913393,0.7802,0.5458,2.6257,1.613,1.0,0.755,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,40,0,44d9f614ddd143b42301cb4e3f81b7e8d0af8cc3df9754c534e0305464913393,0.7846,0.5418,0.1378,0.0626,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,40,1,a285b459e4a82f6a4db29d76be04b3024a48a46f5ea673f78610a098a8a1c076,0.7625,0.532,1.1396,1.6703,1.0,0.2825,400,400,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,40,1,a285b459e4a82f6a4db29d76be04b3024a48a46f5ea673f78610a098a8a1c076,0.8206,0.539,2.1356,3.3404,1.0,0.2825,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,40,1,a285b459e4a82f6a4db29d76be04b3024a48a46f5ea673f78610a098a8a1c076,0.7745,0.5285,1.1396,1.6703,1.0,0.2825,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,40,1,a285b459e4a82f6a4db29d76be04b3024a48a46f5ea673f78610a098a8a1c076,0.7741,0.5314,0.1435,0.0648,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,40,2,cd1c4af1db1d5860d10534e5f47dc59bc42cfa9aea4c2f390561eabb3cb949a0,0.8583,0.5513,2.4119,1.6423,1.0,0.7025,400,400,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,40,2,cd1c4af1db1d5860d10534e5f47dc59bc42cfa9aea4c2f390561eabb3cb949a0,1.1456,0.62,4.6729,3.2787,1.0,0.7025,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,40,2,cd1c4af1db1d5860d10534e5f47dc59bc42cfa9aea4c2f390561eabb3cb949a0,0.8492,0.5468,2.4119,1.6423,1.0,0.7025,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,40,2,cd1c4af1db1d5860d10534e5f47dc59bc42cfa9aea4c2f390561eabb3cb949a0,0.7966,0.5474,0.1508,0.0647,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,40,3,63f5af78d892bf2823a66bac64778a622b81ef40e3b1268428ff7a36639585b5,0.7824,0.5476,0.1478,0.0648,1.0,0.0,400,400,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,40,3,63f5af78d892bf2823a66bac64778a622b81ef40e3b1268428ff7a36639585b5,0.7824,0.5476,0.1478,0.0648,1.0,0.0,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,40,3,63f5af78d892bf2823a66bac64778a622b81ef40e3b1268428ff7a36639585b5,0.7782,0.5474,0.1478,0.0648,1.0,0.0,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,40,3,63f5af78d892bf2823a66bac64778a622b81ef40e3b1268428ff7a36639585b5,0.7824,0.5476,0.1478,0.0648,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
+Full CoTOP,corridor_2400m,40,4,f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214,0.7884,0.5289,0.1433,0.0627,1.0,0.0,400,400,0,None (Baseline Full Architecture),True
+w/o MD,corridor_2400m,40,4,f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214,0.7884,0.5289,0.1433,0.0627,1.0,0.0,400,400,0,"Mobility Detection Disabled (s_ego[3]=0.0, dwell_t1=0.0)",True
+w/o TP,corridor_2400m,40,4,f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214,0.7864,0.5307,0.1433,0.0627,1.0,0.0,400,400,0,"Task Priority Disabled (FIFO task order, p_weight=0.0)",True
+w/o CO,corridor_2400m,40,4,f1a93d11d03baa3ebd7e68aa8326f61ac42981de2d8776c94e3ebe089cdbb214,0.7884,0.5289,0.1433,0.0627,1.0,0.0,400,400,0,"Collaborative Offloading Disabled (action_mask[1:]=False, Case 1 Only)",True
