@@ -25,7 +25,7 @@ def build_state(vehicle: Vehicle, tasks: List[Task], rsus: List[RSU], config=Non
     
     # 3. Vehicle State (4 dims)
     # Normalization factors
-    map_length = 2400.0
+    map_length = getattr(config, 'map_scale', 2400.0) if config else 2400.0
     max_cpu = 4.0e9
     max_size = 5.0e6
     max_speed = config.vehicle_speed_range[1] if config else 40.0
