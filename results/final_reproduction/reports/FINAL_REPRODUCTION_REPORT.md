@@ -3,7 +3,7 @@
 **Document Identifier**: `results/final_reproduction/FINAL_REPRODUCTION_REPORT.md`  
 **Target Manuscript**: *"Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing"* (Du et al., IEEE Transactions on Mobile Computing, 2026, DOI: `10.1109/TMC.2025.3631820`)  
 **Canonical Repository**: `https://github.com/adem-mekonnen/cotop-implementation`  
-**Git HEAD Commit**: `37053388f7bd1eacf25f871122c4d16ea5a284fc`  
+**Git HEAD Commit**: `227e4798366406ea66818fc7824682678fb21b43`  
 **Canonical Branch**: `main`  
 **Evaluation Campaign**: Full Factorial Matrix (420 Evaluation Runs across 60 Evaluation Configurations)  
 **Scientific Classification**: **CLASS B — IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED**  
