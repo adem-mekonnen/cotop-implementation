@@ -6,6 +6,9 @@ Authoritative scientific reproduction and methodological audit of the IEEE Trans
 > *Jiaxin Du, Jinfan Zhang, Guangjie Han, Mengmeng Wang, Guojiang Shen, Zhi Liu, and Xiangjie Kong*  
 > IEEE Transactions on Mobile Computing, Vol. 25, No. 4, April 2026. DOI: [10.1109/TMC.2025.3631820](https://doi.org/10.1109/TMC.2025.3631820)
 
+**Canonical Commit**: `b158b89` (`b158b8916f51d3d52f4a724db196245593df871b`)  
+**Canonical Branch**: `main`  
+
 ---
 
 ## 1. Executive Scientific Reproduction Verdict

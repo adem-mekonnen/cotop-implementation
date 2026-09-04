@@ -2,7 +2,7 @@
 
 **Document Identifier**: `results/final_reproduction/FRESH_CLONE_VERIFICATION.md`  
 **Target Manuscript**: *"Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing"* (Du et al., IEEE Transactions on Mobile Computing, 2026, DOI: `10.1109/TMC.2025.3631820`)  
-**Verified Commit SHA**: `227e4798366406ea66818fc7824682678fb21b43`  
+**Verified Commit SHA**: `b158b8916f51d3d52f4a724db196245593df871b`  
 **Canonical Branch**: `main`  
 **Test Clone Location**: `d:\cotop-fresh-clone-test`  
 **Verification Date**: 2026-09-04T17:46:00Z  
@@ -47,7 +47,7 @@ cd d:\cotop-fresh-clone-test
 
 # 2. Inspect commit SHA
 git rev-parse HEAD
-# Output: 227e4798366406ea66818fc7824682678fb21b43
+# Output: b158b8916f51d3d52f4a724db196245593df871b
 
 # 3. Verify regression test suite
 pytest -q
