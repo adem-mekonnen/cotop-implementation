@@ -23,6 +23,14 @@ checkpoints/*.pth
 results/**/*.pt
 *.pt
 
+# Whitelist authentic reproducibility checkpoints required for fresh-clone verification
+!results/checkpoints/mobility_model.pth
+!results/phase2_multiseed/CoTOP/corridor_2400m_w20_seed42/checkpoint.pt
+!results/phase2_step14/linear_corridor_DDQN_w20/seed_*/checkpoint.pt
+!results/phase2_algorithmic_fidelity/**/checkpoint_ep500.pt
+!results/remediation/training_pipeline_audit/smoke_test/CoTOP/corridor_2400m/w20/seed_42/checkpoint.pt
+
+
 
 # Jupyter Notebook checkpoints & scratch
 .ipynb_checkpoints/

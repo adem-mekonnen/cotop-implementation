@@ -1,12 +1,12 @@
-# PHASE 14 — FINAL COLAB TRAINING & EXPERIMENTAL REPRODUCTION REPORT
+# PHASE 14 â€” FINAL COLAB TRAINING & EXPERIMENTAL REPRODUCTION REPORT
 
 **Document Identifier**: `results/colab_final/REPORT.md`  
 **Target Paper**: *"Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing"* (Du et al., IEEE TMC 2026)  
 **Scientific Reproduction Commit**: `c50b806`  
 **Colab Workflow Commit**: `36d4915`  
-**Reproducibility Certification**: **CLASS B — IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED**  
+**Reproducibility Certification**: **CLASS B â€” IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED**  
 **Publication Decision**: **READY WITH DISCLOSURES**  
-**Timestamp**: `2026-09-02T15:45:37.027923+00:00`  
+**Timestamp**: `2026-09-03T14:34:46.519615+00:00`  
 
 ---
 

@@ -94,7 +94,7 @@ def run_smoke_test(sim_config, device, out_dir):
         "value_divergence": diff_v,
         "timestamp": datetime.datetime.now(datetime.timezone.utc).isoformat()
     }
-    with open(os.path.join(out_dir, "smoke_test.json"), "w") as f:
+    with open(os.path.join(out_dir, "smoke_test.json"), "w", encoding="utf-8") as f:
         json.dump(smoke_data, f, indent=2)
     print("  [OK] Smoke test completed successfully (0.0 divergence).")
     return smoke_data
@@ -166,8 +166,9 @@ def train_cotop(sim_config, device, out_dir, episodes=50, seed=42):
     ckpt_sha = compute_file_sha256(ckpt_path)
     param_hash = compute_model_param_hash(model)
 
+    rel_ckpt_path = os.path.relpath(ckpt_path, ROOT_DIR).replace("\\", "/")
     ckpt_manifest = {
-        "checkpoint_path": ckpt_path,
+        "checkpoint_path": rel_ckpt_path,
         "checkpoint_sha256": ckpt_sha,
         "model_param_hash": param_hash,
         "algorithm": "CoTOP",
@@ -176,7 +177,7 @@ def train_cotop(sim_config, device, out_dir, episodes=50, seed=42):
         "training_duration_s": duration,
         "reload_verified": True
     }
-    with open(os.path.join(out_dir, "checkpoint_manifest.json"), "w") as f:
+    with open(os.path.join(out_dir, "checkpoint_manifest.json"), "w", encoding="utf-8") as f:
         json.dump(ckpt_manifest, f, indent=2)
 
     train_summary = {
@@ -188,7 +189,7 @@ def train_cotop(sim_config, device, out_dir, episodes=50, seed=42):
         "final_mean_energy_j": history[-1]["mean_energy_j"],
         "checkpoint": ckpt_manifest
     }
-    with open(os.path.join(out_dir, "training_summary.json"), "w") as f:
+    with open(os.path.join(out_dir, "training_summary.json"), "w", encoding="utf-8") as f:
         json.dump(train_summary, f, indent=2)
 
     df_hist = pd.DataFrame(history)
@@ -324,7 +325,7 @@ def evaluate_all_algorithms(sim_config, trained_model, device, out_dir):
         "qrmp_dqn_status": "EXCLUDED (NOT REPRODUCIBLE FROM AVAILABLE EVIDENCE)",
         "objective_performance": summary_rows
     }
-    with open(os.path.join(out_dir, "evaluation_summary.json"), "w") as f:
+    with open(os.path.join(out_dir, "evaluation_summary.json"), "w", encoding="utf-8") as f:
         json.dump(eval_summary, f, indent=2)
 
     print("  [OK] Evaluation completed across 60 frozen realizations (420 runs).")
@@ -465,7 +466,7 @@ def generate_final_report_and_manifest(comm_h, comp_h, df_pub, df_obj, out_dir):
         "total_runs_evaluated": 420,
         "qrmp_dqn_disposition": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE (EXCLUDED)"
     }
-    with open(os.path.join(out_dir, "provenance_manifest.json"), "w") as f:
+    with open(os.path.join(out_dir, "provenance_manifest.json"), "w", encoding="utf-8") as f:
         json.dump(manifest, f, indent=2)
 
     report_content = f"""# PHASE 14 — FINAL COLAB TRAINING & EXPERIMENTAL REPRODUCTION REPORT
@@ -543,7 +544,7 @@ OVERALL DECISION: COLAB REPRODUCTION PASS (READY WITH DISCLOSURES)
 4. **wo_co Equivalence**: Disabling collaboration (`wo_co`) is mathematically and physically identical to `Local` onboard computation ($100\\%$ Action 0, $0.29\\text{{ J}}$).
 5. **GAT Activation Horizon**: The GAT-GRU mobility model requires $\\ge 5$ trajectory history frames for spatial attention activation, falling back to linear velocity extrapolation in short bursts.
 """
-    with open(os.path.join(out_dir, "REPORT.md"), "w") as f:
+    with open(os.path.join(out_dir, "REPORT.md"), "w", encoding="utf-8") as f:
         f.write(report_content)
     print("  [OK] Exported provenance_manifest.json and REPORT.md")
 
@@ -558,7 +559,7 @@ def main():
     out_dir = os.path.join(ROOT_DIR, "results", "colab_final")
     os.makedirs(out_dir, exist_ok=True)
 
-    with open(os.path.join(ROOT_DIR, "configs", "paper_parameters.yaml"), "r") as f:
+    with open(os.path.join(ROOT_DIR, "configs", "paper_parameters.yaml"), "r", encoding="utf-8") as f:
         sim_config = SimulationConfig(**yaml.safe_load(f))
 
     device = torch.device("cuda" if torch.cuda.is_available() else "cpu")

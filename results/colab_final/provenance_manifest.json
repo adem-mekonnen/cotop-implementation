@@ -2,7 +2,7 @@
   "project": "CoTOP Scientific Reproduction & Colab Final Execution",
   "scientific_commit": "c50b806",
   "colab_preparation_commit": "36d4915",
-  "timestamp": "2026-09-02T15:45:37.027923+00:00",
+  "timestamp": "2026-09-03T14:34:46.519615+00:00",
   "hardware": {
     "python_version": "3.11.9",
     "pytorch_version": "2.12.1+cpu",
