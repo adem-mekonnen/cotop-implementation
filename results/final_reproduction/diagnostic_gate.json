@@ -1,0 +1,103 @@
+{
+  "diagnostic_gate_status": "PASS",
+  "timestamp": "2026-09-04T14:25:17.339891+00:00",
+  "git_sha": "37053388f7bd1eacf25f871122c4d16ea5a284fc",
+  "config_sha256": "9885c1b7b396aa6c99cefbd5114379d2dc4f5ab8b37d4e5ac7d376cd255d20bc",
+  "realization_sha256": "dfbb35402104152e6134968d9c91bb4591889433ca2deca9afc7b75c7c03e242",
+  "checkpoint_sha256": "f427576914ea7ca656124ae7ff36b93d7288234820e3ea2bb220f661475f3562",
+  "environment": {
+    "python_version": "3.11.9",
+    "pytorch_version": "2.12.1+cpu",
+    "device": "cpu"
+  },
+  "scenario": {
+    "geometry": "corridor_2400m",
+    "length_m": 2400.0,
+    "rsu_count": 6,
+    "vehicle_count": 10,
+    "workload": 20,
+    "seed": 42
+  },
+  "state_dimension": 114,
+  "action_dimension": 7,
+  "task_statistics": {
+    "total_tasks": 200,
+    "cpu_phi_min": 1015221.5039676653,
+    "cpu_phi_mean": 5603238.034816314,
+    "cpu_phi_max": 9986089.967689982,
+    "size_rho_min_mb": 2.0290090988250196,
+    "size_rho_mean_mb": 3.557005821108611,
+    "size_rho_max_mb": 4.997847405238179
+  },
+  "algorithms_evaluated": {
+    "CoTOP": {
+      "completed_tasks": 193,
+      "failed_tasks": 7,
+      "failure_reasons": [
+        "COVERAGE_VIOLATION"
+      ],
+      "failure_breakdown": {
+        "COVERAGE_VIOLATION": 7
+      },
+      "mean_delay_s": 2.0691899424713336,
+      "mean_energy_j": 3.8472302080975296,
+      "collaboration_rate_pct": 99.0,
+      "completion_ratio_pct": 96.5,
+      "queue_max_cycles": 124254154.14489506,
+      "negative_queue_count": 0,
+      "nan_inf_count": 0
+    },
+    "DDQN": {
+      "completed_tasks": 193,
+      "failed_tasks": 7,
+      "failure_reasons": [
+        "COVERAGE_VIOLATION"
+      ],
+      "failure_breakdown": {
+        "COVERAGE_VIOLATION": 7
+      },
+      "mean_delay_s": 2.0432057967681616,
+      "mean_energy_j": 0.8394744154259892,
+      "collaboration_rate_pct": 42.5,
+      "completion_ratio_pct": 96.5,
+      "queue_max_cycles": 132919572.58506905,
+      "negative_queue_count": 0,
+      "nan_inf_count": 0
+    },
+    "Greedy": {
+      "completed_tasks": 193,
+      "failed_tasks": 7,
+      "failure_reasons": [
+        "COVERAGE_VIOLATION"
+      ],
+      "failure_breakdown": {
+        "COVERAGE_VIOLATION": 7
+      },
+      "mean_delay_s": 2.0639223869258982,
+      "mean_energy_j": 7.219614589600078,
+      "collaboration_rate_pct": 85.0,
+      "completion_ratio_pct": 96.5,
+      "queue_max_cycles": 60449358.518432036,
+      "negative_queue_count": 0,
+      "nan_inf_count": 0
+    },
+    "Local": {
+      "completed_tasks": 193,
+      "failed_tasks": 7,
+      "failure_reasons": [
+        "COVERAGE_VIOLATION"
+      ],
+      "failure_breakdown": {
+        "COVERAGE_VIOLATION": 7
+      },
+      "mean_delay_s": 2.04136596953117,
+      "mean_energy_j": 0.3000039329119527,
+      "collaboration_rate_pct": 0.0,
+      "completion_ratio_pct": 96.5,
+      "queue_max_cycles": 132919572.58506905,
+      "negative_queue_count": 0,
+      "nan_inf_count": 0
+    }
+  },
+  "stop_the_line_violations": []
+}

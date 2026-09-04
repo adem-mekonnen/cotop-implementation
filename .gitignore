@@ -46,6 +46,7 @@ data/processed/*.npy
 Thumbs.db
 
 # Temporary logs, dumps, and IDE configs
+results/archive/
 *.log
 dump.txt
 *.tmp
