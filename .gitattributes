@@ -1,0 +1,8 @@
+# Enforce LF line endings across all platforms to preserve cryptographic hash integrity
+* text=auto eol=lf
+
+# Explicit binary files
+*.pt binary
+*.pth binary
+*.npy binary
+*.h5 binary
