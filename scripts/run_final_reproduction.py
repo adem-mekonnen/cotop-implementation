@@ -1745,6 +1745,11 @@ def main():
         print("\n[OK] Diagnostic stage completed successfully. Halting as requested.")
         return
 
+    if args.stage == "fresh_clone":
+        run_fresh_clone_verification(env_info["git_sha"], fresh_clone_path=args.fresh_clone_path, mode=args.fresh_clone_mode)
+        print("\n[OK] Fresh clone verification stage completed successfully. Halting as requested.")
+        return
+
     # Step 4: Factorial Matrix Campaign & Deterministic Attempt Architecture
     df_runs = run_canonical_evaluation(
         sim_config, eval_model, ddqn_agent, device,
