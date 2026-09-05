@@ -1,8 +1,8 @@
 {
   "diagnostic_gate_status": "PASS",
   "integrity_threshold_justification": "95.0% completion ratio is a pre-execution simulation integrity threshold, not a performance target.",
-  "timestamp": "2026-09-05T05:27:01.733606+00:00",
-  "git_sha": "861f3b94a6d40649c4fc004da8ec795a78506871",
+  "timestamp": "2026-09-05T05:27:56.739167+00:00",
+  "git_sha": "d7534fbdb281512d4a66562d1b56a932eb7494f7",
   "config_sha256": "9885c1b7b396aa6c99cefbd5114379d2dc4f5ab8b37d4e5ac7d376cd255d20bc",
   "realization_sha256": "dfbb35402104152e6134968d9c91bb4591889433ca2deca9afc7b75c7c03e242",
   "checkpoint_sha256": "f427576914ea7ca656124ae7ff36b93d7288234820e3ea2bb220f661475f3562",
@@ -10,7 +10,7 @@
     "python_version": "3.11.9",
     "pytorch_version": "2.12.1+cpu",
     "device": "cpu",
-    "manifest_sha256": "5384f2342c3c5ab3c25eb36d33c4472dccbb18a2216136668f988f815abf832b"
+    "manifest_sha256": "50646f13e0375ad298afefd70b122db85eefd746e83cf2d216ef3cbed1444e94"
   },
   "scenario": {
     "geometry": "corridor_2400m",

@@ -1547,7 +1547,13 @@ def run_fresh_clone_verification(execution_git_sha: str, fresh_clone_path: str =
     
     if os.path.exists(fresh_clone_path):
         print(f"  Cleaning existing test clone directory at {fresh_clone_path}...")
-        shutil.rmtree(fresh_clone_path, ignore_errors=True)
+        if sys.platform == "win32":
+            subprocess.run(["powershell", "-Command", f"Remove-Item -Recurse -Force '{fresh_clone_path}'"], capture_output=True)
+        if os.path.exists(fresh_clone_path):
+            def on_rm_error(func, p, exc_info):
+                os.chmod(p, stat.S_IWRITE)
+                func(p)
+            shutil.rmtree(fresh_clone_path, onerror=on_rm_error)
 
     print(f"  Cloning repository from {ROOT_DIR} to {fresh_clone_path}...")
     subprocess.check_call(["git", "clone", ROOT_DIR, fresh_clone_path])
