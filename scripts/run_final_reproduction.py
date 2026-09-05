@@ -1625,11 +1625,14 @@ def run_fresh_clone_verification(execution_git_sha: str, fresh_clone_path: str =
     print(f"  [OK] 13-16. Fresh clone completed 420/420 evaluations (Raw CSV SHA-256: {fc_raw_sha}).")
 
     # Verify canonical output was NOT modified and matches canonical dataset SHA
-    EXPECTED_CANONICAL_SHA = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+    EXPECTED_CANONICAL_SHAS = {
+        "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c",  # CRLF (Windows)
+        "3061ebbaea9409907292021982943d08eace9b35ae8df13c0f9f7651f6fe1807",  # LF (Linux / Colab)
+    }
     canonical_raw = os.path.join(ROOT_DIR, "results", "final_reproduction", "raw", "all_420_runs_raw.csv")
     if os.path.exists(canonical_raw):
         can_sha = compute_file_sha256(canonical_raw)
-        assert can_sha == EXPECTED_CANONICAL_SHA, f"[STOP-THE-LINE] Canonical dataset mutated! {can_sha} != {EXPECTED_CANONICAL_SHA}"
+        assert can_sha in EXPECTED_CANONICAL_SHAS, f"[STOP-THE-LINE] Canonical dataset mutated! {can_sha} not in {EXPECTED_CANONICAL_SHAS}"
         print(f"  [OK] Canonical raw dataset remained strictly untouched and identical (SHA-256: {can_sha}).")
 
         # Numerical equivalence verification across all 420 matched runs

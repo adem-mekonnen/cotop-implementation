@@ -403,14 +403,16 @@ if "get_file_sha256" not in globals():
         return h.hexdigest()
 
 CANONICAL_DATASET_PATH = "results/final_reproduction/raw/all_420_runs_raw.csv"
-CANONICAL_DATASET_SHA256 = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+CANONICAL_DATASET_SHA256_CRLF = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+CANONICAL_DATASET_SHA256_LF = "3061ebbaea9409907292021982943d08eace9b35ae8df13c0f9f7651f6fe1807"
+CANONICAL_DATASET_VALID_SHAS = {CANONICAL_DATASET_SHA256_LF, CANONICAL_DATASET_SHA256_CRLF}
 
 assert os.path.exists(CANONICAL_DATASET_PATH), f"[FATAL] Canonical dataset missing: {CANONICAL_DATASET_PATH}"
 actual_dataset_sha256 = get_file_sha256(CANONICAL_DATASET_PATH)
-assert actual_dataset_sha256 == CANONICAL_DATASET_SHA256, (
+assert actual_dataset_sha256 in CANONICAL_DATASET_VALID_SHAS, (
     f"[FATAL] Canonical dataset SHA-256 mismatch!\\n"
     f"Actual:   {actual_dataset_sha256}\\n"
-    f"Expected: {CANONICAL_DATASET_SHA256}"
+    f"Expected: {CANONICAL_DATASET_SHA256_LF} (LF / Linux) or {CANONICAL_DATASET_SHA256_CRLF} (CRLF / Windows)"
 )
 
 # Audit Realization Separation
@@ -796,7 +798,9 @@ if "fresh_model" not in globals():
 # Verify or establish canonical realization integrity
 if "canonical_realization_ids" not in globals():
     CANONICAL_DATASET_PATH = "results/final_reproduction/raw/all_420_runs_raw.csv"
-    CANONICAL_DATASET_SHA256 = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+    CANONICAL_DATASET_SHA256_CRLF = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+    CANONICAL_DATASET_SHA256_LF = "3061ebbaea9409907292021982943d08eace9b35ae8df13c0f9f7651f6fe1807"
+    CANONICAL_DATASET_VALID_SHAS = {CANONICAL_DATASET_SHA256_LF, CANONICAL_DATASET_SHA256_CRLF}
     assert os.path.exists(CANONICAL_DATASET_PATH), f"[FATAL] Canonical dataset missing: {CANONICAL_DATASET_PATH}"
     
     h = hashlib.sha256()
@@ -804,12 +808,15 @@ if "canonical_realization_ids" not in globals():
         while chunk := f.read(65536):
             h.update(chunk)
     actual_sha = h.hexdigest()
-    assert actual_sha == CANONICAL_DATASET_SHA256, f"[FATAL] Canonical dataset SHA-256 mismatch: {actual_sha}"
+    assert actual_sha in CANONICAL_DATASET_VALID_SHAS, (
+        f"[FATAL] Canonical dataset SHA-256 mismatch: {actual_sha} "
+        f"(expected {CANONICAL_DATASET_SHA256_LF} [LF] or {CANONICAL_DATASET_SHA256_CRLF} [CRLF])"
+    )
     
     df_canonical_raw = pd.read_csv(CANONICAL_DATASET_PATH)
     canonical_realization_ids = sorted(df_canonical_raw["realization_id"].unique())
     assert len(canonical_realization_ids) == 60, f"[FATAL] Expected 60 unique realization IDs, found {len(canonical_realization_ids)}"
-    print("[INFO] Verified dataset SHA-256 and established 60 canonical realization IDs (Cell 7 fallback).")
+    print(f"[INFO] Verified canonical dataset SHA-256 ({actual_sha[:12]}...) and established 60 canonical realization IDs.")
 
 os.makedirs("results/colab_fresh_training_evaluation", exist_ok=True)
 realization_files = sorted([os.path.join("data/evaluation_realizations", f"{r_id}.json") for r_id in canonical_realization_ids])
@@ -1490,7 +1497,9 @@ COMM_EXPECTED_SHA256 = "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff24
 COMP_EXPECTED_SHA256 = "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
 YAML_EXPECTED_SHA256 = "9885c1b7b396aa6c99cefbd5114379d2dc4f5ab8b37d4e5ac7d376cd255d20bc"
 CANONICAL_DATASET_PATH = "results/final_reproduction/raw/all_420_runs_raw.csv"
-CANONICAL_DATASET_SHA256 = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+CANONICAL_DATASET_SHA256_CRLF = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+CANONICAL_DATASET_SHA256_LF = "3061ebbaea9409907292021982943d08eace9b35ae8df13c0f9f7651f6fe1807"
+CANONICAL_DATASET_VALID_SHAS = {CANONICAL_DATASET_SHA256_LF, CANONICAL_DATASET_SHA256_CRLF}
 
 if "eval_realization_hashes" not in globals():
     import glob
@@ -1513,7 +1522,7 @@ assert yaml_post == YAML_EXPECTED_SHA256, f"[FATAL] paper_parameters.yaml was mo
 
 # 2. Verify Canonical 420-Run Dataset Hash
 dataset_post = get_file_sha256(CANONICAL_DATASET_PATH)
-assert dataset_post == CANONICAL_DATASET_SHA256, f"[FATAL] Canonical dataset was modified! {dataset_post}"
+assert dataset_post in CANONICAL_DATASET_VALID_SHAS, f"[FATAL] Canonical dataset was modified! {dataset_post}"
 
 # 3. Verify Evaluation Realizations Invariance
 for r_name, orig_hash in eval_realization_hashes.items():
