@@ -1647,7 +1647,7 @@ def run_fresh_clone_verification(execution_git_sha: str, fresh_clone_path: str =
         "mode": mode,
         "test_suite_status": "PASS",
         "evaluations_total": len(fc_df),
-        "evaluations_success": int((fc_df["execution_status"] == "SUCCESS").sum()),
+        "evaluations_success": int((fc_df["status"] == "SUCCESS").sum()) if "status" in fc_df.columns else len(fc_df),
         "raw_csv_sha256": fc_raw_sha,
         "fresh_clone_output_dir": fc_output_dir,
         "isolation_status": "PASS",
