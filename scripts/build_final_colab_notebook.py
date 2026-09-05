@@ -1265,49 +1265,109 @@ if os.path.exists(train_hist_p):
     ax2.set_title("Training Delay (s) and Energy (J)", fontweight="bold")
     ax2.legend()
     fig.tight_layout()
-    fig.savefig(os.path.join(fig_dir, "training_curves.png"), dpi=300)
-    plt.close(fig)
+    fig.savefig(os.path.join(fig_dir, "training_curves.png"), dpi=300, bbox_inches="tight")
+    plt.show()
 
 # 2. Delay Comparison Bar Chart (in seconds)
-fig, ax = plt.subplots(figsize=(8, 4.5))
-bars = ax.bar(df_obj["algorithm"], df_obj["mean_delay_s"], color="#1f77b4", width=0.5)
-ax.set_ylabel("Mean Total Delay (s)", fontweight="bold")
-ax.set_title("Mean Total Delay (s) Across Algorithms", fontweight="bold")
-ax.set_ylim(0, max(df_obj["mean_delay_s"]) * 1.2)
+fig, ax = plt.subplots(figsize=(9, 4.8), dpi=120)
+palette = ["#1f77b4" if a == "CoTOP" else "#4a7bb0" if a == "DDQN" else "#7ba4cc" for a in df_obj["algorithm"]]
+bars = ax.bar(df_obj["algorithm"], df_obj["mean_delay_s"], color=palette, width=0.55, edgecolor="#222222", lw=1)
+ax.set_ylabel("Mean Total Delay (s)", fontweight="bold", fontsize=11)
+ax.set_title("Mean Total Delay (s) Across Algorithms (N=60 Realizations)", fontweight="bold", fontsize=12)
+ax.set_ylim(0, max(df_obj["mean_delay_s"]) * 1.18)
+ax.grid(axis="y", alpha=0.3)
 for b in bars:
-    ax.text(b.get_x() + b.get_width()/2., b.get_height() + 0.02, f"{b.get_height():.4f}s", ha='center', va='bottom', fontsize=9, fontweight='bold')
+    ax.text(b.get_x() + b.get_width()/2., b.get_height() + 0.02, f"{b.get_height():.4f}s", ha='center', va='bottom', fontsize=9.5, fontweight='bold')
 fig.tight_layout()
-fig.savefig(os.path.join(fig_dir, "delay_comparison.png"), dpi=300)
-plt.close(fig)
+fig.savefig(os.path.join(fig_dir, "delay_comparison.png"), dpi=300, bbox_inches="tight")
+plt.show()
 
 # 3. Energy Comparison Bar Chart (in Joules)
-fig, ax = plt.subplots(figsize=(8, 4.5))
-bars = ax.bar(df_obj["algorithm"], df_obj["mean_energy_j"], color="#2ca02c", width=0.5)
-ax.set_ylabel("Mean Dynamic Energy (J)", fontweight="bold")
-ax.set_title("Mean Dynamic Energy (J) Across Algorithms", fontweight="bold")
-ax.set_ylim(0, max(df_obj["mean_energy_j"]) * 1.2)
+fig, ax = plt.subplots(figsize=(9, 4.8), dpi=120)
+bars = ax.bar(df_obj["algorithm"], df_obj["mean_energy_j"], color="#2ca02c", width=0.55, edgecolor="#222222", lw=1)
+ax.set_ylabel("Mean Dynamic Energy (J)", fontweight="bold", fontsize=11)
+ax.set_title("Mean Dynamic Energy (J) Across Algorithms (N=60 Realizations)", fontweight="bold", fontsize=12)
+ax.set_ylim(0, max(df_obj["mean_energy_j"]) * 1.18)
+ax.grid(axis="y", alpha=0.3)
 for b in bars:
-    ax.text(b.get_x() + b.get_width()/2., b.get_height() + 0.1, f"{b.get_height():.2f}J", ha='center', va='bottom', fontsize=9, fontweight='bold')
+    ax.text(b.get_x() + b.get_width()/2., b.get_height() + 0.1, f"{b.get_height():.2f}J", ha='center', va='bottom', fontsize=9.5, fontweight='bold')
 fig.tight_layout()
-fig.savefig(os.path.join(fig_dir, "energy_comparison.png"), dpi=300)
-plt.close(fig)
+fig.savefig(os.path.join(fig_dir, "energy_comparison.png"), dpi=300, bbox_inches="tight")
+plt.show()
 
 # 4. Pareto Multi-Objective Delay vs. Energy Map
-fig, ax = plt.subplots(figsize=(8, 5))
+fig, ax = plt.subplots(figsize=(9, 5.2), dpi=120)
 colors = {"Local": "#2ca02c", "Greedy": "#d62728", "DDQN": "#ff7f0e", "CoTOP": "#1f77b4", "wo_md": "#9467bd", "wo_tp": "#8c564b", "wo_co": "#7f7f7f"}
 for _, r in df_obj.iterrows():
     algo = r["algorithm"]
-    ax.scatter(r["mean_delay_s"], r["mean_energy_j"], color=colors.get(algo, "#333333"), s=140, label=algo, zorder=5)
-    ax.text(r["mean_delay_s"] + 0.0005, r["mean_energy_j"] + 0.12, algo, fontsize=10, fontweight="bold")
+    ax.scatter(r["mean_delay_s"], r["mean_energy_j"], color=colors.get(algo, "#333333"), s=180, edgecolors="black", lw=1.2, label=algo, zorder=5)
+    ax.text(r["mean_delay_s"] + 0.0008, r["mean_energy_j"] + 0.12, algo, fontsize=10, fontweight="bold")
 
 ax.set_xlabel("Mean Total Delay (s)", fontsize=11, fontweight="bold")
 ax.set_ylabel("Mean Dynamic Energy (J)", fontsize=11, fontweight="bold")
 ax.set_title("Pareto Multi-Objective Delay (s) vs. Energy (J) Map", fontsize=12, fontweight="bold")
+ax.grid(True, alpha=0.3)
 fig.tight_layout()
-fig.savefig(os.path.join(fig_dir, "pareto_comparison.png"), dpi=300)
-plt.close(fig)
+fig.savefig(os.path.join(fig_dir, "pareto_comparison.png"), dpi=300, bbox_inches="tight")
+plt.show()
 
-print(f"[STATUS] Publication figures generated successfully under '{fig_dir}'.")
+print("=" * 80)
+print("                  REPRODUCTION TABLES & SCIENTIFIC AUDIT SUMMARY")
+print("=" * 80)
+
+from IPython.display import display
+
+# Table 1: Multi-Algorithm Objective Performance
+print("\n[TABLE 1] Cross-Algorithm Objective Performance (N=60 Realizations):")
+display(df_obj.style.format({
+    "mean_delay_s": "{:.4f} s",
+    "delay_std_s": "{:.4f} s",
+    "mean_energy_j": "{:.2f} J",
+    "energy_std_j": "{:.2f} J",
+    "completion_ratio_pct": "{:.2f}%",
+    "collaboration_rate_pct": "{:.2f}%"
+}))
+
+# Table 2: Published vs. Colab-Reproduced Reconciliation
+pub_vs_colab_p = "results/colab_final/published_vs_colab.csv"
+if os.path.exists(pub_vs_colab_p):
+    df_pub = pd.read_csv(pub_vs_colab_p)
+    print("\n[TABLE 2] Published vs. Colab-Reproduced Metrics Reconciliation:")
+    display(df_pub)
+
+# Table 3: Summary Statistics (Mean, Std, Median, 95% CI)
+sum_stats_p = "results/colab_final/summary_statistics.csv"
+if os.path.exists(sum_stats_p):
+    df_sum = pd.read_csv(sum_stats_p)
+    print("\n[TABLE 3] Statistical Metric Distributions & 95% Confidence Intervals:")
+    display(df_sum[["algorithm", "mean_delay_s", "median_delay_s", "ci95_delay_low", "ci95_delay_high",
+                    "mean_energy_j", "median_energy_j", "ci95_energy_low", "ci95_energy_high",
+                    "completion_ratio_pct", "collaboration_rate_pct"]].style.format({
+        "mean_delay_s": "{:.4f}", "median_delay_s": "{:.4f}", "ci95_delay_low": "{:.4f}", "ci95_delay_high": "{:.4f}",
+        "mean_energy_j": "{:.2f}", "median_energy_j": "{:.2f}", "ci95_energy_low": "{:.2f}", "ci95_energy_high": "{:.2f}",
+        "completion_ratio_pct": "{:.2f}%", "collaboration_rate_pct": "{:.2f}%"
+    }))
+
+# Table 4: Inferential Statistical Tests (Wilcoxon & t-tests)
+paired_p = "results/colab_final/paired_statistical_tests.csv"
+if os.path.exists(paired_p):
+    df_paired = pd.read_csv(paired_p)
+    print("\n[TABLE 4] Paired Inferential Statistical Hypothesis Tests (Holm-Bonferroni Adjusted):")
+    display(df_paired[["comparison", "cohen_dz_delay", "p_val_delay_holm", "cohen_dz_energy", "p_val_energy_holm"]].style.format({
+        "cohen_dz_delay": "{:.3f}", "p_val_delay_holm": "{:.2e}",
+        "cohen_dz_energy": "{:.3f}", "p_val_energy_holm": "{:.2e}"
+    }))
+
+# Table 5: 16-Point Acceptance Gate Protocol
+gate_p = "results/colab_final/acceptance_gate.json"
+if os.path.exists(gate_p):
+    import json
+    with open(gate_p, "r") as f:
+        gate_data = json.load(f)
+    print("\n[TABLE 5] Final 16-Point Scientific Acceptance Gate:")
+    display(pd.DataFrame(list(gate_data.items()), columns=["Gate", "Status"]))
+
+print(f"\n[STATUS] All publication figures and tables successfully rendered inline and saved under '{fig_dir}'.")
 """)
 
     # =========================================================================
