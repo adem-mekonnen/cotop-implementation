@@ -1,0 +1,27 @@
+{
+  "campaign_id": "cotop_final_2026_01",
+  "attempt_id": "attempt_001",
+  "expected_evaluations": 420,
+  "completed_evaluations": 420,
+  "failed_evaluations": 0,
+  "missing_evaluations": 0,
+  "duplicate_evaluations": 0,
+  "tests_failed": 0,
+  "tests_skipped": 0,
+  "protected_physics": "PASS",
+  "checkpoint_integrity": "PASS",
+  "realization_integrity": "PASS",
+  "environment_integrity": "PASS",
+  "diagnostic_gate": "PASS",
+  "campaign_completeness": "PASS",
+  "fresh_clone_verification": "PASS",
+  "acceptance_gate": "PASS",
+  "scientific_classification": "CLASS B \u2014 IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED",
+  "decision_tree_path": {
+    "has_fundamental_defect": false,
+    "has_unresolved_material_divergence": false,
+    "rel_error_delay_pct": 90.24012475908138,
+    "rel_error_energy_pct": 89.36095904743713,
+    "numerical_tolerance_satisfied": false
+  }
+}

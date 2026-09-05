@@ -1,0 +1,69 @@
+{
+  "repository": "https://github.com/adem-mekonnen/cotop-implementation",
+  "campaign_id": "cotop_final_2026_01",
+  "attempt_id": "attempt_001",
+  "execution_git_sha": "e8cba553cad2e193c8ac5b112cf938bd532ed2f4",
+  "execution_git_clean": false,
+  "branch": "main",
+  "timestamp_utc": "2026-09-05T06:27:17.928608+00:00",
+  "source_paper": {
+    "title": "Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing",
+    "authors": "Du et al.",
+    "venue": "IEEE Transactions on Mobile Computing",
+    "year": 2026,
+    "doi": "10.1109/TMC.2025.3631820"
+  },
+  "environment_manifest_sha256": "f5b22778c21031bc99e5326ef2b146f2cda1d0c4cb2818d3c55d4dc50d004b57",
+  "canonical_dataset_sha256": "7c9330dc9555f3fb47efd9e2f19112816ad1d11ddaa4ec116463fdf3535d7a2a",
+  "protected_physics_hashes": {
+    "envs/comm_model.py": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
+    "envs/comp_model.py": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff",
+    "status": "EXACT MATCH VERIFIED (Full 64-char)"
+  },
+  "configuration": {
+    "path": "configs/paper_parameters.yaml",
+    "sha256": "9885c1b7b396aa6c99cefbd5114379d2dc4f5ab8b37d4e5ac7d376cd255d20bc"
+  },
+  "checkpoints": {
+    "mobility_model.pth": "7098b99c61121560bf71adafb73244ee85dcb800a149712e9a4224c95a4b49dc",
+    "cotop_seed42.pt": "f427576914ea7ca656124ae7ff36b93d7288234820e3ea2bb220f661475f3562",
+    "ddqn_seed42.pt": "2c78ef50523fcc49280ad9b6574f4feea7fcd7315a7217488c1d6176748afd1a"
+  },
+  "evaluation_matrix": {
+    "algorithms": [
+      "CoTOP",
+      "DDQN",
+      "Local",
+      "Greedy",
+      "wo_md",
+      "wo_tp",
+      "wo_co"
+    ],
+    "total_configurations": 60,
+    "total_runs": 420,
+    "workloads": [
+      20,
+      30,
+      40
+    ],
+    "scenarios": [
+      "corridor_2400m",
+      "grid_200m"
+    ],
+    "seeds": [
+      42,
+      43,
+      44,
+      45,
+      46,
+      47,
+      48,
+      49,
+      50,
+      51
+    ]
+  },
+  "qrmp_dqn_disposition": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE (EXCLUDED WITH DISCLOSURE)",
+  "scientific_classification": "CLASS B \u2014 IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED",
+  "acceptance_gate": "PASS"
+}

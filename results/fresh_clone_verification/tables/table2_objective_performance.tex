@@ -1,0 +1,19 @@
+\begin{table}[htbp]
+\centering
+\caption{Objective-by-Objective Performance Summary ($N=60$ Configurations)}
+\label{tab:objective_performance}
+\begin{tabular}{lcccccc}
+\hline
+Algorithm & Delay (s) & Delay Std & Energy (J) & Energy Std & Completion (\%) & Collab (\%) \\
+\hline
+Local & 1.3335 & 0.6674 & 0.2892 & 0.0106 & 99.31\% & 0.00\% \\
+Greedy & 1.3111 & 0.6882 & 5.1209 & 1.9998 & 99.23\% & 87.22\% \\
+DDQN & 1.3319 & 0.6766 & 1.6298 & 0.9320 & 99.21\% & 40.04\% \\
+CoTOP & 1.3566 & 0.6947 & 2.6747 & 1.8177 & 99.08\% & 99.92\% \\
+wo_co & 1.3335 & 0.6674 & 0.2892 & 0.0106 & 99.31\% & 0.00\% \\
+wo_md & 1.3348 & 0.6787 & 1.5402 & 0.8693 & 99.22\% & 99.92\% \\
+wo_tp & 1.3384 & 0.6904 & 3.6732 & 2.2876 & 99.12\% & 100.00\% \\
+QRMP-DQN & \multicolumn{6}{c}{\textit{Not Reproducible From Available Evidence (Ref [33])}} \\
+\hline
+\end{tabular}
+\end{table}

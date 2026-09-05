@@ -1,0 +1,21 @@
+{
+  "checkpoint_path": "results/colab_training/cotop_trained.pt",
+  "checkpoint_sha256": "69c45161acfa58fd8f508044e72cdc64365e35d34876eb8984da875f87cd8f80",
+  "model_param_hash": "dc666f93dcca1b2c1b3ec65e12075f042fad6e4c79f8fcbe9c8e784ed77d7ae8",
+  "total_realizations_evaluated": 62,
+  "mean_delay_s": 1.4951,
+  "delay_std_s": 0.8258,
+  "mean_energy_j": 2.7723,
+  "energy_std_j": 1.7168,
+  "mean_completion_ratio_pct": 98.6,
+  "mean_collaboration_rate_pct": 99.98,
+  "action_distribution_pct": {
+    "action_0": 0.02,
+    "action_1": 72.17,
+    "action_2": 0.0,
+    "action_3": 0.74,
+    "action_4": 0.0,
+    "action_5": 18.56,
+    "action_6": 8.52
+  }
+}

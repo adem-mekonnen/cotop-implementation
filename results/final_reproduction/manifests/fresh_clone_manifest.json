@@ -1,0 +1,13 @@
+{
+  "verified_commit": "e8cba553cad2e193c8ac5b112cf938bd532ed2f4",
+  "timestamp": "2026-09-05T06:27:19.840765+00:00",
+  "fresh_clone_path": "d:\\cotop-fresh-clone-test",
+  "mode": "all",
+  "test_suite_status": "PASS",
+  "evaluations_total": 420,
+  "evaluations_success": 420,
+  "raw_csv_sha256": "7c9330dc9555f3fb47efd9e2f19112816ad1d11ddaa4ec116463fdf3535d7a2a",
+  "fresh_clone_output_dir": "d:\\cotop-fresh-clone-test\\results\\fresh_clone_verification",
+  "isolation_status": "PASS",
+  "overall_status": "PASS"
+}

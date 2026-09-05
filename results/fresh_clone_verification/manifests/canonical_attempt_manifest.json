@@ -1,0 +1,8 @@
+{
+  "campaign_id": "cotop_final_2026_01",
+  "selected_attempt_id": "attempt_001",
+  "canonical_row_count": 420,
+  "raw_csv_sha256": "7c9330dc9555f3fb47efd9e2f19112816ad1d11ddaa4ec116463fdf3535d7a2a",
+  "selection_rule": "status == SUCCESS && accounting == VALID && earliest valid attempt",
+  "timestamp_utc": "2026-09-05T06:27:15.490846+00:00"
+}
