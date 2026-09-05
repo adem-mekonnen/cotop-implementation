@@ -173,10 +173,11 @@ if str(REPO_ROOT) not in sys.path:
 if (REPO_ROOT / ".git").exists():
     try:
         subprocess.run(["git", "fetch", "origin", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
-        if not (REPO_ROOT / "scripts" / "train_cotop_a3c.py").exists():
-            subprocess.run(["git", "checkout", EXPECTED_FINAL_COMMIT], cwd=str(REPO_ROOT), capture_output=True)
+        subprocess.run(["git", "checkout", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
+        if Path("/content/cotop-implementation").exists():
+            subprocess.run(["git", "reset", "--hard", f"origin/{TARGET_BRANCH}"], cwd=str(REPO_ROOT), capture_output=True)
+        else:
             if not (REPO_ROOT / "scripts" / "train_cotop_a3c.py").exists():
-                subprocess.run(["git", "checkout", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
                 subprocess.run(["git", "pull", "origin", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
     except Exception:
         pass
