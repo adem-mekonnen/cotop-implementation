@@ -1,0 +1,56 @@
+{
+  "parameters": {
+    "episodes": {
+      "value": 2,
+      "provenance": "implementation_assumption"
+    },
+    "seed": {
+      "value": 42,
+      "provenance": "implementation_assumption"
+    },
+    "workers": {
+      "value": 2,
+      "provenance": "implementation_assumption"
+    },
+    "rollout_steps": {
+      "value": 10,
+      "provenance": "implementation_assumption"
+    },
+    "learning_rate": {
+      "value": 0.0002,
+      "provenance": "implementation_assumption"
+    },
+    "gamma": {
+      "value": 0.99,
+      "provenance": "paper_reported"
+    },
+    "entropy_coef": {
+      "value": 0.01,
+      "provenance": "implementation_assumption"
+    },
+    "value_loss_coef": {
+      "value": 0.5,
+      "provenance": "implementation_assumption"
+    },
+    "max_grad_norm": {
+      "value": 40.0,
+      "provenance": "implementation_assumption"
+    },
+    "state_dim": {
+      "value": 114,
+      "provenance": "paper_reported"
+    },
+    "action_dim": {
+      "value": 7,
+      "provenance": "paper_reported"
+    },
+    "hidden_size": {
+      "value": 128,
+      "provenance": "paper_reported"
+    },
+    "num_layers": {
+      "value": 3,
+      "provenance": "paper_reported"
+    }
+  }
+}

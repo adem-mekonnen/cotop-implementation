@@ -1,8 +1,11 @@
 {
   "repository": "https://github.com/adem-mekonnen/cotop-implementation",
-  "git_sha": "b158b8916f51d3d52f4a724db196245593df871b",
+  "campaign_id": "cotop_final_2026_01",
+  "attempt_id": "attempt_001",
+  "execution_git_sha": "861f3b94a6d40649c4fc004da8ec795a78506871",
+  "execution_git_clean": false,
   "branch": "main",
-  "timestamp": "2026-09-04T14:31:20.782915+00:00",
+  "timestamp_utc": "2026-09-05T04:50:20.728461+00:00",
   "source_paper": {
     "title": "Mobility-Aware Collaborative Task Offloading for Parallel Tasks in Vehicular Edge Computing",
     "authors": "Du et al.",
@@ -10,16 +13,12 @@
     "year": 2026,
     "doi": "10.1109/TMC.2025.3631820"
   },
-  "environment": {
-    "python_version": "3.11.9",
-    "pytorch_version": "2.12.1+cpu",
-    "device": "cpu",
-    "os": "win32"
-  },
+  "environment_manifest_sha256": "6045d3bb648bb055c078628b23cc61175a8ac5dfb8219c2a77a485a2762eff6c",
+  "canonical_dataset_sha256": "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c",
   "protected_physics_hashes": {
     "envs/comm_model.py": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
     "envs/comp_model.py": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff",
-    "status": "EXACT MATCH VERIFIED"
+    "status": "EXACT MATCH VERIFIED (Full 64-char)"
   },
   "configuration": {
     "path": "configs/paper_parameters.yaml",
@@ -66,6 +65,5 @@
   },
   "qrmp_dqn_disposition": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE (EXCLUDED WITH DISCLOSURE)",
   "scientific_classification": "CLASS B \u2014 IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED",
-  "publication_decision": "READY WITH SCIENTIFIC DISCLOSURES",
-  "acceptance_condition": "0 FAILED, 0 SKIPPED (ALL TESTS PASSING)"
+  "acceptance_gate": "PASS"
 }

@@ -1,0 +1,37 @@
+================================================================================
+       COTOP A3C REPOSITORY-LEVEL ASYNCHRONOUS TRAINING PIPELINE
+================================================================================
+Timestamp:            2026-09-05T05:21:48.969665+00:00
+Platform:             Windows-10-10.0.26200-SP0
+Python:               3.11.9
+PyTorch:              2.12.1+cpu
+CUDA Available:       False
+Training Traces:      10 files found in 'data/training_realizations'
+Target Episodes:      2
+Workers:              2
+Rollout Steps:        10
+Learning Rate:        0.0002
+Gamma:                0.99
+Entropy Coef:         0.01
+Value Loss Coef:      0.5
+Max Grad Norm:        40.0
+Master Seed:          42
+--------------------------------------------------------------------------------
+Execution Device:     cpu
+[STATUS] Launching 2 parallel A3C workers using SharedAdam & CPU shared memory...
+[Worker 1] Ep   2/  2 | Reward: -964.44 | Loss: 6747221.0449 | Delay: 2.3519s | Energy: 3.7354J | Comp: 98.0%
+[SUCCESS] A3C Training completed in 6.60 seconds (2 episodes).
+[SAVED] Trained checkpoint: results/colab_training\cotop_trained.pt
+        SHA-256:            69c45161acfa58fd8f508044e72cdc64365e35d34876eb8984da875f87cd8f80
+        Param Hash:         dc666f93dcca1b2c1b3ec65e12075f042fad6e4c79f8fcbe9c8e784ed77d7ae8
+--------------------------------------------------------------------------------
+       STRICT CHECKPOINT RELOAD & DETERMINISM VALIDATION
+--------------------------------------------------------------------------------
+Max Policy Logits Discrepancy: 0.0000000000e+00
+Max Value Estimate Discrepancy: 0.0000000000e+00
+[PASS] Strict checkpoint validation confirmed 0.0 numerical divergence.
+[SAVED] Training history:   results/colab_training\training_history.csv
+[SAVED] Training config:    results/colab_training\training_config.json
+[SAVED] Training manifest:  results/colab_training\training_manifest.json
+================================================================================
+A3C Training Pipeline Complete (PASS).
