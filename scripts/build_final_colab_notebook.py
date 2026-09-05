@@ -136,26 +136,74 @@ from pathlib import Path
 REPO_URL = "https://github.com/adem-mekonnen/cotop-implementation.git"
 TARGET_BRANCH = "main"
 AUTHORITATIVE_EXECUTION_COMMIT = "861f3b94a6d40649c4fc004da8ec795a78506871"
+EXPECTED_FINAL_COMMIT = "3badf6f1d6530d602dbfc9d81ef1dec1ea4caa34"
 
-if not os.path.exists("./envs"):
-    if os.path.exists("./cotop-implementation"):
-        os.chdir("./cotop-implementation")
-    else:
-        print(f"Cloning repository from {REPO_URL}...")
-        subprocess.run(["git", "clone", "-b", TARGET_BRANCH, REPO_URL, "./cotop-implementation"], check=True)
-        os.chdir("./cotop-implementation")
+# Establish deterministic repository root
+if Path("/content/cotop-implementation").exists():
+    REPO_ROOT = Path("/content/cotop-implementation")
+elif (Path.cwd() / "envs").exists():
+    REPO_ROOT = Path.cwd()
+elif (Path.cwd() / "cotop-implementation" / "envs").exists():
+    REPO_ROOT = Path.cwd() / "cotop-implementation"
+elif Path("/content").exists():
+    REPO_ROOT = Path("/content/cotop-implementation")
+    print(f"Cloning repository from {REPO_URL}...")
+    subprocess.run(["git", "clone", "-b", TARGET_BRANCH, REPO_URL, str(REPO_ROOT)], check=True)
+else:
+    REPO_ROOT = Path.cwd()
 
-current_commit = subprocess.check_output(["git", "rev-parse", "HEAD"]).decode().strip()
-git_status = subprocess.check_output(["git", "status", "--short"]).decode().strip()
+if not REPO_ROOT.exists():
+    raise RuntimeError(
+        f"[FATAL] Expected repository directory does not exist: {REPO_ROOT}"
+    )
+
+os.chdir(str(REPO_ROOT))
+
+# Fetch and update commits to ensure recent revisions are checked out
+if (REPO_ROOT / ".git").exists():
+    try:
+        subprocess.run(["git", "fetch", "origin", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
+        if not (REPO_ROOT / "scripts" / "train_cotop_a3c.py").exists():
+            subprocess.run(["git", "checkout", EXPECTED_FINAL_COMMIT], cwd=str(REPO_ROOT), capture_output=True)
+            if not (REPO_ROOT / "scripts" / "train_cotop_a3c.py").exists():
+                subprocess.run(["git", "checkout", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
+                subprocess.run(["git", "pull", "origin", TARGET_BRANCH], cwd=str(REPO_ROOT), capture_output=True)
+    except Exception:
+        pass
+
+TRAIN_SCRIPT = REPO_ROOT / "scripts" / "train_cotop_a3c.py"
+
+current_commit = "UNKNOWN"
+git_status = "UNKNOWN"
+if (REPO_ROOT / ".git").exists():
+    try:
+        current_commit = subprocess.check_output(["git", "rev-parse", "HEAD"], cwd=str(REPO_ROOT)).decode().strip()
+        git_status = subprocess.check_output(["git", "status", "--short"], cwd=str(REPO_ROOT)).decode().strip()
+    except Exception as e:
+        git_status = str(e)
 
 print("=" * 75)
 print("             REPOSITORY & PROVENANCE ATTESTATION")
 print("=" * 75)
-print(f"Repository:           {REPO_URL}")
+print(f"Repository Root:      {REPO_ROOT}")
+print(f"Repository URL:       {REPO_URL}")
 print(f"Target Branch:        {TARGET_BRANCH}")
 print(f"Canonical Execution:  {AUTHORITATIVE_EXECUTION_COMMIT}")
+print(f"Expected Commit:      {EXPECTED_FINAL_COMMIT}")
 print(f"Current Commit:       {current_commit}")
 print(f"Working Tree Status:  {'CLEAN' if not git_status else 'MODIFIED'}")
+print(f"A3C Training Script:  {TRAIN_SCRIPT}")
+
+if not TRAIN_SCRIPT.exists():
+    raise RuntimeError(
+        f"[FATAL] Missing repository-level A3C script: {TRAIN_SCRIPT}\\n"
+        f"Current commit: {current_commit}\\n"
+        "Ensure that the latest repository commits (containing scripts/train_cotop_a3c.py) "
+        "have been pushed to GitHub (origin/main) or checked out in the working tree."
+    )
+
+print(f"[OK] Repository root verified: {REPO_ROOT}")
+print(f"[OK] A3C training script verified: {TRAIN_SCRIPT}")
 print("=" * 75)
 """)
 
@@ -507,6 +555,22 @@ Outputs are persisted strictly under `results/colab_training/`.""")
 # ============================================================
 import subprocess
 import sys
+from pathlib import Path
+
+# Verify repository root and script path
+if 'REPO_ROOT' not in globals():
+    REPO_ROOT = Path.cwd()
+else:
+    REPO_ROOT = Path(REPO_ROOT)
+
+TRAIN_SCRIPT = REPO_ROOT / "scripts" / "train_cotop_a3c.py"
+
+if not TRAIN_SCRIPT.exists():
+    raise RuntimeError(
+        "[FATAL] Repository-level A3C training script not found: "
+        f"{TRAIN_SCRIPT}\\n"
+        f"Current working directory: {REPO_ROOT}"
+    )
 
 TRAIN_EPISODES = 50
 TRAIN_SEED = 42
@@ -515,9 +579,12 @@ ROLLOUT_STEPS = 20
 print("=" * 75)
 print(f"       STARTING COTOP A3C TRAINING ({TRAIN_EPISODES} EPISODES, ROLLOUT={ROLLOUT_STEPS})")
 print("=" * 75)
+print(f"Repository root:       {REPO_ROOT}")
+print(f"A3C script path:       {TRAIN_SCRIPT}")
 
 cmd = [
-    sys.executable, "scripts/train_cotop_a3c.py",
+    sys.executable,
+    str(TRAIN_SCRIPT),
     "--episodes", str(TRAIN_EPISODES),
     "--seed", str(TRAIN_SEED),
     "--workers", "1",
@@ -527,16 +594,43 @@ cmd = [
     "--entropy-coef", "0.01",
     "--value-loss-coef", "0.5",
     "--max-grad-norm", "40.0",
-    "--output-dir", "results/colab_training"
+    "--output-dir", str(REPO_ROOT / "results" / "colab_training"),
 ]
 
-res = subprocess.run(cmd, capture_output=True, text=True)
+print(f"Training command:      {' '.join(cmd)}")
+print("-" * 75)
+
+res = subprocess.run(
+    cmd,
+    cwd=str(REPO_ROOT),
+    capture_output=True,
+    text=True,
+)
+
 print(res.stdout)
+
 if res.stderr:
     print(res.stderr)
 
 assert res.returncode == 0, "[FATAL] A3C Training pipeline failed!"
+
 print("[STATUS] CoTOP A3C training executed successfully.")
+
+# Also verify training outputs
+expected_artifacts = [
+    REPO_ROOT / "results" / "colab_training" / "cotop_trained.pt",
+    REPO_ROOT / "results" / "colab_training" / "training_history.csv",
+    REPO_ROOT / "results" / "colab_training" / "training_config.json",
+    REPO_ROOT / "results" / "colab_training" / "training_manifest.json",
+    REPO_ROOT / "results" / "colab_training" / "training_log.txt",
+]
+
+for artifact in expected_artifacts:
+    assert artifact.exists(), (
+        f"[FATAL] Expected training artifact was not generated: {artifact}"
+    )
+
+print("[STATUS] All required A3C training artifacts verified.")
 print("=" * 75)
 """)
 

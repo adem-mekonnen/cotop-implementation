@@ -1,3 +1,6 @@
 episode,worker_id,reward,loss,actor_loss,critic_loss,entropy,mean_delay_s,mean_energy_j,completion_ratio_pct,steps,realization
-2,1,-964.4407,6747221.0449,-0.0356,13494442.0897,-0.0,2.3519,3.7354,98.0,200,realization_corridor_2400m_w30_seed101.json
-1,0,-1156.0417,7125770.2625,-0.0,14251540.525,-0.0,2.0526,5.0724,97.5,200,realization_corridor_2400m_w20_seed101.json
+1,0,-1025.7426,116850.8876,-0.0013,233701.7779,-0.0,2.067,3.755,97.5,200,realization_corridor_2400m_w20_seed101.json
+2,0,-966.075,52151.6039,0.0,104303.2078,-0.0,2.0339,4.8744,98.5,200,realization_corridor_2400m_w20_seed102.json
+3,0,-857.9415,50781.9892,-1.8642,101567.7071,-0.0037,2.3747,2.6477,98.0,200,realization_corridor_2400m_w30_seed101.json
+4,0,-781.9737,12574.8623,0.0,25149.7244,-0.0,2.5337,0.4458,97.5,200,realization_corridor_2400m_w30_seed102.json
+5,0,-1224.4886,9468.0041,-0.2869,18936.5821,-0.0086,2.4892,1.756,95.5,200,realization_corridor_2400m_w40_seed101.json

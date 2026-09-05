@@ -1,20 +1,20 @@
 {
-  "git_sha": "861f3b94a6d40649c4fc004da8ec795a78506871",
-  "timestamp": "2026-09-05T05:21:55.625516+00:00",
+  "git_sha": "2ab1cb1d312f663d3245f0080ef70556ac5314d6",
+  "timestamp": "2026-09-05T08:23:28.227445+00:00",
   "python_version": "3.11.9",
   "pytorch_version": "2.12.1+cpu",
   "cuda_available": false,
   "cuda_version": "N/A",
   "gpu_model": "CPU",
   "seed": 42,
-  "worker_count": 2,
-  "rollout_length": 10,
+  "worker_count": 1,
+  "rollout_length": 5,
   "learning_rate": 0.0002,
   "gamma": 0.99,
   "entropy_coefficient": 0.01,
   "value_loss_coefficient": 0.5,
   "gradient_clipping": 40.0,
-  "episode_count": 2,
+  "episode_count": 5,
   "training_realization_hashes": {
     "realization_corridor_2400m_w20_seed101.json": "6cfed98fc60c0efa623024af9150f824888d9da74c22931912325c626295f655",
     "realization_corridor_2400m_w20_seed102.json": "a153e29b6ac3322e6fa7690e07de099b035392f768ed9bfb0afac1a11d3d20f8",
@@ -27,19 +27,19 @@
     "realization_grid_200m_w30_seed102.json": "11b33918024b710a167b47208a3d76ab1229591825cb6b7d09c91152e083609f",
     "realization_grid_200m_w40_seed101.json": "8210dfca00980e38babb9a2abdde61888bb947ee18244b78c2779b3471d941fd"
   },
-  "checkpoint_sha256": "69c45161acfa58fd8f508044e72cdc64365e35d34876eb8984da875f87cd8f80",
-  "model_parameter_hash": "dc666f93dcca1b2c1b3ec65e12075f042fad6e4c79f8fcbe9c8e784ed77d7ae8",
+  "checkpoint_sha256": "91e5e2f9d527164fa8d2649343db0194fb86320b6a70c39928d82615f12999fd",
+  "model_parameter_hash": "bdcdc842e21ba0c8a7870df25ffa1ab402bdd222eb7dac29466862bf5c839770",
   "checkpoint_validation": {
     "policy_divergence": 0.0,
     "value_divergence": 0.0,
     "status": "PASS"
   },
   "convergence_summary": {
-    "initial_reward": -964.4407,
-    "final_reward": -1156.0417,
-    "mean_delay_s": 2.2022500000000003,
-    "mean_energy_j": 4.4039,
-    "mean_completion_ratio_pct": 97.75,
+    "initial_reward": -1025.7426,
+    "final_reward": -1224.4886,
+    "mean_delay_s": 2.2997,
+    "mean_energy_j": 2.69578,
+    "mean_completion_ratio_pct": 97.4,
     "convergence_demonstrated": false
   }
 }

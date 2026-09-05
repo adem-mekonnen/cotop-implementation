@@ -1,15 +1,15 @@
 ================================================================================
        COTOP A3C REPOSITORY-LEVEL ASYNCHRONOUS TRAINING PIPELINE
 ================================================================================
-Timestamp:            2026-09-05T05:21:48.969665+00:00
+Timestamp:            2026-09-05T08:23:21.503283+00:00
 Platform:             Windows-10-10.0.26200-SP0
 Python:               3.11.9
 PyTorch:              2.12.1+cpu
 CUDA Available:       False
 Training Traces:      10 files found in 'data/training_realizations'
-Target Episodes:      2
-Workers:              2
-Rollout Steps:        10
+Target Episodes:      5
+Workers:              1
+Rollout Steps:        5
 Learning Rate:        0.0002
 Gamma:                0.99
 Entropy Coef:         0.01
@@ -18,20 +18,20 @@ Max Grad Norm:        40.0
 Master Seed:          42
 --------------------------------------------------------------------------------
 Execution Device:     cpu
-[STATUS] Launching 2 parallel A3C workers using SharedAdam & CPU shared memory...
-[Worker 1] Ep   2/  2 | Reward: -964.44 | Loss: 6747221.0449 | Delay: 2.3519s | Energy: 3.7354J | Comp: 98.0%
-[SUCCESS] A3C Training completed in 6.60 seconds (2 episodes).
-[SAVED] Trained checkpoint: results/colab_training\cotop_trained.pt
-        SHA-256:            69c45161acfa58fd8f508044e72cdc64365e35d34876eb8984da875f87cd8f80
-        Param Hash:         dc666f93dcca1b2c1b3ec65e12075f042fad6e4c79f8fcbe9c8e784ed77d7ae8
+[STATUS] Launching single-worker A3C multi-step rollout pipeline...
+[A3C Train] Ep   5/  5 | Reward: -1224.49 | Loss: 9468.0041 | Delay: 2.4892s | Energy: 1.7560J | Comp: 95.5%
+[SUCCESS] A3C Training completed in 6.65 seconds (5 episodes).
+[SAVED] Trained checkpoint: D:\cotop-implementation\results\colab_training\cotop_trained.pt
+        SHA-256:            91e5e2f9d527164fa8d2649343db0194fb86320b6a70c39928d82615f12999fd
+        Param Hash:         bdcdc842e21ba0c8a7870df25ffa1ab402bdd222eb7dac29466862bf5c839770
 --------------------------------------------------------------------------------
        STRICT CHECKPOINT RELOAD & DETERMINISM VALIDATION
 --------------------------------------------------------------------------------
 Max Policy Logits Discrepancy: 0.0000000000e+00
 Max Value Estimate Discrepancy: 0.0000000000e+00
 [PASS] Strict checkpoint validation confirmed 0.0 numerical divergence.
-[SAVED] Training history:   results/colab_training\training_history.csv
-[SAVED] Training config:    results/colab_training\training_config.json
-[SAVED] Training manifest:  results/colab_training\training_manifest.json
+[SAVED] Training history:   D:\cotop-implementation\results\colab_training\training_history.csv
+[SAVED] Training config:    D:\cotop-implementation\results\colab_training\training_config.json
+[SAVED] Training manifest:  D:\cotop-implementation\results\colab_training\training_manifest.json
 ================================================================================
 A3C Training Pipeline Complete (PASS).
