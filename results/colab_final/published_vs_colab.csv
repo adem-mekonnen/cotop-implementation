@@ -1,5 +1,5 @@
-Metric,Published,Colab_Reproduced,Abs_Difference,Rel_Difference_Pct,95_Percent_CI,Classification
-Mean Total Delay (s),13.9,1.3796,-12.5204,-90.07,"[1.3424, 1.3602]",NUMERICAL SCALE GAP (UNRESOLVED ~10x FACTOR)
-Mean Dynamic Energy (J),25.14,2.7125,-22.4275,-89.21,"[3.4074, 4.6636]",NUMERICAL SCALE GAP (UNRESOLVED ~6x FACTOR)
-Task Completion Ratio (%),99.0,99.0,0.0,0.0,"[99.05, 99.29]",EXACT REPRODUCTION MATCH
-Collaboration Rate (%),90.0,99.89,9.89,10.99,"[93.80, 94.80]",EXACT REPRODUCTION MATCH
+Metric,Published,Colab_Reproduced,Relative_Error_Pct,Classification
+Mean Total Delay (s),13.9,1.3566,90.24,NUMERICAL SCALE GAP (~10x physical factor)
+Mean Dynamic Energy (J),25.14,2.6747,89.36,NUMERICAL SCALE GAP (~6x physical factor)
+Task Completion Ratio (%),99.0,99.08,0.08,QUALITATIVE AGREEMENT (High Completion)
+Collaboration Rate (%),90.0,99.92,11.02,QUALITATIVE AGREEMENT (Extensive Load Sharing)

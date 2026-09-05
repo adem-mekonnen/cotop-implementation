@@ -1,8 +1,11 @@
 {
-  "project": "CoTOP Scientific Reproduction & Colab Final Execution",
-  "scientific_commit": "c50b806",
-  "colab_preparation_commit": "36d4915",
-  "timestamp": "2026-09-03T14:34:46.519615+00:00",
+  "project": "CoTOP Scientific Reproduction",
+  "git_branch": "main",
+  "canonical_execution_commit": "861f3b94a6d40649c4fc004da8ec795a78506871",
+  "current_commit": "e7fd9250459f06dcf09677f74a138b53e0fe0140",
+  "timestamp": "2026-09-05T09:11:11.851605+00:00",
+  "reproducibility_certification": "CLASS_B_IMPLEMENTATION_FAITHFUL_BUT_NUMERICALLY_NON_REPRODUCED",
+  "publication_decision": "READY_WITH_DISCLOSURES",
   "hardware": {
     "python_version": "3.11.9",
     "pytorch_version": "2.12.1+cpu",
@@ -13,10 +16,33 @@
     "comm_model_sha256": "041e41061d02c7a5a7bc9488adf2bc49472177215730bd8a23c5ff2437431431",
     "comp_model_sha256": "dd9f58df710f709d536000bb4047d2ad6000cf37b1a49f4e1f0e8d883b856bff"
   },
-  "reproducibility_certification": "CLASS_B_IMPLEMENTATION_FAITHFUL_BUT_NUMERICALLY_NON_REPRODUCED",
-  "publication_readiness": "READY_WITH_DISCLOSURES",
-  "regression_suite_passing": 292,
-  "evaluation_realizations_count": 60,
-  "total_runs_evaluated": 420,
-  "qrmp_dqn_disposition": "NOT_REPRODUCIBLE_FROM_AVAILABLE_EVIDENCE (EXCLUDED)"
+  "canonical_dataset_sha256": "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c",
+  "canonical_cotop_metrics": {
+    "mean_delay_s": 1.3566,
+    "mean_energy_j": 2.6747,
+    "completion_ratio_pct": 99.08,
+    "collaboration_rate_pct": 99.92
+  },
+  "fresh_cotop_metrics": {
+    "mean_delay_s": 1.5202417936813326,
+    "mean_energy_j": 5.510846639633777,
+    "completion_ratio_pct": 98.775,
+    "collaboration_rate_pct": 100.0
+  },
+  "published_targets": {
+    "delay": 13.9,
+    "energy": 25.14,
+    "completion": 99.0,
+    "collab": 90.0
+  },
+  "algorithms_evaluated": [
+    "CoTOP",
+    "DDQN",
+    "Local",
+    "Greedy",
+    "wo_md",
+    "wo_tp",
+    "wo_co"
+  ],
+  "total_evaluation_runs": 420
 }

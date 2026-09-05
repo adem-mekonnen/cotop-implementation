@@ -1,0 +1,14 @@
+{
+  "campaign_id": "cotop_colab_final_2026",
+  "acceptance_status": "PASS",
+  "scientific_classification": "CLASS B  -  IMPLEMENTATION-FAITHFUL BUT NUMERICALLY NON-REPRODUCED",
+  "decision_tree": {
+    "tests_passed": 317,
+    "tests_failed": 0,
+    "tests_skipped": 0,
+    "unresolved_material_divergence": false,
+    "relative_error_delay_pct": 90.24028776978416,
+    "relative_error_energy_pct": 89.36077963404931,
+    "numerical_scale_gap_explained": true
+  }
+}

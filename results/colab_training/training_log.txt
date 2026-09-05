@@ -1,15 +1,15 @@
 ================================================================================
        COTOP A3C REPOSITORY-LEVEL ASYNCHRONOUS TRAINING PIPELINE
 ================================================================================
-Timestamp:            2026-09-05T08:23:21.503283+00:00
+Timestamp:            2026-09-05T09:10:14.970042+00:00
 Platform:             Windows-10-10.0.26200-SP0
 Python:               3.11.9
 PyTorch:              2.12.1+cpu
 CUDA Available:       False
 Training Traces:      10 files found in 'data/training_realizations'
-Target Episodes:      5
+Target Episodes:      50
 Workers:              1
-Rollout Steps:        5
+Rollout Steps:        20
 Learning Rate:        0.0002
 Gamma:                0.99
 Entropy Coef:         0.01
@@ -19,11 +19,20 @@ Master Seed:          42
 --------------------------------------------------------------------------------
 Execution Device:     cpu
 [STATUS] Launching single-worker A3C multi-step rollout pipeline...
-[A3C Train] Ep   5/  5 | Reward: -1224.49 | Loss: 9468.0041 | Delay: 2.4892s | Energy: 1.7560J | Comp: 95.5%
-[SUCCESS] A3C Training completed in 6.65 seconds (5 episodes).
+[A3C Train] Ep   5/ 50 | Reward: -1082.47 | Loss: 130341.4158 | Delay: 2.4746s | Energy: 2.0165J | Comp: 96.5%
+[A3C Train] Ep  10/ 50 | Reward: -152.00 | Loss: 132555.8368 | Delay: 0.7179s | Energy: 0.8021J | Comp: 100.0%
+[A3C Train] Ep  15/ 50 | Reward: -1264.08 | Loss: 165291.1042 | Delay: 2.4678s | Energy: 3.7963J | Comp: 96.5%
+[A3C Train] Ep  20/ 50 | Reward: -310.73 | Loss: 149550.1173 | Delay: 0.6987s | Energy: 2.4085J | Comp: 100.0%
+[A3C Train] Ep  25/ 50 | Reward: -1772.87 | Loss: 80087.7596 | Delay: 2.5215s | Energy: 7.8725J | Comp: 96.0%
+[A3C Train] Ep  30/ 50 | Reward: -310.81 | Loss: 65885.0798 | Delay: 0.7048s | Energy: 2.4033J | Comp: 100.0%
+[A3C Train] Ep  35/ 50 | Reward: -1769.33 | Loss: 16046.1100 | Delay: 2.5286s | Energy: 7.8300J | Comp: 96.0%
+[A3C Train] Ep  40/ 50 | Reward: -355.32 | Loss: 6083.9149 | Delay: 0.7229s | Energy: 2.8303J | Comp: 100.0%
+[A3C Train] Ep  45/ 50 | Reward: -1749.39 | Loss: 12997.4136 | Delay: 2.5228s | Energy: 7.6364J | Comp: 96.0%
+[A3C Train] Ep  50/ 50 | Reward: -355.97 | Loss: 693.9392 | Delay: 0.7230s | Energy: 2.8367J | Comp: 100.0%
+[SUCCESS] A3C Training completed in 30.95 seconds (50 episodes).
 [SAVED] Trained checkpoint: D:\cotop-implementation\results\colab_training\cotop_trained.pt
-        SHA-256:            91e5e2f9d527164fa8d2649343db0194fb86320b6a70c39928d82615f12999fd
-        Param Hash:         bdcdc842e21ba0c8a7870df25ffa1ab402bdd222eb7dac29466862bf5c839770
+        SHA-256:            f14dad1394a8b261530e0ad4a26db547f427fb266c83e84aae913437cb551d4e
+        Param Hash:         faf46402338c59d52cb83e02fa6c9f19d72cd10d5748369da448ff94f8d05e6e
 --------------------------------------------------------------------------------
        STRICT CHECKPOINT RELOAD & DETERMINISM VALIDATION
 --------------------------------------------------------------------------------

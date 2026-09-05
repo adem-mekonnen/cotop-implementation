@@ -1,7 +1,7 @@
 {
   "parameters": {
     "episodes": {
-      "value": 5,
+      "value": 50,
       "provenance": "implementation_assumption"
     },
     "seed": {
@@ -13,7 +13,7 @@
       "provenance": "implementation_assumption"
     },
     "rollout_steps": {
-      "value": 5,
+      "value": 20,
       "provenance": "implementation_assumption"
     },
     "learning_rate": {
