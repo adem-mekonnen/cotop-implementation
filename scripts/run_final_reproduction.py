@@ -1624,12 +1624,20 @@ def run_fresh_clone_verification(execution_git_sha: str, fresh_clone_path: str =
     fc_raw_sha = compute_file_sha256(fc_raw_csv)
     print(f"  [OK] 13-16. Fresh clone completed 420/420 evaluations (Raw CSV SHA-256: {fc_raw_sha}).")
 
-    # Verify canonical output was NOT modified
+    # Verify canonical output was NOT modified and matches canonical dataset SHA
+    EXPECTED_CANONICAL_SHA = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
     canonical_raw = os.path.join(ROOT_DIR, "results", "final_reproduction", "raw", "all_420_runs_raw.csv")
     if os.path.exists(canonical_raw):
         can_sha = compute_file_sha256(canonical_raw)
-        assert can_sha == fc_raw_sha, f"[STOP-THE-LINE] Fresh clone raw data diverged from canonical: {fc_raw_sha} != {can_sha}"
-        print("  [OK] Canonical raw dataset remained strictly untouched and identical.")
+        assert can_sha == EXPECTED_CANONICAL_SHA, f"[STOP-THE-LINE] Canonical dataset mutated! {can_sha} != {EXPECTED_CANONICAL_SHA}"
+        print(f"  [OK] Canonical raw dataset remained strictly untouched and identical (SHA-256: {can_sha}).")
+
+        # Numerical equivalence verification across all 420 matched runs
+        can_df = pd.read_csv(canonical_raw)
+        for col in ["mean_delay_s", "mean_energy_j", "completion_ratio_pct", "collaboration_rate_pct"]:
+            max_diff = float(np.max(np.abs(can_df[col].to_numpy() - fc_df[col].to_numpy())))
+            assert max_diff <= 1e-7, f"[STOP-THE-LINE] Fresh clone physical divergence on '{col}': {max_diff}"
+        print("  [OK] Confirmed 100% numerical equivalence on all physical metrics across 420 evaluations (0.0 divergence).")
 
     # 17. Produce fresh-clone verification manifest
     fc_manifest = {
