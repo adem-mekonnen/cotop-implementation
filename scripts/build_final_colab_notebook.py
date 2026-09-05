@@ -387,6 +387,20 @@ Validates strict separation of `data/training_realizations/` and `data/evaluatio
 # ============================================================
 import glob
 import os
+import hashlib
+from pathlib import Path
+import pandas as pd
+
+if Path("/content/cotop-implementation").exists() and os.getcwd() != "/content/cotop-implementation":
+    os.chdir("/content/cotop-implementation")
+
+if "get_file_sha256" not in globals():
+    def get_file_sha256(filepath):
+        h = hashlib.sha256()
+        with open(filepath, "rb") as f:
+            while chunk := f.read(65536):
+                h.update(chunk)
+        return h.hexdigest()
 
 CANONICAL_DATASET_PATH = "results/final_reproduction/raw/all_420_runs_raw.csv"
 CANONICAL_DATASET_SHA256 = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
@@ -400,7 +414,6 @@ assert actual_dataset_sha256 == CANONICAL_DATASET_SHA256, (
 )
 
 # Audit Realization Separation
-import pandas as pd
 df_canonical_raw = pd.read_csv(CANONICAL_DATASET_PATH)
 canonical_realization_ids = sorted(df_canonical_raw["realization_id"].unique())
 assert len(canonical_realization_ids) == 60, f"[FATAL] Expected 60 unique realization IDs, found {len(canonical_realization_ids)}"
@@ -751,9 +764,52 @@ Outputs are stored strictly in `results/colab_fresh_training_evaluation/`.""")
 # CELL 14: EVALUATE FRESHLY TRAINED COTOP MODEL
 # ============================================================
 import glob
+import os
+import hashlib
+from pathlib import Path
 import pandas as pd
 import numpy as np
+import torch
 from envs.frozen_vec_env import FrozenVECEnv
+
+if Path("/content/cotop-implementation").exists() and os.getcwd() != "/content/cotop-implementation":
+    os.chdir("/content/cotop-implementation")
+
+if "device" not in globals():
+    device = torch.device("cuda" if torch.cuda.is_available() else "cpu")
+
+if "sim_config" not in globals():
+    import yaml
+    from envs.entities import SimulationConfig
+    with open("configs/paper_parameters.yaml", "r", encoding="utf-8") as f:
+        sim_config = SimulationConfig(**yaml.safe_load(f))
+
+if "fresh_model" not in globals():
+    from models.a3c_agent import ActorCritic
+    from utils.checkpoint_io import load_checkpoint_strict
+    trained_ckpt = "results/colab_training/cotop_trained.pt"
+    assert os.path.exists(trained_ckpt), f"[FATAL] Trained checkpoint missing: {trained_ckpt}. Ensure Cell 12 completed successfully."
+    fresh_model = ActorCritic(input_dim=114, num_actions=7).to(device)
+    load_checkpoint_strict(trained_ckpt, fresh_model, expected_algorithm="CoTOP", device=str(device))
+    fresh_model.eval()
+
+# Verify or establish canonical realization integrity
+if "canonical_realization_ids" not in globals():
+    CANONICAL_DATASET_PATH = "results/final_reproduction/raw/all_420_runs_raw.csv"
+    CANONICAL_DATASET_SHA256 = "ab33a76b29952a29c8c8c4eca44bd334ccf22905154f74e55bbd3abebc9e4d4c"
+    assert os.path.exists(CANONICAL_DATASET_PATH), f"[FATAL] Canonical dataset missing: {CANONICAL_DATASET_PATH}"
+    
+    h = hashlib.sha256()
+    with open(CANONICAL_DATASET_PATH, "rb") as f:
+        while chunk := f.read(65536):
+            h.update(chunk)
+    actual_sha = h.hexdigest()
+    assert actual_sha == CANONICAL_DATASET_SHA256, f"[FATAL] Canonical dataset SHA-256 mismatch: {actual_sha}"
+    
+    df_canonical_raw = pd.read_csv(CANONICAL_DATASET_PATH)
+    canonical_realization_ids = sorted(df_canonical_raw["realization_id"].unique())
+    assert len(canonical_realization_ids) == 60, f"[FATAL] Expected 60 unique realization IDs, found {len(canonical_realization_ids)}"
+    print("[INFO] Verified dataset SHA-256 and established 60 canonical realization IDs (Cell 7 fallback).")
 
 os.makedirs("results/colab_fresh_training_evaluation", exist_ok=True)
 realization_files = sorted([os.path.join("data/evaluation_realizations", f"{r_id}.json") for r_id in canonical_realization_ids])
